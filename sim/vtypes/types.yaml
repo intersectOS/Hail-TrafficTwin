@@ -1,7 +1,7 @@
 # vType library for Tier B focus windows (and Tier A without the tier_b_only types).
 # Every parameter: value, unit, range, source or assumption, register id (docs/assumptions-trackB.md).
 # "SUMO 1.28 default" values were read back from SUMO 1.28.0 via TraCI (vehicletype.get*) for a
-# vType declared with only its vClass; they are model defaults, not Jeddah observations, so their
+# vType declared with only its vClass; they are model defaults, not Hail observations, so their
 # status is `assumed` until calibration.
 kind: vtype_library
 distribution_id: mix
@@ -21,7 +21,7 @@ types:
       sigma: {id: A-vtype-006, value: 0.5, unit: "-", range: [0.3, 0.7], status: assumed, source: "SUMO 1.28 default; Krauss (1998) driver imperfection parameter, DLR-Forschungsbericht 98-08"}
       tau: {id: A-vtype-007, value: 1.0, unit: s, range: [1.0, 1.5], status: assumed, source: "SUMO 1.28 default; floor = step length 1 s (SUMO warns that tau below the step length may cause collisions)"}
       maxSpeed: {id: A-vtype-008, value: 55.56, unit: m/s, range: [44.4, 55.6], status: assumed, source: "SUMO 1.28 default for passenger (200 km/h); not binding below urban speed limits"}
-      speedFactor: {id: A-vtype-009, value: 1.0, unit: "x limit", range: [0.95, 1.15], status: assumed, source: "SUMO 1.28 default mean speed factor; no Jeddah free-flow speed survey found"}
+      speedFactor: {id: A-vtype-009, value: 1.0, unit: "x limit", range: [0.95, 1.15], status: assumed, source: "SUMO 1.28 default mean speed factor; no Hail free-flow speed survey found"}
       speedDev: {id: A-vtype-010, value: 0.1, unit: "-", range: [0.05, 0.2], status: assumed, source: "SUMO 1.28 default speed-factor deviation (TraCI read-back)"}
   slow:
     title: "Cautious / slow driver"
@@ -30,12 +30,12 @@ types:
     color: "0.3,0.6,1.0"
     params:
       length: {id: A-vtype-011, value: 5.0, unit: m, range: [4.3, 5.2], status: assumed, source: "Same car as normal (SUMO passenger default)"}
-      minGap: {id: A-vtype-012, value: 3.0, unit: m, range: [2.5, 4.0], assumption: "Cautious drivers stop further back than the 2.5 m default; no Jeddah observation"}
+      minGap: {id: A-vtype-012, value: 3.0, unit: m, range: [2.5, 4.0], assumption: "Cautious drivers stop further back than the 2.5 m default; no Hail observation"}
       accel: {id: A-vtype-013, value: 1.8, unit: m/s2, range: [1.5, 2.4], assumption: "Gentler starts than the 2.6 m/s2 default; guess within typical passenger-car comfort acceleration"}
       decel: {id: A-vtype-014, value: 3.5, unit: m/s2, range: [3.0, 4.5], assumption: "Earlier, gentler braking than the 4.5 m/s2 default"}
       sigma: {id: A-vtype-015, value: 0.5, unit: "-", range: [0.3, 0.7], status: assumed, source: "SUMO 1.28 default (Krauss 1998)"}
       tau: {id: A-vtype-016, value: 1.4, unit: s, range: [1.2, 2.0], assumption: "Longer desired time headway than the 1 s default"}
-      speedFactor: {id: A-vtype-017, value: 0.88, unit: "x limit", range: [0.75, 0.95], assumption: "Drives below the limit; no Jeddah speed distribution found"}
+      speedFactor: {id: A-vtype-017, value: 0.88, unit: "x limit", range: [0.75, 0.95], assumption: "Drives below the limit; no Hail speed distribution found"}
       speedDev: {id: A-vtype-018, value: 0.05, unit: "-", range: [0.03, 0.1], assumption: "Narrower spread around a below-limit mean"}
   aggressive:
     title: "Aggressive driver (short gaps, assertive lane changes)"
@@ -49,7 +49,7 @@ types:
       decel: {id: A-vtype-022, value: 5.0, unit: m/s2, range: [4.5, 6.0], assumption: "Late, harder braking"}
       sigma: {id: A-vtype-023, value: 0.6, unit: "-", range: [0.5, 0.8], assumption: "More erratic speed keeping than the 0.5 default"}
       tau: {id: A-vtype-024, value: 1.0, unit: s, range: [1.0, 1.0], assumption: "Would be below 1 s, but held at the 1 s step length to avoid Krauss collisions; aggressiveness expressed through minGap, speed and lane-change parameters instead"}
-      speedFactor: {id: A-vtype-025, value: 1.15, unit: "x limit", range: [1.05, 1.3], assumption: "Habitual speeding above the limit; no Jeddah speed survey found"}
+      speedFactor: {id: A-vtype-025, value: 1.15, unit: "x limit", range: [1.05, 1.3], assumption: "Habitual speeding above the limit; no Hail speed survey found"}
       speedDev: {id: A-vtype-026, value: 0.1, unit: "-", range: [0.05, 0.2], status: assumed, source: "SUMO 1.28 default"}
       lcAssertive: {id: A-vtype-027, value: 1.8, unit: "-", range: [1.0, 3.0], assumption: "Accepts smaller gaps than the LC2013 default 1 (SUMO docs: values > 1 accept smaller gaps)"}
       lcSpeedGain: {id: A-vtype-028, value: 2.0, unit: "-", range: [1.0, 5.0], assumption: "More eager to change lanes for speed than the LC2013 default 1"}
@@ -102,7 +102,7 @@ types:
   convoy:
     title: "Motorcade vehicle (vClass vip)"
     # vClass vip: SUMO's class for VIP vehicles. It is allowed wherever passenger cars are on the
-    # Jeddah network, is distinct from `emergency` (no blue-light semantics) and lets rolling
+    # Hail network, is distinct from `emergency` (no blue-light semantics) and lets rolling
     # closures exempt the convoy by class.
     vClass: vip
     guiShape: passenger/van

@@ -97,7 +97,7 @@ rows:
     all-red 0, lost time 4 s/phase, min green 4 s, cycle 20-120 s, saturation headway 2 s'
   unit: s
   range: cycle 20-120; headway 1.8-2.2
-  assumption: No Jeddah signal timing data; city programs are netconvert defaults and meso applies only
+  assumption: No Hail signal timing data; city programs are netconvert defaults and meso applies only
     a red-time penalty (A-sim-001), so micro needs splits that match demand; values are SUMO 1.28 tool
     defaults; Tier B additional only, city net untouched
   used_in: sim/config/link.yaml (tls), data/windows/<w>/<w>.tls.add.xml

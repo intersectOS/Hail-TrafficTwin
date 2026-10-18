@@ -5,8 +5,8 @@ kind: population
 label: "synthetic demand, uncalibrated"
 
 nationality:   # A-pop-010
-  saudi_share: 0.518
-  source: "GASTAT Census 2022, Makkah region: 4,153,723 Saudi / 3,867,740 non-Saudi (GLMM re-publication, gulfmigration.grc.net/?p=9681). Jeddah-only split not published; regional share used (range 0.45-0.55)."
+  saudi_share: 0.707
+  source: "GASTAT Census 2022, Hail region: 527,885 Saudi / 218,521 non-Saudi of 746,406 (GLMM re-publication, gulfmigration.grc.net/?p=9681). Hail-city split not published; regional share used (range 0.65-0.75)."
 
 # Household size distributions (probabilities by size). A-pop-011
 households:
@@ -28,7 +28,7 @@ households:
 age_shares:
   saudi: {a0_5: 0.140, a6_17: 0.267, a18_24: 0.131, a25_59: 0.406, a60p: 0.056}
   non_saudi: {a0_5: 0.038, a6_17: 0.079, a18_24: 0.077, a25_59: 0.772, a60p: 0.034}
-  source: "GASTAT Census 2022 national 5-year bands by nationality (GLMM table), bands split linearly (docs/data-sources-trackA.md, derived). Jeddah-specific ages not published."
+  source: "GASTAT Census 2022 national 5-year bands by nationality (GLMM table), bands split linearly (docs/data-sources-trackA.md, derived). Hail-specific ages not published."
 
 heads:   # A-pop-013
   saudi_head_60p: 0.15
@@ -67,9 +67,9 @@ status:
 
 # Sector of workers by nationality. A-pop-016
 sectors:
-  saudi: {government: 0.24, private_office: 0.24, retail_hospitality: 0.12, health: 0.08, education: 0.14, industrial_port: 0.08, logistics_ridehail: 0.10}
-  non_saudi: {government: 0.02, private_office: 0.12, retail_hospitality: 0.22, health: 0.06, education: 0.04, industrial_port: 0.38, logistics_ridehail: 0.16}
-  source: "Derived from GASTAT register Q2 2024 (construction 24.7 %, retail 14.1 %, manufacturing 11.5 %, accommodation/food 5.8 %, transport 4.8 %, health 3.8 %) plus 1.18 M civil servants of whom 461k teachers, 3.3 % non-Saudi (MHRSD 2025). The split by nationality and the Jeddah port/hospitality upweight are assumptions (+/-0.05 per sector). Construction counts as industrial_port."
+  saudi: {government: 0.32, private_office: 0.18, retail_hospitality: 0.10, health: 0.09, education: 0.17, industrial_port: 0.06, logistics_ridehail: 0.08}
+  non_saudi: {government: 0.03, private_office: 0.10, retail_hospitality: 0.26, health: 0.08, education: 0.04, industrial_port: 0.33, logistics_ridehail: 0.16}
+  source: "Derived from GASTAT register Q2 2024 (construction 24.7 %, retail 14.1 %, manufacturing 11.5 %, accommodation/food 5.8 %, transport 4.8 %, health 3.8 %) plus 1.18 M civil servants of whom 461k teachers, 3.3 % non-Saudi (MHRSD 2025). The split by nationality and the Hail upweight of government, education and health (a regional capital without a port; the University of Hail and the regional hospitals) are assumptions (+/-0.05 per sector). Construction, agriculture and the industrial city count as industrial_port."
 
 # Car ownership and driving. A-pop-017
 cars:
@@ -86,7 +86,7 @@ cars:
     saudi_female: 0.30
     non_saudi_male: 0.65
     non_saudi_female: 0.12
-  assumption: "No Jeddah ownership survey; about 340 insured vehicles per 1,000 people nationally (IA 2025, includes commercial fleets). Saudi households 1.5-2.5 cars, expatriate families about one, labour housing rarely. Women's licences 20-35 % of adult Saudi women (sweep). Plausible ranges +/-0.1."
+  assumption: "No Hail ownership survey; about 340 insured vehicles per 1,000 people nationally (IA 2025, includes commercial fleets). Saudi households 1.5-2.5 cars, expatriate families about one, labour housing rarely. Women's licences 20-35 % of adult Saudi women (sweep). Plausible ranges +/-0.1."
 
 # One person per household may be a household (domestic) driver: chauffeured trips use the family car.
 household_driver:
@@ -107,4 +107,4 @@ location_choice:
     logistics_ridehail: 0.06
     school: 0.45
     university: 0.05
-  assumption: "No Jeddah commuting matrix. Decay rates chosen so mean commute distances fall in the 10-20 km range suggested for Jeddah (data-scout: one-way commute 20-35 min) and pupils mostly attend schools in or next to their district (mean 2-4 km). Sweep beta +/-50 %."
+  assumption: "No Hail commuting matrix. Decay rates kept from the Jeddah model, which on Hail's smaller footprint (about 20 x 40 km) gives shorter mean commutes and pupils mostly attend schools in or next to their district (mean 2-4 km). Sweep beta +/-50 %."

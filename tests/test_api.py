@@ -109,9 +109,9 @@ def test_edges_bin_and_json(client: TestClient, env: dict[str, Any]) -> None:
     for key in ("names", "types", "lanes", "speed_kmh"):
         assert len(info[key]) == n
     assert starts[0] == 0 and starts[-1] == len(coords) and np.all(np.diff(starts) >= 1)
-    # demo window sits in Jeddah
-    assert 39.0 < coords[:, 0].min() < coords[:, 0].max() < 39.4
-    assert 21.3 < coords[:, 1].min() < coords[:, 1].max() < 21.8
+    # demo window sits in Hail
+    assert 41.6 < coords[:, 0].min() < coords[:, 0].max() < 41.8
+    assert 27.4 < coords[:, 1].min() < coords[:, 1].max() < 27.6
     assert client.get("/api/networks/deadbeef00/edges.bin").status_code == 404
     assert client.get("/api/networks/..%2F..%2Fetc/edges.bin").status_code == 404
 
@@ -233,7 +233,7 @@ def test_path_traversal_rejected(client: TestClient, env: dict[str, Any]) -> Non
 def test_geo(client: TestClient, env: dict[str, Any]) -> None:
     d = client.get("/api/geo/districts")
     assert d.status_code == 200 and d.json()["features"][0]["properties"]["osm_id"]
-    box = "39.15,21.54,39.17,21.56"
+    box = "41.692,27.510,41.712,27.530"
     b = client.get("/api/geo/buildings", params={"bbox": box}).json()
     assert b["features"] and "height_m" in b["features"][0]["properties"]
     assert client.get("/api/geo/buildings", params={"bbox": "1,2,3"}).status_code == 422

@@ -1,4 +1,4 @@
-"""Synthetic population of Jeddah: households and persons with primary locations.
+"""Synthetic population of Hail: households and persons with primary locations.
 
 Per zone, residents are split by nationality and household type (Saudi family, non-Saudi family,
 non-Saudi shared housing), grouped into households of sampled size, and given age group, sex,

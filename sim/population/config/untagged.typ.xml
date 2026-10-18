@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Track A (M2) overlay for Jeddah ways WITHOUT `lanes` / `maxspeed` tags (A-net-201).
+<!-- Track A (M2) overlay for Hail ways WITHOUT `lanes` / `maxspeed` tags (A-net-201).
      Type defaults apply only where OSM has no tag, so tagged roads are unchanged. Lanes are per
      direction. Attributes other than numLanes/speed are copied from SUMO osmNetconvert.typ.xml.
      Synthetic demand, uncalibrated. -->

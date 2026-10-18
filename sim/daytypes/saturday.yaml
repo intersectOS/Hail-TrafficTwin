@@ -5,7 +5,7 @@ id: saturday
 kind: daytype
 title: "Saturday (weekend), no school"
 date: "2026-10-17"   # a Saturday; drives the prayer times (Umm al-Qura method)
-special: {ramadan: false, friday: false, umrah_season: false, school_day: false}
+special: {ramadan: false, friday: false, hail_season: false, school_day: false}
 
 # No school, university, government or education tours (closed on Saturday; omitted).
 main_tours:
@@ -41,7 +41,7 @@ main_tours:
 secondary_tours:
   worker:
     shopping: {rate: {value: 0.30, assumption: "A-day-206: weekly shopping often on Saturday; range 0.2-0.45."}, start: {dist: mixture, components: [{w: 0.25, mean: "11:00", sd_min: 60}, {w: 0.75, mean: "19:30", sd_min: 90}], lo: "08:30", hi: "23:59", assumption: "A-day-206: late morning and evening peak."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
-    leisure: {rate: {value: 0.45, assumption: "A-day-206: between weekday (0.25) and Friday (0.55); range 0.3-0.6."}, start: {dist: mixture, components: [{w: 0.15, mean: "11:00", sd_min: 60}, {w: 0.85, mean: "20:00", sd_min: 75}], lo: "08:30", hi: "23:59", assumption: "A-day-206: evening Corniche/malls."}, duration: {mean_min: 135, sd_min: 45, lo_min: 45, hi_min: 270, assumption: "Range 45-270."}}
+    leisure: {rate: {value: 0.45, assumption: "A-day-206: between weekday (0.25) and Friday (0.55); range 0.3-0.6."}, start: {dist: mixture, components: [{w: 0.15, mean: "11:00", sd_min: 60}, {w: 0.85, mean: "20:00", sd_min: 75}], lo: "08:30", hi: "23:59", assumption: "A-day-206: evening parks/malls."}, duration: {mean_min: 135, sd_min: 45, lo_min: 45, hi_min: 270, assumption: "Range 45-270."}}
     personal: {rate: {value: 0.20, assumption: "A-day-206: errands, visits; range 0.1-0.3."}, start: {dist: normal, mean: "16:30", sd_min: 150, lo: "09:00", hi: "22:30", assumption: "Spread over the day."}, duration: {mean_min: 90, sd_min: 45, lo_min: 15, hi_min: 240, assumption: "Range 15-240."}}
   student:
     shopping: {rate: {value: 0.15, assumption: "A-day-207: range 0.08-0.25."}, start: {dist: mixture, components: [{w: 0.25, mean: "11:00", sd_min: 60}, {w: 0.75, mean: "19:30", sd_min: 90}], lo: "09:00", hi: "23:30", assumption: "With family."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
@@ -65,9 +65,9 @@ prayers:
   isha: {share_adult_males: 0.13, share_adult_females: 0.01, depart_offset_min: 15, duration_min: 25, distance: local, assumption: "A-day-210: range 0.08-0.2."}
 
 airport:
-  trips_per_day: 70000
+  trips_per_day: 1500
   hourly_profile: [3.5, 3.0, 3.0, 3.5, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.5, 4.0, 3.5]
-  to_makkah_share: 0.10
-  assumption: "A-day-211: as weekday (A-day-017; KAIA 49.1 M passengers in 2024, Economy Middle East). No day-of-week KAIA data found. Range 40k-100k."
+  to_makkah_share: 0.0
+  assumption: "A-day-211 (Hail): as weekday (A-day-017). Range 1,000-2,500."
 
 notes: "Saturday evening ends a little earlier than Friday (work/school on Sunday). Some private schools and universities hold Saturday activities; not modelled."

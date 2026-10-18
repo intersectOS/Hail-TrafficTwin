@@ -301,7 +301,7 @@ export function App() {
       <div className="map" ref={mapEl} />
       <div className="tooltip" ref={tipEl} />
       <div className="banner">
-        <b>TrafficTwin Jeddah</b>
+        <b>TrafficTwin Hail</b>
         <span className="label-synthetic">{SYNTHETIC_LABEL}</span>
         {run ? (
           <span className="banner-run">

@@ -2,7 +2,7 @@
 # own `source:` or `assumption:` on the event. Model settings (not behaviour) sit under `model:`.
 kind: event_defaults
 accident:
-  rubbernecking_factor: {id: A-event-001, value: 0.7, unit: "x speed limit", range: [0.5, 0.9], assumption: "Opposite-direction drivers slow to look at the incident; no Jeddah measurement, factor guessed"}
+  rubbernecking_factor: {id: A-event-001, value: 0.7, unit: "x speed limit", range: [0.5, 0.9], assumption: "Opposite-direction drivers slow to look at the incident; no Hail measurement, factor guessed"}
   side: {id: A-event-002, value: left, unit: "lane side", range: "left|right", assumption: "Crash debris most often blocks the median-side (fast) lanes first; guess"}
   reroute: {id: A-event-003, value: true, unit: bool, range: "true|false", assumption: "When an edge is fully closed every affected driver reroutes at once (navigation apps; perfect information). Partial lane closures do not trigger rerouting"}
 flood:

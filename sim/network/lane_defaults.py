@@ -1,7 +1,7 @@
-"""Evidence-based lane and speed defaults for untagged Jeddah roads (network v2, A-net-301/302).
+"""Evidence-based lane and speed defaults for untagged Hail roads (network v2, A-net-301/302).
 
 The SUMO typemap gives an OSM way without a `lanes` tag the class default (secondary 1 lane per
-direction at 100 km/h). In Jeddah most major ways are untagged (docs/network-qa.md). This module
+direction at 100 km/h). In Hail most major ways are untagged (docs/network-qa.md). This module
 replaces those defaults with what the TAGGED ways of the same class and direction say, measured on
 the same clip:
 

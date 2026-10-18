@@ -1,4 +1,4 @@
-"""TrafficTwin Jeddah viewer API (contract: docs/contracts/run-outputs.md).
+"""TrafficTwin Hail viewer API (contract: docs/contracts/run-outputs.md).
 
 Thin and file-backed: reads runs/ and a derived cache; the only writes are starting a smoke run
 (POST /api/jobs) and logging a strategy decision. Settings are read from the environment at
@@ -20,7 +20,7 @@ GZIP_MIN_BYTES = 1024
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="TrafficTwin Jeddah API", version="1.0.0")
+    app = FastAPI(title="TrafficTwin Hail API", version="1.0.0")
     app.add_middleware(GZipMiddleware, minimum_size=GZIP_MIN_BYTES)
     app.add_middleware(
         CORSMiddleware,

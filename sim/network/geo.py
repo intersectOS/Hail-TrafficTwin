@@ -15,7 +15,7 @@ from shapely.ops import voronoi_diagram
 
 from sim.common import run_cmd
 
-UTM_KSA_WEST = "EPSG:32637"  # UTM zone 37N covers Jeddah; used for areas only
+UTM_KSA_WEST = "EPSG:32637"  # UTM zone 37N covers Hail; used for areas only
 
 
 def read_poly(path: Path) -> Polygon:

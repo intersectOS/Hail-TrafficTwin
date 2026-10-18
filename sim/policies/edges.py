@@ -110,7 +110,7 @@ def load_edges(net: Path, cache: Path | None = None) -> pd.DataFrame:
 
 
 def utm_xy(lons: np.ndarray, lats: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Metric coordinates (UTM 37N covers Jeddah) for distance checks."""
+    """Metric coordinates (UTM 37N covers Hail) for distance checks."""
     tf = Transformer.from_crs("EPSG:4326", "EPSG:32637", always_xy=True)
     x, y = tf.transform(np.asarray(lons, dtype=float), np.asarray(lats, dtype=float))
     return np.asarray(x), np.asarray(y)

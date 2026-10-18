@@ -6,13 +6,13 @@ label: "synthetic demand, uncalibrated"
 travel_time:   # A-act-001: used only to time departures before a fixed activity start
   speed_kmh: 28
   min_min: 4
-  assumption: "Door-to-door planning speed for Jeddah car trips (zone-centroid distance x detour / speed). Range 20-40 km/h. The simulator computes the real travel time."
+  assumption: "Door-to-door planning speed for Hail car trips (zone-centroid distance x detour / speed). Range 20-40 km/h. The simulator computes the real travel time."
 
 # Main tours: people aim to arrive early by a random buffer, which spreads departures. A-act-006
 early_arrival:
   lo_min: 0
   hi_min: 25
-  assumption: "Commuters and school runs leave with a safety margin for congestion (uniform 0-25 min before the planned arrival). No Jeddah survey; range 0-40 min."
+  assumption: "Commuters and school runs leave with a safety margin for congestion (uniform 0-25 min before the planned arrival). No Hail survey; range 0-40 min."
 
 # Secondary destinations: gravity from the tour origin, P(j) ~ attraction_j * exp(-beta d_ij). A-act-002
 destination_beta_per_km:
@@ -38,7 +38,7 @@ gates:
   makkah:
     out_edge: "1176291686#1"
     in_edge: "1176291687#0"
-    assumption: "Eastbound/westbound trunk carriageways at the eastern clip boundary near lat 21.483 (Makkah expressway corridor), identified from the M1 network. Coarse: one gate for all Makkah traffic."
+    assumption: "Jeddah-only gate (airport trips running on to Makkah). Hail has no equivalent; every day type sets to_makkah_share to 0 and the edges do not exist in the Hail network, so the gate is inactive."
 
 # Times after 24:00 wrap to the early morning of the same simulated day (steady-state day). Code rule.
 wrap_after_midnight: true

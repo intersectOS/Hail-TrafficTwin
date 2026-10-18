@@ -156,12 +156,12 @@ class AirportFlows(Sourced):
 class SpecialFlags(Strict):
     ramadan: bool = False
     friday: bool = False
-    umrah_season: bool = False
+    hail_season: bool = False
     school_day: bool = True
 
 
 class DayType(Strict):
-    """A Jeddah time-of-day profile (sim/daytypes/<id>.yaml)."""
+    """A Hail time-of-day profile (sim/daytypes/<id>.yaml)."""
 
     id: str
     kind: Literal["daytype"]

@@ -18,7 +18,7 @@ from sim.events.netindex import NetIndex
 from sim.scenarios.schema import Scenario
 from strategist import evacuation as S
 
-ZONE = [[39.1535, 21.5475], [39.1595, 21.5475], [39.1595, 21.5525], [39.1535, 21.5525]]
+ZONE = [[41.6955, 27.5175], [41.7015, 27.5175], [41.7015, 27.5225], [41.6955, 27.5225]]
 SPEC = {"type": "evacuation", "id": "t", "start": 300, "zone": ZONE, "vehicles": 120}
 # a two-way edge pair on the demo window (same nodes) used as a synthetic contraflow corridor
 CF_EDGE, CF_PARTNER = "48364777#2", "-48364777#2"

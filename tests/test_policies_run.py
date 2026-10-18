@@ -22,9 +22,9 @@ from sim.schemas import Policy, load_policy
 from tests.test_policies import BBOX, DEMO_NET, RESIDENTS, quadrant_districts
 
 TAHLIA_DEMO_STOPS = [
-    {"name": "west", "lon": 39.1507, "lat": 21.5495},
-    {"name": "middle", "lon": 39.1571, "lat": 21.5511},
-    {"name": "east", "lon": 39.1641, "lat": 21.5534},
+    {"name": "west", "lon": 41.6927, "lat": 27.5195},
+    {"name": "middle", "lon": 41.6991, "lat": 27.5211},
+    {"name": "east", "lon": 41.7061, "lat": 27.5234},
 ]
 
 

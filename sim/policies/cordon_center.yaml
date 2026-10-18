@@ -1,7 +1,7 @@
 # Daytime cordon charge around the central districts (indicative; PROJECT.md section 7).
 id: cordon_center
 kind: policy
-title: "Cordon charge SAR 10 around central Jeddah, 07:00-19:00 (indicative)"
+title: "Cordon charge SAR 10 around central Hail, 07:00-19:00 (indicative)"
 daytype: weekday
 transforms:
   - type: road_pricing

@@ -2,31 +2,31 @@
   "window": "demo",
   "definition": {
     "name": "demo",
-    "title": "Tahlia / Al Andalus demo window",
+    "title": "Central Hail demo window (Barzan / King Abdulaziz Rd)",
     "bbox": [
-      39.148,
-      21.542,
-      39.166,
-      21.558
+      41.69,
+      27.512,
+      41.708,
+      27.528
     ],
     "out_dir": "data/demo"
   },
   "city_net": "data/hail/hail.net.xml",
-  "city_net_hash": "5b8a19d3a3fd4d59",
+  "city_net_hash": "2094bbca8b715e1c",
   "sumo_version": "Eclipse SUMO sumo 1.28.0",
   "network": {
-    "edges": 939,
-    "junctions": 401,
-    "traffic_lights": 1,
-    "lanes": 1086,
-    "lane_km": 114.36,
-    "edge_km": 96.9,
-    "net_hash": "25c067631a1c0364"
+    "edges": 1503,
+    "junctions": 622,
+    "traffic_lights": 0,
+    "lanes": 1617,
+    "lane_km": 119.08,
+    "edge_km": 111.07,
+    "net_hash": "0b7d55c1c4d9a7e0"
   },
   "trips": {
     "file": "data/demo/demo.trips.xml",
     "seed": 1,
-    "hash": "3f9684a9c00d010c"
+    "hash": "22ccf4154edc1208"
   },
   "osm_extract": {
     "file": "data/demo/demo.osm.gz",

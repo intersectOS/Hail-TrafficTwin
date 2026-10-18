@@ -5,7 +5,7 @@ id: weekday
 kind: daytype
 title: "Regular weekday (Sun-Thu), school in session"
 date: "2026-10-18"   # a Sunday in term time; drives the prayer times (Umm al-Qura method)
-special: {ramadan: false, friday: false, umrah_season: false, school_day: true}
+special: {ramadan: false, friday: false, hail_season: false, school_day: true}
 
 main_tours:
   school:
@@ -57,7 +57,7 @@ main_tours:
 secondary_tours:
   worker:
     shopping: {rate: {value: 0.20, assumption: "A-day-010: non-work tours of workers; range 0.1-0.35."}, start: {dist: mixture, components: [{w: 0.8, mean: "20:00", sd_min: 75}, {w: 0.2, mean: "17:00", sd_min: 60}], lo: "16:00", hi: "23:59", assumption: "Evening shopping, malls busy until midnight (PROJECT.md 6.3)."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
-    leisure: {rate: {value: 0.25, assumption: "A-day-011: range 0.15-0.4."}, start: {dist: normal, mean: "20:30", sd_min: 75, lo: "17:00", hi: "23:59", assumption: "Evening leisure, Corniche and cafes until midnight."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    leisure: {rate: {value: 0.25, assumption: "A-day-011: range 0.15-0.4."}, start: {dist: normal, mean: "20:30", sd_min: 75, lo: "17:00", hi: "23:59", assumption: "Evening leisure, parks and cafes until midnight."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
     personal: {rate: {value: 0.10, assumption: "A-day-012: errands, visits; range 0.05-0.2."}, start: {dist: normal, mean: "18:30", sd_min: 90, lo: "15:00", hi: "23:00", assumption: "After work."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 180, assumption: "Range 15-180."}}
   student:
     shopping: {rate: {value: 0.08, assumption: "A-day-013: pupils mostly travel with family (as passengers); range 0.05-0.15."}, start: {dist: normal, mean: "19:30", sd_min: 90, lo: "15:00", hi: "23:30", assumption: "After school."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
@@ -75,16 +75,16 @@ secondary_tours:
 # Mosque trips: share of adults (18+) going to a mosque for each prayer, relative to the computed
 # adhan; dhuhr/asr exclude people at work or school at that time (they pray there).
 prayers:
-  fajr: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-016: congregational attendance by prayer; no Jeddah survey. Most mosque trips are short walks (mode shares in modes.yaml). Range +/-50 %."}
+  fajr: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-016: congregational attendance by prayer; no Hail survey. Most mosque trips are short walks (mode shares in modes.yaml). Range +/-50 %."}
   dhuhr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
   asr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
   maghrib: {share_adult_males: 0.20, share_adult_females: 0.01, depart_offset_min: 0, duration_min: 25, distance: local, assumption: "A-day-016: iqama shortly after adhan."}
   isha: {share_adult_males: 0.15, share_adult_females: 0.01, depart_offset_min: 15, duration_min: 25, distance: local, assumption: "A-day-016."}
 
 airport:
-  trips_per_day: 70000
+  trips_per_day: 1500
   hourly_profile: [3.5, 3.0, 3.0, 3.5, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.5, 4.0, 3.5]
-  to_makkah_share: 0.10
-  assumption: "A-day-017: KAIA handled 49.1 M passengers in 2024 (about 134k per day, arrivals plus departures; Economy Middle East). Ground vehicle trips per day (cars, taxis, ride-hail, drop-off returns) assumed about 0.5 per passenger excluding transfers and coach-borne pilgrims: 70k. Flat 24 h profile (airport operates round the clock). Range 40k-100k. A share of airport trips runs on to Makkah via the Haramain/Makkah highway gate."
+  to_makkah_share: 0.0
+  assumption: "A-day-017 (Hail): Hail International Airport handles roughly 1 M passengers a year (no published 2024 count found; the expansion targets more than 2.2 M, listmag.com), about 2,700 passengers/day; ground vehicle trips assumed 0.55 per passenger: 1,500. Flat profile with day-time peaks. Range 1,000-2,500."
 
 notes: "Thursday evenings are heavier (more leisure); model Thursday as a variant later. School terms per MoE calendar 2025/26 (two semesters)."

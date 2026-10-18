@@ -5,7 +5,7 @@ id: friday
 kind: daytype
 title: "Friday (rest day, Jumu'ah), no school"
 date: "2026-10-16"   # a Friday; drives the prayer times (Umm al-Qura method)
-special: {ramadan: false, friday: true, umrah_season: false, school_day: false}
+special: {ramadan: false, friday: true, hail_season: false, school_day: false}
 
 # No school, university, government or education tours (closed on Friday; omitted).
 main_tours:
@@ -31,12 +31,12 @@ main_tours:
     start: {dist: mixture, components: [{w: 0.25, mean: "09:00", sd_min: 60}, {w: 0.75, mean: "15:30", sd_min: 75}], lo: "06:00", hi: "21:00", assumption: "A-day-105: mostly afternoon/evening shifts for food delivery."}
     duration: {mean_min: 480, sd_min: 90, lo_min: 240, hi_min: 720, assumption: "A-day-105: range 4-12 h."}
 
-# Secondary tours: evening leisure much heavier (Corniche, Tahlia St., malls), family visits after
+# Secondary tours: evening leisure much heavier (parks, King Abdulaziz Rd, malls), family visits after
 # asr/maghrib, a modest late-morning brunch/outing; times run past midnight.
 secondary_tours:
   worker:
     shopping: {rate: {value: 0.25, assumption: "A-day-106: range 0.15-0.4."}, start: {dist: mixture, components: [{w: 0.2, mean: "10:00", sd_min: 45}, {w: 0.8, mean: "20:00", sd_min: 90}], lo: "08:00", hi: "24:30", assumption: "A-day-106: morning grocery run before Jumu'ah, evening mall trips after maghrib."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
-    leisure: {rate: {value: 0.55, assumption: "A-day-106: weekend leisure about twice the weekday rate (A-day-011 = 0.25); range 0.35-0.75."}, start: {dist: mixture, components: [{w: 0.15, mean: "10:00", sd_min: 45}, {w: 0.85, mean: "20:00", sd_min: 90}], lo: "08:00", hi: "24:59", assumption: "A-day-106: modest late-morning brunch; heavy evening Corniche/cafes until after midnight."}, duration: {mean_min: 150, sd_min: 60, lo_min: 45, hi_min: 300, assumption: "Range 45-300."}}
+    leisure: {rate: {value: 0.55, assumption: "A-day-106: weekend leisure about twice the weekday rate (A-day-011 = 0.25); range 0.35-0.75."}, start: {dist: mixture, components: [{w: 0.15, mean: "10:00", sd_min: 45}, {w: 0.85, mean: "20:00", sd_min: 90}], lo: "08:00", hi: "24:59", assumption: "A-day-106: modest late-morning brunch; heavy evening parks/cafes until after midnight."}, duration: {mean_min: 150, sd_min: 60, lo_min: 45, hi_min: 300, assumption: "Range 45-300."}}
     personal: {rate: {value: 0.30, assumption: "A-day-106: weekly family gathering (often lunch after Jumu'ah or evening at the parents' house); range 0.15-0.45."}, start: {dist: mixture, components: [{w: 0.35, mean: "13:30", sd_min: 20}, {w: 0.65, mean: "18:30", sd_min: 75}], lo: "12:45", hi: "23:00", assumption: "A-day-106: right after Jumu'ah or after asr/maghrib."}, duration: {mean_min: 180, sd_min: 60, lo_min: 60, hi_min: 330, assumption: "Range 1-5.5 h."}}
   student:
     shopping: {rate: {value: 0.15, assumption: "A-day-107: range 0.08-0.25."}, start: {dist: normal, mean: "20:00", sd_min: 90, lo: "15:00", hi: "24:00", assumption: "Evening, mostly with family."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
@@ -61,9 +61,9 @@ prayers:
   isha: {share_adult_males: 0.12, share_adult_females: 0.01, depart_offset_min: 15, duration_min: 25, distance: local, assumption: "A-day-111: below weekday, evening outings. Range 0.07-0.18."}
 
 airport:
-  trips_per_day: 70000
+  trips_per_day: 1500
   hourly_profile: [3.5, 3.0, 3.0, 3.5, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 3.5, 3.0, 3.0, 3.5, 4.0, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.0]
-  to_makkah_share: 0.12
-  assumption: "A-day-112: as weekday (A-day-017, KAIA 49.1 M passengers in 2024, Economy Middle East): 70k ground trips/day, range 40k-100k, with a dip around Jumu'ah (11:00-13:00) shifted to the evening. Makkah share a little higher (weekend Umrah by visitors arriving on Thursday/Friday). Range 0.08-0.18."
+  to_makkah_share: 0.0
+  assumption: "A-day-112 (Hail): as weekday (A-day-017), about 1,500 ground trips/day. Range 1,000-2,500."
 
 notes: "No day-of-week KAIA data found; Friday airport flows assumed equal to weekday. Thursday-night spill-over (late return from leisure before 02:00) is not represented: the day starts at 00:00 with nobody away from home."

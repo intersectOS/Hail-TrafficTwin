@@ -24,7 +24,7 @@ from sim.link import (
 )
 from sim.network.build_window import WINDOWS_DIR, load_window
 
-SUB_WINDOW = {"name": "sub", "bbox": [39.150, 21.545, 39.158, 21.552]}
+SUB_WINDOW = {"name": "sub", "bbox": [41.692, 27.515, 41.700, 27.522]}
 
 
 def _connected(net_file: Path) -> dict[str, set[str]]:

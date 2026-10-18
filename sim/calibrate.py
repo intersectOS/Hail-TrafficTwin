@@ -9,7 +9,7 @@ travel-time CSV is compared with the simulated edge travel times (A-cal-002).
     python -m sim.calibrate --counts counts.csv --net data/demo/demo.net.xml \
         --routes candidates.rou.xml --sample 1.0 --seed 1
 
-No Jeddah counts exist yet: the path is dormant and proven on the demo window with synthetic counts
+No Hail counts exist yet: the path is dormant and proven on the demo window with synthetic counts
 (`python -m sim.adapters.synthetic`). Results stay labelled "synthetic demand, uncalibrated" until a
 fit against real counts has been reviewed.
 """

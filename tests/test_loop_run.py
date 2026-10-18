@@ -133,7 +133,7 @@ def demo_site_cfg() -> dict:
         "snap_m": 200,
         "overlap_m": 250,
         "n_candidates": 4,
-        "anchors": [{"name": "demo anchor", "lon": 39.1571, "lat": 21.5505}],
+        "anchors": [{"name": "demo anchor", "lon": 41.6991, "lat": 27.5205}],
     }
     return cfg  # fmt: skip
 

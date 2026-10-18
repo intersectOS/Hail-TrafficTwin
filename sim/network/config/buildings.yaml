@@ -8,4 +8,4 @@ default_levels:
   id: A-network-002
   value: 3
   unit: levels
-  assumption: "Most untagged Jeddah footprints are low-rise villas and walk-ups; plausible 2-4 levels."
+  assumption: "Most untagged Hail footprints are low-rise villas and walk-ups; plausible 2-4 levels."

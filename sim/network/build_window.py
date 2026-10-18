@@ -27,7 +27,7 @@ from sim.common import (
 from sim.network.netinfo import net_stats
 
 WINDOWS_DIR = REPO_ROOT / "sim" / "network" / "windows"
-DEFAULT_CITY_NET = REPO_ROOT / "data" / "hail" / "hail.net.xml"
+DEFAULT_CITY_NET = REPO_ROOT / "data" / "hail" / "hail.v2.net.xml"  # Hail: v2 has the inferred signals
 DEFAULT_CITY_PBF = REPO_ROOT / "data" / "osm" / "hail.osm.pbf"
 
 

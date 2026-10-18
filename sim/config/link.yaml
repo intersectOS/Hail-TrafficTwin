@@ -1,7 +1,7 @@
 # Tier link configuration (python -m sim.link). Paths relative to the repo root.
 # Every behavioural value is registered in docs/assumptions-trackB.md (ids A-link-0nn, A-window-0nn; rows in sim/config/link_assumptions.yaml).
 label: "synthetic demand, uncalibrated"
-city_net: data/hail/hail.net.xml
+city_net: data/hail/hail.v2.net.xml   # Hail: v2 (inferred signals, A-net-303)
 city_pbf: data/osm/hail.osm.pbf
 
 # --- window build with service roads (B-D-001) -------------------------------------------------
@@ -70,7 +70,7 @@ cut:
   time_shift_s: 0
 
 # --- Tier B signal retiming (A-link-009) --------------------------------------------------------
-# The city's signal programs are netconvert defaults (no Jeddah timing data). Tier A meso only
+# The city's signal programs are netconvert defaults (no Hail timing data). Tier A meso only
 # applies a red-time penalty (A-sim-001), Tier B micro enforces green splits, so a default program
 # can cap a movement far below the flow Tier A delivers. Each window's guessed programs are retimed
 # with SUMO's tools/tlsCycleAdaptation.py (Webster's method) from the window's own cut routes over

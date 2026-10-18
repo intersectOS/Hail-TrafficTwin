@@ -39,7 +39,7 @@ netconvert_options:
   - [--seed, "1"]
 districts:
   out: data/hail/districts.geojson
-  # admin_level=10 boundary relations are the Jeddah districts (hay) in OSM (128 found 2026-10-15).
+  # admin_level=10 boundary relations are the Hail districts (hay) in OSM (128 found 2026-10-15).
   admin_levels: ["10"]
   fallback_place_values: [neighbourhood, suburb, quarter]
 buildings:

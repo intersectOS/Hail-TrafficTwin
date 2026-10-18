@@ -10,17 +10,17 @@ inputs:
 out_dir: data/population/zones
 
 control_total:
-  value: 3712917
-  source: "GASTAT Census 2022, place Jiddah (Jeddah city) population 3,712,917 (citypopulation.de / GASTAT portal, accessed 2026-10-15)"
+  value: 448623
+  source: "GASTAT Census 2022, place Ḥā'il (Hail city) population 448,623 (citypopulation.de, Ḥā'il Region page, accessed 2026-10-18). The model polygon also holds Qufar, Murayfiq and the Al Jamiah suburbs, which the census counts with the city."
 
 # Residential weight of a zone = sum of w_k * (zone share of proxy k). OSM building coverage in
-# Jeddah is sparse (27,783 footprints for a city of 3.7 M) and very uneven between districts, so the
+# Hail is very sparse (657 footprints in the whole clip for a city of 449 k) and very uneven between districts, so the
 # footprint proxy is blended with two coverage-robust proxies. Registered as A-pop-001.
 residential_weights:
   building_footprint_area: 0.5
   residential_street_km: 0.35
   residential_landuse_area: 0.15
-  assumption: "Building footprints are the brief's proxy but cover only part of Jeddah in OSM; residential-street length (local roads in the main SCC) tracks built-up area where buildings are unmapped, landuse=residential adds mapped housing estates. Weights are a judgement; range 0.3-0.8 for footprints."
+  assumption: "Building footprints are the brief's proxy but cover almost none of Hail in OSM; residential-street length (local roads in the main SCC) tracks built-up area where buildings are unmapped, landuse=residential adds mapped housing estates. Weights are a judgement; range 0.3-0.8 for footprints."
 
 # Footprint weight by OSM building tag (others count 0).
 residential_building_tags:
@@ -33,12 +33,12 @@ residential_building_tags:
   villa: 1.0
   dormitory: 1.0
   "yes": 0.5
-  assumption: "Untyped 'yes' buildings are mostly housing in Jeddah but include shops, warehouses and offices; counted at half weight. Range 0.3-0.8."
+  assumption: "Untyped 'yes' buildings are mostly housing in Hail but include shops, warehouses and offices; counted at half weight. Range 0.3-0.8."
 
 # Districts that hold no resident population (airport, port, naval base, industrial estate).
 non_residential_districts:
-  names: ["King Abdulaziz International Airport", "Jeddah Eslamic Seaport", "King Faisal Naval Base", "Industrial Area"]
-  assumption: "Special-use districts in OSM; residents there (staff housing) are ignored. Their jobs still count."
+  names: ["Hail Airport", "Industrial Area", "Sinaiyah Altaqadum", "Sinaiyah An Nahdah"]
+  assumption: "Special-use districts in OSM (Hail Regional Airport and the military land around it, Hail Industrial City, the two industrial estates); residents there are ignored. Their jobs still count."
 
 # OSM tag -> category mapping for POIs (nodes and closed ways; ways count as one POI).
 osm_categories:
@@ -78,22 +78,22 @@ attractions:
   university:      {university_seats: 1.0}
   assumption: "OSM POI and landuse densities as proxies for jobs and attractions; a resident-population term covers unmapped local services and dispersed construction sites (construction is 25 % of KSA employment) (and unmapped schools: only 198 OSM schools for ~0.7 M pupils). Judgement weights; each 0.1-0.5 plausible. Replace with GASTAT establishment counts per district if published."
 
-# Coastal (Corniche) leisure attraction: districts whose names match get the `coast` proxy.
+# Coastal leisure attraction: Hail is inland, so no district gets the `coast` proxy.
 coast_districts:
-  names: ["Al-Shatee", "Al Hamra", "Al-Balad", "Ash Sheraa", "Al Shiraa", "Abhur Al Janubiyah", "Abhur Ash Shamaliyah", "Al-Nahdah", "Al-Zahra", "Al-Salamah", "Ar Ruwais", "Al Andalus", "Al Murjaan", "As Sahil", "Al Loaloa"]
-  assumption: "Districts touching the Jeddah Corniche / Obhur creek (read from the map); evening leisure magnet. Coarse; refine with distance to the shoreline."
+  names: []
+  assumption: "Hail has no coast; the `coast` term of the leisure weights is therefore zero everywhere."
 
 # School and university seats per OSM object (OSM does not tag capacity).
 seats:
   school_per_object: 450
   university_per_area_km2: 15000
   university_min_seats: 500
-  assumption: "Saudi public schools enrol a few hundred pupils each (MoE averages roughly 300-600); universities scaled by campus area so KAU (~6 km2 district) gets tens of thousands. Only used to distribute students between zones; totals come from the population."
+  assumption: "Saudi public schools enrol a few hundred pupils each (MoE averages roughly 300-600); universities scaled by campus area so the University of Hail campus (Al Jamiah) gets tens of thousands. Only used to distribute students between zones; totals come from the population."
 
 # Bus accessibility: a tour may use the bus only if both ends lie within this radius of a stop.
 bus_catchment:
   radius_m: 500
-  source: "PROJECT.md 6.2 (bus where a route exists within 500 m of both ends). No GTFS feed and no OSM route=bus relations for Jeddah (docs/data-sources.md), so OSM bus-stop/platform nodes stand in for routes (49 in the 2026-10-14 extract)."
+  source: "PROJECT.md 6.2 (bus where a route exists within 500 m of both ends). No GTFS feed and no OSM route=bus relations for Hail, so OSM bus-stop/platform nodes stand in for routes (very few are mapped in the 2026-10-17 extract, so the bus is rarely available)."
 
 # Edge selection for origins/destinations (main strongly connected component only).
 edges:

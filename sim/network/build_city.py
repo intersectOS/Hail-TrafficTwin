@@ -1,10 +1,10 @@
-"""Build the Tier A (city, mesoscopic) Jeddah network from OpenStreetMap.
+"""Build the Tier A (city, mesoscopic) Hail network from OpenStreetMap.
 
 Pipeline (each step is skipped when its output is newer than its input, unless --force):
   1. download the Geofabrik extract (only with --download, or if missing and allowed)
   2. clip it to data/osm/hail.poly with osmium
   3. convert the clip to OSM XML (netconvert does not read PBF)
-  3b. (network v2) pre-pass: tag untagged major ways with the measured Jeddah lane/speed defaults
+  3b. (network v2) pre-pass: tag untagged major ways with the measured Hail lane/speed defaults
      (sim/network/lane_defaults.py, A-net-301/302) -> a separate OSM XML
   4. netconvert with the options in sim/network/config/city.yaml -> <net>.raw.net.xml
   5. apply the reviewed fix list (data/osm/fixes/*.yaml) -> data/hail/hail.net.xml

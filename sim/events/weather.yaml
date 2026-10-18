@@ -15,7 +15,7 @@
 # so tau and minGap are scaled to give a capacity loss inside the quoted band at 50 km/h, the
 # speed factor gives the speed loss, and accel/decel fall with wet-road friction (the AASHTO
 # Green Book design deceleration of 3.4 m/s2 for wet pavement is reached by the storm preset:
-# 4.5 x 0.75 = 3.4). Jeddah has no local weather-traffic study; storms there come with flash
+# 4.5 x 0.75 = 3.4). Hail has no local weather-traffic study; winter storms there come with flash
 # flooding (2009, 2011), modelled by the flood event on top of the storm preset.
 kind: weather_presets
 presets:

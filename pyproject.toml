@@ -1,7 +1,7 @@
 [project]
 name = "traffictwin"
 version = "0.1.0"
-description = "TrafficTwin Jeddah: open-source city traffic digital twin, policy lab and emergency decision support"
+description = "TrafficTwin Hail: open-source city traffic digital twin, policy lab and emergency decision support"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.12,<3.13"

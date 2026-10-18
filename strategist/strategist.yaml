@@ -15,12 +15,12 @@ candidates:
   max_cost_ratio: {id: A-strat-006, value: 3.0, unit: "x best route cost", range: [1.5, 5], assumption: "Alternatives whose measured cost exceeds 3x the best route are not worth simulating for an ambulance"}
 
 preemption:
-  lookahead_m: {id: A-strat-007, value: 250, unit: m, range: [100, 500], assumption: "Signal is preempted when the ambulance is within 250 m of the stop line on its route; long enough to flush a queue at 50-60 km/h approach speeds; no Jeddah EVP specification found"}
+  lookahead_m: {id: A-strat-007, value: 250, unit: m, range: [100, 500], assumption: "Signal is preempted when the ambulance is within 250 m of the stop line on its route; long enough to flush a queue at 50-60 km/h approach speeds; no Hail EVP specification found"}
   yellow_s: {id: A-strat-008, value: 3, unit: s, range: [3, 5], assumption: "Yellow shown to movements losing green before the ambulance movement turns green; equals the 3 s lower bound of typical urban yellow (the window programs use 4 s, A-link-009)"}
   others_state: {id: A-strat-009, value: r, unit: "signal state", range: "r", assumption: "Every movement except the ambulance's own is held red while preempted (conservative: no conflict matrix is used, so non-conflicting movements are stopped too)"}
 
 rescue_lane:
-  lookahead_m: {id: A-strat-010, value: 300, unit: m, range: [150, 600], assumption: "Proxy for a blue-light rescue corridor: one lane of each multi-lane route edge starting within 300 m ahead of the ambulance is reserved for vClass emergency; drivers react roughly at siren range; no Jeddah data"}
+  lookahead_m: {id: A-strat-010, value: 300, unit: m, range: [150, 600], assumption: "Proxy for a blue-light rescue corridor: one lane of each multi-lane route edge starting within 300 m ahead of the ambulance is reserved for vClass emergency; drivers react roughly at siren range; no Hail data"}
   min_open_lanes: {id: A-strat-011, value: 2, unit: lanes, range: [2, 3], assumption: "A lane is reserved only where at least 2 lanes are open, so background traffic keeps one lane"}
   nudge_s: {id: A-strat-012, value: 5, unit: s, range: [1, 10], assumption: "The ambulance is asked (vehicle.changeLane) to use the reserved lane for this long, renewed every step while on a reserved edge"}
 

@@ -22,9 +22,9 @@ from sim.metrics import xml_content_hash
 
 DEMO_NET = REPO_ROOT / "data" / "demo" / "demo.net.xml"
 STATIONS = [
-    {"name": "south-west", "lon": 39.1500, "lat": 21.5440},
-    {"name": "centre", "lon": 39.1571, "lat": 21.5505},
-    {"name": "north-east", "lon": 39.1640, "lat": 21.5560},
+    {"name": "south-west", "lon": 41.6920, "lat": 27.5140},
+    {"name": "centre", "lon": 41.6991, "lat": 27.5205},
+    {"name": "north-east", "lon": 41.7060, "lat": 27.5260},
 ]
 
 
@@ -221,7 +221,7 @@ def test_greedy_budget_overlap_and_noise() -> None:
     from sim.loop.optimise import greedy
 
     cfg = loop_config()
-    cands = {"A": line("A", 39.15), "B": line("B", 39.15005), "C": line("C", 39.25),
+    cands = {"A": line("A", 41.692), "B": line("B", 41.69205), "C": line("C", 39.25),
              "D": line("D", 39.35), "E": line("E", 39.45)}  # fmt: skip
     ev = {"A": fake_eval("A", 10, 50_000), "B": fake_eval("B", 10, 49_000),  # B overlaps A
           "C": fake_eval("C", 10, 30_000), "D": fake_eval("D", 10, 20_000),  # D over budget
@@ -243,7 +243,7 @@ def test_quality_gate_and_render(tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     names = ("candidates", "ranking", "greedy", "sweep", "recommendation", "noise")
     doc.write_text("\n".join(f"<!-- LOOP:{n} -->\nold\n<!-- /LOOP:{n} -->" for n in names))
     monkeypatch.setattr(O, "DOC", doc)
-    cands = {"A": line("A", 39.15)}
+    cands = {"A": line("A", 41.692)}
     ev = {"A": fake_eval("A", 10, 5000)}
     row = O.sweep_row("shuttle central", "lever", {**ev["A"], "run_id": "loop_opt_a"}, "ok")
     row |= {"suffix": "", "pass": True}
@@ -269,7 +269,7 @@ def test_greedy_knapsack_correction() -> None:
     from sim.loop.optimise import greedy
 
     cfg = loop_config()
-    cands = {"A": line("A", 39.15), "B": line("B", 39.30)}
+    cands = {"A": line("A", 41.692), "B": line("B", 39.30)}
     ev = {"A": fake_eval("A", 10, 30_000), "B": fake_eval("B", 20, 50_000)}  # A wins per km
     chosen, log = greedy(cands, ev, 25.0, 1000.0, cfg)
     assert chosen == ["B"]  # A then B does not fit; B alone relieves more than A

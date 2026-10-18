@@ -1,4 +1,4 @@
-# TrafficTwin Jeddah: one-command entry points. Everything is synthetic demand, uncalibrated.
+# TrafficTwin Hail: one-command entry points. Everything is synthetic demand, uncalibrated.
 #
 #   make demo        setup + city network (unless CITY=0) + demo runs + API and viewer on :5173
 #   make city        city network + 10 % weekday 24 h baseline (long: about 2 h uncached)
@@ -41,7 +41,7 @@ setup:
 web/node_modules/.package-lock.json: web/package-lock.json
 	cd web && npm ci --include=dev --no-audit --no-fund
 
-# Jeddah network (v2, default profile): downloads the Geofabrik GCC extract on first run, clips,
+# Hail network (v2, default profile): downloads the Geofabrik GCC extract on first run, clips,
 # tags untagged major roads with the measured lane/speed defaults, netconvert, fixes.
 city-net: $(CITY_NET)
 $(CITY_NET):

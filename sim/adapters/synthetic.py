@@ -3,7 +3,7 @@
 Simulates a "truth" demand (random trips, one seed) on a network, measures hourly edge counts and
 travel times, and samples detector edges from it; then routes an unrelated candidate demand
 (random trips, another seed) for routeSampler to choose from. The outputs prove the calibration
-pipeline end to end where no Jeddah counts exist.
+pipeline end to end where no Hail counts exist.
 
     python -m sim.adapters.synthetic --net data/demo/demo.net.xml --out runs/synthetic-demo --seed 1
     python -m sim.calibrate --counts runs/synthetic-demo/counts.csv --net data/demo/demo.net.xml \

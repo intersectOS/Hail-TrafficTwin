@@ -56,4 +56,4 @@ def test_quadrant_districts_cover_the_window(tmp_path: Path) -> None:
     fc = json.loads(demo.quadrant_districts(tmp_path / "d.geojson").read_text())
     assert [f["properties"]["osm_id"] for f in fc["features"]] == [f"demo-{i}" for i in range(4)]
     xs = [x for f in fc["features"] for x, _ in f["geometry"]["coordinates"][0]]
-    assert min(xs) == pytest.approx(39.148) and max(xs) == pytest.approx(39.166)
+    assert min(xs) == pytest.approx(41.690) and max(xs) == pytest.approx(41.708)

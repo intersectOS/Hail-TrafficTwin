@@ -31,7 +31,7 @@ DEFAULT_CAVEATS = (
     "- Tier A runs SUMO's mesoscopic model, which tends to underestimate congestion and models "
     "queue spill-back incompletely; trust baseline-versus-policy deltas more than absolute "
     "values.\n"
-    "- Demand is synthetic and uncalibrated (no Jeddah counts or travel survey).\n"
+    "- Demand is synthetic and uncalibrated (no Hail counts or travel survey).\n"
 )
 
 

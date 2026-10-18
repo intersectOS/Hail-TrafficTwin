@@ -24,7 +24,7 @@ from sim.population.modes import assign_modes, vehicle_trips
 from sim.schemas import Policy, load_daytype, load_policy, validate_file
 
 DEMO_NET = REPO_ROOT / "data" / "demo" / "demo.net.xml"
-BBOX = (39.148, 21.542, 39.166, 21.558)
+BBOX = (41.690, 27.512, 41.708, 27.528)
 RESIDENTS = 8000
 POLICY_FILES = sorted((REPO_ROOT / "sim" / "policies").glob("*.yaml"))
 DEMO_POLICIES = (

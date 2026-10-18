@@ -1,4 +1,4 @@
-"""Traffic analysis zones (TAZ) for Jeddah: districts with residents, jobs, seats and edges.
+"""Traffic analysis zones (TAZ) for Hail: districts with residents, jobs, seats and edges.
 
 Inputs: OSM districts (`data/hail/districts.geojson`), building footprints, OSM POIs and
 landuse (extracted from the clipped PBF with osmium) and the city network. Outputs, under
@@ -38,7 +38,7 @@ from sim.common import REPO_ROOT, SYNTHETIC_LABEL, config_hash, content_hash, fi
 from sim.network.netinfo import _location, edge_graph, strongly_connected
 
 ZONES_CONFIG = REPO_ROOT / "sim" / "population" / "config" / "zones.yaml"
-LOCAL_UTM = "EPSG:32637"  # UTM 37N covers Jeddah: metric areas and distances
+LOCAL_UTM = "EPSG:32637"  # UTM 37N covers Hail: metric areas and distances
 
 
 def zones_config(path: Path = ZONES_CONFIG) -> dict[str, Any]:

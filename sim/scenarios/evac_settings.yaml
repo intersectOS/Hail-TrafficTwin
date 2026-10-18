@@ -7,7 +7,7 @@
 kind: evacuation_settings
 
 event:
-  occupancy: {id: A-evac-001, value: 2.5, unit: "persons per vehicle", range: [1.5, 4.0], assumption: "Event crowds arrive in family and friend groups; used only to report persons, never in the simulation. No Jeddah event-parking survey found"}
+  occupancy: {id: A-evac-001, value: 2.5, unit: "persons per vehicle", range: [1.5, 4.0], assumption: "Event crowds arrive in family and friend groups; used only to report persons, never in the simulation. No Hail event-parking survey found"}
   release_s: {id: A-evac-002, value: 1200, unit: s, range: [300, 3600], assumption: "Mobilisation window: evacuees walk to their cars and start over 20 min after the order (evacuation literature uses S-shaped loading curves of 30 min to hours for residential areas; an event crowd that is already awake and gathered is assumed faster). Not calibrated"}
   release_curve: {id: A-evac-003, value: uniform, unit: shape, range: "uniform", assumption: "Departures are spread evenly over each phase's release window (seeded jitter); no S-curve, so the first and last minutes are not thinner than the middle"}
   reroute_period_s: {id: A-evac-004, value: 120, unit: s, range: [30, 600], assumption: "Evacuees re-plan the route to their assigned exit with current travel times at departure and every 2 min (navigation apps, perfect information); the exit itself does not change"}
@@ -26,14 +26,14 @@ assignment:
 phasing:
   sectors: {id: A-evac-014, value: 3, unit: bands, range: [2, 5], assumption: "Phased release splits evacuees into 3 equal bands by free-flow time to their exit (near, middle, far); each band gets an equal share of the release window in turn, so the last departure time is the same as in a simultaneous release"}
 contraflow:
-  setup_s: {id: A-evac-015, value: 600, unit: s, range: [300, 1800], assumption: "Police and barriers need 10 min after the order before the inbound carriageway can be reversed; no Jeddah contraflow plan found"}
+  setup_s: {id: A-evac-015, value: 600, unit: s, range: [300, 1800], assumption: "Police and barriers need 10 min after the order before the inbound carriageway can be reversed; no Hail contraflow plan found"}
   max_length_m: {id: A-evac-016, value: 2000, unit: m, range: [500, 5000], assumption: "A contraflow corridor covers at most the last 2 km of the route to an exit inside the window (staffing limit)"}
   min_length_m: {id: A-evac-017, value: 300, unit: m, range: [100, 800], assumption: "Shorter reversible segments are not worth the crossover staffing"}
   max_added_lanes: {id: A-evac-018, value: 3, unit: lanes, range: [1, 4], assumption: "At most 3 inbound lanes per edge are reversed"}
   road_types: {id: A-evac-019, value: "highway.motorway|highway.trunk|highway.primary|highway.secondary", unit: "OSM road types", range: "", assumption: "Only divided or multi-lane arterials are reversed; tertiary and local streets are not"}
   inbound_allowed: {id: A-evac-020, value: emergency, unit: vClass, range: "emergency|none", assumption: "While reversed, the inbound carriageway is closed to everyone except emergency vehicles; inbound background traffic reroutes"}
   antiparallel_deg: {id: A-evac-036, value: 135, unit: deg, range: [120, 170], assumption: "An edge is the inbound carriageway of a corridor edge only if their headings differ by more than 135 deg (same threshold as the M5 rubbernecking search, sim/events/netindex.py); excludes cross streets"}
-  partner_search_m: {id: A-evac-037, value: 60, unit: m, range: [30, 100], assumption: "The inbound carriageway is searched within 60 m of the corridor edge's start, middle and end; covers Jeddah divided arterials with wide medians (not measured)"}
+  partner_search_m: {id: A-evac-037, value: 60, unit: m, range: [30, 100], assumption: "The inbound carriageway is searched within 60 m of the corridor edge's start, middle and end; covers Hail divided arterials with wide medians (not measured)"}
   partner_coverage: {id: A-evac-038, value: 0.5, unit: "share of corridor length", range: [0.3, 0.9], assumption: "A corridor is reversible only if an inbound carriageway was found beside at least half of its length (short gaps: split edges, junction areas)"}
   max_corridors: {id: A-evac-021, value: 3, unit: corridors, range: [1, 6], assumption: "Candidate corridors are built for the 3 exits used most under nearest and balanced assignment together; more reversals than that exceed one police shift"}
 signals:

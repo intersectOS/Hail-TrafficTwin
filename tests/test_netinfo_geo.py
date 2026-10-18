@@ -29,7 +29,7 @@ def test_edges_geojson(tmp_path: Path, demo_net: Path) -> None:
     data = json.loads(out.read_text())
     assert n == len(data["features"]) == net_stats(demo_net).edges
     lon, lat = data["features"][0]["geometry"]["coordinates"][0]
-    assert 39.1 < lon < 39.2 and 21.5 < lat < 21.6
+    assert 41.6 < lon < 41.8 and 27.4 < lat < 27.6
 
 
 def test_building_height_rules() -> None:

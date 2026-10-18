@@ -25,11 +25,15 @@ type_files:
 assumptions:
   A-net-301:
     parameter: lanes per direction for untagged major OSM ways (class x oneway)
-    value: "median of tagged ways: motorway 4, trunk 3, primary 3, secondary 3, tertiary 2, motorway_link 2, primary_link 1 (oneway); two-way ways keep the SUMO typemap"
+    value: "median of tagged ways on the Hail clip: motorway 2, trunk 3, primary 3, secondary 3, tertiary 4 (oneway); two-way ways keep the SUMO typemap"
     source: "OSM tags on the same clip, sim/network/types/hail-lanes.json; held-out check sim/network/types/hail-lanes-crosscheck.json"
+  A-net-303:
+    parameter: inferred traffic signals at major junctions
+    value: "netconvert --tls.guess with threshold 57 (sum of incoming lane speeds, m/s): at-grade junctions on the arterials (3-lane primary roads at 100 km/h) get a signal; tertiary and local crossings stay priority-controlled. On the demo window 57 gives 3 signals and 54 gives 78 (the speeds are discrete, so the count jumps), 78 in 3 km2 is far above reality."
+    assumption: "OpenStreetMap maps only 22 signal nodes in the whole Hail clip, so the plain build has 6 signals; Hail's King Abdulaziz, King Fahd and King Khalid corridors are signalised in reality. Threshold range 55-60 m/s. Replace with the Municipality's signal inventory when available."
   A-net-302:
     parameter: maxspeed for untagged major OSM ways (class x oneway)
-    value: "median of tagged ways: motorway 100, trunk 90, primary 80, secondary 80, tertiary 80, motorway_link 60 km/h"
+    value: "median of tagged ways on the Hail clip: motorway 120, trunk 100, primary 100, tertiary 80 km/h (the clip includes the intercity highways, so urban limits are probably lower; sweep -20 %)"
     source: "OSM tags on the same clip, sim/network/types/hail-lanes.json"
 netconvert_options:
   - --geometry.remove
@@ -37,6 +41,8 @@ netconvert_options:
   - --junctions.join
   - [--junctions.join-dist, "20"]
   - --tls.guess-signals
+  - --tls.guess
+  - [--tls.guess.threshold, "57"]
   - --tls.discard-simple
   - --tls.join
   - --roundabouts.guess

@@ -1,6 +1,6 @@
 """Hourly count CSV adapter: `detector_id, edge_id, hour, count` -> SUMO edgeData.
 
-The CSV is the format a Jeddah data partner is asked to deliver (docs/calibration.md). `hour` is
+The CSV is the format a Hail data partner is asked to deliver (docs/calibration.md). `hour` is
 the hour of the simulated day (0 = 00:00-01:00; values above 23 cover the after-midnight tail),
 `count` is vehicles per hour across all lanes of the edge.
 

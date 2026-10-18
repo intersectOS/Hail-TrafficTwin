@@ -1,6 +1,6 @@
 # api
 
-Thin, file-backed FastAPI viewer API for TrafficTwin Jeddah. Spec: `docs/contracts/run-outputs.md`.
+Thin, file-backed FastAPI viewer API for TrafficTwin Hail. Spec: `docs/contracts/run-outputs.md`.
 Everything it serves is **synthetic demand, uncalibrated**. Read-only except for two writes:
 starting a smoke run (`POST /api/jobs`) and logging a strategy decision (append-only, hash-chained
 `decisions.jsonl`, or for strategist recommendations the strategist's SQLite log

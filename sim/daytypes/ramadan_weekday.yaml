@@ -2,13 +2,13 @@
 # (exceed 24:00 for after-midnight activity; the generator wraps them), durations in minutes. Every
 # block carries `source:` or `assumption:`; ids A-day-3xx in docs/assumptions-trackA.md.
 # Date check: 2027-02-21 = 14 Ramadan 1448 AH (hijridate, Umm al-Qura; Ramadan 1448 runs
-# 8 Feb - 8 Mar 2027). Jeddah, approx.: maghrib ~18:30, isha ~20:30 (Umm al-Qura: maghrib + 120 min
+# 8 Feb - 8 Mar 2027). Hail, approx.: maghrib ~18:30, isha ~20:30 (Umm al-Qura: maghrib + 120 min
 # in Ramadan); the generator computes the exact times.
 id: ramadan_weekday
 kind: daytype
 title: "Ramadan weekday (Sun-Thu), school in session"
 date: "2027-02-21"   # a Sunday, 14 Ramadan 1448; drives the prayer times (Umm al-Qura method)
-special: {ramadan: true, friday: false, umrah_season: false, school_day: true}
+special: {ramadan: true, friday: false, hail_season: false, school_day: true}
 
 main_tours:
   school:
@@ -61,7 +61,7 @@ main_tours:
 secondary_tours:
   worker:
     shopping: {rate: {value: 0.30, assumption: "A-day-311: range 0.2-0.45."}, start: {dist: mixture, components: [{w: 0.35, mean: "17:15", sd_min: 20}, {w: 0.65, mean: "22:30", sd_min: 75}], lo: "15:30", hi: "26:00", assumption: "A-day-311: pre-iftar rush 60-90 min before maghrib (~18:30) and night shopping after taraweeh until about 02:00."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 180, assumption: "Range 15-180; pre-iftar trips are short."}}
-    leisure: {rate: {value: 0.30, assumption: "A-day-312: range 0.2-0.45; includes suhoor outings."}, start: {dist: mixture, components: [{w: 0.75, mean: "22:00", sd_min: 60}, {w: 0.25, mean: "25:30", sd_min: 45}], lo: "20:30", hi: "27:30", assumption: "A-day-312: night leisure (cafes, Corniche, Ramadan tents) 21:00-02:00; suhoor outings around 01:30 before imsak (~05:25)."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    leisure: {rate: {value: 0.30, assumption: "A-day-312: range 0.2-0.45; includes suhoor outings."}, start: {dist: mixture, components: [{w: 0.75, mean: "22:00", sd_min: 60}, {w: 0.25, mean: "25:30", sd_min: 45}], lo: "20:30", hi: "27:30", assumption: "A-day-312: night leisure (cafes, parks, Ramadan tents) 21:00-02:00; suhoor outings around 01:30 before imsak (~05:25)."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
     personal: {rate: {value: 0.20, assumption: "A-day-313: iftar and ghabga visits to relatives; range 0.1-0.3."}, start: {dist: mixture, components: [{w: 0.5, mean: "17:45", sd_min: 15}, {w: 0.5, mean: "21:30", sd_min: 60}], lo: "16:30", hi: "25:00", assumption: "A-day-313: leave 30-60 min before maghrib for iftar, or after isha for ghabga."}, duration: {mean_min: 150, sd_min: 45, lo_min: 45, hi_min: 300, assumption: "Range 45-300."}}
   student:
     shopping: {rate: {value: 0.10, assumption: "A-day-314: range 0.05-0.2."}, start: {dist: normal, mean: "22:00", sd_min: 75, lo: "20:30", hi: "25:30", assumption: "Night, with family."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
@@ -86,9 +86,9 @@ prayers:
   isha: {share_adult_males: 0.40, share_adult_females: 0.12, depart_offset_min: -5, duration_min: 90, distance: district, assumption: "A-day-318: isha + taraweeh; attendance well above weekday isha (0.15/0.01), women attend taraweeh. Range males 0.25-0.55, females 0.05-0.2; duration 60-120 min. District mosques (people travel for a preferred imam)."}
 
 airport:
-  trips_per_day: 75000
+  trips_per_day: 1600
   hourly_profile: [4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.0, 4.0, 3.0, 4.5, 5.0, 5.0, 5.0, 5.0]
-  to_makkah_share: 0.25
-  source: "KAIA handled over 5.4 M passengers on 30,572 flights 11 Feb-20 Mar 2024, about 139k/day (arab.news/r6r6a) vs about 134k/day annual average 2024 (Economy Middle East): +4 %, ground trips 70k -> 73k, rounded to 75k (A-day-319). Hourly profile, iftar dip at 18:00 and night-heavy shape, and the Makkah share (Ramadan Umrah peak) are assumptions: share range 0.15-0.4; trips range 45k-110k."
+  to_makkah_share: 0.0
+  source: "A-day-319 (Hail): weekday 1,500 +5 % for Ramadan family travel. Range 1,000-2,500."
 
 notes: "Late-Ramadan (last ten nights) is heavier at night and at the Haram; this profile is mid-Ramadan. Suhoor at home is not a trip. Night activities beyond 24:00 are wrapped by the generator."

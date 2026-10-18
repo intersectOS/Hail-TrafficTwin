@@ -194,12 +194,12 @@ export class Hud {
     }
     const footer = el("div", "cin-footer", hud);
     const fictional = m.fictional ? ` &middot; <b>fictional demo parameters</b>` : "";
-    footer.innerHTML = `TrafficTwin Jeddah &middot; <b>${m.label}</b>${fictional} &middot; map data &copy; OpenStreetMap contributors (ODbL) &middot; simulated with Eclipse SUMO`;
+    footer.innerHTML = `TrafficTwin Hail &middot; <b>${m.label}</b>${fictional} &middot; map data &copy; OpenStreetMap contributors (ODbL) &middot; simulated with Eclipse SUMO`;
     this.title = el("div", "cin-title", this.root);
     this.title.style.top = `${area.top}px`;
     this.title.style.height = `${area.height}px`;
     this.title.style.bottom = "auto";
-    el("div", "cin-title-k", this.title, "TrafficTwin Jeddah");
+    el("div", "cin-title-k", this.title, "TrafficTwin Hail");
     el("div", "cin-title-h", this.title, m.title);
     el("div", "cin-title-s", this.title, m.subtitle);
     el("div", "cin-title-f", this.title, m.label);

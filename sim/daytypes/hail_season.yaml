@@ -1,17 +1,16 @@
-# Umrah-season weekday (Sun-Thu, school in session): the weekday profile with higher airport flows
-# and slightly more leisure in hotel/Corniche areas. Validated by sim.schemas.DayType. Unchanged
-# blocks keep their weekday ids (A-day-0xx); changes carry A-day-4xx (docs/assumptions-trackA.md).
-# Date check: 2027-01-17 = 9 Sha'ban 1448 AH (hijridate, Umm al-Qura): pre-Ramadan Umrah peak.
-id: umrah_season
+# Hail winter-season weekday (Sun-Thu, school in session): the weekday profile with higher airport
+# flows (rally and festival visitors) and more evening leisure (Hail Season, desert camps, parks).
+# Validated by sim.schemas.DayType. Unchanged blocks keep their weekday ids (A-day-0xx); changes carry A-day-4xx.
+id: hail_season
 kind: daytype
-title: "Umrah-season weekday (Sun-Thu), school in session"
-date: "2027-01-17"   # a Sunday in term time, 9 Sha'ban 1448; drives the prayer times (Umm al-Qura method)
-special: {ramadan: false, friday: false, umrah_season: true, school_day: true}
+title: "Hail winter-season weekday (Sun-Thu), school in session"
+date: "2027-01-17"   # a Sunday in term time, mid-winter; drives the prayer times (Umm al-Qura method)
+special: {ramadan: false, friday: false, hail_season: true, school_day: true}
 
 main_tours:
   school:
     participation: {value: 0.93, assumption: "Pupils attending on a given school day (absence, illness). Range 0.88-0.96."}
-    start: {dist: normal, mean: "06:45", sd_min: 10, lo: "06:15", hi: "07:30", source: "Riyadh directorate 2025: assembly 06:15-06:45, first class 06:30-07:00 (Gulf News Apr 2025; Ajel); Jeddah directorate times not found, assumed the same (A-day-001)."}
+    start: {dist: normal, mean: "06:45", sd_min: 10, lo: "06:15", hi: "07:30", source: "Riyadh directorate 2025: assembly 06:15-06:45, first class 06:30-07:00 (Gulf News Apr 2025; Ajel); Hail directorate times not found, assumed the same (A-day-001)."}
     duration: {mean_min: 360, sd_min: 30, lo_min: 270, hi_min: 450, assumption: "School day ends around 12:30-13:30 (A-day-002). Range 5-7 h."}
   university:
     participation: {value: 0.75, assumption: "University students with classes on campus on a given weekday. Range 0.6-0.85."}
@@ -58,7 +57,7 @@ main_tours:
 secondary_tours:
   worker:
     shopping: {rate: {value: 0.20, assumption: "A-day-010: non-work tours of workers; range 0.1-0.35."}, start: {dist: mixture, components: [{w: 0.8, mean: "20:00", sd_min: 75}, {w: 0.2, mean: "17:00", sd_min: 60}], lo: "16:00", hi: "23:59", assumption: "Evening shopping, malls busy until midnight (PROJECT.md 6.3)."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
-    leisure: {rate: {value: 0.28, assumption: "A-day-402: weekday A-day-011 (0.25) +10 % for Umrah-season activity around hotels, Corniche and the Al-Balad district; range 0.15-0.45."}, start: {dist: normal, mean: "20:30", sd_min: 75, lo: "17:00", hi: "23:59", assumption: "Evening leisure, Corniche and cafes until midnight."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    leisure: {rate: {value: 0.28, assumption: "A-day-402: weekday A-day-011 (0.25) +10 % for winter-season outings (Hail Season events, parks, desert camps on the city edge); range 0.15-0.45."}, start: {dist: normal, mean: "20:30", sd_min: 75, lo: "17:00", hi: "23:59", assumption: "Evening leisure, parks and cafes until midnight."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
     personal: {rate: {value: 0.10, assumption: "A-day-012: errands, visits; range 0.05-0.2."}, start: {dist: normal, mean: "18:30", sd_min: 90, lo: "15:00", hi: "23:00", assumption: "After work."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 180, assumption: "Range 15-180."}}
   student:
     shopping: {rate: {value: 0.08, assumption: "A-day-013: pupils mostly travel with family (as passengers); range 0.05-0.15."}, start: {dist: normal, mean: "19:30", sd_min: 90, lo: "15:00", hi: "23:30", assumption: "After school."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
@@ -76,16 +75,16 @@ secondary_tours:
 # Mosque trips: share of adults (18+) going to a mosque for each prayer, relative to the computed
 # adhan; dhuhr/asr exclude people at work or school at that time (they pray there).
 prayers:
-  fajr: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-016: congregational attendance by prayer; no Jeddah survey. Most mosque trips are short walks (mode shares in modes.yaml). Range +/-50 %."}
+  fajr: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-016: congregational attendance by prayer; no Hail survey. Most mosque trips are short walks (mode shares in modes.yaml). Range +/-50 %."}
   dhuhr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
   asr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
   maghrib: {share_adult_males: 0.20, share_adult_females: 0.01, depart_offset_min: 0, duration_min: 25, distance: local, assumption: "A-day-016: iqama shortly after adhan."}
   isha: {share_adult_males: 0.15, share_adult_females: 0.01, depart_offset_min: 15, duration_min: 25, distance: local, assumption: "A-day-016."}
 
 airport:
-  trips_per_day: 91000
+  trips_per_day: 2400
   hourly_profile: [4.0, 3.5, 3.5, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.5, 4.0, 3.5]
-  to_makkah_share: 0.35
-  assumption: "A-day-401: weekday 70k (A-day-017, KAIA 49.1 M passengers in 2024, Economy Middle East) +30 % = 91k ground trips/day; range +15-40 % (46k-140k in absolute terms when applied to the A-day-017 range of 40k-100k). Basis: 2024 Umrah performers 35.68 M of whom 16.80 M from abroad (GASTAT via Argaam); KAIA share of foreign Umrah arrivals not found, assumed 50-65 %; KAIA pre-Ramadan/Ramadan 2024 averaged about 139k passengers/day (arab.news/r6r6a) vs 134k annual, so the air-passenger uplift alone is modest and the rest is pilgrim drop-offs/coach-sharing assumptions. Makkah share 0.35 (range 0.25-0.45) for pilgrims heading straight to the Haram by car/taxi/ride-hail; coach-borne groups are excluded. Slightly heavier night hours (international arrivals)."
+  to_makkah_share: 0.0
+  assumption: "A-day-401 (Hail): winter season (Hail International Rally, Hail Season festival, desert camping): weekday 1,500 +60 % for visitor arrivals. Range +30-100 %."
 
-notes: "Visitors (pilgrims, tourists) are not part of the resident population; their non-airport trips (hotel to Corniche, Al-Balad) are not modelled, only the residents' extra leisure (A-day-402). docs/data-sources-trackA.md suggests +15-30 %; the brief asked +25-40 %; 30 % sits in both."
+notes: "Visitors (rally teams, tourists) are not part of the resident population; their non-airport trips are not modelled, only the residents' extra leisure (A-day-402) and the airport uplift (A-day-401). The rally itself is an event scenario (closures), not a day type."

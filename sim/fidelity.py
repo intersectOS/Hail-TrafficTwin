@@ -177,7 +177,7 @@ CAVEATS = """\
 - SUMO's mesoscopic model only partially follows kinematic-wave (LWR) theory, models queue
   spill-back incompletely and tends to underestimate congestion (June 2026 re-assessment of
   the Eissfeldt meso model, PROJECT.md section 2). The window test below quantifies the gap on
-  Jeddah's network: {gap}
+  Hail's network: {gap}
 - Meso has no lane changing, no lane-level queues and no explicit junction geometry; signal
   delay is an expected-delay penalty (meso-tls-penalty, A-sim-001), so junction-level delay is
   approximate.
@@ -185,7 +185,7 @@ CAVEATS = """\
   with demand multiples; city-scale interactions are not tested.
 - Consequence for reports: trust baseline-versus-policy deltas more than absolute delay and
   speed, and always state the tier a result was run on.
-- Demand is synthetic and uncalibrated (no Jeddah counts or travel survey).
+- Demand is synthetic and uncalibrated (no Hail counts or travel survey).
 """
 
 

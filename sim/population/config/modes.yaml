@@ -53,4 +53,4 @@ rules:
   walk_short_boost: 0.25    # extra walk share for trips under walk_max_km (adults; heat limits walking)
   bus_requires_stops: true  # bus only if both ends are within the bus catchment (zones.yaml bus_catchment)
   fallback: {driver: car, hh_car: car_passenger, no_car: car_passenger}   # where a disallowed walk/bus share goes
-  assumption: "Jeddah's heat and sparse sidewalks keep walking to short trips; buses only where a stop is near both ends (14 routes; OSM shows 49 stops). Ranges: walk_max_km 0.8-2.0, boost 0.1-0.4."
+  assumption: "Hail's summer heat, winter cold and sparse sidewalks keep walking to short trips; buses only where a stop is near both ends (14 routes; OSM shows 49 stops). Ranges: walk_max_km 0.8-2.0, boost 0.1-0.4."

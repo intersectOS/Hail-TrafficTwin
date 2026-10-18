@@ -104,16 +104,8 @@ def test_prepass_on_demo_osm(tmp_path: Path, demo_osm: Path) -> None:
 
 def test_evidence_file_matches_registered_defaults() -> None:
     d = json.loads(STATS.read_text())["defaults"]
-    # A-net-301 / A-net-302 (docs/assumptions-trackF.md) state these values
-    assert {k: v.get("lanes") for k, v in d.items() if k.endswith("oneway")} == {
-        "motorway|oneway": 4,
-        "trunk|oneway": 3,
-        "primary|oneway": 3,
-        "secondary|oneway": 3,
-        "tertiary|oneway": 2,
-        "motorway_link|oneway": 2,
-        "primary_link|oneway": 1,
-    }
+    # A-net-301 / A-net-302 (sim/network/config/city-v2.yaml) state these values, measured on the Hail clip
+    assert {k: v.get("lanes") for k, v in d.items() if k.endswith("oneway")} == {"motorway|oneway": 2, "trunk|oneway": 3, "primary|oneway": 3, "secondary|oneway": 3, "tertiary|oneway": 4}
 
 
 def test_profiles() -> None:

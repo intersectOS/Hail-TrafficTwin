@@ -3,7 +3,7 @@
 Picks detector edges from the baseline's own `edgedata.parquet` (A-cal-006) and writes their hourly
 `entered` counts, scaled from the run's population sample to full-population vehicles, in the count
 CSV format. Fitting these back with `python -m sim.calibrate --daytype <same>` checks the pipeline
-mechanics at city scale; it says nothing about Jeddah realism.
+mechanics at city scale; it says nothing about Hail realism.
 
     python -m sim.adapters.baseline_counts --daytype weekday --hours 0-23 --out /tmp/city/counts.csv
 """

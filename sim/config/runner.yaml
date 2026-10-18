@@ -67,7 +67,7 @@ assumptions:
   A-sim-001:
     parameter: meso-tls-penalty
     value: 0.5
-    assumption: "Scales the expected signal delay of a red phase on meso edges; SUMO docs suggest 0.5-1. No Jeddah signal timing data. Range 0.3-1.0; revisit in the M2 meso-vs-micro fidelity test."
+    assumption: "Scales the expected signal delay of a red phase on meso edges; SUMO docs suggest 0.5-1. No Hail signal timing data. Range 0.3-1.0; revisit in the M2 meso-vs-micro fidelity test."
   A-sim-002:
     parameter: time-to-teleport
     value: 300
