@@ -1,6 +1,6 @@
 # Tier A baseline (python -m sim.runner --baseline ...). Model settings; behavioural ones are registered.
 label: "synthetic demand, uncalibrated"
-net: data/jeddah/jeddah.v2.net.xml   # network v2 (Track F, TF-010, A-net-301/302); m2 runs used jeddah.m2.net.xml
+net: data/hail/hail.v2.net.xml   # network v2 (Track F, TF-010, A-net-301/302); m2 runs used jeddah.m2.net.xml
 begin: 0
 end: 86400
 # Simulation continues past midnight so late trips can finish; KPIs count trips departing in [begin, end).

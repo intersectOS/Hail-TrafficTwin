@@ -19,7 +19,7 @@ from sim.common import rel as _resolved_rel
 
 
 def repo_rel(path: Path) -> str:
-    """Repo-relative path without resolving symlinks first (data/jeddah links to the main checkout
+    """Repo-relative path without resolving symlinks first (data/hail links to the main checkout
     in a worktree; sim.common.rel would return an absolute path there). As sim.link.rel."""
     absolute = Path(path) if Path(path).is_absolute() else REPO_ROOT / path
     try:

@@ -30,7 +30,7 @@ from sim.common import REPO_ROOT, run_cmd
 
 PBF_CANDIDATES = [
     REPO_ROOT / "data" / "osm" / "gcc-states-latest.osm.pbf",
-    REPO_ROOT / "data" / "osm" / "jeddah.osm.pbf",
+    REPO_ROOT / "data" / "osm" / "hail.osm.pbf",
 ]
 COORD_DECIMALS = 6
 SIMPLIFY_DEG = 0.00001  # ~1 m: drops collinear vertices, keeps footprints

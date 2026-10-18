@@ -4,7 +4,7 @@ The window is cut from the city .net.xml (not rebuilt from OSM) so its edge ids 
 Tier A's; M5's cutRoutes link depends on that. Window definitions live in sim/network/windows/.
 
     python -m sim.network.build_window --name demo
-    python -m sim.network.build_window --name demo --city-net data/jeddah/jeddah.net.xml --trips
+    python -m sim.network.build_window --name demo --city-net data/hail/hail.net.xml --trips
 """
 
 from __future__ import annotations
@@ -27,8 +27,8 @@ from sim.common import (
 from sim.network.netinfo import net_stats
 
 WINDOWS_DIR = REPO_ROOT / "sim" / "network" / "windows"
-DEFAULT_CITY_NET = REPO_ROOT / "data" / "jeddah" / "jeddah.net.xml"
-DEFAULT_CITY_PBF = REPO_ROOT / "data" / "osm" / "jeddah.osm.pbf"
+DEFAULT_CITY_NET = REPO_ROOT / "data" / "hail" / "hail.net.xml"
+DEFAULT_CITY_PBF = REPO_ROOT / "data" / "osm" / "hail.osm.pbf"
 
 
 def load_window(name: str) -> dict[str, Any]:

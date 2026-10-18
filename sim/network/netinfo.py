@@ -1,8 +1,8 @@
 """Streaming network statistics and GeoJSON export of edges (no full sumolib load).
 
-python -m sim.network.netinfo stats data/jeddah/jeddah.net.xml
-python -m sim.network.netinfo scc data/jeddah/jeddah.net.xml --vclass passenger
-python -m sim.network.netinfo edges-geojson data/jeddah/jeddah.net.xml web/public/data/edges.geojson
+python -m sim.network.netinfo stats data/hail/hail.net.xml
+python -m sim.network.netinfo scc data/hail/hail.net.xml --vclass passenger
+python -m sim.network.netinfo edges-geojson data/hail/hail.net.xml web/public/data/edges.geojson
 """
 
 from __future__ import annotations

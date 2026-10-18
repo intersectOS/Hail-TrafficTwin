@@ -3,10 +3,10 @@
 label: "synthetic demand, uncalibrated"
 
 inputs:
-  districts: data/jeddah/districts.geojson
-  buildings: data/jeddah/buildings.geojson
-  osm_pbf: data/osm/jeddah.osm.pbf
-  net: data/jeddah/jeddah.v2.net.xml   # network v2 (Track F, TF-010); m2: data/jeddah/jeddah.m2.net.xml
+  districts: data/hail/districts.geojson
+  buildings: data/hail/buildings.geojson
+  osm_pbf: data/osm/hail.osm.pbf
+  net: data/hail/hail.v2.net.xml   # network v2 (Track F, TF-010); m2: data/hail/hail.m2.net.xml
 out_dir: data/population/zones
 
 control_total:

@@ -1,4 +1,4 @@
-# Test fixture (fictional sites on the demo window), same schema as data/jeddah_flood_sites.yaml.
+# Test fixture (fictional sites on the demo window), same schema as data/hail_flood_sites.yaml.
 version: 1
 sites:
   - id: TS-001

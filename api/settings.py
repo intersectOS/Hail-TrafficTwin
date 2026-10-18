@@ -38,11 +38,11 @@ def logs_dir() -> Path:
 
 
 def districts_path() -> Path:
-    return _path("TT_DISTRICTS", REPO_ROOT / "data" / "jeddah" / "districts.geojson")
+    return _path("TT_DISTRICTS", REPO_ROOT / "data" / "hail" / "districts.geojson")
 
 
 def buildings_path() -> Path:
-    return _path("TT_BUILDINGS", REPO_ROOT / "data" / "jeddah" / "buildings.geojson")
+    return _path("TT_BUILDINGS", REPO_ROOT / "data" / "hail" / "buildings.geojson")
 
 
 def cors_origins() -> list[str]:

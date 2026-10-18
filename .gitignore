@@ -4,11 +4,11 @@ data/*
 !data/osm/
 data/osm/*
 !data/osm/fixes/
-!data/osm/jeddah.poly
+!data/osm/hail.poly
 !data/osm/hail*.poly
 !data/census/
 # reviewed list of publicly reported flood sites (B-D-005/007; public literature only)
-!data/jeddah_flood_sites.yaml
+!data/hail_flood_sites.yaml
 runs/
 logs/
 .env

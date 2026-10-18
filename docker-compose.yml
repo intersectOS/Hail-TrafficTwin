@@ -15,7 +15,7 @@ services:
       - -c
       - |
         set -e
-        if [ "$$CITY" = "1" ] && [ ! -f data/jeddah/jeddah.net.xml ]; then python -m sim.network.build_city; fi
+        if [ "$$CITY" = "1" ] && [ ! -f data/hail/hail.net.xml ]; then python -m sim.network.build_city; fi
         python -m sim.demo
         python -m api.ingest --all
     volumes:

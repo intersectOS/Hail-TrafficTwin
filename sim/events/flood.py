@@ -1,6 +1,6 @@
 """Flood: a rain preset (storm by default) plus closure of the flood sites inside the window.
 
-Sites come from data/jeddah_flood_sites.yaml (top-level `sites:` list; public literature, see the
+Sites come from data/hail_flood_sites.yaml (top-level `sites:` list; public literature, see the
 file header). A site is used if its point lies inside the window network and it passes the
 scenario's `site_ids` / `min_confidence` filters. Edges closed per site: those whose OSM way ids
 (`origId`, netconvert --output.original-names) match the site's `osm_ways` when the network has

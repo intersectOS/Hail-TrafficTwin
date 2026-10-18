@@ -1,0 +1,66 @@
+# Build the Hail road networks (v1 and v2), the lane defaults measured on the Hail clip, the
+# district/building side outputs and the Tier B windows, from the clip on the `osm-data` branch.
+# Results are published on the `build` branch so any machine can start from them.
+name: build-network
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-network.yml"
+      - "data/osm/hail.poly"
+      - "data/osm/fixes/**"
+      - "sim/network/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: System libraries for SUMO, and osmium-tool
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends libatomic1 libx11-6 libxext6 libxrender1 libgl1 osmium-tool
+      - uses: astral-sh/setup-uv@v5
+      - name: Python environment
+        run: uv python install 3.12 && uv sync --frozen
+      - name: Hail OSM clip from the osm-data branch
+        run: |
+          git fetch --depth 1 origin osm-data
+          git show origin/osm-data:hail.osm.pbf > data/osm/hail-clip.osm.pbf
+          git show origin/osm-data:timestamp.txt || true
+      - name: Network v1 (also clips data/osm/hail.osm.pbf)
+        run: uv run python -m sim.network.build_city --network-profile v1
+      - name: Lane and speed defaults measured on the Hail clip
+        run: uv run python -m sim.network.lane_defaults stats data/osm/hail.osm.pbf --out sim/network/types/hail-lanes.json
+      - name: Network v2 (default)
+        run: uv run python -m sim.network.build_city
+      - name: Tier B windows
+        run: |
+          uv run python -m sim.network.build_window --name demo --osm-extract
+          uv run python -m sim.network.build_window --name center
+          uv run python -m sim.network.build_window --name sports_city
+      - name: Publish on the build branch
+        if: always()
+        run: |
+          mkdir -p out
+          cp -r data/hail out/ 2>/dev/null || true
+          mkdir -p out/windows out/osm out/types out/web out/logs
+          cp -r data/windows/* out/windows/ 2>/dev/null || true
+          cp -r data/demo out/ 2>/dev/null || true
+          cp data/osm/hail.osm.pbf data/osm/hail.osm.gz data/osm/hail.v2.osm.gz out/osm/ 2>/dev/null || true
+          cp sim/network/types/hail-lanes.json out/types/ 2>/dev/null || true
+          cp web/public/data/*.geojson out/web/ 2>/dev/null || true
+          cp logs/*.log out/logs/ 2>/dev/null || true
+          cd out
+          find . -type f -size +95M -print -delete
+          git init -q -b build
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A
+          git commit -q -m "build: Hail networks from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" build

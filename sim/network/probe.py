@@ -10,7 +10,7 @@ One-shot free-flow routes load the network harder than the 3-step assignment of 
 so a probe's teleport share is a relative measure between networks, not a baseline forecast.
 Synthetic demand, uncalibrated.
 
-    python -m sim.network.probe --net data/jeddah/jeddah.v2.net.xml \
+    python -m sim.network.probe --net data/hail/hail.v2.net.xml \
         --trips runs/baseline-weekday-f0.1-s1-.../trips.xml --label v2
 """
 

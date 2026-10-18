@@ -16,7 +16,7 @@ setup_wt(){ # track
     git -C "$ROOT" worktree add "$wt" "$t" >> "$LOG/orchestrator.log" 2>&1 || { note "worktree $t failed"; return 1; }
   fi
   mkdir -p "$wt/data/osm" "$wt/logs" "$wt/runs" "$wt/docs/status"
-  [[ -e $wt/data/jeddah ]] || ln -s "$ROOT/data/jeddah" "$wt/data/jeddah"
+  [[ -e $wt/data/hail ]] || ln -s "$ROOT/data/hail" "$wt/data/hail"
   for f in "$ROOT"/data/osm/*.pbf "$ROOT"/data/osm/*.gz "$ROOT"/data/osm/*.xml; do
     [[ -e $f && ! -e $wt/data/osm/$(basename "$f") ]] && ln -s "$f" "$wt/data/osm/"
   done

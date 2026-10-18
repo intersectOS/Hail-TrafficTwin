@@ -18,7 +18,7 @@ emergency_trip:
 model:
   exempt_vclasses: [vip, emergency]   # never held by motorcade closures
   max_trip_s: 1800                    # emergency / motorcade events end at the latest after this
-  flood_sites_file: data/jeddah_flood_sites.yaml
+  flood_sites_file: data/hail_flood_sites.yaml
   confidence_order: [low, medium, high]
   opposite_search_m: 40               # rubbernecking: opposite carriageway search radius
   opposite_sample_m: 50               # ... sampled every 50 m along the accident edge

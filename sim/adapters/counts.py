@@ -4,7 +4,7 @@ The CSV is the format a Jeddah data partner is asked to deliver (docs/calibratio
 the hour of the simulated day (0 = 00:00-01:00; values above 23 cover the after-midnight tail),
 `count` is vehicles per hour across all lanes of the edge.
 
-    python -m sim.adapters.counts check counts.csv --net data/jeddah/jeddah.m2.net.xml
+    python -m sim.adapters.counts check counts.csv --net data/hail/hail.m2.net.xml
 """
 
 from __future__ import annotations

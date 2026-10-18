@@ -1,16 +1,16 @@
 # Tier A city network build (python -m sim.network.build_city).
 # Paths are relative to the repo root.
-name: jeddah
+name: hail
 extract:
   url: https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
   # Geofabrik has no Saudi-only extract (checked 2026-10-15); the GCC States file contains Saudi Arabia.
-  file: data/osm/gcc-states-latest.osm.pbf
-polygon: data/osm/jeddah.poly
-clip_pbf: data/osm/jeddah.osm.pbf
-osm_xml: data/osm/jeddah.osm.gz
+  file: data/osm/hail-clip.osm.pbf
+polygon: data/osm/hail.poly
+clip_pbf: data/osm/hail.osm.pbf
+osm_xml: data/osm/hail.osm.gz
 fixes_dir: data/osm/fixes
-out_dir: data/jeddah
-net: data/jeddah/jeddah.net.xml
+out_dir: data/hail
+net: data/hail/hail.net.xml
 type_files:
   - "${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml"
   - sim/network/types/city.typ.xml
@@ -38,12 +38,12 @@ netconvert_options:
   - --output.original-names
   - [--seed, "1"]
 districts:
-  out: data/jeddah/districts.geojson
+  out: data/hail/districts.geojson
   # admin_level=10 boundary relations are the Jeddah districts (hay) in OSM (128 found 2026-10-15).
   admin_levels: ["10"]
   fallback_place_values: [neighbourhood, suburb, quarter]
 buildings:
-  out: data/jeddah/buildings.geojson
+  out: data/hail/buildings.geojson
   heights: sim/network/config/buildings.yaml
 viewer:
   edges_out: web/public/data/edges.geojson

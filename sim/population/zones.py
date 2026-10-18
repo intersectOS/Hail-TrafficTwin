@@ -1,6 +1,6 @@
 """Traffic analysis zones (TAZ) for Jeddah: districts with residents, jobs, seats and edges.
 
-Inputs: OSM districts (`data/jeddah/districts.geojson`), building footprints, OSM POIs and
+Inputs: OSM districts (`data/hail/districts.geojson`), building footprints, OSM POIs and
 landuse (extracted from the clipped PBF with osmium) and the city network. Outputs, under
 `data/population/zones/`:
 
@@ -9,7 +9,7 @@ landuse (extracted from the clipped PBF with osmium) and the city network. Outpu
 - `zones.geojson`: polygons with the zone table (viewer, plots)
 - `zones.json`: provenance (input hashes, config hash, zones hash)
 
-    python -m sim.population.zones                     # city (uses data/jeddah/*)
+    python -m sim.population.zones                     # city (uses data/hail/*)
     python -m sim.population.zones --net data/demo/demo.net.xml --districts my.geojson ...
 """
 

@@ -44,9 +44,9 @@ IMAGERY_DIR = REPO_ROOT / "data" / "imagery"
 FIXES_DIR = REPO_ROOT / "data" / "osm" / "fixes"
 EVAL_JSON = FIXES_DIR / "imagery-eval.json"
 FIXES_YAML = FIXES_DIR / "imagery-lanes.yaml"
-CLIP_PBF = REPO_ROOT / "data" / "osm" / "jeddah.osm.pbf"
-RAW_NET = REPO_ROOT / "data" / "jeddah" / "jeddah.raw.net.xml"
-LANES_NET = REPO_ROOT / "data" / "jeddah" / "jeddah.lanes.net.xml"
+CLIP_PBF = REPO_ROOT / "data" / "osm" / "hail.osm.pbf"
+RAW_NET = REPO_ROOT / "data" / "hail" / "hail.raw.net.xml"
+LANES_NET = REPO_ROOT / "data" / "hail" / "hail.lanes.net.xml"
 
 # Tool settings (how the audit runs, not how Jeddah behaves; see docs/lane-audit.md).
 CLASSES = ("motorway", "trunk", "primary", "secondary")  # audit priority order
@@ -1210,7 +1210,7 @@ def rebuild(
     from sim.network.fixes import apply_fixes, load_fixes
     from sim.network.netinfo import net_stats
 
-    if out.resolve() == (REPO_ROOT / "data" / "jeddah" / "jeddah.net.xml").resolve():
+    if out.resolve() == (REPO_ROOT / "data" / "hail" / "hail.net.xml").resolve():
         raise typer.BadParameter("refusing to overwrite the shared jeddah.net.xml")
     t0 = time.perf_counter()
     log = REPO_ROOT / "logs" / f"lane_audit-rebuild-{out.stem.split('.')[1]}.log"

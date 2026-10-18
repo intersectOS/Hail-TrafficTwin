@@ -2,12 +2,12 @@
 
 Pipeline (each step is skipped when its output is newer than its input, unless --force):
   1. download the Geofabrik extract (only with --download, or if missing and allowed)
-  2. clip it to data/osm/jeddah.poly with osmium
+  2. clip it to data/osm/hail.poly with osmium
   3. convert the clip to OSM XML (netconvert does not read PBF)
   3b. (network v2) pre-pass: tag untagged major ways with the measured Jeddah lane/speed defaults
      (sim/network/lane_defaults.py, A-net-301/302) -> a separate OSM XML
   4. netconvert with the options in sim/network/config/city.yaml -> <net>.raw.net.xml
-  5. apply the reviewed fix list (data/osm/fixes/*.yaml) -> data/jeddah/jeddah.net.xml
+  5. apply the reviewed fix list (data/osm/fixes/*.yaml) -> data/hail/hail.net.xml
   6. side outputs: districts.geojson, buildings.geojson, viewer edges, build.json
 
     python -m sim.network.build_city                       # full city build, profile v2 (default)
@@ -44,7 +44,7 @@ from sim.network.fixes import apply_fixes, load_fixes
 from sim.network.lane_defaults import tag_osm
 from sim.network.netinfo import edges_geojson, net_stats
 
-# Network profiles: v1 = M1 build (data/jeddah/jeddah.net.xml), m2 = Track A variant with the
+# Network profiles: v1 = M1 build (data/hail/hail.net.xml), m2 = Track A variant with the
 # judgement overlay (A-net-201), v2 = measured lane defaults + junction/ramp settings (Track F).
 PROFILES = {
     "v1": REPO_ROOT / "sim" / "network" / "config" / "city.yaml",

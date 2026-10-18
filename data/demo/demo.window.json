@@ -11,7 +11,7 @@
     ],
     "out_dir": "data/demo"
   },
-  "city_net": "data/jeddah/jeddah.net.xml",
+  "city_net": "data/hail/hail.net.xml",
   "city_net_hash": "5b8a19d3a3fd4d59",
   "sumo_version": "Eclipse SUMO sumo 1.28.0",
   "network": {
@@ -30,6 +30,6 @@
   },
   "osm_extract": {
     "file": "data/demo/demo.osm.gz",
-    "source": "data/osm/jeddah.osm.pbf"
+    "source": "data/osm/hail.osm.pbf"
   }
 }

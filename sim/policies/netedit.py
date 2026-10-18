@@ -2,7 +2,7 @@
 patch on the baseline network, signal plans via an additional file.
 
 The variant network of a city run is written next to the base network under a new name
-(`data/jeddah/<base>.<policy>-<patchhash>.net.xml.gz`; the base file is never touched) and reused
+(`data/hail/<base>.<policy>-<patchhash>.net.xml.gz`; the base file is never touched) and reused
 when the same patch is applied again; other networks (demo, tests) get it in the run directory.
 netconvert re-reads the base `.net.xml` with the structural options of
 the window cutter; an empty patch reproduces the base network byte for byte (body), so baseline and
@@ -27,7 +27,7 @@ from sim.policies.edges import load_edges, net_hash, utm_xy
 from sim.policies.transforms import Plan
 from sim.schemas import EdgeEdit, NetworkChange
 
-CITY_NET_DIR = REPO_ROOT / "data" / "jeddah"
+CITY_NET_DIR = REPO_ROOT / "data" / "hail"
 NETCONVERT_OPTIONS = [
     "--output.street-names", "true",
     "--output.original-names", "true",
@@ -89,7 +89,7 @@ def patch_xml(t: NetworkChange, edges: pd.DataFrame) -> tuple[str, dict[str, Any
 
 
 def variant_path(base: Path, policy_id: str, patch: str, work: Path) -> Path:
-    """Next to a city network in data/jeddah/ (shared, reused); else in the run directory."""
+    """Next to a city network in data/hail/ (shared, reused); else in the run directory."""
     stem = base.name.removesuffix(".gz").removesuffix(".net.xml")
     key = config_hash({"base": net_hash(base), "patch": patch})[:8]
     city = base.resolve().parent == CITY_NET_DIR.resolve()

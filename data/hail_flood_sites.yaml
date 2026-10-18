@@ -3,7 +3,7 @@
 #   closed during a flood scenario. Simulation results using it remain "synthetic demand, uncalibrated".
 # Public literature and press only (peer-reviewed papers, SPA, Saudi/Arab press). No commercial
 #   traffic data, no scraping. Compiled 2026-10-16 by data-scout (Track B, M5).
-# Locations checked against OpenStreetMap (data/osm/jeddah.osm.pbf, ODbL) with osmium + shapely:
+# Locations checked against OpenStreetMap (data/osm/hail.osm.pbf, ODbL) with osmium + shapely:
 #   osm_ways are the OSM way ids of the tunnel/bridge/channel structures matched to each site.
 #
 # events: years of the floods in which the site is reported flooded or closed.

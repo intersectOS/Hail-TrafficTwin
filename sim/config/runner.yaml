@@ -44,7 +44,7 @@ smoke:
   teleport_share_max: 0.005
   edgedata_freq_s: 300
   tier_A:
-    net: data/jeddah/jeddah.v2.net.xml   # network v2 (Track F, TF-008); v1: data/jeddah/jeddah.net.xml
+    net: data/hail/hail.v2.net.xml   # network v2 (Track F, TF-008); v1: data/hail/hail.net.xml
     begin: 0
     end: 3600
     random_trips:

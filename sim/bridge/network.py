@@ -1,6 +1,6 @@
 """Bridge network variants: crossings added to a base network with a netconvert patch.
 
-    python -m sim.bridge.network data/jeddah/jeddah.m2.net.xml --policy obhur_bridge_b1
+    python -m sim.bridge.network data/hail/hail.m2.net.xml --policy obhur_bridge_b1
     python -m sim.bridge.network data/windows/obhur_creek/obhur_creek.net.xml \
         --policy obhur_bridge_b3
 
@@ -13,7 +13,7 @@ Edge lengths follow from the node positions (straight lines). Every other elemen
 network is read back unchanged (`-s base -n -e -t -x`); Track A's closures / lane / speed edits of
 the same `network_change` go into the same edge patch.
 
-The base network is never touched: city variants go to `data/jeddah/<stem>.bridge-<key>.net.xml.gz`,
+The base network is never touched: city variants go to `data/hail/<stem>.bridge-<key>.net.xml.gz`,
 others to the work directory. All results: synthetic demand, uncalibrated.
 """
 

@@ -6,7 +6,7 @@
     python -m sim.demo --force         # re-run even finished steps
 
 Steps run on the committed demo window except `tier-a`, a one-hour mid-day city smoke that runs
-only when data/jeddah/jeddah.net.xml exists (`make city-net` builds it). Each step records its
+only when data/hail/hail.net.xml exists (`make city-net` builds it). Each step records its
 run ids in runs/demo-manifest.json. Synthetic demand, uncalibrated; every scenario is fictional.
 """
 
@@ -26,7 +26,7 @@ from sim.common import REPO_ROOT, SYNTHETIC_LABEL, load_yaml, rel
 DEMO_CONFIG = REPO_ROOT / "sim" / "config" / "demo.yaml"
 RUNS_DIR = REPO_ROOT / "runs"
 DEMO_NET = REPO_ROOT / "data" / "demo" / "demo.net.xml"
-CITY_NET = REPO_ROOT / "data" / "jeddah" / "jeddah.net.xml"
+CITY_NET = REPO_ROOT / "data" / "hail" / "hail.net.xml"
 STEPS = ("tier-b", "events", "strategist", "evacuation", "policy", "tier-a")
 
 

@@ -1,8 +1,8 @@
 # Tier link configuration (python -m sim.link). Paths relative to the repo root.
 # Every behavioural value is registered in docs/assumptions-trackB.md (ids A-link-0nn, A-window-0nn; rows in sim/config/link_assumptions.yaml).
 label: "synthetic demand, uncalibrated"
-city_net: data/jeddah/jeddah.net.xml
-city_pbf: data/osm/jeddah.osm.pbf
+city_net: data/hail/hail.net.xml
+city_pbf: data/osm/hail.osm.pbf
 
 # --- window build with service roads (B-D-001) -------------------------------------------------
 graft:

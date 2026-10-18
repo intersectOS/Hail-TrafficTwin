@@ -39,7 +39,7 @@ LOOP_DIR = Path(__file__).resolve().parent
 CANDIDATES = LOOP_DIR / "candidates.yaml"
 RESULTS = LOOP_DIR / "results"
 MAP = REPO_ROOT / "docs" / "img" / "loop-candidates.png"
-DISTRICTS = REPO_ROOT / "data" / "jeddah" / "districts.geojson"
+DISTRICTS = REPO_ROOT / "data" / "hail" / "districts.geojson"
 
 
 def latest_baseline(runs: Path, daytype: str = "weekday", sample: float = 0.1) -> Path:

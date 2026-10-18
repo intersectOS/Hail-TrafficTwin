@@ -1,7 +1,7 @@
 {
   "label": "synthetic demand, uncalibrated",
   "baseline": "baseline-weekday-f0.1-s1-e5f1906a-65fac195-65b0f3",
-  "network": "data/jeddah/jeddah.m2.net.xml",
+  "network": "data/hail/hail.m2.net.xml",
   "sample": 0.1,
   "creek": "sim/bridge/config/sharm_obhur.geojson",
   "crossings": {

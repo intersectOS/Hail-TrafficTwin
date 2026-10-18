@@ -14,11 +14,11 @@ the same clip:
    plus the two blind imagery reads where they agree). Reads only the existing results; it makes
    no imagery calls.
 
-    python -m sim.network.lane_defaults stats data/osm/jeddah.osm.pbf \
-        --out sim/network/types/jeddah-lanes.json
-    python -m sim.network.lane_defaults tag data/osm/jeddah.osm.gz data/osm/jeddah.v2.osm.gz \
-        --stats sim/network/types/jeddah-lanes.json
-    python -m sim.network.lane_defaults crosscheck --stats sim/network/types/jeddah-lanes.json \
+    python -m sim.network.lane_defaults stats data/osm/hail.osm.pbf \
+        --out sim/network/types/hail-lanes.json
+    python -m sim.network.lane_defaults tag data/osm/hail.osm.gz data/osm/hail.v2.osm.gz \
+        --stats sim/network/types/hail-lanes.json
+    python -m sim.network.lane_defaults crosscheck --stats sim/network/types/hail-lanes.json \
         --imagery-dir ../trackC/data/imagery
 """
 
@@ -529,12 +529,12 @@ def crosscheck(
 # ---------------------------------------------------------------------------- CLI
 
 app = typer.Typer(add_completion=False, help=__doc__)
-DEFAULT_STATS = REPO_ROOT / "sim" / "network" / "types" / "jeddah-lanes.json"
+DEFAULT_STATS = REPO_ROOT / "sim" / "network" / "types" / "hail-lanes.json"
 
 
 @app.command("stats")
 def stats_cmd(
-    pbf: Path = typer.Argument(REPO_ROOT / "data" / "osm" / "jeddah.osm.pbf"),
+    pbf: Path = typer.Argument(REPO_ROOT / "data" / "osm" / "hail.osm.pbf"),
     out: Path = typer.Option(DEFAULT_STATS),
     min_tagged_km: float = typer.Option(MIN_TAGGED_KM, help="evidence needed for a median"),
 ) -> None:

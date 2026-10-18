@@ -4,7 +4,7 @@ Fixes live in ``data/osm/fixes/*.yaml`` (reviewed and committed); raw OSM is nev
 Each fix targets an OSM way (``osm_way_id``) or a SUMO edge (``edge_id``) and is applied to a
 built network as a netconvert patch: an edge file that updates or deletes the matching edges.
 
-    python -m sim.network.fixes check --net data/jeddah/jeddah.net.xml
+    python -m sim.network.fixes check --net data/hail/hail.net.xml
     python -m sim.network.fixes apply --net in.net.xml --out out.net.xml
 """
 

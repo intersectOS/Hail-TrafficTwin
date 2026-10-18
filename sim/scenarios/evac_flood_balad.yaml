@@ -1,5 +1,5 @@
 # FICTIONAL flood-day evacuation (PROJECT.md section 11): a storm floods the reviewed flood-prone
-# sites inside the Al Balad window (data/jeddah_flood_sites.yaml; public literature) and the
+# sites inside the Al Balad window (data/hail_flood_sites.yaml; public literature) and the
 # historic district is then cleared by car. The zone is a generic box over the district, not an
 # operational plan; storm timing, crowd size and order time are invented. Real-site evacuation
 # plans stay private. Synthetic demand, uncalibrated.

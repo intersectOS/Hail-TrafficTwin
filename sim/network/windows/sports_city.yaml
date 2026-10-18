@@ -1,0 +1,8 @@
+# Prince Abdulaziz bin Musa'ed Sports City window, about 11 km2 (2026-10-18).
+# purpose: Tier B evacuation demo (fictional): releasing a full stadium crowd after an event.
+# The stadium (ملعب مدينة الأمير عبدالعزيز بن مساعد الرياضية) is at 41.6975 E, 27.5040 N; the window
+# reaches King Khalid Hospital to the north and the King Fahd Rd / King Abdulaziz Rd approaches.
+name: sports_city
+title: "Prince Abdulaziz bin Musa'ed Sports City"
+bbox: [41.6800, 27.4900, 41.7150, 27.5200]
+out_dir: data/windows/sports_city

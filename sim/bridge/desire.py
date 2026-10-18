@@ -1,7 +1,7 @@
 """Desire lines and detours across Sharm Obhur from a Tier A baseline (no simulation).
 
     python -m sim.bridge.desire detour --baseline runs/baseline-weekday-f0.1-s1-<...>
-    python -m sim.bridge.desire access --net data/jeddah/jeddah.m2.net.xml
+    python -m sim.bridge.desire access --net data/hail/hail.m2.net.xml
 
 Crossing trips: vehicles whose straight origin-destination line crosses the inner creek polygon
 (sim/bridge/geo.py). For each, today's route is the free-flow shortest path on the base network

@@ -21,9 +21,9 @@ CITY ?= 1
 DETACH ?= 0
 UV := uv
 # Tier A network v2 (Track F, docs/network-v2.md); v1 (M1) and m2 (Track A) still build on request.
-CITY_NET := data/jeddah/jeddah.v2.net.xml
-V1_NET := data/jeddah/jeddah.net.xml
-M2_NET := data/jeddah/jeddah.m2.net.xml
+CITY_NET := data/hail/hail.v2.net.xml
+V1_NET := data/hail/hail.net.xml
+M2_NET := data/hail/hail.m2.net.xml
 
 .PHONY: demo setup city-net city-net-v1 demo-runs ingest serve city city-baseline test screenshots stop clean-demo \
 	movies movie showreel movies-check movies-docs voice-setup voice-setup-ar movies-ar showreel-ar

@@ -23,13 +23,13 @@ SOURCES = (
     "strategist/weights.yaml",
     "sim/scenarios/evac_settings.yaml",
 )
-# Rows whose values live in a file another agent maintains (data/jeddah_flood_sites.yaml).
+# Rows whose values live in a file another agent maintains (data/hail_flood_sites.yaml).
 EXTRA_ROWS = (
     "| A-event-flood-radius | flood site radius_m defaults | 80 / 120-150 / 300-500 / 600-800 "
     "| m | per site kind | Single underpass 80 m (depressed section + intersection above); long "
     "tunnels or paired underpasses 120-150 m; wadi crossings 300-500 m; area-only (district) sites "
-    "600-800 m. Described in the data/jeddah_flood_sites.yaml header; not calibrated against flood "
-    "extents | assumed | data/jeddah_flood_sites.yaml, sim/events/flood.py |",
+    "600-800 m. Described in the data/hail_flood_sites.yaml header; not calibrated against flood "
+    "extents | assumed | data/hail_flood_sites.yaml, sim/events/flood.py |",
 )
 HEADER = """# Assumptions register: Track B (windows, events, strategist, evacuation)
 

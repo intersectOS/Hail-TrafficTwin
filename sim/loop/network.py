@@ -1,7 +1,7 @@
 """Loop tunnel network: one tunnel edge per direction between consecutive stations, a down ramp and
 an up ramp per station joined to the surface network, written under a new name.
 
-    python -m sim.loop.network data/jeddah/jeddah.m2.net.xml --policy loop_demo
+    python -m sim.loop.network data/hail/hail.m2.net.xml --policy loop_demo
 
 Topology per alignment `<a>` with stations k = 0..n-1 (node and edge ids prefixed `loop_<a>_`):
 `S<k>` is the tunnel node under station k; `T<k>_<k+1>` / `T<k+1>_<k>` the tunnel edges (one lane,
@@ -15,7 +15,7 @@ and connects every incoming main-component edge at the surface junction to the d
 
 Headways (capacity) are meso edge-type parameters in an additional file (`<type id=loop_tunnel>
 <meso tauff=...>`), multiplied by 1/sample like every other headway (capacity scaling, A-sim-101).
-The base network is never touched: city variants go to `data/jeddah/jeddah.loop-<key>.net.xml.gz`,
+The base network is never touched: city variants go to `data/hail/hail.loop-<key>.net.xml.gz`,
 others to the run directory.
 """
 

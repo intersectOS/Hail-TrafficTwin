@@ -3,7 +3,7 @@
 Streams the log (city logs are ~40 MB) and the network (no sumolib load). Internal junction edges
 (`:<junction>_<n>`) are attributed to their junction; normal edges to the edge.
 
-    python -m sim.network.teleports hotspots runs/<run>/sumo.log --net data/jeddah/jeddah.v2.net.xml
+    python -m sim.network.teleports hotspots runs/<run>/sumo.log --net data/hail/hail.v2.net.xml
     python -m sim.network.teleports hotspots runs/<run>/sumo.log --net ... --json out.json --top 10
 """
 

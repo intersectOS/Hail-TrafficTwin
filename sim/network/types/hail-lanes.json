@@ -1,6 +1,6 @@
 {
   "label": "synthetic demand, uncalibrated",
-  "source": "data/osm/jeddah.osm.pbf",
+  "source": "data/osm/hail.osm.pbf",
   "source_hash": "cafede24632a3e1b",
   "method": "km-weighted quantiles of lanes per direction (oneway: lanes; two-way: lanes:forward/backward, else lanes/2) and maxspeed over OSM ways that carry the tag, per class x oneway; defaults = median if >= 5.0 km tagged",
   "min_tagged_km": 5.0,

@@ -5,7 +5,7 @@ points), `travel_time_s` the observed mean traversal time in that hour, `samples
 observations behind it (0 if unknown). Travel times validate a calibrated run (share of segments
 within the A-cal-002 tolerance); routeSampler itself fits counts only.
 
-    python -m sim.adapters.traveltimes check traveltimes.csv --net data/jeddah/jeddah.m2.net.xml
+    python -m sim.adapters.traveltimes check traveltimes.csv --net data/hail/hail.m2.net.xml
 """
 
 from __future__ import annotations

@@ -11,7 +11,7 @@ from sim.common import REPO_ROOT
 
 DEMO = REPO_ROOT / "data" / "demo"
 
-# The API reads districts and buildings from data/jeddah/ (gitignored, built by build_city). Tests
+# The API reads districts and buildings from data/hail/ (gitignored, built by build_city). Tests
 # use the committed demo-window extracts instead, so a fresh clone (and CI) needs no city build.
 os.environ.setdefault("TT_DISTRICTS", str(DEMO / "districts.geojson"))
 os.environ.setdefault("TT_BUILDINGS", str(DEMO / "buildings.geojson"))

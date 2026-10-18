@@ -1,0 +1,9 @@
+# Central Hail window, about 24 km2 (placed from OSM street names and admin_level=10 districts, 2026-10-18).
+# purpose: Tier B accidents, rain and flood, motorcade and strategist demos on the city core.
+# Covers Barzan (برزان), Al Olaya, Al Aziziyah, Labdah, Samah, Al Matar and Al Wasita, King Abdulaziz Rd
+# (طريق الملك عبدالعزيز), King Khalid Hospital and Hail General Hospital, and Prince Abdulaziz bin Musa'ed
+# Sports City. Contains the demo window.
+name: center
+title: "Central Hail: Barzan, King Abdulaziz Rd and the hospitals"
+bbox: [41.6650, 27.4970, 41.7180, 27.5390]
+out_dir: data/windows/center

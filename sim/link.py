@@ -55,9 +55,9 @@ SPLIT_NODE_PREFIX = "svcj_"
 
 
 def rel(path: Path) -> str:
-    """Repo-relative path, also for paths under symlinked dirs (data/jeddah -> main checkout).
+    """Repo-relative path, also for paths under symlinked dirs (data/hail -> main checkout).
 
-    sim.common.rel resolves symlinks first, which turns data/jeddah/... into an absolute path
+    sim.common.rel resolves symlinks first, which turns data/hail/... into an absolute path
     outside this checkout; compare the unresolved absolute path before falling back to it.
     """
     absolute = Path(path) if Path(path).is_absolute() else REPO_ROOT / path

@@ -7,7 +7,7 @@ area (so a split carriageway named only in Arabic still gets its English line, a
 shows two English names). Each named
 road is merged into lines and gets label anchors every few hundred metres (closer for minor
 roads), each with the road's bearing there, so the renderer can rotate the label along the road.
-Districts are the admin_level=10 polygons of `data/jeddah/districts.geojson`; landmarks the
+Districts are the admin_level=10 polygons of `data/hail/districts.geojson`; landmarks the
 reviewed `movies/landmarks.yaml`. The renderer (web/src/cinema/annotate.ts) chooses per frame
 which labels fit (road-class priority, zoom gating, collision avoidance).
 
@@ -34,7 +34,7 @@ from sim.common import REPO_ROOT, run_cmd
 
 LABELS_VERSION = "2"
 LANDMARKS = REPO_ROOT / "movies" / "landmarks.yaml"
-DISTRICTS = REPO_ROOT / "data" / "jeddah" / "districts.geojson"
+DISTRICTS = REPO_ROOT / "data" / "hail" / "districts.geojson"
 
 # street class (renderer priority): 0 motorway/trunk, 1 primary, 2 secondary, 3 tertiary, 4 local
 HIGHWAY_CLASS = {

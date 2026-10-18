@@ -1,19 +1,19 @@
 # Track A M2 network variant: the M1 city build plus the untagged-road overlay (A-net-201).
 # python -m sim.network.build_city --config sim/population/config/network-m2.yaml \
-#     --out data/jeddah/jeddah.m2.net.xml --no-side-outputs
-# Written under a new name: data/jeddah/jeddah.net.xml (M1) is never overwritten.
+#     --out data/hail/hail.m2.net.xml --no-side-outputs
+# Written under a new name: data/hail/hail.net.xml (M1) is never overwritten.
 # Paths are relative to the repo root.
-name: jeddah
+name: hail
 extract:
   url: https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
   # Geofabrik has no Saudi-only extract (checked 2026-10-15); the GCC States file contains Saudi Arabia.
-  file: data/osm/gcc-states-latest.osm.pbf
-polygon: data/osm/jeddah.poly
-clip_pbf: data/osm/jeddah.osm.pbf
-osm_xml: data/osm/jeddah.osm.gz
+  file: data/osm/hail-clip.osm.pbf
+polygon: data/osm/hail.poly
+clip_pbf: data/osm/hail.osm.pbf
+osm_xml: data/osm/hail.osm.gz
 fixes_dir: data/osm/fixes
-out_dir: data/jeddah
-net: data/jeddah/jeddah.m2.net.xml
+out_dir: data/hail
+net: data/hail/hail.m2.net.xml
 type_files:
   - "${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml"
   - sim/network/types/city.typ.xml
@@ -42,12 +42,12 @@ netconvert_options:
   - --output.original-names
   - [--seed, "1"]
 districts:
-  out: data/jeddah/districts.geojson
+  out: data/hail/districts.geojson
   # admin_level=10 boundary relations are the Jeddah districts (hay) in OSM (128 found 2026-10-15).
   admin_levels: ["10"]
   fallback_place_values: [neighbourhood, suburb, quarter]
 buildings:
-  out: data/jeddah/buildings.geojson
+  out: data/hail/buildings.geojson
   heights: sim/network/config/buildings.yaml
 viewer:
   edges_out: web/public/data/edges.geojson

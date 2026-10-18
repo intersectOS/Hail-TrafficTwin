@@ -1,5 +1,5 @@
 # Landmark labels for the films (MOVIES_V2). Reviewed by hand on 2026-10-17: every position is an
-# OpenStreetMap feature in data/osm/jeddah.osm.pbf (Geofabrik GCC extract, ODbL); names are the
+# OpenStreetMap feature in data/osm/hail.osm.pbf (Geofabrik GCC extract, ODbL); names are the
 # feature's name / name:en. Labels only: nothing here enters a simulation. Shown when the camera
 # zoom is within [min_zoom, max_zoom] and the point is in the film's map area.
 landmarks:

@@ -40,8 +40,8 @@ def test_building_height_rules() -> None:
     assert building_height({"height": "tall"}, HEIGHTS) == (default, "default")
 
 
-def test_jeddah_poly_is_valid() -> None:
-    poly = read_poly(REPO_ROOT / "data" / "osm" / "jeddah.poly")
+def test_hail_poly_is_valid() -> None:
+    poly = read_poly(REPO_ROOT / "data" / "osm" / "hail.poly")
     assert poly.is_valid
     assert poly.contains(poly.centroid)
 

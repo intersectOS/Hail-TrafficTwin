@@ -1,6 +1,7 @@
-# Demo focus window: western Tahlia Street and Al Andalus, about 3.3 km2. Committed under data/demo/ so tests run offline.
+# Demo focus window: central Hail around Barzan, King Khalid Hospital and King Abdulaziz Road,
+# about 3.2 km2. Committed under data/demo/ so tests run offline.
 name: demo
-title: "Tahlia / Al Andalus demo window"
+title: "Central Hail demo window (Barzan / King Abdulaziz Rd)"
 # lon/lat bbox: min_lon, min_lat, max_lon, max_lat
-bbox: [39.1480, 21.5420, 39.1660, 21.5580]
+bbox: [41.6900, 27.5120, 41.7080, 27.5280]
 out_dir: data/demo

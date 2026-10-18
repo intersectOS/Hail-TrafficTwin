@@ -1,4 +1,4 @@
-"""Prayer times for a simulated date in Jeddah (adhanpy, Umm al-Qura method).
+"""Prayer times for a simulated date in Hail (adhanpy, Umm al-Qura method).
 
 python -m sim.daytypes.prayer 2026-10-18
 """
@@ -12,11 +12,11 @@ import typer
 from adhanpy.calculation import CalculationMethod
 from adhanpy.PrayerTimes import PrayerTimes
 
-JEDDAH = (21.5433, 39.1728)  # Al-Balad; prayer times vary by about a minute across the city
+HAIL = (27.5219, 41.6907)  # Barzan, central Hail; prayer times vary by about a minute across the city
 TZ = ZoneInfo("Asia/Riyadh")
 
 
-def prayer_times(date: str, coords: tuple[float, float] = JEDDAH) -> dict[str, float]:
+def prayer_times(date: str, coords: tuple[float, float] = HAIL) -> dict[str, float]:
     """Seconds after local midnight of each adhan (fajr, sunrise, dhuhr, asr, maghrib, isha).
 
     `jumuah` equals dhuhr (the Friday sermon starts at the dhuhr adhan).

@@ -3,7 +3,7 @@ vehicle classes (passenger on any lane, bus on lane 0) and start / middle / end 
 (lon, lat). Streams the .net.xml (plain or gzipped) once and caches the table as Parquet keyed by
 the network content hash under `data/policies/`.
 
-    python -m sim.policies.edges data/jeddah/jeddah.m2.net.xml
+    python -m sim.policies.edges data/hail/hail.m2.net.xml
 """
 
 from __future__ import annotations

@@ -1,5 +1,5 @@
 # FICTIONAL demo scenario (PROJECT.md section 11): the storm timing is invented; the flood-prone
-# sites come from the public-literature list data/jeddah_flood_sites.yaml.
+# sites come from the public-literature list data/hail_flood_sites.yaml.
 # Synthetic demand, uncalibrated.
 id: flood_tahlia
 kind: scenario

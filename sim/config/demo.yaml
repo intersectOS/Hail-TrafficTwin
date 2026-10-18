@@ -24,7 +24,7 @@ policy:
   residents: {id: A-demo-001, value: 8000, unit: persons, range: [2000, 20000], assumption: "Demo-window control total so the demo population, its 24 h meso baseline and the policy run finish in under a minute; the window (3.3 km2 of Tahlia / Al Andalus) is not given a real population. Demo only, never a result"}
   cache_dir: data/demo-cache      # demo population, routes and edge caches (kept apart from the city's)
 
-# Tier A: a short city smoke at mid-day, only when data/jeddah/jeddah.net.xml exists
+# Tier A: a short city smoke at mid-day, only when data/hail/hail.net.xml exists
 # (make demo builds it unless CITY=0). Random trips, not behavioural demand.
 tier_a_smoke:
   begin: 43200                    # 12:00, so the Tier A playback opens at mid-day

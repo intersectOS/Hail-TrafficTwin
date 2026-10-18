@@ -15,7 +15,7 @@ from sim.network import lane_defaults as ld
 from sim.network.build_city import DEFAULT_PROFILE, PROFILES, app, netconvert_args
 from sim.network.teleports import hotspots, parse_log
 
-STATS = Path(__file__).resolve().parents[1] / "sim" / "network" / "types" / "jeddah-lanes.json"
+STATS = Path(__file__).resolve().parents[1] / "sim" / "network" / "types" / "hail-lanes.json"
 
 
 def test_tag_parsing() -> None:
@@ -122,7 +122,7 @@ def test_profiles() -> None:
     assert all(p.exists() for p in PROFILES.values())
     v1 = load_yaml(PROFILES["v1"])
     v2 = load_yaml(PROFILES["v2"])
-    assert v1["net"] == "data/jeddah/jeddah.net.xml"  # v1 unchanged
+    assert v1["net"] == "data/hail/hail.net.xml"  # v1 unchanged
     assert v2["net"] != v1["net"]
     assert "lane_defaults" in v2 and "lane_defaults" not in v1
     assert "--type-files" in netconvert_args(v2)
