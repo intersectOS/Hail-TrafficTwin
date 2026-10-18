@@ -153,3 +153,32 @@ footer a { color: var(--mud); }
   .benefits, .steps { grid-template-columns: 1fr; }
   .band { padding-top: 3.5rem; }
 }
+
+/* ---------- scenario cards: text beside a before/after map ---------- */
+.key { white-space: nowrap; margin-inline-end: 0.8rem; font-size: 0.95rem; }
+.key i { display: inline-block; width: 1.1rem; height: 0.3rem; border-radius: 2px; margin-inline-end: 0.35rem; vertical-align: middle; }
+.k-fast { background: var(--fast); } .k-slow { background: var(--slow); } .k-jam { background: var(--jam); }
+.story {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2rem; align-items: center;
+  padding: 2.2rem 0; border-bottom: 1px solid var(--line);
+}
+.story:first-child { padding-top: 0.5rem; }
+.story.no-map { grid-template-columns: minmax(0, 1fr); }
+.story h3 { font-size: 1.45rem; margin-bottom: 0.3rem; }
+.story .what { margin: 0 0 0.8rem; color: var(--ink-2); }
+.story .say { margin: 0 0 1rem; font-size: 1.12rem; font-weight: 500; border-inline-start: 3px solid var(--granite); padding-inline-start: 0.8rem; }
+.story .when { margin: 0.6rem 0 0; font-size: 0.85rem; color: var(--ink-2); }
+.story-map { width: 100%; aspect-ratio: 1 / 1; border-radius: 6px; display: block; background: var(--night); }
+.seg { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.seg button {
+  font: 600 0.98rem/1 var(--body); padding: 0.65rem 1.1rem; border: 0; background: transparent; color: var(--ink); cursor: pointer; min-height: 44px;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button:focus-visible { outline: 3px solid var(--slow); outline-offset: -3px; }
+.opts { margin: 0; padding-inline-start: 1.4rem; }
+.opts li { padding: 0.35rem 0; }
+.opts span { color: var(--ink-2); font-size: 0.92rem; margin-inline-start: 0.4rem; }
+@media (max-width: 720px) {
+  .story { grid-template-columns: 1fr; gap: 1rem; }
+  .story-map { order: -1; }
+}

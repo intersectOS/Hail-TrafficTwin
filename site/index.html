@@ -16,10 +16,10 @@
     <canvas id="roads" aria-hidden="true"></canvas>
     <div class="hero-text">
       <h1>التوأم الرقمي<br />لمرور حائل</h1>
-      <p class="lead">نسخة رقمية من شبكة طرق مدينة حائل كاملة، يعيش فيها يوم مروري من الفجر إلى منتصف الليل. نجرّب عليها القرار قبل أن يصل إلى الشارع: ماذا يحدث لو أُغلق طريق، أو جرى الوادي، أو تغيّر دوام المدارس؟</p>
+      <p class="lead">نسخة رقمية من شوارع حائل نجرّب فيها القرار قبل تنفيذه. ماذا يحدث لو جرى وادي الأديرع؟ لو أُغلق طريق الملك عبدالعزيز؟ لو تأخّر دوام المدارس ساعة؟</p>
       <div class="actions">
-        <a class="btn primary" href="viewer/">افتح المنصة التفاعلية</a>
-        <a class="btn" href="#results">النتائج الأولى</a>
+        <a class="btn primary" href="#stories">شاهد السيناريوهات</a>
+        <a class="btn" href="#google">ما الفرق عن قوقل ماب؟</a>
       </div>
       <dl class="facts" id="facts">
         <div><dt>مقاطع الطرق</dt><dd>47,360</dd></div>
@@ -32,6 +32,13 @@
   </header>
 
   <main>
+    <section id="stories" class="band stories">
+      <h2>السيناريوهات</h2>
+      <p class="intro">كل بطاقة تجربة واحدة. اضغط «قبل» و«بعد» لترى الفرق على الخريطة: <span class="key"><i class="k-fast"></i>سالك</span> <span class="key"><i class="k-slow"></i>بطيء</span> <span class="key"><i class="k-jam"></i>مزدحم</span></p>
+      <div id="story-list"><p class="muted" id="story-wait">تُحمَّل السيناريوهات…</p></div>
+      <p class="aside">الأرقام مقارنة بين يومين على النموذج نفسه، وليست توقعاً للمستقبل: النموذج لم يُعايَر بعد بعدّادات مرور حقيقية من حائل.</p>
+    </section>
+
     <section id="google" class="band">
       <h2>ما الفرق بينه وبين خرائط قوقل؟</h2>
       <p class="intro">خرائط قوقل تخبرك بما يحدث الآن. التوأم الرقمي يخبرك بما سيحدث <em>لو</em> اتُّخذ قرار لم يُتّخذ بعد.</p>
@@ -82,12 +89,6 @@
       </div>
     </section>
 
-    <section id="results" class="band results">
-      <h2>النتائج الأولى</h2>
-      <p class="intro" id="results-intro">هذه أرقام مقارنة بين سيناريوهات على طلب مروري مُركّب، وليست توقعات: لا توجد بعد عدّادات مرور حقيقية من حائل في النموذج.</p>
-      <div id="results-body"><p class="muted">تُحمَّل النتائج…</p></div>
-    </section>
-
     <section id="benefits" class="band">
       <h2>ماذا تستفيد الإمارة</h2>
       <ul class="benefits">
@@ -126,7 +127,7 @@
     <p class="credit">تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929</p>
     <p class="credit en" dir="ltr">This platform has been developed by Sulaiman Alkhateeb 0559965929</p>
     <p class="small">بيانات الخريطة © المساهمون في OpenStreetMap (ODbL). المحاكاة بمحرّك Eclipse SUMO. مبني على مشروع TrafficTwin مفتوح المصدر (Apache-2.0). كل النتائج على طلب مُركّب غير مُعايَر، والسيناريوهات افتراضية.</p>
-    <p class="small"><a href="https://github.com/__REPO__">الشيفرة المصدرية على GitHub</a></p>
+    <p class="small"><a href="viewer/">شاشة الفنيين التفصيلية (للحاسب، بالإنجليزية)</a> · <a href="https://github.com/__REPO__">الشيفرة المصدرية على GitHub</a></p>
   </footer>
 
   <script src="page.js" defer></script>
