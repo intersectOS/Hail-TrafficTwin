@@ -400,9 +400,9 @@ table.summary td:first-child {
 .credit {
   position: absolute;
   left: 10px;
-  bottom: 6px;
+  bottom: 92px;
   z-index: 5;
-  max-width: calc(100% - 380px);
+  max-width: min(46rem, calc(100% - 300px));
   font-size: 11px;
   line-height: 1.4;
   padding: 3px 8px;

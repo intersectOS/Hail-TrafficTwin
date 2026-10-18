@@ -1,250 +1,134 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TrafficTwin Jeddah: open-source traffic digital twin</title>
-  <meta name="description" content="Open-source traffic digital twin of Jeddah on Eclipse SUMO and OpenStreetMap: a city-wide policy lab, microscopic focus windows for events, and an emergency strategist. Synthetic demand, uncalibrated.">
-  <meta property="og:title" content="TrafficTwin Jeddah">
-  <meta property="og:description" content="Open-source traffic digital twin of Jeddah: policy lab, events and emergency strategist on SUMO + OpenStreetMap.">
-  <meta property="og:image" content="img/movies/showreel.jpg">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>التوأم الرقمي لمرور حائل</title>
+  <meta name="description" content="نموذج محاكاة لشبكة طرق مدينة حائل ويوم مروري كامل، لتجربة القرارات المرورية والطوارئ قبل تنفيذها." />
+  <meta name="author" content="SULAIMAN O. ALKHATEEB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<nav class="top">
-  <div class="wrap">
-    <a class="brand" href="#">TrafficTwin Jeddah</a>
-    <a class="link" href="#films">Films</a>
-    <a class="link" href="#loop">Loop</a>
-    <a class="link" href="#policies">Policies</a>
-    <a class="link" href="#architecture">Architecture</a>
-    <a class="link" href="#quickstart">Quickstart</a>
-    <a class="link" href="https://github.com/__REPO__">GitHub</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <span class="badge">synthetic demand, uncalibrated</span>
-    <span class="badge">simulation only: never actuates real infrastructure</span>
-    <h1>A traffic digital twin of Jeddah, built in the open</h1>
-    <p class="lead">TrafficTwin simulates a full 24-hour day for the whole city on the real
-      OpenStreetMap road network, with demand from a synthetic population. It answers policy
-      questions (remote work, staggered school hours, Ramadan, bus lines, road pricing, Loop
-      tunnels), injects events into microscopic focus windows, and ranks emergency response plans
-      for a human to approve. Built on Eclipse SUMO, Python and deck.gl; Apache-2.0.</p>
-    <div class="cta">
-      <a class="btn" href="#quickstart">Run it in 60 seconds</a>
-      <a class="btn ghost" href="https://github.com/__REPO__/releases/download/v0.1.0/showreel.mp4">Watch the showreel (MP4, 192 MB)</a>
-      <a class="btn ghost" href="https://github.com/__REPO__">Source on GitHub</a>
-    </div>
-    <a class="poster" href="https://github.com/__REPO__/releases/download/v0.1.0/showreel.mp4">
-      <img src="img/movies/showreel.jpg" alt="Showreel poster: Jeddah road network coloured by speed at night" width="1280" height="720">
-      <span class="caption">Showreel: eight films, 2 min 51 s, rendered from the simulation runs</span>
-    </a>
-  </div>
-</header>
-
-<section id="films">
-  <div class="wrap">
-    <h2>The films</h2>
-    <p class="sub">Each film is rendered from real simulation outputs (edge bins, vehicle
-      trajectories, event and strategist reports), one per simulation mode. Previews are 6-second
-      GIFs; the full 1080p MP4s are attached to the v0.1.0 release. Scenarios are fictional.</p>
-    <div class="grid">
-      <article class="card">
-        <img src="img/movies/city-24h.gif" alt="City 24 h time-lapse preview" loading="lazy">
-        <div class="body"><h3>city-24h</h3><p>The weekday baseline as a 24-hour time-lapse across the whole city (Tier A, mesoscopic).</p>
-          <span class="meta">40 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/city-24h.mp4">city-24h.mp4</a> (85 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/tahlia-street.gif" alt="Tahlia Street preview" loading="lazy">
-        <div class="body"><h3>tahlia-street</h3><p>Street level along Tahlia Street in the morning peak, vehicles coloured by speed (Tier B).</p>
-          <span class="meta">30 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/tahlia-street.mp4">tahlia-street.mp4</a> (26 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/incident.gif" alt="Incident preview" loading="lazy">
-        <div class="body"><h3>incident</h3><p>A crash on the corridor into Madinah Road, split-screen against its baseline.</p>
-          <span class="meta">42 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/incident.mp4">incident.mp4</a> (40 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/events.gif" alt="Events preview" loading="lazy">
-        <div class="body"><h3>events</h3><p>Heavy rain, a storm flood with closed flood sites, and a motorcade.</p>
-          <span class="meta">40 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/events.mp4">events.mp4</a> (45 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/strategist.gif" alt="Strategist preview" loading="lazy">
-        <div class="body"><h3>strategist</h3><p>An ambulance at 08:30: no strategy, then the top 3 ranked options with their reasons.</p>
-          <span class="meta">47 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/strategist.mp4">strategist.mp4</a> (35 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/evacuation.gif" alt="Evacuation preview" loading="lazy">
-        <div class="body"><h3>evacuation</h3><p>Phased release with contraflow from the Obhur Creek mouth near the Jeddah Tower site (fictional scenario).</p>
-          <span class="meta">52 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/evacuation.mp4">evacuation.mp4</a> (35 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/policy-lab.gif" alt="Policy lab preview" loading="lazy">
-        <div class="body"><h3>policy-lab</h3><p>Remote work, staggered schools and a cordon charge in difference mode.</p>
-          <span class="meta">45 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/policy-lab.mp4">policy-lab.mp4</a> (48 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/loop.gif" alt="Loop tunnel preview" loading="lazy">
-        <div class="body"><h3>loop</h3><p>The recommended Loop tunnel C1 against the weekday baseline.</p>
-          <span class="meta">46 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/loop.mp4">loop.mp4</a> (94 MB)</span></div>
-      </article>
-      <article class="card">
-        <img src="img/movies/showreel.jpg" alt="Showreel poster" loading="lazy">
-        <div class="body"><h3>showreel</h3><p>All eight films as 20-second excerpts with title cards.</p>
-          <span class="meta">2 min 51 s · <a href="https://github.com/__REPO__/releases/download/v0.1.0/showreel.mp4">showreel.mp4</a> (192 MB)</span></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="loop">
-  <div class="wrap">
-    <h2>Where would a Loop tunnel help Jeddah most?</h2>
-    <p class="sub">The model sited candidate Boring-Company-style Loop corridors, simulated each on
-      the city model, and swept operating policies under measured (Las Vegas) capacity.</p>
-    <div class="two">
-      <img src="img/loop-candidates.png" alt="Map of candidate Loop corridors in Jeddah; C1 Al-Salamah to King Abdulaziz University highlighted" loading="lazy" width="1210" height="1430">
-      <div>
-        <ol class="result">
-          <li><strong>Corridor C1, Al-Salamah to King Abdulaziz University</strong> (17.9 km, 8 stations) gives the most relief per dollar among the candidates.</li>
-          <li><strong>About 63,000 vehicle-hours of road delay saved per day</strong> (mean of two seeds; noise band 23,000 to 103,000), AM-peak road delay -2.9 %.</li>
-          <li><strong>28,820 passengers per day</strong> as a shuttle capped at measured capacity, for an estimated USD 268 to 714 M capex; 70 % of riders would still be slower than by car under measured station waits.</li>
-        </ol>
-        <p class="note">10 % sample, seed 1 and 2, gridlock-affected baseline; shift share is an
-          assumption (no mode-choice model). Full method and caveats:
-          <a href="https://github.com/__REPO__/blob/main/docs/loop.md">docs/loop.md</a>.</p>
+  <header class="hero">
+    <canvas id="roads" aria-hidden="true"></canvas>
+    <div class="hero-text">
+      <h1>التوأم الرقمي<br />لمرور حائل</h1>
+      <p class="lead">نسخة رقمية من شبكة طرق مدينة حائل كاملة، يعيش فيها يوم مروري من الفجر إلى منتصف الليل. نجرّب عليها القرار قبل أن يصل إلى الشارع: ماذا يحدث لو أُغلق طريق، أو جرى الوادي، أو تغيّر دوام المدارس؟</p>
+      <div class="actions">
+        <a class="btn primary" href="viewer/">افتح المنصة التفاعلية</a>
+        <a class="btn" href="#results">النتائج الأولى</a>
       </div>
+      <dl class="facts" id="facts">
+        <div><dt>مقاطع الطرق</dt><dd>47,360</dd></div>
+        <div><dt>إشارات مرورية</dt><dd>209</dd></div>
+        <div><dt>أحياء</dt><dd>85</dd></div>
+        <div><dt>السكان (تعداد 2022)</dt><dd>448,623</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+    <p class="hero-note">الخطوط في الخلفية هي طرق حائل الرئيسية كما يراها النموذج، والنقاط مركبات تتحرك عليها.</p>
+  </header>
 
-<section id="policies">
-  <div class="wrap">
-    <h2>Policy lab results</h2>
-    <p class="sub">Changes against the matching baseline day, same seed, 10 % population sample on
-      the city model (Tier A, mesoscopic). Run-to-run noise is about ±2 % on delay and VHT; a
-      negative change (green) is an improvement.</p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>policy</th><th>compared with</th><th>mean delay</th><th>AM-peak delay</th><th>VKT</th><th>VHT</th><th>CO2</th></tr></thead>
-        <tbody>
-          <tr><td>30 % remote work</td><td>weekday</td><td class="neg">-9.3 %</td><td class="neg">-9.4 %</td><td class="neg">-1.6 %</td><td class="neg">-7.7 %</td><td class="neg">-6.9 %</td></tr>
-          <tr><td>schools start 60 min staggered</td><td>matched control</td><td>-1.1 %</td><td class="neg">-9.1 %</td><td>+0.2 %</td><td>-0.7 %</td><td>-0.6 %</td></tr>
-          <tr><td>Friday</td><td>weekday</td><td class="neg">-14.9 %</td><td class="neg">-98.0 %</td><td class="neg">-3.3 %</td><td class="neg">-12.5 %</td><td class="neg">-13.0 %</td></tr>
-          <tr><td>Ramadan weekday</td><td>weekday</td><td class="neg">-3.8 %</td><td class="neg">-33.1 %</td><td class="pos">+13.8 %</td><td class="pos">+12.5 %</td><td class="pos">+12.4 %</td></tr>
-          <tr><td>bus line on Tahlia</td><td>weekday</td><td>+2.5 %</td><td>+0.7 %</td><td>-0.2 %</td><td>+1.9 %</td><td>+1.7 %</td></tr>
-          <tr><td>central cordon charge</td><td>matched control</td><td class="pos">+20.1 %</td><td class="pos">+8.6 %</td><td>-0.4 %</td><td class="pos">+12.4 %</td><td class="pos">+10.4 %</td></tr>
-          <tr><td>Corniche Road closed</td><td>matched control</td><td>+1.1 %</td><td>+0.7 %</td><td>-0.1 %</td><td>+0.7 %</td><td>+0.6 %</td></tr>
-          <tr><td>Ramadan + 30 % remote work</td><td>Ramadan weekday</td><td class="neg">-9.8 %</td><td class="neg">-13.9 %</td><td>-1.2 %</td><td class="neg">-7.9 %</td><td class="neg">-7.2 %</td></tr>
-          <tr><td>ride-hail share +10 points</td><td>weekday</td><td>+1.5 %</td><td>-0.5 %</td><td class="pos">+2.7 %</td><td class="pos">+5.2 %</td><td class="pos">+4.7 %</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Colour marks changes larger than the ±2 % noise. Synthetic demand, uncalibrated;
-      the baseline network teleports about half of all vehicles (missing lane counts in OSM), so
-      read these as comparisons between policies, not forecasts. Details:
-      <a href="https://github.com/__REPO__/blob/main/docs/policies.md">docs/policies.md</a>.</p>
-  </div>
-</section>
+  <main>
+    <section id="google" class="band">
+      <h2>ما الفرق بينه وبين خرائط قوقل؟</h2>
+      <p class="intro">خرائط قوقل تخبرك بما يحدث الآن. التوأم الرقمي يخبرك بما سيحدث <em>لو</em> اتُّخذ قرار لم يُتّخذ بعد.</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col"></th><th scope="col">خرائط قوقل</th><th scope="col">التوأم الرقمي لمرور حائل</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">السؤال الذي يجيب عنه</th><td>أين الزحام الآن؟ وما أسرع طريق لسيارتي؟</td><td>ماذا يحدث للمدينة كلها لو غيّرنا شيئاً؟</td></tr>
+            <tr><th scope="row">الزمن</th><td>الحاضر والماضي القريب</td><td>المستقبل وسيناريوهات لم تحدث بعد</td></tr>
+            <tr><th scope="row">القرار</th><td>لا يجرّب قرارات: لا يعرف ماذا يحدث لو أُغلق طريق الملك عبدالعزيز</td><td>يجرّب الإغلاق والتوسعة والدوام والرسوم وخطوط الحافلات قبل تنفيذها</td></tr>
+            <tr><th scope="row">الطوارئ</th><td>يعرض الحادث بعد وقوعه</td><td>يرتّب خيارات وصول الإسعاف في ثوانٍ ويحاكي الإخلاء، والقرار للمسؤول</td></tr>
+            <tr><th scope="row">البيانات</th><td>ملك لقوقل، ولا يمكن تعديلها أو الاطلاع على طريقة حسابها</td><td>مفتوحة المصدر، تعمل على أجهزة الجهة، وكل افتراض مكتوب ومصدره مذكور</td></tr>
+            <tr><th scope="row">من يملك النموذج</th><td>شركة خارجية</td><td>الجهة نفسها، وتطوّره بفريقها</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aside">الأداتان لا تتنافسان: بيانات السرعات الفعلية من تطبيقات الملاحة يمكن أن تصبح يوماً مدخلاً لمعايرة هذا النموذج.</p>
+    </section>
 
-<section id="architecture">
-  <div class="wrap">
-    <h2>Architecture</h2>
-    <p class="sub">One engine at two resolutions. Tier A runs all of Jeddah mesoscopically for
-      policy questions; Tier B cuts a 3-25 km² focus window out of it and runs every vehicle for
-      events and the strategist. Layers only talk through run directories.</p>
-    <div class="arch">
-      <svg viewBox="0 0 1100 430" role="img" aria-label="Architecture: public inputs feed sim (network, population, policies, Tier A and Tier B runs), which writes runs; the strategist forks saved states; the API and the web viewer present results and record human approvals">
-        <defs>
-          <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa7b8"/></marker>
-        </defs>
-        <style>
-          .bx { fill: #18222f; stroke: #2f4054; stroke-width: 1.5; }
-          .grp { fill: none; stroke: #2a3a4d; stroke-dasharray: 5 4; }
-          .t { fill: #e6ebf2; font: 600 14px -apple-system, Segoe UI, Arial, sans-serif; }
-          .s { fill: #9aa7b8; font: 12px -apple-system, Segoe UI, Arial, sans-serif; }
-          .g { fill: #4fc3f7; font: 600 13px -apple-system, Segoe UI, Arial, sans-serif; }
-          .ln { stroke: #9aa7b8; stroke-width: 1.5; fill: none; marker-end: url(#a); }
-        </style>
-        <text class="g" x="20" y="28">Public inputs</text>
-        <rect class="bx" x="20" y="44" width="170" height="64" rx="8"/><text class="t" x="34" y="70">OpenStreetMap</text><text class="s" x="34" y="90">Geofabrik extract, fix list</text>
-        <rect class="bx" x="20" y="124" width="170" height="64" rx="8"/><text class="t" x="34" y="150">GASTAT census</text><text class="s" x="34" y="170">+ assumptions in YAML</text>
-        <rect class="bx" x="20" y="204" width="170" height="64" rx="8"/><text class="t" x="34" y="230">Flood sites</text><text class="s" x="34" y="250">reviewed public list</text>
+    <section id="tests" class="band">
+      <h2>ما الذي يمكن تجربته</h2>
+      <div class="two-col">
+        <div>
+          <h3>قرارات على مستوى المدينة</h3>
+          <p class="sub">يوم كامل لكل سكان حائل، ثم اليوم نفسه بعد القرار، والفرق بينهما.</p>
+          <ul class="plain">
+            <li><b>جريان وادي الأديرع.</b> الوادي يقسم حائل شرقاً وغرباً؛ أغلقنا 23 معبراً أرضياً عليه وبقيت الجسور، لنرى أين تتكدّس الحركة.</li>
+            <li><b>توسعة طريق الملك عبدالعزيز</b> إلى أربعة مسارات من المدينة الرياضية إلى الزهراء.</li>
+            <li><b>خط حافلات على طريق الملك عبدالعزيز</b> من الخماشية إلى طريق الجامعة، كل عشر دقائق.</li>
+            <li><b>العمل عن بعد</b> لثلاثين بالمئة من موظفي المكاتب، و<b>تدريج دوام المدارس</b> ساعة.</li>
+            <li><b>رسوم دخول مركز حائل</b> (برزان والعليا وما حولهما) في ساعات النهار.</li>
+            <li><b>أيام مختلفة:</b> الجمعة، ويوم من رمضان، وموسم الشتاء والرالي.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>حوادث وطوارئ في وسط المدينة</h3>
+          <p class="sub">محاكاة مركبة بمركبة، ثانية بثانية، لنطاق محدد من المدينة.</p>
+          <ul class="plain">
+            <li><b>حادث</b> يغلق طريق الملك عبدالعزيز جنوباً عشرين دقيقة.</li>
+            <li><b>أمطار غزيرة</b>، و<b>سيل</b> يغلق معابر الأديرع عند شارع جرير وطريق الملك فيصل.</li>
+            <li><b>موكب</b> على طريق الملك عبدالعزيز مع إيقاف التقاطعات بالتتابع.</li>
+            <li><b>إسعاف إلى مستشفى الملك خالد</b> وأمامه حادث: يقترح المستشار ثلاثة خيارات مرتبة ويشرح سبب كل منها، ويعتمدها المسؤول أو يرفضها.</li>
+            <li><b>إخلاء ملعب مدينة الأمير عبدالعزيز بن مساعد الرياضية</b>، و<b>إخلاء ضفة الوادي</b> في يوم سيل.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <rect class="grp" x="225" y="14" width="420" height="300" rx="12"/>
-        <text class="g" x="240" y="36">sim/ (Eclipse SUMO)</text>
-        <rect class="bx" x="240" y="50" width="185" height="58" rx="8"/><text class="t" x="254" y="74">Network build</text><text class="s" x="254" y="93">osmium + netconvert</text>
-        <rect class="bx" x="240" y="124" width="185" height="58" rx="8"/><text class="t" x="254" y="148">Synthetic population</text><text class="s" x="254" y="167">activity chains, day types</text>
-        <rect class="bx" x="240" y="198" width="185" height="58" rx="8"/><text class="t" x="254" y="222">Policies</text><text class="s" x="254" y="241">transform plans or network</text>
-        <rect class="bx" x="445" y="50" width="185" height="70" rx="8"/><text class="t" x="459" y="76">Tier A: whole city</text><text class="s" x="459" y="95">mesoscopic, 24 h</text><text class="s" x="459" y="111">edge bins every 5 min</text>
-        <rect class="bx" x="445" y="160" width="185" height="70" rx="8"/><text class="t" x="459" y="186">Tier B: focus window</text><text class="s" x="459" y="205">microscopic, 1 s vehicles</text><text class="s" x="459" y="221">events via TraCI</text>
-        <text class="s" x="459" y="146">cutRoutes.py</text>
+    <section id="results" class="band results">
+      <h2>النتائج الأولى</h2>
+      <p class="intro" id="results-intro">هذه أرقام مقارنة بين سيناريوهات على طلب مروري مُركّب، وليست توقعات: لا توجد بعد عدّادات مرور حقيقية من حائل في النموذج.</p>
+      <div id="results-body"><p class="muted">تُحمَّل النتائج…</p></div>
+    </section>
 
-        <rect class="bx" x="445" y="340" width="185" height="64" rx="8"/><text class="t" x="459" y="366">runs/&lt;run_id&gt;/</text><text class="s" x="459" y="386">meta, edge data, reports</text>
+    <section id="benefits" class="band">
+      <h2>ماذا تستفيد الإمارة</h2>
+      <ul class="benefits">
+        <li><h3>قرار مُجرَّب قبل تنفيذه</h3><p>بدل أن يكون الشارع ساحة التجربة، تُختبر الإغلاقات والتحويلات وتغيير الدوام على النموذج أولاً، ويُعرض أثرها على كل حي.</p></li>
+        <li><h3>خطط طوارئ جاهزة</h3><p>للسيول والحوادث والإخلاء، مع زمن الإخلاء ونقاط الاختناق، ومستشار يرتّب خيارات الإسعاف ويبقى القرار للإنسان.</p></li>
+        <li><h3>أولويات المشاريع بالأرقام</h3><p>قبل صرف ميزانية توسعة أو جسر أو خط نقل، تقدير لساعات التأخير التي يوفرها والأحياء المستفيدة.</p></li>
+        <li><h3>المواسم والفعاليات</h3><p>رالي حائل الدولي، ومهرجانات الشتاء، ورمضان، وبداية العام الدراسي، كلها أيام لها نموذجها.</p></li>
+        <li><h3>لغة مشتركة بين الجهات</h3><p>الأمانة والمرور والدفاع المدني والتعليم ينظرون إلى الخريطة نفسها والأرقام نفسها.</p></li>
+        <li><h3>ملك للجهة وقابل للتطوير</h3><p>مفتوح المصدر، يعمل على جهاز عادي، وكل افتراض فيه مكتوب في سجل له مصدره، فيمكن مراجعته وتحسينه.</p></li>
+      </ul>
+    </section>
 
-        <rect class="grp" x="680" y="14" width="190" height="300" rx="12"/>
-        <text class="g" x="695" y="36">strategist/</text>
-        <rect class="bx" x="695" y="50" width="160" height="58" rx="8"/><text class="t" x="709" y="74">Candidates</text><text class="s" x="709" y="93">routes, preemption</text>
-        <rect class="bx" x="695" y="124" width="160" height="58" rx="8"/><text class="t" x="709" y="148">What-if forks</text><text class="s" x="709" y="167">loadState, parallel</text>
-        <rect class="bx" x="695" y="198" width="160" height="58" rx="8"/><text class="t" x="709" y="222">Rank + explain</text><text class="s" x="709" y="241">hash-chained log</text>
+    <section id="how" class="band">
+      <h2>كيف يعمل</h2>
+      <ol class="steps">
+        <li><h3>الشبكة</h3><p>طرق حائل من خريطة OpenStreetMap المفتوحة: المسارات والسرعات والتقاطعات، مع إشارات مستنتجة عند تقاطعات الطرق الرئيسية.</p></li>
+        <li><h3>السكان</h3><p>سكان مُركّبون بعدد سكان حائل في تعداد 2022: أسر ووظائف ومدارس وجامعة، موزعون على الأحياء.</p></li>
+        <li><h3>اليوم</h3><p>لكل شخص يوم: دوام ومدرسة وتسوق وأوقات الصلاة الفعلية في حائل، ثم تختار كل مركبة طريقها.</p></li>
+        <li><h3>التجربة</h3><p>يُعاد اليوم نفسه بعد القرار أو الحدث، بالبذرة العشوائية نفسها، ويُقاس الفرق.</p></li>
+      </ol>
+    </section>
 
-        <rect class="grp" x="905" y="14" width="180" height="300" rx="12"/>
-        <text class="g" x="920" y="36">api/ + web/</text>
-        <rect class="bx" x="920" y="50" width="150" height="58" rx="8"/><text class="t" x="934" y="74">FastAPI</text><text class="s" x="934" y="93">runs, bins, jobs</text>
-        <rect class="bx" x="920" y="124" width="150" height="70" rx="8"/><text class="t" x="934" y="148">3D viewer</text><text class="s" x="934" y="167">React, deck.gl,</text><text class="s" x="934" y="183">MapLibre</text>
-        <rect class="bx" x="920" y="210" width="150" height="58" rx="8"/><text class="t" x="934" y="234">Human approval</text><text class="s" x="934" y="253">logged decision</text>
-        <rect class="bx" x="905" y="340" width="180" height="64" rx="8"/><text class="t" x="919" y="366">Films</text><text class="s" x="919" y="386">headless deck.gl + ffmpeg</text>
+    <section id="missing" class="band ask">
+      <h2>ما الذي ينقصه ليصبح توقعاً</h2>
+      <p class="intro">النموذج اليوم يقارن بدقة بين السيناريوهات، لكن أرقامه المطلقة لم تُعايَر. أربعة مصادر بيانات تحوّله إلى توقعات يُعتمد عليها:</p>
+      <ul class="plain need">
+        <li><b>عدّادات حركة المرور</b> على الطرق الرئيسية، ولو لأسبوع واحد. مسار المعايرة جاهز في النموذج.</li>
+        <li><b>قائمة الإشارات المرورية وأزمنتها</b> من الأمانة؛ الخريطة المفتوحة لا تعرف منها إلا القليل.</li>
+        <li><b>عدد المسارات</b> على المحاور الرئيسية.</li>
+        <li><b>مسح أصل الرحلة ووجهتها</b>، ولو كان صغيراً ومجهّل الهوية.</li>
+      </ul>
+    </section>
+  </main>
 
-        <path class="ln" d="M190,76 L238,79"/>
-        <path class="ln" d="M190,156 L238,153"/>
-        <path class="ln" d="M190,236 Q560,300 545,234"/>
-        <path class="ln" d="M332,108 L332,122"/>
-        <path class="ln" d="M425,153 L443,95"/>
-        <path class="ln" d="M425,227 L443,110"/>
-        <path class="ln" d="M537,120 L537,158"/>
-        <path class="ln" d="M537,230 L537,338"/>
-        <path class="ln" d="M600,120 Q620,300 580,338"/>
-        <path class="ln" d="M630,195 L693,80"/>
-        <path class="ln" d="M775,108 L775,122"/>
-        <path class="ln" d="M775,182 L775,196"/>
-        <path class="ln" d="M630,358 L887,358 L887,96 L918,90"/>
-        <path class="ln" d="M855,227 L918,82"/>
-        <path class="ln" d="M995,108 L995,122"/>
-        <path class="ln" d="M995,194 L995,208"/>
-        <path class="ln" d="M630,385 L903,372"/>
-      </svg>
-    </div>
-    <p class="note">Policies change the population or the network before a run; events act through
-      TraCI during a run. The AI recommends; a human approves high-impact actions. Full diagram:
-      <a href="https://github.com/__REPO__/blob/main/docs/architecture.md">docs/architecture.md</a>.</p>
-  </div>
-</section>
+  <footer>
+    <p class="credit">تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929</p>
+    <p class="credit en" dir="ltr">This platform has been developed by Sulaiman Alkhateeb 0559965929</p>
+    <p class="small">بيانات الخريطة © المساهمون في OpenStreetMap (ODbL). المحاكاة بمحرّك Eclipse SUMO. مبني على مشروع TrafficTwin مفتوح المصدر (Apache-2.0). كل النتائج على طلب مُركّب غير مُعايَر، والسيناريوهات افتراضية.</p>
+    <p class="small"><a href="https://github.com/__REPO__">الشيفرة المصدرية على GitHub</a></p>
+  </footer>
 
-<section id="quickstart">
-  <div class="wrap">
-    <h2>Quickstart</h2>
-    <p class="sub">macOS (Apple silicon) or Linux with uv, Node 22+, make and curl. The demo window
-      runs on any recent laptop; the city adds a 243 MB download and peaks at about 3 GB of RAM (measured on an 18 GB M3 Pro).</p>
-<pre><code>git clone https://github.com/__REPO__.git TrafficTwin && cd TrafficTwin
-make demo CITY=0     # demo window only: setup + demo runs, then the viewer on http://localhost:5173
-make demo            # adds the Jeddah city network and a one-hour city run (about 7 min first time)
-make test            # ruff, pytest on the demo window, web typecheck</code></pre>
-    <p class="note">Everything else (24 h city baseline, policies, events, strategist, evacuation,
-      Loop, calibration, films) is in the
-      <a href="https://github.com/__REPO__#readme">README</a>.</p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    TrafficTwin Jeddah · code Apache-2.0 · map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL) ·
-    simulator <a href="https://eclipse.dev/sumo/">Eclipse SUMO</a> (EPL-2.0) · population totals GASTAT open data ·
-    all results synthetic demand, uncalibrated · this page sets no cookies and loads no trackers.
-  </div>
-</footer>
+  <script src="page.js" defer></script>
 </body>
 </html>
