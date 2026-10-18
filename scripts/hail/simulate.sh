@@ -29,7 +29,8 @@ if [ -n "$WINDOWS" ]; then
   test -n "$BASE" || { echo "no weekday baseline run"; exit 1; }
   SRC=runs/hail-source-hour
   step window-demand uv run python -m scripts.hail.window_demand "$BASE/routes.rou.xml.gz" \
-    --begin "${HOUR[0]}" --end "${HOUR[1]}" --out "$SRC/routes.rou.xml"
+    --begin "${HOUR[0]}" --end "${HOUR[1]}" --out "$SRC/routes.rou.xml" \
+    --expand "$(uv run python -c "print(max(1, round(1 / float('$SAMPLE'))))")" --seed "$SEED"
   step tier-a uv run python -m sim.link tier-a --routes "$SRC/routes.rou.xml" --out runs/tierA-exit-hour --seed "$SEED"
   for w in $WINDOWS; do
     step "link-window-$w" uv run python -m sim.link window --name "$w"

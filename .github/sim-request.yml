@@ -1,12 +1,13 @@
 # What the `simulate` workflow runs. Edit and push to start a run.
-# sample: share of Hail's 448,623 residents simulated (1.0 = everyone)
-sample: 0.02  # smoke
+# sample: share of Hail's 448,623 residents simulated (1.0 = everyone). Each sampled vehicle takes
+# 1/sample of the road capacity in Tier A, and is expanded back to 1/sample copies in the windows.
+sample: 0.25
 seed: 1
 daytypes: [weekday]
-policies: [remote_work_30]
+policies: [remote_work_30, staggered_schools_60, cordon_center, wadi_adiri_flowing, widen_king_abdulaziz, bus_line_king_abdulaziz]
 # Tier B: cut the 08:00-09:00 baseline demand into the windows, then run these scenarios
 windows: [center, sports_city]
 demand_hour: [28800, 32400]
-scenarios: [accident_center]
-strategist: []
-evacuations: []
+scenarios: [accident_center, rain_center, flood_center, motorcade_center, emergency_center]
+strategist: [emergency_center_0830]
+evacuations: [evac_stadium, evac_wadi_flood]

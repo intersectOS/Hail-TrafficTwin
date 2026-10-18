@@ -932,7 +932,16 @@ def window_tls(name: str) -> dict[str, Any]:
     out = wdir / f"{name}.tls.add.xml"
     log = LOGS_DIR / f"link-tls-{name}.log"
     log.unlink(missing_ok=True)
-    meta = retime_tls(wdir / f"{name}.net.xml", wdir / f"{name}.rou.xml", out, link_cfg, log)
+    try:
+        meta = retime_tls(wdir / f"{name}.net.xml", wdir / f"{name}.rou.xml", out, link_cfg, log)
+    except RuntimeError as exc:
+        # tlsCycleAdaptation fails on a signal the window boundary cut in half (more signal states
+        # than connections left). The window then keeps the network's default programs; recorded.
+        out.unlink(missing_ok=True)
+        meta = {"file": None, "programs": 0, "fallback": "network default signal programs",
+                "error": str(exc)[:300]}
+        (wdir / f"{name}.tls.json").write_text(json.dumps(meta, indent=2))
+        return meta
     meta["hash"] = content_hash(out)
     (wdir / f"{name}.tls.json").write_text(json.dumps(meta, indent=2))
     return meta
