@@ -1,0 +1,39 @@
+File:
+  Name: out/hail.osm.pbf
+  Format: PBF
+  Compression: none
+  Size: 1236674
+Header:
+  Bounding boxes:
+  With history: no
+  Options:
+    generator=osmium/1.16.0
+    pbf_dense_nodes=true
+    pbf_optional_feature_0=Sort.Type_then_ID
+    sorting=Type_then_ID
+Data:
+  Bounding box: (36.511487,26.5645522,43.6029848,31.944904)
+  Timestamps:
+    First: 2009-02-17T15:58:53Z
+    Last: 2026-10-15T15:17:34Z
+  Objects ordered (by type and id): yes
+  Multiple versions of same object: no
+  CRC32: not calculated (use --crc/-c to enable)
+  Number of changesets: 0
+  Number of nodes: 147576
+  Number of ways: 19418
+  Number of relations: 120
+  Smallest changeset ID: 0
+  Smallest node ID: 346784290
+  Smallest way ID: 31164487
+  Smallest relation ID: 307584
+  Largest changeset ID: 0
+  Largest node ID: 14287374201
+  Largest way ID: 1568555194
+  Largest relation ID: 19340371
+  Number of buffers: 212 (avg 788 objects per buffer)
+  Sum of buffer sizes: 13171264 (0.012 GB)
+  Sum of buffer capacities: 13893632 (0.013 GB, 95% full)
+Metadata:
+  All objects have following metadata attributes: version+timestamp
+  Some objects have following metadata attributes: version+timestamp
