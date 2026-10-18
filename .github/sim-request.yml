@@ -1,6 +1,6 @@
 # What the `simulate` workflow runs. Edit and push to start a run.
 # sample: share of Hail's 448,623 residents simulated (1.0 = everyone)
-sample: 0.02
+sample: 0.02  # smoke
 seed: 1
 daytypes: [weekday]
 policies: [remote_work_30]

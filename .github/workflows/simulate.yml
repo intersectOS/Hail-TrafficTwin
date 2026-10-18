@@ -30,8 +30,10 @@ jobs:
         run: uv python install 3.12 && uv sync --frozen
       - name: Networks and windows from the build branch
         run: |
+          mkdir -p logs
+          exec > >(tee logs/ci-setup.log) 2>&1
           git fetch --depth 1 origin build
-          git worktree add /tmp/build origin/build
+          git worktree add --detach /tmp/build FETCH_HEAD
           mkdir -p data/hail data/windows
           cp /tmp/build/hail/*.json /tmp/build/hail/*.geojson data/hail/
           for f in hail.net.xml hail.v2.net.xml; do gunzip -c /tmp/build/hail/$f.gz > data/hail/$f; done
