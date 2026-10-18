@@ -83,7 +83,9 @@ def export(out: Path) -> dict[str, Any]:
         r = c.get(url, params=params or None)
         return r if r.status_code == 200 else None
 
-    runs = get("/api/runs").json()
+    # internal helper runs (tier-link exit times, smoke tests, demo window) stay out of the public list
+    hidden = ("tierA-exit", "hail-source", "smoke-", "demo")
+    runs = [r for r in get("/api/runs").json() if not str(r["run_id"]).startswith(hidden) and "-demo-" not in str(r["run_id"])]
     sizes["runs.json"] = _write(out / "runs.json", runs)
     for name in ("districts",):
         r = get(f"/api/geo/{name}")
