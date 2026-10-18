@@ -1,0 +1,43 @@
+# Test scenario on the committed demo window: every M5 event type in one short run.
+# Fictional times and places (PROJECT.md section 11). Synthetic demand, uncalibrated.
+id: demo_all_events
+kind: scenario
+window: demo
+daytype: weekday
+label: "Demo window: accident, rain, flood, motorcade and emergency trip (test)"
+fictional: true
+begin: 0
+end: 900
+events:
+  - type: accident
+    id: acc
+    start: 120
+    duration_s: 420
+    edge: "1104788990"
+    lanes_closed: all
+  - type: rain
+    id: rain
+    start: 60
+    duration_s: 240
+    preset: heavy
+  - type: flood
+    id: flood
+    start: 400
+    duration_s: 300
+    preset: storm
+    sites_file: tests/data/flood_sites.yaml
+    min_confidence: medium
+    closure_delay_s: 30
+    assumption: "Test: short delay so the closure happens inside the 900 s run"
+  - type: motorcade
+    id: convoy
+    start: 200
+    from: "646863451#1"
+    to: "1492421519#11"
+    vehicles: 4
+  - type: emergency_trip
+    id: amb
+    start: 300
+    from: "38500585#2"
+    to: "1492421522#4"
+    strategist: true

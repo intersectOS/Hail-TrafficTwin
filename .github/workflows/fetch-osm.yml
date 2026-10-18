@@ -1,0 +1,38 @@
+# Download the Geofabrik GCC extract, clip it to the Hail study area and publish the clip on the
+# `osm-data` branch, so the network can be rebuilt anywhere without the 243 MB download.
+name: fetch-osm
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/fetch-osm.yml", "data/osm/hail-clip.poly"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: osmium-tool
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends osmium-tool
+      - name: Download the GCC extract
+        run: curl -fsSL -o gcc.osm.pbf https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
+      - name: Clip to the Hail study area
+        run: |
+          mkdir -p out
+          osmium extract --overwrite -p data/osm/hail-clip.poly gcc.osm.pbf -o out/hail.osm.pbf
+          osmium fileinfo -e out/hail.osm.pbf | tee out/hail.fileinfo.txt
+          osmium fileinfo -g header.option.osmosis_replication_timestamp gcc.osm.pbf > out/timestamp.txt || true
+          ls -la out
+      - name: Publish on the osm-data branch
+        run: |
+          cd out
+          git init -q -b osm-data
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A
+          git commit -q -m "data: Hail OSM clip ($(cat timestamp.txt 2>/dev/null))"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" osm-data

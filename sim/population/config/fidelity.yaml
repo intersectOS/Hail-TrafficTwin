@@ -1,0 +1,8 @@
+# Meso-vs-micro fidelity test (python -m sim.fidelity). PROJECT.md 9.4.
+label: "synthetic demand, uncalibrated"
+grid: 2                    # window bbox split into grid x grid zones for the window population
+residents: 8000            # A-fid-001
+residents_assumption: "Residents of the 3.3 km2 Tahlia/Al Andalus demo window: about 2,400 per km2, below the city average of ~3,100 (3.71 M over ~1,200 km2) because the window is largely commercial. Only internal trips (no through traffic), so demand is also tested at multiples."
+demand_scales: [1.0, 3.0, 6.0]   # SUMO --scale applied identically to both tiers to reach congestion
+edgedata_freq_s: 3600
+routing_algorithm: astar

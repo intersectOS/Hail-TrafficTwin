@@ -1,0 +1,21 @@
+# Test scenario: emergency trip through a partial lane closure on the demo window (fictional).
+id: demo_emergency
+kind: scenario
+window: demo
+daytype: weekday
+label: "Demo window: ambulance westbound on Tahlia St past a one-lane closure (test)"
+fictional: true
+begin: 0
+end: 600
+events:
+  - type: accident
+    id: acc
+    start: 100
+    duration_min: 6
+    edge: "38500585#3"
+    lanes_closed: 1
+  - type: emergency_trip
+    id: amb
+    start: 200
+    from: "38500585#2"
+    to: "1492421522#4"

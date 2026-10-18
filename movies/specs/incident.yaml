@@ -1,0 +1,53 @@
+# accident_tahlia against its window baseline: same demand, seed and vType mix; the crash closes
+# both lanes of the northbound corridor (edge 44795819#33) from 600 s to 1800 s (fictional).
+# The scenario closes the whole edge, so affected drivers re-route (A-event-003): the run shows no
+# long queue at the crash; the extra delay builds up on the detours later in the hour (window-wide
+# stopped vehicles +15 to +28 between 08:35 and 08:50). The film shows that, not a queue.
+film: incident
+title: A crash on the corridor into Madinah Road
+subtitle: Tier B window, crash run against its baseline (fictional scenario)
+duration_s: 32
+showreel: [6, 26]           # excerpt in the showreel (2-3 min total)
+clock_t0: "08:00"            # A-mov-007
+tier: B
+fictional: true             # fictional scenario parameters (PROJECT.md section 11): footer says so
+sources:
+  base: {run: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+  crash: {run: accident_tahlia-tahlia-s1-257eae8d}
+shots:
+  - id: side-by-side
+    duration_s: 20
+    layers:
+      mode: split
+      split: [base, crash]
+      overlays: [events]
+    camera:
+      - {t: 0,  lon: 39.1742, lat: 21.5480, zoom: 16.0, pitch: 48, bearing: 8, sim_t: 540}
+      - {t: 20, lon: 39.1730, lat: 21.5470, zoom: 15.2, pitch: 50, bearing: 0, sim_t: 2700, ease: in_out}
+    hud:
+      caption: Both lanes closed for 20 minutes, northbound
+      detail: Left, the window baseline; right, the crash run, same demand and seed. Drivers re-route around the closed edge, so the delay spreads to side streets
+      legend: speed
+      split_labels: [Baseline, Crash (lanes closed 08:10 to 08:30)]
+      kpis:
+        - {label: "Stopped vehicles, baseline", series: halted, source: base}
+        - {label: "Stopped vehicles, crash run", series: halted, source: crash}
+  - id: difference
+    duration_s: 12
+    layers:
+      mode: diff
+      heat: crash
+      compare: base
+      overlays: [events]
+      buildings: true
+    camera:
+      - {t: 0,  lon: 39.1700, lat: 21.5450, zoom: 14.6, pitch: 40, bearing: 0, sim_t: 1800}
+      - {t: 12, lon: 39.1690, lat: 21.5440, zoom: 14.3, pitch: 42, bearing: -12, sim_t: 3000, ease: in_out}
+    hud:
+      caption: Where the crash costs time
+      detail: Edge speed, crash run minus baseline, 5-minute bins; red = slower, blue = faster
+      legend: diff
+      kpis:
+        - {label: Extra delay per vehicle, fact: delta.mean_delay_s.delta, source: crash, unit: s, decimals: 1, sign: true}
+        - {label: Mean delay, fact: delta.mean_delay_s.pct, source: crash, unit: "%", decimals: 1, sign: true}
+        - {label: Extra vehicle-hours, fact: delta.vht.delta, source: crash, unit: veh-h, decimals: 1, sign: true}

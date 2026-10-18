@@ -1,0 +1,27 @@
+# A new bus line along Tahlia Street (Prince Mohammed bin Abdulaziz St), Corniche end to the east.
+id: bus_line_tahlia
+kind: policy
+title: "New bus line on Tahlia Street, every 10 min, 06:00-23:00, 10 % car shift in the catchment"
+daytype: weekday
+transforms:
+  - type: pt_line
+    line_id: T1
+    both_directions: true
+    headway_s: 600
+    hours: ["06:00", "23:00"]
+    catchment_m: 500
+    shift_share: 0.10
+    shift_modes: [car, chauffeured, ridehail]
+    stop_duration_s: 20
+    stops:   # snapped from OSM way 38500585 and its continuation (street name in the M2 network)
+      - {name: "Tahlia West (Corniche end)", lon: 39.1311, lat: 21.5468}
+      - {name: "Tahlia / Al Andalus", lon: 39.1418, lat: 21.5484}
+      - {name: "Tahlia / Al Rawdah", lon: 39.1507, lat: 21.5495}
+      - {name: "Tahlia / King Abdulaziz Rd", lon: 39.1606, lat: 21.5519}
+      - {name: "Tahlia / Al Khalidiyah", lon: 39.1694, lat: 21.5545}
+      - {name: "Tahlia / Al Faisaliyah", lon: 39.1803, lat: 21.5577}
+      - {name: "Tahlia / Al Madinah Rd", lon: 39.1900, lat: 21.5601}
+      - {name: "Tahlia / Al Aziziyah", lon: 39.1979, lat: 21.5614}
+      - {name: "Tahlia / Prince Majid Rd", lon: 39.2070, lat: 21.5631}
+      - {name: "Tahlia East", lon: 39.2160, lat: 21.5650}
+    assumption: "A-pol-030: line design is illustrative (no published plan for a Tahlia line found): 10 stops about 1 km apart, 10-min headway, 06:00-23:00 both ways; stop names are approximate cross-street labels. A-pol-031: 10 % of car, chauffeured and ride-hail tours whose origin and destination both lie within 500 m of different stops (outbound leg in service hours) switch to the bus. No Jeddah mode-shift evidence (public transport 1.2 % of trips, 2014); international new-line studies report 2-15 % shifts in the catchment; range 0.02-0.2. Fixed share, no mode choice model (PROJECT.md section 7). A-pol-091: buses run at the real headway as unscaled vehicles, so in the capacity-scaled sample each bus loads the road like 1/sample cars (conservative)."

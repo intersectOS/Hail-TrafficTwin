@@ -1,0 +1,9 @@
+# Calendar policy: the whole population follows the Friday profile; compared with a weekday.
+id: friday
+kind: policy
+title: "Friday (rest day, Jumu'ah) compared with a regular weekday"
+daytype: weekday
+transforms:
+  - type: daytype
+    daytype: friday
+    assumption: "A-pol-020: re-times everyone with sim/daytypes/friday.yaml (its own ids A-day-1xx); the run is the Friday baseline, reported against the weekday baseline."

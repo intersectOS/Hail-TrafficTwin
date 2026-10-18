@@ -1,0 +1,56 @@
+# Fixed mode shares (v1; logit in P2). python -m sim.population.modes. Ids A-mode-* in docs/assumptions-trackA.md.
+kind: modes
+label: "synthetic demand, uncalibrated"
+
+# What a person trip in each mode puts on the road. vehicle_per_trip is the expected number of
+# vehicle trips per person trip (1/occupancy for shared vehicles); `return_empty` adds the driver's
+# empty return leg (school escort). Bus line vehicles are not modelled in M2 (pt_line policy, M4). A-mode-001
+modes:
+  car:          {vehicle_per_trip: 1.0, vtype: car}
+  chauffeured:  {vehicle_per_trip: 1.0, vtype: car}
+  car_passenger: {vehicle_per_trip: 0.0}
+  ridehail:     {vehicle_per_trip: 1.0, vtype: ridehail}
+  escort:       {vehicle_per_trip: 0.5, vtype: car, return_empty: 0.5}
+  school_bus:   {vehicle_per_trip: 0.04, vtype: bus}
+  company_bus:  {vehicle_per_trip: 0.04, vtype: bus}
+  bus:          {vehicle_per_trip: 0.0}
+  walk:         {vehicle_per_trip: 0.0}
+  assumption: "Escort: 2 pupils per escort car (siblings and neighbours share); in half of the escort legs the driver makes an empty leg home or back to school, in the other half the driver is a parent travelling on to or from work (that commute is already modelled) (school runs are a large share of the morning peak). School and company buses carry about 25 people. Chauffeured trips by a household driver carry one passenger; waiting time at the destination is ignored (no empty legs). Range: escort occupancy 1.5-2.5, empty-leg probability 0.3-0.8, bus 15-40."
+
+# Shares by person group and car availability: driver = has a licence and a car is free;
+# hh_car = household has a car but the person cannot drive it; no_car = no household car.
+# Rows are renormalised after the rules below. A-mode-002
+shares:
+  adult:
+    driver:  {car: 0.92, ridehail: 0.02, car_passenger: 0.05, bus: 0.01}
+    hh_car:  {chauffeured: 0.35, car_passenger: 0.45, ridehail: 0.12, bus: 0.03, walk: 0.05}
+    no_car:  {car_passenger: 0.45, ridehail: 0.20, bus: 0.10, walk: 0.25}
+  labour:   # workers living in shared housing (commute only)
+    driver:  {car: 0.88, ridehail: 0.02, car_passenger: 0.10}
+    hh_car:  {car_passenger: 0.55, company_bus: 0.30, ridehail: 0.10, walk: 0.05}
+    no_car:  {company_bus: 0.45, car_passenger: 0.25, ridehail: 0.10, bus: 0.10, walk: 0.10}
+  pupil:    # home-school tours
+    driver:  {escort: 0.75, school_bus: 0.15, walk: 0.10}
+    hh_car:  {escort: 0.75, school_bus: 0.15, walk: 0.10}
+    no_car:  {school_bus: 0.45, ridehail: 0.20, car_passenger: 0.15, walk: 0.20}
+  child:    # non-school tours of persons under 18: travel with the family
+    driver:  {car_passenger: 0.85, walk: 0.15}
+    hh_car:  {car_passenger: 0.85, walk: 0.15}
+    no_car:  {car_passenger: 0.40, ridehail: 0.30, walk: 0.30}
+  airport:  # ground trips to/from KAIA (no person attached)
+    driver:  {car: 0.50, ridehail: 0.50}
+    hh_car:  {car: 0.50, ridehail: 0.50}
+    no_car:  {car: 0.50, ridehail: 0.50}
+  mosque:
+    driver:  {car: 0.30, walk: 0.70}
+    hh_car:  {car_passenger: 0.20, walk: 0.80}
+    no_car:  {walk: 0.95, ridehail: 0.05}
+  assumption: "Car about 85 % of trips in Riyadh (Sustainability 13(1):337, 2021); Jeddah public transport 1.2 % of trips (Arab News 2014) and city buses about 11-13k riders/day in 2025 (TGA); app ride-hail 19.5 M trips/yr in Makkah region (TGA 2024, about 1 % of trips), so `ridehail` here also stands for street and informal taxis. Lifts and car-pools of people without a car are car_passenger (their driver's vehicle trip is not separately modelled). Group splits are judgement. Each share +/-0.1."
+
+# Rules applied before drawing. A-mode-003
+rules:
+  walk_max_km: 1.2          # walk only below this estimated distance (else its share moves to ridehail/car_passenger)
+  walk_short_boost: 0.25    # extra walk share for trips under walk_max_km (adults; heat limits walking)
+  bus_requires_stops: true  # bus only if both ends are within the bus catchment (zones.yaml bus_catchment)
+  fallback: {driver: car, hh_car: car_passenger, no_car: car_passenger}   # where a disallowed walk/bus share goes
+  assumption: "Jeddah's heat and sparse sidewalks keep walking to short trips; buses only where a stop is near both ends (14 routes; OSM shows 49 stops). Ranges: walk_max_km 0.8-2.0, boost 0.1-0.4."

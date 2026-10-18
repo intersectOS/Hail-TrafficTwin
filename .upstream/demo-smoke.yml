@@ -1,0 +1,64 @@
+# Manual end-to-end smoke of `make demo` on a clean Ubuntu runner: setup, demo runs, ingest, then
+# the API and the viewer are started in the background and probed over HTTP.
+# city=0 (default) uses the committed demo window only, about 5 min. city=1 also downloads the
+# 243 MB Geofabrik extract, builds the Jeddah network and runs the one-hour Tier A smoke (about
+# 20 min). Synthetic demand, uncalibrated.
+name: demo-smoke
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: "Build the Jeddah city network and run the Tier A smoke (1) or demo window only (0)"
+        type: choice
+        options: ["0", "1"]
+        default: "0"
+
+permissions:
+  contents: read
+
+jobs:
+  make-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      TT_NO_OPEN: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: System libraries for the eclipse-sumo Linux binaries, and osmium-tool
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends \
+            libatomic1 libx11-6 libxext6 libxrender1 libgl1 osmium-tool lsof
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          version: "0.11.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: make demo (servers detached)
+        run: make demo CITY="${{ inputs.city }}" DETACH=1
+      - name: Probe the API and the viewer
+        run: |
+          curl -fsS http://localhost:8000/health
+          curl -fsS http://localhost:5173/ >/dev/null
+          n=$(curl -fsS http://localhost:5173/api/runs | python3 -c 'import json,sys; d=json.load(sys.stdin); print(len(d if isinstance(d, list) else d.get("runs", [])))')
+          echo "runs served: $n"
+          test "$n" -ge 4
+          cat runs/demo-manifest.json
+      - name: Stop the servers
+        if: always()
+        run: make stop
+      - name: Upload logs and the demo manifest
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: demo-smoke-logs
+          path: |
+            logs/
+            runs/demo-manifest.json
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,0 +1,24 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): ambulance trip and crash are invented.
+# The baseline runs the same ambulance trip without the crash (decision B-D-012).
+# Synthetic demand, uncalibrated.
+id: emergency_tahlia
+kind: scenario
+window: tahlia
+daytype: weekday
+label: "Ambulance northbound to Madinah Road while a crash blocks one of two lanes on its route"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: accident
+    id: crash_corridor_nb
+    start: 600
+    duration_min: 20
+    edge: "44795819#33"       # on the ambulance route (see accident_tahlia)
+    lanes_closed: 1
+  - type: emergency_trip
+    id: ambulance_1
+    start: 900
+    from: "44795819#21"       # 1.7 km route through the crash, into Madinah Road
+    to: "44796463#1"
+    strategist: true          # M6 strategist support requested; recorded only in M5

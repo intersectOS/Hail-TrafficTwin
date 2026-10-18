@@ -1,0 +1,110 @@
+/* TrafficTwin Jeddah project page. Plain CSS, system fonts, no external assets. */
+:root {
+  --bg: #0b1017;
+  --panel: #121a24;
+  --line: #233041;
+  --text: #e6ebf2;
+  --muted: #9aa7b8;
+  --accent: #4fc3f7;
+  --warn: #ffb74d;
+  --good: #66bb6a;
+  --bad: #ef5350;
+  --radius: 10px;
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+pre {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+nav.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(11, 16, 23, 0.92);
+  border-bottom: 1px solid var(--line);
+}
+nav.top .wrap { display: flex; align-items: center; gap: 20px; height: 56px; }
+nav.top .brand { font-weight: 700; color: var(--text); margin-right: auto; }
+nav.top a.link { color: var(--muted); font-size: 0.95em; }
+
+header.hero { padding: 48px 0 24px; }
+header.hero h1 { font-size: 2.6em; line-height: 1.15; margin: 0 0 12px; }
+header.hero p.lead { font-size: 1.2em; color: var(--muted); max-width: 820px; margin: 0 0 20px; }
+.badge {
+  display: inline-block;
+  border: 1px solid var(--warn);
+  color: var(--warn);
+  border-radius: 999px;
+  padding: 2px 12px;
+  font-size: 0.85em;
+  margin: 0 8px 8px 0;
+}
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 8px 0 28px; }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 8px;
+  background: var(--accent); color: #04121c; font-weight: 600;
+}
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn:hover { text-decoration: none; filter: brightness(1.1); }
+.poster { display: block; position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+.poster img { display: block; width: 100%; height: auto; }
+.poster .caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 14px 18px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  font-size: 0.95em;
+}
+
+section { padding: 40px 0; border-top: 1px solid var(--line); }
+section h2 { font-size: 1.7em; margin: 0 0 8px; }
+section p.sub { color: var(--muted); margin: 0 0 24px; max-width: 860px; }
+
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+.card .body { padding: 12px 16px 16px; }
+.card h3 { margin: 0 0 4px; font-size: 1.05em; }
+.card p { margin: 0 0 8px; color: var(--muted); font-size: 0.92em; }
+.card .meta { font-size: 0.85em; color: var(--muted); }
+
+.two { display: grid; gap: 28px; grid-template-columns: 1fr 1fr; align-items: start; }
+.two img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+ol.result { padding-left: 20px; margin: 0 0 16px; }
+ol.result li { margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--muted); font-weight: 600; }
+.tablewrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+td.neg { color: var(--good); }
+td.pos { color: var(--bad); }
+.note { color: var(--muted); font-size: 0.9em; margin-top: 12px; }
+
+.arch { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; }
+.arch svg { display: block; width: 100%; height: auto; }
+
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9em; border-top: 1px solid var(--line); }
+
+@media (max-width: 820px) {
+  header.hero h1 { font-size: 2em; }
+  .two { grid-template-columns: 1fr; }
+  nav.top a.link { display: none; }
+}

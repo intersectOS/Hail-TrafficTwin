@@ -1,0 +1,11 @@
+# Building height defaults for the extruded-buildings layer (assumptions registered in docs/assumptions.md).
+metres_per_level:
+  id: A-network-001
+  value: 3.2
+  unit: m
+  assumption: "Typical floor-to-floor height for Saudi residential and commercial buildings; plausible 3.0-3.6 m."
+default_levels:
+  id: A-network-002
+  value: 3
+  unit: levels
+  assumption: "Most untagged Jeddah footprints are low-rise villas and walk-ups; plausible 2-4 levels."

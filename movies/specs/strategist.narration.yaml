@@ -1,0 +1,19 @@
+# Narration for strategist (scripts/movies/narrate.py). Numbers only from the docs (docs/strategist.md).
+film: strategist
+lines:
+  - shot: no-strategy
+    at: 0.6
+    text: "Eight thirty. An ambulance must reach Madinah Road, and a crash blocks one of two lanes on its route."
+  - shot: no-strategy
+    text: "With no strategy it takes 173 seconds."
+  - shot: option-1
+    at: 0.6
+    text: "Option one: route A with a rescue lane. 68 seconds, 105 faster."
+  - shot: option-2
+    at: 0.6
+    text: "Option two: route B, signal preemption and a rescue lane. 89 seconds."
+  - shot: option-3
+    at: 0.6
+    text: "Option three: route C alone, 95 seconds. A human approves the choice."
+  - shot: option-3
+    text: "The situation is fictional. Synthetic demand, uncalibrated."

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Track A (M2) overlay for Jeddah ways WITHOUT `lanes` / `maxspeed` tags (A-net-201).
+     Type defaults apply only where OSM has no tag, so tagged roads are unchanged. Lanes are per
+     direction. Attributes other than numLanes/speed are copied from SUMO osmNetconvert.typ.xml.
+     Synthetic demand, uncalibrated. -->
+<types>
+    <type id="highway.motorway"       numLanes="3" speed="27.78" priority="14" oneway="true"  disallow="rail rail_urban rail_electric rail_fast tram drone aircraft scooter container wheelchair subway cable_car ship pedestrian bicycle moped"/>
+    <type id="highway.trunk"          numLanes="3" speed="22.22" priority="13" oneway="false" disallow="rail rail_urban rail_electric rail_fast tram drone aircraft scooter container wheelchair subway cable_car ship pedestrian bicycle"/>
+    <type id="highway.primary"        numLanes="3" speed="19.44" priority="12" oneway="false" disallow="rail rail_urban rail_electric rail_fast tram drone aircraft scooter container wheelchair subway cable_car ship"/>
+    <type id="highway.secondary"      numLanes="2" speed="16.67" priority="11" oneway="false" disallow="rail rail_urban rail_electric rail_fast tram drone aircraft scooter container wheelchair subway cable_car ship"/>
+    <type id="highway.tertiary"       numLanes="1" speed="13.89" priority="10" oneway="false" disallow="rail rail_urban rail_electric rail_fast tram drone aircraft scooter container wheelchair subway cable_car ship"/>
+</types>

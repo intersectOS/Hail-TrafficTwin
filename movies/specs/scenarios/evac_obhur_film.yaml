@@ -1,0 +1,26 @@
+# FICTIONAL evacuation for the `evacuation` film (MOVIES_V2). Same crowd, zone, timing and seed as
+# sim/scenarios/evac_obhur.yaml, with the strategist's fastest-clearance option "far_first_full"
+# (recommendation rec-20261017T000240Z-9a7e8298: far-first phased release, balanced exit guidance,
+# contraflow on all three corridors) written in, so the film shows phased zones and contraflow
+# from a real run. The strategist's recommended option is balanced guidance alone (docs/evacuation.md).
+# Synthetic demand, uncalibrated.
+id: evac_obhur_film
+kind: scenario
+window: obhur
+daytype: weekday
+label: "Fictional creek-side crowd evacuating the Obhur Creek mouth with contraflow and a far-first phased release (film run)"
+fictional: true
+begin: 0
+end: 7200
+events:
+  - type: evacuation
+    id: obhur_crowd
+    start: 900
+    zone: [[39.0940, 21.6990], [39.1030, 21.6965], [39.1065, 21.7055], [39.1015, 21.7110], [39.0955, 21.7090]]
+    vehicles: 1500
+    exits: auto
+    phasing: far_first
+    exit_assignment: balanced
+    contraflow: [all]
+    signal_plan: default
+    notes: "Strategist candidate far_first_full of evac_obhur, run as written for the film"

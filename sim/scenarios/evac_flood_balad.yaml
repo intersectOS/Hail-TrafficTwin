@@ -1,0 +1,30 @@
+# FICTIONAL flood-day evacuation (PROJECT.md section 11): a storm floods the reviewed flood-prone
+# sites inside the Al Balad window (data/jeddah_flood_sites.yaml; public literature) and the
+# historic district is then cleared by car. The zone is a generic box over the district, not an
+# operational plan; storm timing, crowd size and order time are invented. Real-site evacuation
+# plans stay private. Synthetic demand, uncalibrated.
+id: evac_flood_balad
+kind: scenario
+window: al_balad
+daytype: weekday
+label: "Fictional flood-day evacuation of the Al Balad historic district with flood closures active"
+fictional: true
+begin: 0
+end: 7200
+events:
+  - type: flood
+    id: storm_flood
+    start: 300
+    duration_min: 80
+    preset: storm             # A-rain-011..015; closures 10 min after onset (A-event-004)
+    min_confidence: medium
+  - type: evacuation
+    id: balad_district
+    start: 1500
+    zone: [[39.1820, 21.4800], [39.1900, 21.4800], [39.1900, 21.4900], [39.1820, 21.4900]]
+    vehicles: 2000
+    exits: auto
+    phasing: simultaneous
+    contraflow: []
+    signal_plan: default
+    notes: "Order 20 min after the flood closures; no strategy as written. The storm also slows the evacuees (vType multipliers)"

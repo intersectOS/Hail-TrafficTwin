@@ -1,0 +1,47 @@
+# Test fixture (fictional sites on the demo window), same schema as data/jeddah_flood_sites.yaml.
+version: 1
+sites:
+  - id: TS-001
+    name: "Fictional underpass on Tahlia St eastbound (radius method)"
+    kind: underpass
+    lon: 39.16056
+    lat: 21.55194
+    radius_m: 25
+    osm_ways: []
+    events: []
+    sources: ["test fixture"]
+    confidence: high
+    review: "fixture"
+  - id: TS-002
+    name: "Fictional wadi crossing on OSM way 166129018 (origId method)"
+    kind: wadi_crossing
+    lon: 39.14971
+    lat: 21.55544
+    radius_m: 300
+    osm_ways: [166129018]
+    events: []
+    sources: ["test fixture"]
+    confidence: medium
+    review: "fixture"
+  - id: TS-003
+    name: "Fictional site outside the demo window"
+    kind: underpass
+    lon: 39.21
+    lat: 21.60
+    radius_m: 80
+    osm_ways: []
+    events: []
+    sources: ["test fixture"]
+    confidence: high
+    review: "fixture"
+  - id: TS-004
+    name: "Fictional low-confidence area site inside the demo window"
+    kind: road_segment
+    lon: 39.155
+    lat: 21.548
+    radius_m: 150
+    osm_ways: []
+    events: []
+    sources: ["test fixture"]
+    confidence: low
+    review: "fixture"

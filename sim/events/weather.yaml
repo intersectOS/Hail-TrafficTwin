@@ -1,0 +1,39 @@
+# Rain presets: multipliers applied to every vType (and to the speed factor of vehicles already in
+# the window) while a rain or flood event is active; restored at its end.
+#
+# Basis. Field studies of freeway traffic in rain report capacity and speed reductions by intensity:
+# Agarwal, Maze & Souleyrette (2005), "Impacts of weather on urban freeway traffic flow
+# characteristics and facility capacity", Mid-Continent Transportation Research Symposium (Iowa,
+# Twin Cities freeways): light rain about 1-3 % capacity / 1-2 % speed, moderate 5-10 % / 2-4 %,
+# heavy (> 0.25 in/h) 10-17 % / 4-7 %. Rakha et al. (2008), "Impact of inclement weather on freeway
+# traffic stream behavior", TRR 2071: rain lowers free-flow speed and capacity by intensity (heavy
+# rain on the order of 6-9 % free-flow speed and ~10-14 % capacity). HCM 2010 Chapter 10, Exhibit
+# 10-15, tabulates weather capacity and speed adjustment factors of the same order.
+# The figures above are quoted from memory and NOT verified against the papers here, so every
+# preset value is `assumed` with these citations as its basis. The mapping from capacity loss to
+# Krauss parameters is our own: per-lane headway at speed v is about tau + (length + minGap) / v,
+# so tau and minGap are scaled to give a capacity loss inside the quoted band at 50 km/h, the
+# speed factor gives the speed loss, and accel/decel fall with wet-road friction (the AASHTO
+# Green Book design deceleration of 3.4 m/s2 for wet pavement is reached by the storm preset:
+# 4.5 x 0.75 = 3.4). Jeddah has no local weather-traffic study; storms there come with flash
+# flooding (2009, 2011), modelled by the flood event on top of the storm preset.
+kind: weather_presets
+presets:
+  light:
+    speedFactor: {id: A-rain-001, value: 0.98, unit: multiplier, range: [0.97, 0.99], assumption: "Light rain speed loss 1-2 % (Agarwal et al. 2005, unverified)"}
+    tau: {id: A-rain-002, value: 1.03, unit: multiplier, range: [1.0, 1.05], assumption: "With minGap gives ~3 % capacity loss at 50 km/h (Agarwal et al. 2005 light rain 1-3 %, unverified)"}
+    minGap: {id: A-rain-003, value: 1.05, unit: multiplier, range: [1.0, 1.1], assumption: "Slightly larger standstill gaps in rain"}
+    accel: {id: A-rain-004, value: 0.95, unit: multiplier, range: [0.9, 1.0], assumption: "Gentler starts on wet roads"}
+    decel: {id: A-rain-005, value: 0.95, unit: multiplier, range: [0.9, 1.0], assumption: "Gentler braking on wet roads (lower friction)"}
+  heavy:
+    speedFactor: {id: A-rain-006, value: 0.94, unit: multiplier, range: [0.91, 0.96], assumption: "Heavy rain speed loss 4-7 % (Agarwal et al. 2005) / 6-9 % free-flow (Rakha et al. 2008), unverified"}
+    tau: {id: A-rain-007, value: 1.12, unit: multiplier, range: [1.05, 1.2], assumption: "With minGap and speed gives ~11 % capacity loss at 50 km/h (heavy rain 10-17 %, Agarwal et al. 2005, unverified)"}
+    minGap: {id: A-rain-008, value: 1.2, unit: multiplier, range: [1.1, 1.3], assumption: "Larger standstill gaps in heavy rain"}
+    accel: {id: A-rain-009, value: 0.85, unit: multiplier, range: [0.75, 0.95], assumption: "Gentler starts on wet roads"}
+    decel: {id: A-rain-010, value: 0.85, unit: multiplier, range: [0.75, 0.95], assumption: "Lower wet friction: 4.5 -> 3.8 m/s2"}
+  storm:
+    speedFactor: {id: A-rain-011, value: 0.85, unit: multiplier, range: [0.75, 0.92], assumption: "Beyond the heavy-rain band of the studies: low visibility and ponding; no source"}
+    tau: {id: A-rain-012, value: 1.3, unit: multiplier, range: [1.15, 1.5], assumption: "Gives ~24 % capacity loss at 50 km/h; extrapolated beyond heavy rain, no source"}
+    minGap: {id: A-rain-013, value: 1.4, unit: multiplier, range: [1.2, 1.6], assumption: "Large standstill gaps in a storm"}
+    accel: {id: A-rain-014, value: 0.75, unit: multiplier, range: [0.6, 0.9], assumption: "Cautious starts in standing water"}
+    decel: {id: A-rain-015, value: 0.75, unit: multiplier, range: [0.6, 0.85], assumption: "4.5 -> 3.4 m/s2 = AASHTO Green Book wet-pavement design deceleration (cited from memory)"}

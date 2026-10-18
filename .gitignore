@@ -1,0 +1,38 @@
+# data: keep only demo, OSM fixes and public census tables
+data/*
+!data/demo/
+!data/osm/
+data/osm/*
+!data/osm/fixes/
+!data/osm/jeddah.poly
+!data/osm/hail*.poly
+!data/census/
+# reviewed list of publicly reported flood sites (B-D-005/007; public literature only)
+!data/jeddah_flood_sites.yaml
+runs/
+logs/
+.env
+.env.*
+.venv/
+.venv-tts/
+.venv-tts-ar/
+__pycache__/
+*.pyc
+node_modules/
+web/dist/
+.DS_Store
+PROMPT*.md.bak
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+web/public/data/
+run_claude.sh
+.worktrees/
+data/imagery/
+# Esri World Imagery crops: kept locally, not redistributed (integration)
+docs/img/lane-audit/
+movies/*
+!movies/specs/
+# GitHub Pages build output (scripts/build_site.sh)
+_site/
+!movies/landmarks.yaml

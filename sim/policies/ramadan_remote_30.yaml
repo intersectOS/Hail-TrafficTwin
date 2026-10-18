@@ -1,0 +1,16 @@
+# Composed scenario: a Ramadan weekday with 30 % hybrid work, against the Ramadan baseline.
+id: ramadan_remote_30
+kind: policy
+title: "Ramadan weekday + 30 % hybrid work (composed)"
+daytype: ramadan_weekday
+transforms:
+  - type: daytype
+    daytype: ramadan_weekday
+    assumption: "A-pol-021: Ramadan profile (sim/daytypes/ramadan_weekday.yaml)."
+  - type: remote_work
+    share: 0.30
+    days_per_week: 3
+    eligible_sectors: [government, private_office]
+    induced_trip_probability: 0.35
+    induced_purposes: {shopping: 0.4, personal: 0.4, leisure: 0.2}
+    assumption: "A-pol-001 and A-pol-002 as in remote_work_30.yaml; induced tours timed like homemakers' Ramadan tours."

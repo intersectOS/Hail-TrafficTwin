@@ -1,0 +1,66 @@
+# Track B's event scenario runs in the Tahlia window, one cut each: heavy rain, storm flooding of
+# reviewed flood-prone sites, and a fictional motorcade. Each against its own window baseline.
+film: events
+title: Rain, flood, motorcade
+subtitle: Tier B window, event scenarios against their baselines (fictional)
+duration_s: 36
+showreel: [14, 34]           # excerpt in the showreel (2-3 min total)
+clock_t0: "08:00"            # A-mov-007
+tier: B
+fictional: true             # fictional scenario parameters (PROJECT.md section 11): footer says so
+sources:
+  rain: {run: rain_tahlia-tahlia-s1-67ab9112}
+  rain_base: {run: "rain_tahlia-tahlia-s1-67ab9112~baseline"}
+  flood: {run: flood_tahlia-tahlia-s1-48d26de0}
+  motorcade: {run: motorcade_tahlia-tahlia-s1-060b80d4}
+shots:
+  - id: rain
+    duration_s: 12
+    layers:
+      mode: diff
+      heat: rain
+      compare: rain_base
+      trips: rain
+    camera:
+      - {t: 0,  lon: 39.1640, lat: 21.5420, zoom: 15.0, pitch: 50, bearing: 30, sim_t: 1500}
+      - {t: 12, lon: 39.1660, lat: 21.5450, zoom: 15.3, pitch: 54, bearing: 48, sim_t: 2100, ease: in_out}
+    hud:
+      caption: Heavy rain over the window for 40 minutes
+      detail: Drivers slow down and keep longer gaps (heavy-rain preset); roads coloured by speed change against the dry baseline
+      legend: diff
+      kpis:
+        - {label: Mean delay, fact: delta.mean_delay_s.pct, source: rain, unit: "%", decimals: 1, sign: true}
+        - {label: Mean speed, fact: delta.mean_speed_kmh.pct, source: rain, unit: "%", decimals: 1, sign: true}
+  - id: flood
+    duration_s: 12
+    layers:
+      trips: flood
+      heat: flood
+      overlays: [events]
+    camera:
+      - {t: 0,  lon: 39.1720, lat: 21.5480, zoom: 14.2, pitch: 45, bearing: -15, sim_t: 1800}
+      - {t: 12, lon: 39.1760, lat: 21.5500, zoom: 14.6, pitch: 50, bearing: 5, sim_t: 2700, ease: in_out}
+    hud:
+      caption: Storm, flood-prone underpasses closed
+      detail: 13 edges at reviewed flood sites closed from 08:10 (blue); storm driving behaviour on every road
+      legend: speed
+      kpis:
+        - {label: Mean delay, fact: delta.mean_delay_s.pct, source: flood, unit: "%", decimals: 1, sign: true}
+        - {label: Vehicles stopped, series: halted, source: flood}
+  - id: motorcade
+    duration_s: 12
+    layers:
+      trips: motorcade
+      heat: motorcade
+      color_by: class
+      overlays: [events]
+    camera:
+      - {t: 0,  lon: 39.1490, lat: 21.5488, zoom: 16.4, pitch: 58, bearing: 74, sim_t: 895}
+      - {t: 12, lon: 39.1690, lat: 21.5540, zoom: 16.6, pitch: 60, bearing: 76, sim_t: 1010, ease: in_out}
+    hud:
+      caption: A six-vehicle motorcade eastbound on Tahlia Street
+      detail: Rolling junction holds clear the way; the convoy is shown in violet
+      legend: class
+      kpis:
+        - {label: Convoy travel time, fact: convoy.0.mean_travel_time_s, source: motorcade, unit: s}
+        - {label: Free-flow time, fact: convoy.0.free_flow_s, source: motorcade, unit: s, decimals: 1}

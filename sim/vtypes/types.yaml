@@ -1,0 +1,118 @@
+# vType library for Tier B focus windows (and Tier A without the tier_b_only types).
+# Every parameter: value, unit, range, source or assumption, register id (docs/assumptions-trackB.md).
+# "SUMO 1.28 default" values were read back from SUMO 1.28.0 via TraCI (vehicletype.get*) for a
+# vType declared with only its vClass; they are model defaults, not Jeddah observations, so their
+# status is `assumed` until calibration.
+kind: vtype_library
+distribution_id: mix
+step_length_s: 1.0   # sim/config/runner.yaml uses --step-length 1; tau must not be below it
+types:
+  normal:
+    title: "Normal passenger car driver (SUMO Krauss defaults)"
+    vClass: passenger
+    guiShape: passenger
+    color: "0.75,0.75,0.75"
+    params:
+      length: {id: A-vtype-001, value: 5.0, unit: m, range: [4.3, 5.2], status: assumed, source: "SUMO 1.28 default for vClass passenger (TraCI read-back); SUMO docs 'Vehicle Type Parameter Defaults'"}
+      minGap: {id: A-vtype-002, value: 2.5, unit: m, range: [2.0, 3.0], status: assumed, source: "SUMO 1.28 default (TraCI read-back)"}
+      accel: {id: A-vtype-003, value: 2.6, unit: m/s2, range: [2.0, 3.0], status: assumed, source: "SUMO 1.28 default for passenger (TraCI read-back)"}
+      decel: {id: A-vtype-004, value: 4.5, unit: m/s2, range: [3.5, 5.0], status: assumed, source: "SUMO 1.28 default for passenger (TraCI read-back)"}
+      emergencyDecel: {id: A-vtype-005, value: 9.0, unit: m/s2, range: [7.0, 9.0], status: assumed, source: "SUMO 1.28 default for passenger (TraCI read-back)"}
+      sigma: {id: A-vtype-006, value: 0.5, unit: "-", range: [0.3, 0.7], status: assumed, source: "SUMO 1.28 default; Krauss (1998) driver imperfection parameter, DLR-Forschungsbericht 98-08"}
+      tau: {id: A-vtype-007, value: 1.0, unit: s, range: [1.0, 1.5], status: assumed, source: "SUMO 1.28 default; floor = step length 1 s (SUMO warns that tau below the step length may cause collisions)"}
+      maxSpeed: {id: A-vtype-008, value: 55.56, unit: m/s, range: [44.4, 55.6], status: assumed, source: "SUMO 1.28 default for passenger (200 km/h); not binding below urban speed limits"}
+      speedFactor: {id: A-vtype-009, value: 1.0, unit: "x limit", range: [0.95, 1.15], status: assumed, source: "SUMO 1.28 default mean speed factor; no Jeddah free-flow speed survey found"}
+      speedDev: {id: A-vtype-010, value: 0.1, unit: "-", range: [0.05, 0.2], status: assumed, source: "SUMO 1.28 default speed-factor deviation (TraCI read-back)"}
+  slow:
+    title: "Cautious / slow driver"
+    vClass: passenger
+    guiShape: passenger
+    color: "0.3,0.6,1.0"
+    params:
+      length: {id: A-vtype-011, value: 5.0, unit: m, range: [4.3, 5.2], status: assumed, source: "Same car as normal (SUMO passenger default)"}
+      minGap: {id: A-vtype-012, value: 3.0, unit: m, range: [2.5, 4.0], assumption: "Cautious drivers stop further back than the 2.5 m default; no Jeddah observation"}
+      accel: {id: A-vtype-013, value: 1.8, unit: m/s2, range: [1.5, 2.4], assumption: "Gentler starts than the 2.6 m/s2 default; guess within typical passenger-car comfort acceleration"}
+      decel: {id: A-vtype-014, value: 3.5, unit: m/s2, range: [3.0, 4.5], assumption: "Earlier, gentler braking than the 4.5 m/s2 default"}
+      sigma: {id: A-vtype-015, value: 0.5, unit: "-", range: [0.3, 0.7], status: assumed, source: "SUMO 1.28 default (Krauss 1998)"}
+      tau: {id: A-vtype-016, value: 1.4, unit: s, range: [1.2, 2.0], assumption: "Longer desired time headway than the 1 s default"}
+      speedFactor: {id: A-vtype-017, value: 0.88, unit: "x limit", range: [0.75, 0.95], assumption: "Drives below the limit; no Jeddah speed distribution found"}
+      speedDev: {id: A-vtype-018, value: 0.05, unit: "-", range: [0.03, 0.1], assumption: "Narrower spread around a below-limit mean"}
+  aggressive:
+    title: "Aggressive driver (short gaps, assertive lane changes)"
+    vClass: passenger
+    guiShape: passenger
+    color: "1.0,0.3,0.2"
+    params:
+      length: {id: A-vtype-019, value: 5.0, unit: m, range: [4.3, 5.2], status: assumed, source: "Same car as normal (SUMO passenger default)"}
+      minGap: {id: A-vtype-020, value: 1.5, unit: m, range: [1.0, 2.5], assumption: "Stops closer than the 2.5 m default"}
+      accel: {id: A-vtype-021, value: 3.2, unit: m/s2, range: [2.6, 4.0], assumption: "Harder starts than the default"}
+      decel: {id: A-vtype-022, value: 5.0, unit: m/s2, range: [4.5, 6.0], assumption: "Late, harder braking"}
+      sigma: {id: A-vtype-023, value: 0.6, unit: "-", range: [0.5, 0.8], assumption: "More erratic speed keeping than the 0.5 default"}
+      tau: {id: A-vtype-024, value: 1.0, unit: s, range: [1.0, 1.0], assumption: "Would be below 1 s, but held at the 1 s step length to avoid Krauss collisions; aggressiveness expressed through minGap, speed and lane-change parameters instead"}
+      speedFactor: {id: A-vtype-025, value: 1.15, unit: "x limit", range: [1.05, 1.3], assumption: "Habitual speeding above the limit; no Jeddah speed survey found"}
+      speedDev: {id: A-vtype-026, value: 0.1, unit: "-", range: [0.05, 0.2], status: assumed, source: "SUMO 1.28 default"}
+      lcAssertive: {id: A-vtype-027, value: 1.8, unit: "-", range: [1.0, 3.0], assumption: "Accepts smaller gaps than the LC2013 default 1 (SUMO docs: values > 1 accept smaller gaps)"}
+      lcSpeedGain: {id: A-vtype-028, value: 2.0, unit: "-", range: [1.0, 5.0], assumption: "More eager to change lanes for speed than the LC2013 default 1"}
+      lcCooperative: {id: A-vtype-029, value: 0.5, unit: "-", range: [0.0, 1.0], assumption: "Less cooperative than the LC2013 default 1"}
+  truck:
+    title: "Truck (SUMO truck defaults, KSA speed cap)"
+    vClass: truck
+    guiShape: truck
+    color: "0.55,0.35,0.15"
+    params:
+      length: {id: A-vtype-030, value: 7.1, unit: m, range: [7.0, 16.5], status: assumed, source: "SUMO 1.28 default for vClass truck (TraCI read-back); rigid truck, articulated trucks would be longer"}
+      minGap: {id: A-vtype-031, value: 2.5, unit: m, range: [2.5, 4.0], status: assumed, source: "SUMO 1.28 default (TraCI read-back)"}
+      accel: {id: A-vtype-032, value: 1.3, unit: m/s2, range: [0.8, 1.5], status: assumed, source: "SUMO 1.28 default for truck (TraCI read-back)"}
+      decel: {id: A-vtype-033, value: 4.0, unit: m/s2, range: [3.0, 4.5], status: assumed, source: "SUMO 1.28 default for truck (TraCI read-back)"}
+      emergencyDecel: {id: A-vtype-034, value: 7.0, unit: m/s2, range: [5.0, 7.0], status: assumed, source: "SUMO 1.28 default for truck (TraCI read-back)"}
+      sigma: {id: A-vtype-035, value: 0.5, unit: "-", range: [0.3, 0.7], status: assumed, source: "SUMO 1.28 default (Krauss 1998)"}
+      tau: {id: A-vtype-036, value: 1.2, unit: s, range: [1.0, 2.0], assumption: "Heavier vehicles keep longer headways than cars"}
+      maxSpeed: {id: A-vtype-037, value: 25.0, unit: m/s, range: [22.2, 27.8], assumption: "About 90 km/h: heavy vehicles are limited below car limits in KSA (exact Muroor truck limit not verified); SUMO default is 36.1 m/s"}
+      speedDev: {id: A-vtype-038, value: 0.05, unit: "-", range: [0.0, 0.1], status: assumed, source: "SUMO 1.28 default for truck (TraCI read-back)"}
+  bus:
+    title: "Bus (SUMO bus defaults)"
+    vClass: bus
+    guiShape: bus
+    color: "0.1,0.6,0.3"
+    params:
+      length: {id: A-vtype-039, value: 12.0, unit: m, range: [10.0, 13.5], status: assumed, source: "SUMO 1.28 default for vClass bus (TraCI read-back); standard 12 m city bus"}
+      minGap: {id: A-vtype-040, value: 2.5, unit: m, range: [2.5, 4.0], status: assumed, source: "SUMO 1.28 default"}
+      accel: {id: A-vtype-041, value: 1.2, unit: m/s2, range: [0.8, 1.5], status: assumed, source: "SUMO 1.28 default for bus (TraCI read-back)"}
+      decel: {id: A-vtype-042, value: 4.0, unit: m/s2, range: [3.0, 4.5], status: assumed, source: "SUMO 1.28 default for bus (TraCI read-back)"}
+      emergencyDecel: {id: A-vtype-043, value: 7.0, unit: m/s2, range: [5.0, 7.0], status: assumed, source: "SUMO 1.28 default for bus (TraCI read-back)"}
+      tau: {id: A-vtype-044, value: 1.2, unit: s, range: [1.0, 2.0], assumption: "Professional drivers of heavy vehicles keep longer headways"}
+      maxSpeed: {id: A-vtype-045, value: 27.78, unit: m/s, range: [22.2, 27.8], status: assumed, source: "SUMO 1.28 default for bus (100 km/h)"}
+      speedDev: {id: A-vtype-046, value: 0.0, unit: "-", range: [0.0, 0.05], status: assumed, source: "SUMO 1.28 default for bus (TraCI read-back)"}
+  emergency:
+    title: "Emergency vehicle with blue light (Tier B only)"
+    vClass: emergency
+    guiShape: emergency
+    color: "1.0,0.0,0.0"
+    tier_b_only: true
+    devices: [bluelight]
+    params:
+      length: {id: A-vtype-047, value: 6.5, unit: m, range: [5.5, 7.5], status: assumed, source: "SUMO 1.28 default for vClass emergency (TraCI read-back); ambulance-sized"}
+      minGap: {id: A-vtype-048, value: 2.5, unit: m, range: [2.0, 3.0], status: assumed, source: "SUMO 1.28 default"}
+      accel: {id: A-vtype-049, value: 2.6, unit: m/s2, range: [2.0, 3.0], status: assumed, source: "SUMO 1.28 default for emergency (TraCI read-back)"}
+      decel: {id: A-vtype-050, value: 4.5, unit: m/s2, range: [3.5, 5.0], status: assumed, source: "SUMO 1.28 default for emergency (TraCI read-back)"}
+      sigma: {id: A-vtype-051, value: 0.2, unit: "-", range: [0.0, 0.5], assumption: "Trained drivers keep speed more steadily than the 0.5 default"}
+      tau: {id: A-vtype-052, value: 1.0, unit: s, range: [1.0, 1.0], status: assumed, source: "SUMO default, held at the 1 s step length"}
+      speedFactor: {id: A-vtype-053, value: 1.3, unit: "x limit", range: [1.1, 1.5], assumption: "Blue-light vehicles may exceed the limit (the bluelight device lets them); 1.3 is a guess, no Saudi Red Crescent / Civil Defence speed data"}
+      speedDev: {id: A-vtype-054, value: 0.0, unit: "-", range: [0.0, 0.05], status: assumed, source: "SUMO 1.28 default for emergency (TraCI read-back); keeps the free-flow reference exact"}
+  convoy:
+    title: "Motorcade vehicle (vClass vip)"
+    # vClass vip: SUMO's class for VIP vehicles. It is allowed wherever passenger cars are on the
+    # Jeddah network, is distinct from `emergency` (no blue-light semantics) and lets rolling
+    # closures exempt the convoy by class.
+    vClass: vip
+    guiShape: passenger/van
+    color: "0.1,0.1,0.1"
+    params:
+      length: {id: A-vtype-055, value: 5.5, unit: m, range: [5.0, 6.0], assumption: "Large SUVs typical of motorcades"}
+      minGap: {id: A-vtype-056, value: 1.5, unit: m, range: [1.0, 3.0], assumption: "Convoys drive in tight formation"}
+      accel: {id: A-vtype-057, value: 2.6, unit: m/s2, range: [2.0, 3.5], status: assumed, source: "SUMO 1.28 passenger default"}
+      decel: {id: A-vtype-058, value: 4.5, unit: m/s2, range: [3.5, 5.0], status: assumed, source: "SUMO 1.28 passenger default"}
+      sigma: {id: A-vtype-059, value: 0.1, unit: "-", range: [0.0, 0.3], assumption: "Professional drivers hold speed steadily"}
+      tau: {id: A-vtype-060, value: 1.0, unit: s, range: [1.0, 1.0], status: assumed, source: "SUMO default, held at the 1 s step length"}
+      speedFactor: {id: A-vtype-061, value: 1.2, unit: "x limit", range: [1.0, 1.5], assumption: "Motorcades on cleared roads travel above the posted limit"}
+      speedDev: {id: A-vtype-062, value: 0.0, unit: "-", range: [0.0, 0.0], assumption: "All convoy vehicles share one speed factor so the formation holds"}

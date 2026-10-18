@@ -1,0 +1,103 @@
+# Zone (TAZ) builder configuration: python -m sim.population.zones
+# Behavioural weights carry `source:` or `assumption:` and are registered in docs/assumptions-trackA.md.
+label: "synthetic demand, uncalibrated"
+
+inputs:
+  districts: data/jeddah/districts.geojson
+  buildings: data/jeddah/buildings.geojson
+  osm_pbf: data/osm/jeddah.osm.pbf
+  net: data/jeddah/jeddah.v2.net.xml   # network v2 (Track F, TF-010); m2: data/jeddah/jeddah.m2.net.xml
+out_dir: data/population/zones
+
+control_total:
+  value: 3712917
+  source: "GASTAT Census 2022, place Jiddah (Jeddah city) population 3,712,917 (citypopulation.de / GASTAT portal, accessed 2026-10-15)"
+
+# Residential weight of a zone = sum of w_k * (zone share of proxy k). OSM building coverage in
+# Jeddah is sparse (27,783 footprints for a city of 3.7 M) and very uneven between districts, so the
+# footprint proxy is blended with two coverage-robust proxies. Registered as A-pop-001.
+residential_weights:
+  building_footprint_area: 0.5
+  residential_street_km: 0.35
+  residential_landuse_area: 0.15
+  assumption: "Building footprints are the brief's proxy but cover only part of Jeddah in OSM; residential-street length (local roads in the main SCC) tracks built-up area where buildings are unmapped, landuse=residential adds mapped housing estates. Weights are a judgement; range 0.3-0.8 for footprints."
+
+# Footprint weight by OSM building tag (others count 0).
+residential_building_tags:
+  apartments: 1.0
+  house: 1.0
+  residential: 1.0
+  terrace: 1.0
+  detached: 1.0
+  semidetached_house: 1.0
+  villa: 1.0
+  dormitory: 1.0
+  "yes": 0.5
+  assumption: "Untyped 'yes' buildings are mostly housing in Jeddah but include shops, warehouses and offices; counted at half weight. Range 0.3-0.8."
+
+# Districts that hold no resident population (airport, port, naval base, industrial estate).
+non_residential_districts:
+  names: ["King Abdulaziz International Airport", "Jeddah Eslamic Seaport", "King Faisal Naval Base", "Industrial Area"]
+  assumption: "Special-use districts in OSM; residents there (staff housing) are ignored. Their jobs still count."
+
+# OSM tag -> category mapping for POIs (nodes and closed ways; ways count as one POI).
+osm_categories:
+  office: {office: "*", amenity: [bank, bureau_de_change, townhall, courthouse, embassy]}
+  government: {office: [government, diplomatic], amenity: [townhall, courthouse, police, fire_station, post_office, embassy]}
+  shop: {shop: "*", amenity: [marketplace]}
+  food: {amenity: [restaurant, cafe, fast_food, food_court, ice_cream]}
+  hotel: {tourism: [hotel, motel, guest_house, apartment, hostel]}
+  health: {amenity: [hospital, clinic, doctors, dentist, pharmacy], healthcare: "*"}
+  school: {amenity: [school, kindergarten]}
+  university: {amenity: [university, college]}
+  mosque: {amenity: [place_of_worship]}
+  leisure: {leisure: [park, sports_centre, stadium, pitch, fitness_centre, water_park, beach_resort, playground, marina], tourism: [attraction, museum, theme_park, viewpoint]}
+  airport: {aeroway: [terminal]}
+  bus_stop: {highway: [bus_stop], public_transport: [platform, stop_position]}
+landuse_categories:
+  residential: [residential]
+  commercial: [commercial, retail]
+  industrial: [industrial, port, railway, depot]
+
+# Job and attraction weights: attraction_j = sum_k coef_k * share_j(proxy k). Proxies: POI
+# categories above (count shares), landuse areas (area shares) and `population` (resident share,
+# for population-serving activity that OSM under-maps). Registered as A-pop-002.
+attractions:
+  government:      {office: 0.2, government: 0.5, commercial_area: 0.1, population: 0.2}
+  private_office:  {office: 0.5, commercial_area: 0.3, population: 0.2}
+  retail_hospitality: {shop: 0.35, food: 0.25, hotel: 0.1, commercial_area: 0.1, population: 0.2}
+  health:          {health: 0.7, population: 0.3}
+  education:       {school: 0.5, university: 0.2, population: 0.3}
+  industrial_port: {industrial_area: 0.6, population: 0.4}
+  logistics_ridehail: {industrial_area: 0.4, commercial_area: 0.2, population: 0.4}
+  shopping:        {shop: 0.5, food: 0.1, commercial_area: 0.2, population: 0.2}
+  leisure:         {leisure: 0.35, food: 0.35, coast: 0.15, population: 0.15}
+  personal:        {health: 0.2, government: 0.2, office: 0.2, population: 0.4}
+  school:          {school_seats: 0.4, population: 0.6}
+  mosque:          {mosque: 0.5, population: 0.5}
+  university:      {university_seats: 1.0}
+  assumption: "OSM POI and landuse densities as proxies for jobs and attractions; a resident-population term covers unmapped local services and dispersed construction sites (construction is 25 % of KSA employment) (and unmapped schools: only 198 OSM schools for ~0.7 M pupils). Judgement weights; each 0.1-0.5 plausible. Replace with GASTAT establishment counts per district if published."
+
+# Coastal (Corniche) leisure attraction: districts whose names match get the `coast` proxy.
+coast_districts:
+  names: ["Al-Shatee", "Al Hamra", "Al-Balad", "Ash Sheraa", "Al Shiraa", "Abhur Al Janubiyah", "Abhur Ash Shamaliyah", "Al-Nahdah", "Al-Zahra", "Al-Salamah", "Ar Ruwais", "Al Andalus", "Al Murjaan", "As Sahil", "Al Loaloa"]
+  assumption: "Districts touching the Jeddah Corniche / Obhur creek (read from the map); evening leisure magnet. Coarse; refine with distance to the shoreline."
+
+# School and university seats per OSM object (OSM does not tag capacity).
+seats:
+  school_per_object: 450
+  university_per_area_km2: 15000
+  university_min_seats: 500
+  assumption: "Saudi public schools enrol a few hundred pupils each (MoE averages roughly 300-600); universities scaled by campus area so KAU (~6 km2 district) gets tens of thousands. Only used to distribute students between zones; totals come from the population."
+
+# Bus accessibility: a tour may use the bus only if both ends lie within this radius of a stop.
+bus_catchment:
+  radius_m: 500
+  source: "PROJECT.md 6.2 (bus where a route exists within 500 m of both ends). No GTFS feed and no OSM route=bus relations for Jeddah (docs/data-sources.md), so OSM bus-stop/platform nodes stand in for routes (49 in the 2026-10-14 extract)."
+
+# Edge selection for origins/destinations (main strongly connected component only).
+edges:
+  home_types: [highway.residential, highway.unclassified, highway.tertiary, highway.tertiary_link, highway.living_street, highway.service]
+  activity_exclude_types: [highway.motorway, highway.motorway_link, highway.trunk_link]
+  min_length_m: 20
+  fallback_to_all: true

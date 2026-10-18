@@ -1,0 +1,57 @@
+# Lint, tests and the web build on the committed demo window. City-scale runs are never part of CI.
+# Actions are pinned to commit SHAs (tag in the trailing comment); update them together.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: ruff + pytest (demo window)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: System libraries for the eclipse-sumo Linux binaries, and osmium-tool
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends \
+            libatomic1 libx11-6 libxext6 libxrender1 libgl1 osmium-tool
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          version: "0.11.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Python 3.12 and dependencies (SUMO from the eclipse-sumo wheel)
+        run: uv sync --frozen
+      - name: Lint and format check
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Tests (demo window only, offline)
+        run: uv run pytest -q
+
+  web:
+    name: web typecheck + build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --include=dev --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm run build

@@ -1,0 +1,242 @@
+kind: loop_candidates
+label: synthetic demand, uncalibrated
+baseline: baseline-weekday-f0.1-s1-e5f1906a-65fac195-f124c5
+generated_by: python -m sim.loop.site
+access_radius_m: 1500.0
+alignments_scored: 735
+candidates:
+- id: C1
+  name: Al-Salamah - King Abdulaziz University
+  origin: data
+  tunnel_km: 17.86
+  captured_delay_h: 62845.3
+  captured_trips: 103690
+  delay_h_per_km: 3518.6
+  stations:
+  - name: Al-Salamah
+    lon: 39.15068
+    lat: 21.59789
+  - name: Al-Salamah
+    lon: 39.1584
+    lat: 21.58455
+  - name: Al Faisaliyyah
+    lon: 39.17875
+    lat: 21.5689
+  - name: Al Aziziyah
+    lon: 39.19279
+    lat: 21.5544
+  - name: Al-Musharifah
+    lon: 39.20311
+    lat: 21.53635
+  - name: Al Naseem
+    lon: 39.22403
+    lat: 21.52746
+  - name: Al Naseem
+    lon: 39.23488
+    lat: 21.5109
+  - name: King Abdulaziz University
+    lon: 39.2489
+    lat: 21.4964
+- id: C2
+  name: Ar Ruwais - Ar Rughamah
+  origin: data
+  tunnel_km: 10.68
+  captured_delay_h: 26178.3
+  captured_trips: 40150
+  delay_h_per_km: 2450.1
+  stations:
+  - name: Ar Ruwais
+    lon: 39.17273
+    lat: 21.51679
+  - name: Al Wurud
+    lon: 39.19449
+    lat: 21.51502
+  - name: Al Faiha'a
+    lon: 39.21728
+    lat: 21.51118
+  - name: Al Naseem
+    lon: 39.2371
+    lat: 21.51694
+  - name: Ar Rughamah
+    lon: 39.25977
+    lat: 21.50967
+- id: C3
+  name: Al Marwah - Ath Thaghr
+  origin: data
+  tunnel_km: 17.28
+  captured_delay_h: 38508.0
+  captured_trips: 74050
+  delay_h_per_km: 2228.4
+  stations:
+  - name: Al Marwah
+    lon: 39.20159
+    lat: 21.61257
+  - name: Al-Safa
+    lon: 39.2019
+    lat: 21.59781
+  - name: Al-Safa
+    lon: 39.21193
+    lat: 21.57545
+  - name: Al-Rehab
+    lon: 39.2171
+    lat: 21.55689
+  - name: Al-Rehab
+    lon: 39.22227
+    lat: 21.53833
+  - name: Al Naseem
+    lon: 39.22743
+    lat: 21.51977
+  - name: King Abdulaziz University
+    lon: 39.2297
+    lat: 21.49587
+  - name: Ath Thaghr
+    lon: 39.23776
+    lat: 21.48265
+- id: C4
+  name: Al Bawadi - Al-Balad
+  origin: data
+  tunnel_km: 16.21
+  captured_delay_h: 20652.8
+  captured_trips: 65090
+  delay_h_per_km: 1274.4
+  stations:
+  - name: Al Bawadi
+    lon: 39.15735
+    lat: 21.6123
+  - name: Al Bawadi
+    lon: 39.16244
+    lat: 21.59177
+  - name: Al-Rawdah
+    lon: 39.16549
+    lat: 21.57154
+  - name: Al Andalus
+    lon: 39.17262
+    lat: 21.55072
+  - name: Al Hamra
+    lon: 39.1777
+    lat: 21.53019
+  - name: Al Baghdadiyah Al Gharbiyah
+    lon: 39.17996
+    lat: 21.50402
+  - name: Al-Balad
+    lon: 39.18787
+    lat: 21.48914
+- id: C5
+  name: Al Marwah - Al-Zahra
+  origin: data
+  tunnel_km: 12.25
+  captured_delay_h: 12928.7
+  captured_trips: 42820
+  delay_h_per_km: 1055.5
+  stations:
+  - name: Al Marwah
+    lon: 39.21467
+    lat: 21.62475
+  - name: Al Marwah
+    lon: 39.20159
+    lat: 21.61257
+  - name: Al-Rabwah
+    lon: 39.18048
+    lat: 21.60377
+  - name: Al Bawadi
+    lon: 39.16339
+    lat: 21.59328
+  - name: Al-Salamah
+    lon: 39.1463
+    lat: 21.58278
+  - name: Al-Zahra
+    lon: 39.12921
+    lat: 21.57228
+- id: C6
+  name: Al Jamiah - Tahlia / Al Andalus
+  origin: data
+  tunnel_km: 17.52
+  captured_delay_h: 13729.5
+  captured_trips: 38780
+  delay_h_per_km: 783.5
+  stations:
+  - name: Al Jamiah
+    lon: 39.25399
+    lat: 21.47896
+  - name: Ath Thaghr
+    lon: 39.23776
+    lat: 21.48265
+  - name: Al Faiha'a
+    lon: 39.21838
+    lat: 21.49841
+  - name: Al Faiha'a
+    lon: 39.20057
+    lat: 21.50813
+  - name: Ash Sharafiyah
+    lon: 39.18661
+    lat: 21.52303
+  - name: Al Hamra
+    lon: 39.1661
+    lat: 21.53073
+  - name: Al Andalus
+    lon: 39.14712
+    lat: 21.53729
+  - name: Tahlia / Al Andalus
+    lon: 39.1293
+    lat: 21.547
+- id: C7
+  name: Al Baghdadiyah Al Gharbiyah - Al-Nahdah
+  origin: data
+  tunnel_km: 15.83
+  captured_delay_h: 10163.6
+  captured_trips: 48300
+  delay_h_per_km: 641.9
+  stations:
+  - name: Al Baghdadiyah Al Gharbiyah
+    lon: 39.17996
+    lat: 21.50402
+  - name: Ar Ruwais
+    lon: 39.17273
+    lat: 21.51679
+  - name: Al Andalus
+    lon: 39.16061
+    lat: 21.54132
+  - name: Al-Rawdah
+    lon: 39.15093
+    lat: 21.55997
+  - name: Al-Zahra
+    lon: 39.14124
+    lat: 21.57861
+  - name: Al-Zahra
+    lon: 39.13156
+    lat: 21.59726
+  - name: Al-Nahdah
+    lon: 39.12187
+    lat: 21.61591
+- id: C8
+  name: KAIA airport (Terminal 1) - King Abdulaziz University
+  origin: 'anchor test: KAIA airport (Terminal 1)'
+  tunnel_km: 23.32
+  captured_delay_h: 32523.2
+  captured_trips: 60620
+  delay_h_per_km: 1394.4
+  stations:
+  - name: KAIA airport (Terminal 1)
+    lon: 39.1734
+    lat: 21.6655
+  - name: King Abdulaziz International Airport
+    lon: 39.1842
+    lat: 21.64135
+  - name: Al Marwah
+    lon: 39.19499
+    lat: 21.61719
+  - name: Al-Safa
+    lon: 39.20578
+    lat: 21.59303
+  - name: Al-Safa
+    lon: 39.21656
+    lat: 21.56888
+  - name: Al-Rehab
+    lon: 39.22735
+    lat: 21.54472
+  - name: Al Naseem
+    lon: 39.23812
+    lat: 21.52056
+  - name: King Abdulaziz University
+    lon: 39.2489
+    lat: 21.4964

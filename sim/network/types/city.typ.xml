@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tier A (city, meso) overlay on $SUMO_HOME/data/typemap/osmNetconvert.xml:
+     drop minor access roads that only matter at street level (kept in Tier B windows). -->
+<types>
+    <type id="highway.service" discard="true"/>
+    <type id="highway.services" discard="true"/>
+    <type id="highway.track" discard="true"/>
+    <type id="highway.living_street" discard="true"/>
+    <type id="highway.raceway" discard="true"/>
+    <type id="highway.bus_guideway" discard="true"/>
+</types>

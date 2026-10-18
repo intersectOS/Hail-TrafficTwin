@@ -1,0 +1,30 @@
+name: Feature or modelling request
+description: A new policy, event, metric, data source or viewer feature.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: The question it answers
+      description: What policy or operational question should the twin be able to answer?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Which layer (sim/, strategist/, api/, web/), which SUMO built-ins could do it, which tier (A city meso, B window micro).
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data and assumptions
+      description: Public sources (with licence) or the assumptions it needs; new parameters go to docs/assumptions.md.
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Publication policy
+      options:
+        - label: This does not need real-city emergency, evacuation or motorcade plans, private counts or commercial data (PROJECT.md section 11).
+          required: true

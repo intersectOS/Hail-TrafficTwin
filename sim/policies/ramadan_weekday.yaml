@@ -1,0 +1,9 @@
+# Calendar policy: a Ramadan weekday compared with a regular weekday.
+id: ramadan_weekday
+kind: policy
+title: "Ramadan weekday compared with a regular weekday"
+daytype: weekday
+transforms:
+  - type: daytype
+    daytype: ramadan_weekday
+    assumption: "A-pol-021: re-times everyone with sim/daytypes/ramadan_weekday.yaml (ids A-day-3xx: reduced work hours, pre-iftar rush, late-night activity); the run is the Ramadan baseline, reported against the weekday baseline."

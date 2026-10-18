@@ -1,0 +1,17 @@
+# Narration for incident (scripts/movies/narrate.py). Numbers only from the docs (docs/events.md).
+film: incident
+lines:
+  - shot: side-by-side
+    at: 0.6
+    text: "A fictional crash closes both northbound lanes on the corridor into Madinah Road for twenty minutes."
+  - shot: side-by-side
+    at: 8
+    text: "On the left, the normal morning. On the right, the crash run, with the same traffic and the same seed."
+  - shot: side-by-side
+    at: 14
+    text: "Drivers re-route around the closed road, so the delay spreads into the side streets instead of one long queue."
+  - shot: difference
+    at: 0.6
+    text: "Red roads are slower than normal, blue roads faster. Mean delay in the window rises by 5.7 percent."
+  - shot: difference
+    text: "The scenario is fictional. Synthetic demand, uncalibrated."

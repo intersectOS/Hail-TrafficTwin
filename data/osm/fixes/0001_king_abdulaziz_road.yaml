@@ -1,0 +1,31 @@
+# King Abdulaziz Road (ref 20), Jeddah: oneway primary carriageways without a `lanes` tag.
+# Found 2026-10-15 during the M1 city build: netconvert's typemap gives untagged oneway primaries
+# 2 lanes, while the tagged carriageways of the same road (5 ways) carry lanes=4 and the median over
+# all its SUMO edges is 4. The 2-lane stretches (12.3 km on way 85191646 alone) were artificial
+# bottlenecks on one of the city's main north-south arterials.
+# lanes_min only raises edges below 4, so lanes netconvert adds at guessed on/off ramps are kept.
+fixes:
+  - id: FIX-0001
+    osm_way_id: 85191646
+    field: lanes_min
+    value: 4
+    reason: "Untagged lanes on King Abdulaziz Road carriageway (12.3 km); tagged segments of the same road have lanes=4"
+    date: 2026-10-15
+    author: traffictwin
+    osm_note: "Not yet edited in OSM; confirm lane count on imagery before upstreaming"
+  - id: FIX-0002
+    osm_way_id: 43061113
+    field: lanes_min
+    value: 4
+    reason: "Untagged lanes on King Abdulaziz Road carriageway (3.0 km); tagged segments of the same road have lanes=4"
+    date: 2026-10-15
+    author: traffictwin
+    osm_note: "Not yet edited in OSM; confirm lane count on imagery before upstreaming"
+  - id: FIX-0003
+    osm_way_id: 1071541010
+    field: lanes_min
+    value: 4
+    reason: "Untagged lanes on King Abdulaziz Road carriageway (1.6 km); tagged segments of the same road have lanes=4"
+    date: 2026-10-15
+    author: traffictwin
+    osm_note: "Not yet edited in OSM; confirm lane count on imagery before upstreaming"

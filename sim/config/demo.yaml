@@ -1,0 +1,32 @@
+# `make demo` (python -m sim.demo): the runs a clean clone produces before the viewer opens.
+# Paths are relative to the repo root. Synthetic demand, uncalibrated; scenarios are fictional.
+seed: 1
+
+# Tier B: the committed demo window, microscopic, with trajectories for the viewer.
+tier_b_smoke:
+  fcd: true                       # random trips from sim/config/runner.yaml (smoke.tier_B)
+
+# Tier B scenarios and strategist on the demo window (all fictional, PROJECT.md section 11).
+scenario: sim/scenarios/demo_events.yaml
+strategist_scenario: emergency_demo  # strategist/scenarios/emergency_demo.yaml
+evacuation: evac_demo                # sim/scenarios/evac_demo.yaml
+
+# Policy lab on the demo window: a tiny resident population on four quadrant "districts" of the
+# window bbox, a demo-scale weekday baseline (meso, one assignment step) and the policy against it.
+# This only demonstrates the pipeline and the viewer comparison; city policy results come from
+# `make city` + `python -m sim.runner --policy ...` on the Jeddah network.
+policy:
+  id: remote_work_30              # sim/policies/remote_work_30.yaml
+  run_id: demo-remote_work_30
+  daytype: weekday
+  sample: 1.0
+  iterations: 1
+  residents: {id: A-demo-001, value: 8000, unit: persons, range: [2000, 20000], assumption: "Demo-window control total so the demo population, its 24 h meso baseline and the policy run finish in under a minute; the window (3.3 km2 of Tahlia / Al Andalus) is not given a real population. Demo only, never a result"}
+  cache_dir: data/demo-cache      # demo population, routes and edge caches (kept apart from the city's)
+
+# Tier A: a short city smoke at mid-day, only when data/jeddah/jeddah.net.xml exists
+# (make demo builds it unless CITY=0). Random trips, not behavioural demand.
+tier_a_smoke:
+  begin: 43200                    # 12:00, so the Tier A playback opens at mid-day
+  end: 46800                      # one hour
+  period: 1.0                     # one random trip per second: 3,600 trips (the M1 smoke uses 0.2)

@@ -1,0 +1,33 @@
+# Tier A city: a 24-hour time-lapse of the weekday baseline (10 % population sample, meso).
+# Edge colour = speed / limit per 5-minute bin; the camera pulls back from the Corniche to the
+# whole city while the sun rises and sets over Jeddah.
+# Network v2 (pass 7): the v2 weekday baseline (docs/policies.md v2 section; 28.3 % of vehicles
+# teleport on v2 vs 50.5 % on the first network). The v1 baseline e5f1906a stays under runs/.
+film: city-24h
+title: Jeddah in 24 hours
+subtitle: Tier A city baseline, a regular weekday from 02:00 to 02:00
+duration_s: 40
+showreel: [6, 26]           # excerpt in the showreel (2-3 min total)
+tier: A
+sources:
+  base: {run: baseline-weekday-f0.1-s1-ae764558-346893f2-a998e1}
+basemap:
+  bbox: [39.02, 21.24, 39.36, 21.92]
+title_card_s: 3
+shots:
+  - id: timelapse
+    duration_s: 40
+    layers:
+      heat: base
+    camera:
+      - {t: 0,  lon: 39.1080, lat: 21.5950, zoom: 13.6, pitch: 58, bearing: 25, sim_t: 7200}
+      - {t: 12, lon: 39.1350, lat: 21.5900, zoom: 12.2, pitch: 50, bearing: 10, ease: in_out}
+      - {t: 26, lon: 39.1750, lat: 21.5750, zoom: 10.7, pitch: 38, bearing: -5, ease: in_out}
+      - {t: 40, lon: 39.1900, lat: 21.5650, zoom: 10.3, pitch: 34, bearing: -22, sim_t: 93600, ease: out}
+    hud:
+      caption: A regular weekday on the whole city network
+      detail: Road colour = speed against the limit, 5-minute bins; mesoscopic model on network v2, 10 % sample
+      legend: speed
+      kpis:
+        - {label: Vehicles on the road (10 % sample), series: running, source: base}
+        - {label: Trips completed (10 % sample), series: arrived, source: base}

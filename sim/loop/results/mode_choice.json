@@ -1,0 +1,808 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "config_hash": "f26ed359",
+  "baseline": "baseline-weekday-f0.1-s1-e5f1906a-65fac195-f124c5",
+  "sample": 0.1,
+  "candidates": {
+    "C1": {
+      "eligible_tours": 4772,
+      "eligible_legs": 9855,
+      "eligible_riders_per_day": 98550,
+      "measured": {
+        "params": {
+          "speed_kmh": 90.0,
+          "capacity": "measured",
+          "headway_s": 5.314,
+          "pair_capacity_pph": 1355.0,
+          "wait_min": 12.5
+        },
+        "central": {
+          "eligible_tours": 4772,
+          "eligible_legs": 9855,
+          "legs_without_car_time": 20,
+          "expected_tours": 1018.95,
+          "expected_riders_per_day": 20867,
+          "chosen_tours": 1024,
+          "tours_shifted": 950,
+          "riders_per_day": 19530,
+          "riders_capped_per_day": 1480,
+          "shift_share_legs": 0.1982,
+          "mean_p_loop": 0.2117,
+          "max_queue_min": 8.91,
+          "peak_pair_riders_pph": 160.0,
+          "peak_segment_riders_pph": 640.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 643.6,
+          "share_admitted_slower_gen": 0.4229,
+          "share_admitted_slower_time": 0.3748,
+          "mean_car_gen_min": 71.3,
+          "mean_loop_gen_min": 114.7,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 160.0,
+            "segment_peak_utilisation": 1.092,
+            "segment_exceedance_share": 0.0915,
+            "riders_per_shuttle_movement": 0.898
+          }
+        },
+        "range_riders_per_day": [
+          10910,
+          18530,
+          31910
+        ],
+        "range_by_fare": {
+          "0": [
+            14210,
+            31910
+          ],
+          "5": [
+            13270,
+            27870
+          ],
+          "10": [
+            12570,
+            24170
+          ],
+          "20": [
+            10910,
+            18230
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 24030,
+            "-0.02": 21490,
+            "-0.025": 19530,
+            "-0.05": 17100
+          },
+          "vot_sar_h": {
+            "20": 24270,
+            "40": 19530,
+            "80": 16930
+          },
+          "wait_mult": {
+            "1.5": 20820,
+            "2": 19530,
+            "2.5": 18650
+          },
+          "walk_mult": {
+            "1.5": 23610,
+            "2": 19530,
+            "3": 13550
+          },
+          "asc_loop_min": {
+            "0": 22250,
+            "10": 19530,
+            "20": 17690,
+            "30": 15650
+          },
+          "fare_sar": {
+            "0": 21560,
+            "5": 19530,
+            "10": 18070,
+            "20": 14990
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 7240
+      },
+      "vendor": {
+        "params": {
+          "speed_kmh": 160.0,
+          "capacity": "engineering",
+          "headway_s": 1.5,
+          "pair_capacity_pph": 4800.0,
+          "wait_min": 2.0
+        },
+        "central": {
+          "eligible_tours": 4772,
+          "eligible_legs": 9855,
+          "legs_without_car_time": 20,
+          "expected_tours": 1560.59,
+          "expected_riders_per_day": 32021,
+          "chosen_tours": 1536,
+          "tours_shifted": 1536,
+          "riders_per_day": 31450,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.3191,
+          "mean_p_loop": 0.3249,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 220.0,
+          "peak_segment_riders_pph": 1180.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 2280.0,
+          "share_admitted_slower_gen": 0.3692,
+          "share_admitted_slower_time": 0.2951,
+          "mean_car_gen_min": 71.3,
+          "mean_loop_gen_min": 89.5,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 220.0,
+            "segment_peak_utilisation": 0.496,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.954
+          }
+        },
+        "range_riders_per_day": [
+          18750,
+          29380,
+          48540
+        ],
+        "range_by_fare": {
+          "0": [
+            25130,
+            48540
+          ],
+          "5": [
+            23730,
+            41120
+          ],
+          "10": [
+            22140,
+            34470
+          ],
+          "20": [
+            18750,
+            27830
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 34890,
+            "-0.02": 32930,
+            "-0.025": 31450,
+            "-0.05": 28890
+          },
+          "vot_sar_h": {
+            "20": 36590,
+            "40": 31450,
+            "80": 28570
+          },
+          "wait_mult": {
+            "1.5": 31490,
+            "2": 31450,
+            "2.5": 31450
+          },
+          "walk_mult": {
+            "1.5": 39860,
+            "2": 31450,
+            "3": 20200
+          },
+          "asc_loop_min": {
+            "0": 36850,
+            "10": 31450,
+            "20": 27110,
+            "30": 23320
+          },
+          "fare_sar": {
+            "0": 35390,
+            "5": 31450,
+            "10": 28290,
+            "20": 22150
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 11760
+      },
+      "wall_s": 37.6
+    },
+    "C2": {
+      "eligible_tours": 1825,
+      "eligible_legs": 3781,
+      "eligible_riders_per_day": 37810,
+      "measured": {
+        "params": {
+          "speed_kmh": 90.0,
+          "capacity": "measured",
+          "headway_s": 5.314,
+          "pair_capacity_pph": 1355.0,
+          "wait_min": 12.5
+        },
+        "central": {
+          "eligible_tours": 1825,
+          "eligible_legs": 3781,
+          "legs_without_car_time": 0,
+          "expected_tours": 432.88,
+          "expected_riders_per_day": 8918,
+          "chosen_tours": 434,
+          "tours_shifted": 434,
+          "riders_per_day": 9000,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.238,
+          "mean_p_loop": 0.2359,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 260.0,
+          "peak_segment_riders_pph": 600.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 643.6,
+          "share_admitted_slower_gen": 0.4422,
+          "share_admitted_slower_time": 0.36,
+          "mean_car_gen_min": 72.6,
+          "mean_loop_gen_min": 109.7,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 260.0,
+            "segment_peak_utilisation": 0.841,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.924
+          }
+        },
+        "range_riders_per_day": [
+          4020,
+          8180,
+          15680
+        ],
+        "range_by_fare": {
+          "0": [
+            5640,
+            15680
+          ],
+          "5": [
+            5140,
+            13320
+          ],
+          "10": [
+            4680,
+            11520
+          ],
+          "20": [
+            4020,
+            8160
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 10800,
+            "-0.02": 9940,
+            "-0.025": 9000,
+            "-0.05": 7760
+          },
+          "vot_sar_h": {
+            "20": 11540,
+            "40": 9000,
+            "80": 7520
+          },
+          "wait_mult": {
+            "1.5": 10020,
+            "2": 9000,
+            "2.5": 8120
+          },
+          "walk_mult": {
+            "1.5": 11620,
+            "2": 9000,
+            "3": 5320
+          },
+          "asc_loop_min": {
+            "0": 10820,
+            "10": 9000,
+            "20": 7300,
+            "30": 6060
+          },
+          "fare_sar": {
+            "0": 10600,
+            "5": 9000,
+            "10": 7760,
+            "20": 5780
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 2980
+      },
+      "vendor": {
+        "params": {
+          "speed_kmh": 160.0,
+          "capacity": "engineering",
+          "headway_s": 1.5,
+          "pair_capacity_pph": 4800.0,
+          "wait_min": 2.0
+        },
+        "central": {
+          "eligible_tours": 1825,
+          "eligible_legs": 3781,
+          "legs_without_car_time": 0,
+          "expected_tours": 641.01,
+          "expected_riders_per_day": 13209,
+          "chosen_tours": 657,
+          "tours_shifted": 657,
+          "riders_per_day": 13560,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.3586,
+          "mean_p_loop": 0.3493,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 310.0,
+          "peak_segment_riders_pph": 740.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 2280.0,
+          "share_admitted_slower_gen": 0.4086,
+          "share_admitted_slower_time": 0.2832,
+          "mean_car_gen_min": 72.6,
+          "mean_loop_gen_min": 87.0,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 310.0,
+            "segment_peak_utilisation": 0.279,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.975
+          }
+        },
+        "range_riders_per_day": [
+          7340,
+          12250,
+          19960
+        ],
+        "range_by_fare": {
+          "0": [
+            10180,
+            19960
+          ],
+          "5": [
+            9340,
+            16840
+          ],
+          "10": [
+            8780,
+            14040
+          ],
+          "20": [
+            7340,
+            11700
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 14740,
+            "-0.02": 13940,
+            "-0.025": 13560,
+            "-0.05": 12180
+          },
+          "vot_sar_h": {
+            "20": 14720,
+            "40": 13560,
+            "80": 11860
+          },
+          "wait_mult": {
+            "1.5": 13480,
+            "2": 13560,
+            "2.5": 13440
+          },
+          "walk_mult": {
+            "1.5": 16700,
+            "2": 13560,
+            "3": 8060
+          },
+          "asc_loop_min": {
+            "0": 15540,
+            "10": 13560,
+            "20": 11500,
+            "30": 9580
+          },
+          "fare_sar": {
+            "0": 15040,
+            "5": 13560,
+            "10": 11900,
+            "20": 9000
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 5060
+      },
+      "wall_s": 15.2
+    },
+    "C4": {
+      "eligible_tours": 2975,
+      "eligible_legs": 6147,
+      "eligible_riders_per_day": 61470,
+      "measured": {
+        "params": {
+          "speed_kmh": 90.0,
+          "capacity": "measured",
+          "headway_s": 5.314,
+          "pair_capacity_pph": 1355.0,
+          "wait_min": 12.5
+        },
+        "central": {
+          "eligible_tours": 2975,
+          "eligible_legs": 6147,
+          "legs_without_car_time": 0,
+          "expected_tours": 289.02,
+          "expected_riders_per_day": 5910,
+          "chosen_tours": 321,
+          "tours_shifted": 321,
+          "riders_per_day": 6610,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.1075,
+          "mean_p_loop": 0.0961,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 70.0,
+          "peak_segment_riders_pph": 410.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 643.6,
+          "share_admitted_slower_gen": 0.593,
+          "share_admitted_slower_time": 0.5507,
+          "mean_car_gen_min": 45.3,
+          "mean_loop_gen_min": 114.7,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 70.0,
+            "segment_peak_utilisation": 0.635,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.847
+          }
+        },
+        "range_riders_per_day": [
+          2160,
+          5740,
+          16620
+        ],
+        "range_by_fare": {
+          "0": [
+            3560,
+            16620
+          ],
+          "5": [
+            3120,
+            13200
+          ],
+          "10": [
+            2640,
+            9850
+          ],
+          "20": [
+            2160,
+            5610
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 10010,
+            "-0.02": 7790,
+            "-0.025": 6610,
+            "-0.05": 4370
+          },
+          "vot_sar_h": {
+            "20": 9850,
+            "40": 6610,
+            "80": 4920
+          },
+          "wait_mult": {
+            "1.5": 7470,
+            "2": 6610,
+            "2.5": 5810
+          },
+          "walk_mult": {
+            "1.5": 9350,
+            "2": 6610,
+            "3": 2950
+          },
+          "asc_loop_min": {
+            "0": 8310,
+            "10": 6610,
+            "20": 5150,
+            "30": 3860
+          },
+          "fare_sar": {
+            "0": 7890,
+            "5": 6610,
+            "10": 5450,
+            "20": 3580
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 1360
+      },
+      "vendor": {
+        "params": {
+          "speed_kmh": 160.0,
+          "capacity": "engineering",
+          "headway_s": 1.5,
+          "pair_capacity_pph": 4800.0,
+          "wait_min": 2.0
+        },
+        "central": {
+          "eligible_tours": 2975,
+          "eligible_legs": 6147,
+          "legs_without_car_time": 0,
+          "expected_tours": 513.17,
+          "expected_riders_per_day": 10534,
+          "chosen_tours": 531,
+          "tours_shifted": 531,
+          "riders_per_day": 10910,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.1775,
+          "mean_p_loop": 0.1714,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 110.0,
+          "peak_segment_riders_pph": 550.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 2280.0,
+          "share_admitted_slower_gen": 0.5655,
+          "share_admitted_slower_time": 0.4959,
+          "mean_car_gen_min": 45.3,
+          "mean_loop_gen_min": 92.0,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 110.0,
+            "segment_peak_utilisation": 0.246,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.871
+          }
+        },
+        "range_riders_per_day": [
+          5140,
+          9950,
+          22080
+        ],
+        "range_by_fare": {
+          "0": [
+            7790,
+            22080
+          ],
+          "5": [
+            7050,
+            17560
+          ],
+          "10": [
+            6450,
+            13800
+          ],
+          "20": [
+            5140,
+            9070
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 15120,
+            "-0.02": 12850,
+            "-0.025": 10910,
+            "-0.05": 8330
+          },
+          "vot_sar_h": {
+            "20": 14920,
+            "40": 10910,
+            "80": 9370
+          },
+          "wait_mult": {
+            "1.5": 10790,
+            "2": 10910,
+            "2.5": 11090
+          },
+          "walk_mult": {
+            "1.5": 15920,
+            "2": 10910,
+            "3": 5690
+          },
+          "asc_loop_min": {
+            "0": 14100,
+            "10": 10910,
+            "20": 8730,
+            "30": 7110
+          },
+          "fare_sar": {
+            "0": 13330,
+            "5": 10910,
+            "10": 9210,
+            "20": 6770
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 2540
+      },
+      "wall_s": 15.5
+    },
+    "C6": {
+      "eligible_tours": 1811,
+      "eligible_legs": 3706,
+      "eligible_riders_per_day": 37060,
+      "measured": {
+        "params": {
+          "speed_kmh": 90.0,
+          "capacity": "measured",
+          "headway_s": 5.314,
+          "pair_capacity_pph": 1355.0,
+          "wait_min": 12.5
+        },
+        "central": {
+          "eligible_tours": 1811,
+          "eligible_legs": 3706,
+          "legs_without_car_time": 0,
+          "expected_tours": 204.96,
+          "expected_riders_per_day": 4112,
+          "chosen_tours": 206,
+          "tours_shifted": 206,
+          "riders_per_day": 4180,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.1128,
+          "mean_p_loop": 0.111,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 60.0,
+          "peak_segment_riders_pph": 250.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 643.6,
+          "share_admitted_slower_gen": 0.5263,
+          "share_admitted_slower_time": 0.5239,
+          "mean_car_gen_min": 48.7,
+          "mean_loop_gen_min": 113.3,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 60.0,
+            "segment_peak_utilisation": 0.399,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.828
+          }
+        },
+        "range_riders_per_day": [
+          1520,
+          3710,
+          9620
+        ],
+        "range_by_fare": {
+          "0": [
+            2160,
+            9620
+          ],
+          "5": [
+            2000,
+            7420
+          ],
+          "10": [
+            1860,
+            5820
+          ],
+          "20": [
+            1520,
+            3720
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 5880,
+            "-0.02": 4840,
+            "-0.025": 4180,
+            "-0.05": 3100
+          },
+          "vot_sar_h": {
+            "20": 5940,
+            "40": 4180,
+            "80": 3040
+          },
+          "wait_mult": {
+            "1.5": 4520,
+            "2": 4180,
+            "2.5": 3920
+          },
+          "walk_mult": {
+            "1.5": 5560,
+            "2": 4180,
+            "3": 2040
+          },
+          "asc_loop_min": {
+            "0": 5020,
+            "10": 4180,
+            "20": 3360,
+            "30": 2640
+          },
+          "fare_sar": {
+            "0": 4680,
+            "5": 4180,
+            "10": 3640,
+            "20": 2460
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 940
+      },
+      "vendor": {
+        "params": {
+          "speed_kmh": 160.0,
+          "capacity": "engineering",
+          "headway_s": 1.5,
+          "pair_capacity_pph": 4800.0,
+          "wait_min": 2.0
+        },
+        "central": {
+          "eligible_tours": 1811,
+          "eligible_legs": 3706,
+          "legs_without_car_time": 0,
+          "expected_tours": 346.25,
+          "expected_riders_per_day": 6981,
+          "chosen_tours": 323,
+          "tours_shifted": 323,
+          "riders_per_day": 6520,
+          "riders_capped_per_day": 0,
+          "shift_share_legs": 0.1759,
+          "mean_p_loop": 0.1884,
+          "max_queue_min": 0.0,
+          "peak_pair_riders_pph": 90.0,
+          "peak_segment_riders_pph": 380.0,
+          "resources_full": 0,
+          "segment_capacity_pph": 2280.0,
+          "share_admitted_slower_gen": 0.5077,
+          "share_admitted_slower_time": 0.4371,
+          "mean_car_gen_min": 48.7,
+          "mean_loop_gen_min": 90.6,
+          "dispatch_check": {
+            "pair_exceedance_share": 0.0,
+            "peak_pair_pph": 90.0,
+            "segment_peak_utilisation": 0.154,
+            "segment_exceedance_share": 0.0,
+            "riders_per_shuttle_movement": 0.836
+          }
+        },
+        "range_riders_per_day": [
+          3160,
+          6000,
+          13120
+        ],
+        "range_by_fare": {
+          "0": [
+            4920,
+            13120
+          ],
+          "5": [
+            4460,
+            10100
+          ],
+          "10": [
+            4040,
+            7760
+          ],
+          "20": [
+            3160,
+            5560
+          ]
+        },
+        "one_at_a_time": {
+          "beta_ivt_per_min": {
+            "-0.015": 8920,
+            "-0.02": 7520,
+            "-0.025": 6520,
+            "-0.05": 5260
+          },
+          "vot_sar_h": {
+            "20": 8480,
+            "40": 6520,
+            "80": 5680
+          },
+          "wait_mult": {
+            "1.5": 6520,
+            "2": 6520,
+            "2.5": 6600
+          },
+          "walk_mult": {
+            "1.5": 9520,
+            "2": 6520,
+            "3": 3580
+          },
+          "asc_loop_min": {
+            "0": 8320,
+            "10": 6520,
+            "20": 5300,
+            "30": 4420
+          },
+          "fare_sar": {
+            "0": 7920,
+            "5": 6520,
+            "10": 5640,
+            "20": 4220
+          }
+        },
+        "time_competitive_alpha0p5_riders_per_day": 1920
+      },
+      "wall_s": 16.0
+    }
+  }
+}

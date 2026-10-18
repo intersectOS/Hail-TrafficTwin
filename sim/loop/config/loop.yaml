@@ -1,0 +1,123 @@
+# Track D: Boring Company style "Loop" tunnels (python -m sim.loop.site | evaluate | optimise).
+# Every behavioural or cost number sits in a block with `source:` or `assumption:` and is registered
+# in docs/assumptions-trackD.md (ids A-loop-0xx). Citations: docs/data-sources-trackD.md.
+kind: loop_config
+label: "synthetic demand, uncalibrated"
+
+# SUMO has no "loop_shuttle" vehicle class; the user-defined class custom1 stands in for it, so
+# only shuttles may use tunnels in shuttle mode (model setting, not behavioural).
+shuttle_vclass: custom1
+
+tunnel:
+  lanes: 1
+  bore_m: 3.6
+  speeds_kmh: [50, 90, 160]
+  default_speed_kmh: 90
+  speed_source: "A-loop-001: Vegas Loop operating speed 35 mph (56 km/h) per the Wikipedia infobox, the same page says 'no more than 30 mph' without a citation (so 50 km/h = measured-like); 90 km/h = an engineering middle; 160 km/h = the 'up to 100 mph' vendor claim for Dubai (vendor, not demonstrated in service). Bore 3.6 m: Dubai Loop contract (Feb 2026)."
+  curvature_factor: 1.15
+  ramp_length_m: 150
+  ramp_speed_kmh: 40
+  assumption: "A-loop-002: one lane per direction (single-bore per direction, brief); tunnel length = straight station-to-station distance x 1.15 (alignment follows streets and avoids foundations; 1.05-1.3); station portals: 150 m ramp per direction at 40 km/h (Vegas/LVCC portal ramps are of this order; 100-250 m)."
+
+station:
+  dwell_s: 30
+  dwell_range_s: [20, 40]
+  dwell_assumption: "A-loop-003: 20-40 s loading stop at the departure station (brief; Vegas vehicles load at kerbside bays); 30 s default."
+  connect_types: [highway.trunk, highway.primary, highway.secondary, highway.tertiary]
+  max_connect_m: 800
+  connect_assumption: "A-loop-004: each station's ramps join the surface network at the nearest non-signalised junction (signal programs are not rewritten) that has an incoming and an outgoing trunk/primary/secondary/tertiary edge in the network's main strongly connected component, within 800 m (else the nearest such junction, flagged)."
+
+shuttle:
+  occupancy: 2.0
+  occupancy_range: [1.5, 3.0]
+  length_m: 4.79
+  min_gap_m: 2.0
+  empty_reposition_factor: 0.3
+  max_pool_wait_s: 180
+  max_speed_kmh: 250
+  pool_assumption: "A-loop-019: a shuttle leaves when its seats (occupancy, rounded) are full or when its first passenger has waited 3 min (on-demand dispatch; 1-5 min). max_speed_kmh is a model setting: the tunnel edge speed (A-loop-001) is binding."
+  occupancy_assumption: "A-loop-005: 2.0 passengers per shuttle (Tesla Model Y driven by staff, at most 4 passengers per car; brief range 1.5-3); length 4.8 m (Model Y 4.751 m 2020-24, 4.790 m 2025 refresh), minGap 2 m; empty repositioning trips = 0.3 per loaded trip (demand is directional in peaks; Vegas runs on-demand dispatch; 0.1-0.6)."
+
+capacity:
+  default: measured
+  measured:
+    pax_per_hour_per_pair: 1355
+    source: "A-loop-006: Vegas LVCC Loop measured peak 1,355 passengers/hour (up to mid-July 2021, reported by TechCrunch Nov 2021; no county/LVCVA report found online) vs about 4,400/hour in a test (the 2019 contract penalises < ~4,000/hour), a current company claim of > 4,500/hour and a > 90,000/hour company claim for the full build-out. Used per station pair (brief)."
+  engineering:
+    headway_s: 1.5
+    headway_range_s: [1.0, 2.0]
+    assumption: "A-loop-007: engineering capacity = 3600 / headway x occupancy per tunnel direction (1-2 s headways, 1.5-3 passengers; brief): 2,700-10,800 pax/h; 1.5 s and 2.0 pax = 4,800 pax/h default. This is the vendor-side case, not demonstrated."
+  # SUMO tunnel headway: measured -> 3600 x occupancy / 1355 s; engineering -> headway_s. Both are
+  # applied to tunnel and ramp edges as meso edge-type headways (x 1/sample, capacity scaling).
+
+access:
+  radius_m: 1500
+  radius_sweep_m: [800, 1500]
+  walk_speed_kmh: 4.5
+  detour_factor: 1.3
+  min_trip_km: 2.0
+  assumption: "A-loop-008: trips with both ends within R of two different stations can shift (R = 800 or 1500 m, brief; default 1500 m: walk, drop-off or short ride to the portal). Access/egress at 4.5 km/h with a 1.3 detour factor (rider time only). Trips shorter than 2 km crow-fly do not shift (no one takes a station-to-station shuttle for a short hop; 1-3 km)."
+
+shift:
+  alpha: 0.5
+  alpha_sweep: [0.3, 0.5, 0.7]
+  modes: [car, ridehail]
+  competitive_only: false
+  assumption: "A-loop-009: share alpha of eligible car-driver and ride-hail tours shifts to the Loop (brief sweep 0.3/0.5/0.7, default 0.5). Exogenous: no mode-choice model (PROJECT.md non-goal); every leg of the tour must be station-to-station. alpha is an upper-end assumption; the rider-time flag reports how many shifted trips would be slower than by car. Sensitivity (A-loop-017): competitive_only restricts the shift to tours whose every leg is faster by Loop (walk + wait + loading + ramps + ride at tunnel speed) than the same leg by car in the baseline."
+
+wait:
+  measured_min: 12.5
+  engineering_min: 2.0
+  assumption: "A-loop-010: rider wait at the station: 10-15 min typical at Vegas (brief; uncited on Wikipedia, not verified; 12.5 min) vs 2 min for an on-demand system at engineering capacity (assumption). Rider time only; SUMO does not simulate passengers."
+
+private:
+  toll_sar: 10
+  toll_sweep_sar: [0, 10, 25]
+  value_of_time_sar_h: 40
+  reroute_radius_m: 2500
+  eligible_share: 1.0
+  assumption: "A-loop-011: private-EV mode opens the tunnel to passenger cars with a toll per entry (SAR 0/10/25 sweep; SAR 10 default, the cordon charge of A-pol-040), turned into a routing penalty at value of time SAR 40/h (A-pol-042). Cars with both ends within 2.5 km of two different stations are re-routed one-shot (only they can plausibly gain; 1.5-4 km). eligible_share 1.0 = any passenger car may enter (upper bound; an EV-only or permit rule would cut it, Saudi EV share is small)."
+
+costs:
+  usd_m_per_km: {low: 15, central: 25, high: 40}
+  sar_per_usd: 3.75
+  source: "A-loop-012: capex per alignment-km (twin small-bore tunnels, stations included): USD 15-40 M (brief). Anchors: LVCC Loop USD 47-48.7 M fixed price for 1.7 miles (~17-18 M/km; the USD 53 M on Wikipedia is uncited); Music City Loop at least USD 240 M for about 10 miles (~15 M/km); Dubai Loop pilot AED 565 M for 6.4 km (~USD 24 M/km), full 22.2 km AED 2 B (~USD 24.5 M/km; Dubai Media Office, 3 Feb 2026). SAR peg 3.75 per USD (SAMA)."
+
+siting:
+  site_grid_m: 750
+  site_min_separation_m: 1500
+  max_sites: 45
+  station_spacing_m: [1500, 3000]
+  stations: [4, 8]
+  length_km: [6, 25]
+  snap_m: 700
+  spacing_tolerance: 0.05
+  n_candidates: 8
+  max_shared_stations: 1
+  capture_floor_quantile: 0.5
+  parallel_factor: 2.0
+  parallel_share: 0.6
+  overlap_m: 1200
+  top_desire_lines: 25
+  top_corridors: 12
+  anchors:
+    - {name: "KAIA airport (Terminal 1)", lon: 39.1734, lat: 21.6655}
+    - {name: "Al Balad / Corniche", lon: 39.1877, lat: 21.4860}
+    - {name: "Tahlia / Al Andalus", lon: 39.1293, lat: 21.5470}
+    - {name: "King Abdulaziz University", lon: 39.2489, lat: 21.4964}
+  assumption: "A-loop-013: candidate stations = delay-weighted trip-end hot spots (750 m grid, peaks at least 1.5 km apart, top 45) plus four named anchors that are tested, not assumed (OpenStreetMap coordinates, docs/data-sources-trackD.md: KAIA T1 forecourt, Al Balad centre, Tahlia x Al Andalus, KAU). Alignments: straight lines between two sites 6-25 km apart with 4-8 stations at 1.5-3 km spacing, intermediate stations snapped to the best site within 700 m; scored by delay of trips both of whose ends fall within R of two different stations. 8 candidates, at most 1 shared station (within 1.2 km) between candidates and no parallel duplicate (more than 60 % of stations within 2 x 1.2 km of the other line); only alignments in the top half by captured delay are eligible (capture_floor_quantile 0.5). top_desire_lines / top_corridors are display settings."
+
+budget_km: 25
+budget_source: "A-loop-018: brief: greedy corridor selection under a 25 km budget (about USD 375-1,000 M at A-loop-012)."
+
+# Quality thresholds used by the recommendation (reported, not hidden).
+quality:
+  max_capacity_exceedance: 0.10
+  min_daily_trips: 5000
+  teleport_tolerance_min: 0.01
+  segment_utilisation_fallback: 1.05
+  assumption: "A-loop-014: a configuration is recommendable only if at most 10 % of shifted trips exceed the station-pair capacity (else the road relief assumes riders the Loop cannot carry); judgement, 5-20 %; the same 10 % applies to tunnel-segment exceedance (traversals in hours above the headway capacity); where only the peak utilisation is known (runs reported before that metric) a peak above 1.05 fails. Teleports per vehicle may exceed the comparison by at most the baseline replicate's change, and at least 0.01. A-loop-020: an option whose Loop carries fewer than 5,000 trips/day is not credited with city-scale relief (its measured relief is simulation noise); for scale, the Dubai Loop pilot plans about 13,000 passengers/day (Dubai Media Office, 3 Feb 2026)."
+
+# Days per year used to annualise daily VHT savings (weekday model).
+annual_days: 250
+annual_assumption: "A-loop-015: 250 weekday-equivalent days per year to annualise (Sun-Thu working days less holidays); weekends and Ramadan not modelled."

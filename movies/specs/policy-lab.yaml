@@ -1,0 +1,71 @@
+# Policy lab in difference mode (Tier A, 10 % sample): blue = faster than the comparison run,
+# red = slower. Comparisons as in docs/policies.md: remote work against the weekday baseline;
+# staggered schools and the cordon against their matched controls (TA-018). KPI values are the
+# docs/policies.md "Results" table (matched control where marked), never the raw unmatched deltas.
+# Network v2 (pass 7): runs/v2/<policy> via the runs/v2-<policy> symlinks (the v1 runs keep the
+# bare ids); KPIs = the docs/policies.md "Re-evaluation on network v2" rows. The narration states
+# the v1 figure once per policy.
+film: policy-lab
+title: Policy lab
+subtitle: Tier A city on network v2, policy runs against their comparison runs
+duration_s: 36
+showreel: [2.5, 22.5]           # excerpt in the showreel (2-3 min total)
+tier: A
+sources:
+  base: {run: baseline-weekday-f0.1-s1-ae764558-346893f2-a998e1}
+  remote: {run: v2-remote_work_30}
+  schools: {run: v2-staggered_schools_60}
+  schools_ctl: {run: v2-staggered_schools_60--control}
+  cordon: {run: v2-cordon_center}
+  cordon_ctl: {run: v2-cordon_center--control}
+basemap:
+  bbox: [39.02, 21.24, 39.36, 21.92]
+shots:
+  - id: remote-work
+    duration_s: 12
+    layers: {mode: diff, heat: remote, compare: base, buildings: false}
+    camera:
+      - {t: 0,  lon: 39.1900, lat: 21.5500, zoom: 11.3, pitch: 35, bearing: -10, sim_t: 23400}
+      - {t: 12, lon: 39.1950, lat: 21.5600, zoom: 11.7, pitch: 42, bearing: 5, sim_t: 32400, ease: in_out}
+    hud:
+      caption: 30 % of office workers at home three days a week
+      detail: remote_work_30 against the v2 weekday baseline, morning; induced trips by remote workers included
+      legend: diff
+      kpis:
+        - {label: Vehicle-hours, value: -8.7, unit: "%", decimals: 1, sign: true}
+        - {label: Morning-peak delay, value: -13.2, unit: "%", decimals: 1, sign: true}
+        - {label: Mean delay, value: -11.4, unit: "%", decimals: 1, sign: true}
+  - id: staggered-schools
+    duration_s: 12
+    layers: {mode: diff, heat: schools, compare: schools_ctl, buildings: false}
+    camera:
+      - {t: 0,  lon: 39.2000, lat: 21.5600, zoom: 11.5, pitch: 38, bearing: 10, sim_t: 21600}
+      - {t: 12, lon: 39.2050, lat: 21.5650, zoom: 11.9, pitch: 44, bearing: 22, sim_t: 30600, ease: in_out}
+    hud:
+      caption: School start times staggered by 60 minutes
+      detail: staggered_schools_60 against its matched control (same re-routed vehicles, no policy)
+      legend: diff
+      kpis:
+        - {label: Morning-peak delay, value: -1.8, unit: "%", decimals: 1, sign: true}
+        - {label: Top-hour share of trips, value: -13.3, unit: "%", decimals: 1, sign: true}
+        - {label: Vehicle-hours (inside the noise), value: 1.2, unit: "%", decimals: 1, sign: true}
+  - id: cordon
+    duration_s: 12
+    layers:
+      mode: diff
+      heat: cordon
+      compare: cordon_ctl
+      buildings: false
+      # cordon polygon from sim/policies/cordon_center.yaml
+      outline: [[39.150, 21.480], [39.195, 21.480], [39.195, 21.560], [39.150, 21.560]]
+    camera:
+      - {t: 0,  lon: 39.1750, lat: 21.5200, zoom: 11.9, pitch: 40, bearing: -15, sim_t: 25200}
+      - {t: 12, lon: 39.1720, lat: 21.5200, zoom: 12.3, pitch: 46, bearing: 0, sim_t: 43200, ease: in_out}
+    hud:
+      caption: A SAR 10 cordon charge around the centre, 07:00 to 19:00
+      detail: cordon_center against its matched control; crossers re-route onto perimeter roads; teleports 0.275 -> 0.454 per vehicle (indicative)
+      legend: diff
+      kpis:
+        - {label: Vehicle-hours, value: 17.2, unit: "%", decimals: 1, sign: true}
+        - {label: Morning-peak delay, value: 13.1, unit: "%", decimals: 1, sign: true}
+        - {label: Mean delay, value: 29.7, unit: "%", decimals: 1, sign: true}

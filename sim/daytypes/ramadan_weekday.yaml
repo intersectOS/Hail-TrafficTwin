@@ -1,0 +1,94 @@
+# Ramadan weekday (Sun-Thu, school in session). Validated by sim.schemas.DayType. Times "HH:MM"
+# (exceed 24:00 for after-midnight activity; the generator wraps them), durations in minutes. Every
+# block carries `source:` or `assumption:`; ids A-day-3xx in docs/assumptions-trackA.md.
+# Date check: 2027-02-21 = 14 Ramadan 1448 AH (hijridate, Umm al-Qura; Ramadan 1448 runs
+# 8 Feb - 8 Mar 2027). Jeddah, approx.: maghrib ~18:30, isha ~20:30 (Umm al-Qura: maghrib + 120 min
+# in Ramadan); the generator computes the exact times.
+id: ramadan_weekday
+kind: daytype
+title: "Ramadan weekday (Sun-Thu), school in session"
+date: "2027-02-21"   # a Sunday, 14 Ramadan 1448; drives the prayer times (Umm al-Qura method)
+special: {ramadan: true, friday: false, umrah_season: false, school_day: true}
+
+main_tours:
+  school:
+    participation: {value: 0.88, assumption: "A-day-301: absence a little higher than weekday (A-day-001 0.93) after late nights. Range 0.8-0.93. Whether school is in session mid-Ramadan in 1448 depends on the MoE 2026/27 calendar (not checked)."}
+    start: {dist: normal, mean: "09:00", sd_min: 10, lo: "08:30", hi: "09:45", source: "Riyadh directorate Ramadan timing: first lesson 09:00 (Ajel, english.ajel.sa, 2025-26; low confidence); Jeddah assumed the same (A-day-302)."}
+    duration: {mean_min: 240, sd_min: 20, lo_min: 180, hi_min: 300, assumption: "A-day-302: Ramadan school day about 09:00-13:00 (docs/data-sources-trackA.md section 7). Range 3-5 h."}
+  university:
+    participation: {value: 0.70, assumption: "A-day-303: range 0.55-0.85."}
+    start: {dist: mixture, components: [{w: 0.6, mean: "10:00", sd_min: 30}, {w: 0.4, mean: "12:30", sd_min: 45}], lo: "09:00", hi: "15:00", assumption: "A-day-303: shortened Ramadan lecture day, no early classes."}
+    duration: {mean_min: 210, sd_min: 60, lo_min: 90, hi_min: 360, assumption: "A-day-303: range 1.5-6 h."}
+  government:
+    participation: {value: 0.90, assumption: "A-day-304: range 0.85-0.95 (Ramadan leave slightly higher)."}
+    start: {dist: normal, mean: "10:00", sd_min: 15, lo: "09:15", hi: "11:00", source: "Government Ramadan hours 10:00-15:00 (HRSD via Bayt 2025, https://www.bayt.com/en/blog/31628/ramadan-2025-working-hours-in-ksa/; circular not found) (A-day-304)."}
+    duration: {mean_min: 300, sd_min: 15, lo_min: 240, hi_min: 360, source: "Five-hour day 10:00-15:00 (HRSD via Bayt 2025) (A-day-304)."}
+    stop_on_return: {value: 0.10, assumption: "A-day-304: most errands moved to the pre-iftar or night window. Range 0.05-0.2."}
+  private_office:
+    participation: {value: 0.92, assumption: "A-day-305: range 0.88-0.95."}
+    start: {dist: mixture, components: [{w: 0.5, mean: "09:30", sd_min: 20}, {w: 0.5, mean: "10:00", sd_min: 20}], lo: "08:30", hi: "11:00", assumption: "A-day-305: later and flatter start than weekday (no 08:00 peak)."}
+    duration: {mean_min: 375, sd_min: 30, lo_min: 330, hi_min: 510, source: "6 h/day or 36 h/week for Muslim workers (MHRSD via Ajel 2022, https://english.ajel.sa/news/saudi-arabia/mhrsd-announces-ramadan-working-hours-for-private-sector); plus breaks and a minority of non-Muslim staff on 8 h (A-day-305). Range 6-8.5 h."}
+    stop_on_return: {value: 0.20, assumption: "A-day-305: pre-iftar shopping stop on the way home. Range 0.1-0.3."}
+  retail_hospitality:
+    participation: {value: 0.90, assumption: "A-day-306: range 0.85-0.93."}
+    start: {dist: mixture, components: [{w: 0.45, mean: "10:30", sd_min: 45}, {w: 0.55, mean: "20:00", sd_min: 40}], lo: "08:00", hi: "22:00", assumption: "A-day-306: shops open late morning, close around 15:00-16:00, reopen after iftar/taraweeh until 01:00-03:00; restaurants serve iftar and suhoor."}
+    duration: {mean_min: 390, sd_min: 60, lo_min: 240, hi_min: 540, source: "Muslim private-sector workers 6 h/day in Ramadan (MHRSD via Ajel 2022); 6.5 h mean with breaks (A-day-306). Range 4-9 h."}
+    split_shift:
+      probability: 0.40
+      break_start: {dist: normal, mean: "15:30", sd_min: 30, lo: "14:30", hi: "16:30", assumption: "A-day-306: afternoon closure before iftar (applies to morning starters)."}
+      break_min: {mean_min: 330, sd_min: 30, lo_min: 270, hi_min: 390, assumption: "A-day-306: home for iftar, back after taraweeh (about 21:00)."}
+      assumption: "A-day-306: share of retail workers on a Ramadan split shift. Range 0.25-0.55."
+  health:
+    participation: {value: 0.88, assumption: "A-day-307: range 0.85-0.92."}
+    start: {dist: mixture, components: [{w: 0.6, mean: "09:00", sd_min: 30}, {w: 0.2, mean: "15:30", sd_min: 30}, {w: 0.2, mean: "21:30", sd_min: 30}], lo: "07:00", hi: "23:59", assumption: "A-day-307: day shift starts later; evening/night shifts around iftar and taraweeh."}
+    duration: {mean_min: 480, sd_min: 60, lo_min: 360, hi_min: 720, assumption: "A-day-307: 6-12 h shifts."}
+  education:
+    participation: {value: 0.93, assumption: "A-day-308: teachers follow the Ramadan school day. Range 0.88-0.96."}
+    start: {dist: normal, mean: "08:40", sd_min: 10, lo: "08:15", hi: "09:15", assumption: "A-day-308: arrive before the 09:00 first lesson (A-day-302)."}
+    duration: {mean_min: 270, sd_min: 30, lo_min: 210, hi_min: 360, assumption: "A-day-308: range 3.5-6 h."}
+    stop_on_return: {value: 0.10, assumption: "A-day-308: range 0.05-0.2."}
+  industrial_port:
+    participation: {value: 0.90, assumption: "A-day-309: range 0.85-0.95."}
+    start: {dist: mixture, components: [{w: 0.65, mean: "08:00", sd_min: 45}, {w: 0.35, mean: "21:00", sd_min: 45}], lo: "05:30", hi: "23:00", assumption: "A-day-309: later day shift; more night work after iftar (cooler, not fasting)."}
+    duration: {mean_min: 420, sd_min: 60, lo_min: 360, hi_min: 600, assumption: "A-day-309: 6 h work (MHRSD Ramadan limit for Muslim workers) plus transport waits; range 6-10 h."}
+  logistics_ridehail:
+    participation: {value: 0.90, assumption: "A-day-310: range 0.85-0.95."}
+    start: {dist: mixture, components: [{w: 0.4, mean: "10:30", sd_min: 60}, {w: 0.6, mean: "20:00", sd_min: 60}], lo: "07:00", hi: "23:00", assumption: "A-day-310: deliveries peak after iftar and into the night."}
+    duration: {mean_min: 420, sd_min: 90, lo_min: 240, hi_min: 660, assumption: "A-day-310: range 4-11 h."}
+
+# No lunch-time activity. Two windows: a pre-iftar rush 60-90 min before maghrib (short shopping
+# for iftar, visits to relatives for iftar) and the night (shopping/leisure 21:00-02:00, suhoor).
+secondary_tours:
+  worker:
+    shopping: {rate: {value: 0.30, assumption: "A-day-311: range 0.2-0.45."}, start: {dist: mixture, components: [{w: 0.35, mean: "17:15", sd_min: 20}, {w: 0.65, mean: "22:30", sd_min: 75}], lo: "15:30", hi: "26:00", assumption: "A-day-311: pre-iftar rush 60-90 min before maghrib (~18:30) and night shopping after taraweeh until about 02:00."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 180, assumption: "Range 15-180; pre-iftar trips are short."}}
+    leisure: {rate: {value: 0.30, assumption: "A-day-312: range 0.2-0.45; includes suhoor outings."}, start: {dist: mixture, components: [{w: 0.75, mean: "22:00", sd_min: 60}, {w: 0.25, mean: "25:30", sd_min: 45}], lo: "20:30", hi: "27:30", assumption: "A-day-312: night leisure (cafes, Corniche, Ramadan tents) 21:00-02:00; suhoor outings around 01:30 before imsak (~05:25)."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.20, assumption: "A-day-313: iftar and ghabga visits to relatives; range 0.1-0.3."}, start: {dist: mixture, components: [{w: 0.5, mean: "17:45", sd_min: 15}, {w: 0.5, mean: "21:30", sd_min: 60}], lo: "16:30", hi: "25:00", assumption: "A-day-313: leave 30-60 min before maghrib for iftar, or after isha for ghabga."}, duration: {mean_min: 150, sd_min: 45, lo_min: 45, hi_min: 300, assumption: "Range 45-300."}}
+  student:
+    shopping: {rate: {value: 0.10, assumption: "A-day-314: range 0.05-0.2."}, start: {dist: normal, mean: "22:00", sd_min: 75, lo: "20:30", hi: "25:30", assumption: "Night, with family."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+    leisure: {rate: {value: 0.30, assumption: "A-day-314: range 0.2-0.45."}, start: {dist: mixture, components: [{w: 0.8, mean: "21:45", sd_min: 60}, {w: 0.2, mean: "25:00", sd_min: 45}], lo: "20:30", hi: "27:00", assumption: "A-day-314: night leisure, some suhoor outings."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.12, assumption: "A-day-314: iftar visits with family; range 0.05-0.2."}, start: {dist: mixture, components: [{w: 0.5, mean: "17:45", sd_min: 15}, {w: 0.5, mean: "21:30", sd_min: 60}], lo: "16:30", hi: "24:30", assumption: "A-day-313 pattern."}, duration: {mean_min: 150, sd_min: 45, lo_min: 45, hi_min: 300, assumption: "Range 45-300."}}
+  homemaker:
+    shopping: {rate: {value: 0.40, assumption: "A-day-315: range 0.25-0.6."}, start: {dist: mixture, components: [{w: 0.25, mean: "11:30", sd_min: 60}, {w: 0.30, mean: "17:00", sd_min: 25}, {w: 0.45, mean: "22:00", sd_min: 75}], lo: "09:30", hi: "26:00", assumption: "A-day-315: late morning, pre-iftar and night; nothing around lunch time beyond the morning tail."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
+    leisure: {rate: {value: 0.25, assumption: "A-day-315: range 0.15-0.4."}, start: {dist: normal, mean: "22:00", sd_min: 60, lo: "20:30", hi: "26:30", assumption: "Night family outings."}, duration: {mean_min: 150, sd_min: 45, lo_min: 45, hi_min: 270, assumption: "Range 45-270."}}
+    personal: {rate: {value: 0.25, assumption: "A-day-315: iftar/ghabga visits; range 0.15-0.35."}, start: {dist: mixture, components: [{w: 0.5, mean: "17:45", sd_min: 15}, {w: 0.5, mean: "21:30", sd_min: 60}], lo: "16:30", hi: "25:00", assumption: "A-day-313 pattern."}, duration: {mean_min: 180, sd_min: 45, lo_min: 60, hi_min: 300, assumption: "Range 60-300."}}
+  other:
+    shopping: {rate: {value: 0.25, assumption: "A-day-316: range 0.15-0.4."}, start: {dist: mixture, components: [{w: 0.25, mean: "11:00", sd_min: 60}, {w: 0.30, mean: "17:00", sd_min: 25}, {w: 0.45, mean: "22:00", sd_min: 75}], lo: "09:30", hi: "26:00", assumption: "A-day-316: as A-day-315."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+    leisure: {rate: {value: 0.20, assumption: "A-day-316: range 0.1-0.35."}, start: {dist: mixture, components: [{w: 0.8, mean: "22:00", sd_min: 60}, {w: 0.2, mean: "25:30", sd_min: 45}], lo: "20:30", hi: "27:30", assumption: "A-day-316: night, some suhoor outings."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.20, assumption: "A-day-316: range 0.1-0.3."}, start: {dist: mixture, components: [{w: 0.4, mean: "11:00", sd_min: 60}, {w: 0.3, mean: "17:45", sd_min: 15}, {w: 0.3, mean: "21:30", sd_min: 60}], lo: "09:30", hi: "24:30", assumption: "A-day-316: government services in the morning, iftar visits, night visits."}, duration: {mean_min: 90, sd_min: 45, lo_min: 20, hi_min: 240, assumption: "Range 20-240."}}
+
+# Iftar is mostly at home, so the maghrib mosque share drops; isha is followed by taraweeh with
+# much higher attendance (men and women), often at a chosen district mosque.
+prayers:
+  fajr: {share_adult_males: 0.15, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-317: higher than weekday (A-day-016 = 0.10): people are awake after suhoor. Range 0.08-0.25."}
+  dhuhr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016 (weekday); workers pray at work."}
+  asr: {share_adult_males: 0.15, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-317: range 0.1-0.22."}
+  maghrib: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 5, duration_min: 20, distance: local, assumption: "A-day-317: most break the fast at home, pray at home or step out after the dates. Range 0.05-0.18."}
+  isha: {share_adult_males: 0.40, share_adult_females: 0.12, depart_offset_min: -5, duration_min: 90, distance: district, assumption: "A-day-318: isha + taraweeh; attendance well above weekday isha (0.15/0.01), women attend taraweeh. Range males 0.25-0.55, females 0.05-0.2; duration 60-120 min. District mosques (people travel for a preferred imam)."}
+
+airport:
+  trips_per_day: 75000
+  hourly_profile: [4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.0, 4.0, 3.0, 4.5, 5.0, 5.0, 5.0, 5.0]
+  to_makkah_share: 0.25
+  source: "KAIA handled over 5.4 M passengers on 30,572 flights 11 Feb-20 Mar 2024, about 139k/day (arab.news/r6r6a) vs about 134k/day annual average 2024 (Economy Middle East): +4 %, ground trips 70k -> 73k, rounded to 75k (A-day-319). Hourly profile, iftar dip at 18:00 and night-heavy shape, and the Makkah share (Ramadan Umrah peak) are assumptions: share range 0.15-0.4; trips range 45k-110k."
+
+notes: "Late-Ramadan (last ten nights) is heavier at night and at the Haram; this profile is mid-Ramadan. Suhoor at home is not a trip. Night activities beyond 24:00 are wrapped by the generator."

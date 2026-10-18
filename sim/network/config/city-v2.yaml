@@ -1,0 +1,60 @@
+# Tier A city network, profile v2 (Track F, docs/network-v2.md). Default profile of
+# `python -m sim.network.build_city`; the M1 settings stay in city.yaml (`--network-profile v1`).
+# Paths are relative to the repo root. Written under a new name: data/jeddah/jeddah.net.xml (v1)
+# is never overwritten.
+name: jeddah
+extract:
+  url: https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
+  # Geofabrik has no Saudi-only extract (checked 2026-10-15); the GCC States file contains Saudi Arabia.
+  file: data/osm/gcc-states-latest.osm.pbf
+polygon: data/osm/jeddah.poly
+clip_pbf: data/osm/jeddah.osm.pbf
+osm_xml: data/osm/jeddah.osm.gz
+fixes_dir: data/osm/fixes
+out_dir: data/jeddah
+net: data/jeddah/jeddah.v2.net.xml
+# Pre-pass (A-net-301, A-net-302): untagged ways of the major classes get the km-weighted median
+# lanes per direction and maxspeed of the TAGGED ways of the same class x oneway, measured on this
+# clip (`python -m sim.network.lane_defaults stats`). Tagged ways are unchanged.
+lane_defaults:
+  stats: sim/network/types/jeddah-lanes.json
+  osm_out: data/osm/jeddah.v2.osm.gz
+type_files:
+  - "${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml"
+  - sim/network/types/city.typ.xml
+assumptions:
+  A-net-301:
+    parameter: lanes per direction for untagged major OSM ways (class x oneway)
+    value: "median of tagged ways: motorway 4, trunk 3, primary 3, secondary 3, tertiary 2, motorway_link 2, primary_link 1 (oneway); two-way ways keep the SUMO typemap"
+    source: "OSM tags on the same clip, sim/network/types/jeddah-lanes.json; held-out check sim/network/types/jeddah-lanes-crosscheck.json"
+  A-net-302:
+    parameter: maxspeed for untagged major OSM ways (class x oneway)
+    value: "median of tagged ways: motorway 100, trunk 90, primary 80, secondary 80, tertiary 80, motorway_link 60 km/h"
+    source: "OSM tags on the same clip, sim/network/types/jeddah-lanes.json"
+netconvert_options:
+  - --geometry.remove
+  - --ramps.guess
+  - --junctions.join
+  - [--junctions.join-dist, "20"]
+  - --tls.guess-signals
+  - --tls.discard-simple
+  - --tls.join
+  - --roundabouts.guess
+  - [--keep-edges.by-vclass, "passenger,bus,emergency,truck"]
+  - --remove-edges.isolated
+  - [--keep-edges.components, "1"]
+  - --osm.lane-access
+  - --no-turnarounds.except-deadend
+  - --output.street-names
+  - --output.original-names
+  - [--seed, "1"]
+districts:
+  out: data/jeddah/districts.geojson
+  admin_levels: ["10"]
+  fallback_place_values: [neighbourhood, suburb, quarter]
+buildings:
+  out: data/jeddah/buildings.geojson
+  heights: sim/network/config/buildings.yaml
+viewer:
+  edges_out: web/public/data/edges.geojson
+  districts_out: web/public/data/districts.geojson

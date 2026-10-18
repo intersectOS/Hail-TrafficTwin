@@ -1,0 +1,12 @@
+# Score weights (lower score = better). score = w_time x ambulance travel time (s)
+#   + w_delay x background vehicle-hours added vs the no-strategy run (can be negative)
+#   + w_closure x side-entry junctions held + w_preempt x signals preempted.
+# Units: all terms are "ambulance-second equivalents". Override with
+# `python -m strategist.run --weights my_weights.yaml` (same layout; plain numbers allowed in an
+# override file, recorded as overrides in the output). Synthetic demand, uncalibrated.
+kind: strategist_weights
+weights:
+  w_time: {id: A-strat-021, value: 1.0, unit: "score per ambulance second", range: [1, 1], assumption: "Objective = emergency travel time; the other weights are expressed relative to it"}
+  w_delay: {id: A-strat-022, value: 10.0, unit: "ambulance s per background veh-h", range: [2, 60], assumption: "One background vehicle-hour of added delay is worth 10 s of ambulance time (so a 30 s faster ambulance justifies up to 3 veh-h of extra delay); a policy judgement, no Saudi EMS valuation found"}
+  w_closure: {id: A-strat-023, value: 5.0, unit: "ambulance s per held junction", range: [0, 30], assumption: "Each held side entry carries a fixed cost (police staffing, driver confusion) on top of the delay it causes, which is already measured"}
+  w_preempt: {id: A-strat-024, value: 1.0, unit: "ambulance s per preempted signal", range: [0, 10], assumption: "Small fixed cost per preempted signal (program disruption, safety at the switch); its measured delay is already in w_delay"}

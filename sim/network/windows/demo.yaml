@@ -1,0 +1,6 @@
+# Demo focus window: western Tahlia Street and Al Andalus, about 3.3 km2. Committed under data/demo/ so tests run offline.
+name: demo
+title: "Tahlia / Al Andalus demo window"
+# lon/lat bbox: min_lon, min_lat, max_lon, max_lat
+bbox: [39.1480, 21.5420, 39.1660, 21.5580]
+out_dir: data/demo

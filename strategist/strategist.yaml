@@ -1,0 +1,46 @@
+# Strategist settings (M6, PROJECT.md 9.9). Every behavioural number is a registered parameter
+# (id + value + unit + range + source/assumption), listed in the M6 register block of
+# docs/strategist.md (`python -m strategist.register`). Pure model/runtime settings sit under
+# `model:`. All results: synthetic demand, uncalibrated.
+kind: strategist_settings
+
+snapshot:
+  edge_tt_window_s: {id: A-strat-001, value: 300, unit: s, range: [60, 900], assumption: "Routing cost of an edge = SUMO edgeData mean travel time over the 5 min before dispatch (what a live probe feed would show at T); no forecast of how the queue evolves during the trip"}
+  congestion_ratio_max: {id: A-strat-002, value: 20.0, unit: "x free flow", range: [5, 50], assumption: "Cap on measured / free-flow travel time per edge, so an edge with one stopped car (mean speed near 0) does not get an unbounded cost"}
+
+candidates:
+  k_routes: {id: A-strat-003, value: 3, unit: routes, range: [1, 5], assumption: "Three diverse routes give the operator real alternatives; with up to 3 variants each (the default route has no separate route-only run) plus the no-strategy run and the closure option this is at most 11 what-if runs (9 on tahlia), fitting the 11 cores of the M3 Pro in one parallel wave"}
+  yen_max_paths: {id: A-strat-004, value: 40, unit: paths, range: [10, 100], assumption: "Yen's loopless k-shortest paths examined before the diversity filter; window nets have many near-duplicate paths (0 m split parts, ramps), so more paths than routes are needed"}
+  max_overlap: {id: A-strat-005, value: 0.6, unit: "share of route length", range: [0.4, 0.9], assumption: "A path is a distinct alternative only if at most 60 % of its length is shared with each route already chosen"}
+  max_cost_ratio: {id: A-strat-006, value: 3.0, unit: "x best route cost", range: [1.5, 5], assumption: "Alternatives whose measured cost exceeds 3x the best route are not worth simulating for an ambulance"}
+
+preemption:
+  lookahead_m: {id: A-strat-007, value: 250, unit: m, range: [100, 500], assumption: "Signal is preempted when the ambulance is within 250 m of the stop line on its route; long enough to flush a queue at 50-60 km/h approach speeds; no Jeddah EVP specification found"}
+  yellow_s: {id: A-strat-008, value: 3, unit: s, range: [3, 5], assumption: "Yellow shown to movements losing green before the ambulance movement turns green; equals the 3 s lower bound of typical urban yellow (the window programs use 4 s, A-link-009)"}
+  others_state: {id: A-strat-009, value: r, unit: "signal state", range: "r", assumption: "Every movement except the ambulance's own is held red while preempted (conservative: no conflict matrix is used, so non-conflicting movements are stopped too)"}
+
+rescue_lane:
+  lookahead_m: {id: A-strat-010, value: 300, unit: m, range: [150, 600], assumption: "Proxy for a blue-light rescue corridor: one lane of each multi-lane route edge starting within 300 m ahead of the ambulance is reserved for vClass emergency; drivers react roughly at siren range; no Jeddah data"}
+  min_open_lanes: {id: A-strat-011, value: 2, unit: lanes, range: [2, 3], assumption: "A lane is reserved only where at least 2 lanes are open, so background traffic keeps one lane"}
+  nudge_s: {id: A-strat-012, value: 5, unit: s, range: [1, 10], assumption: "The ambulance is asked (vehicle.changeLane) to use the reserved lane for this long, renewed every step while on a reserved edge"}
+
+closure:
+  upstream_m: {id: A-strat-013, value: 400, unit: m, range: [200, 800], assumption: "Side entries are held at route junctions within 400 m upstream of the most-halted edge on the route (the bottleneck), to drain the queue ahead of the ambulance"}
+  max_s: {id: A-strat-014, value: 300, unit: s, range: [120, 600], assumption: "A side-entry hold lasts at most 5 min (a short police-held closure)"}
+  clear_s: {id: A-strat-015, value: 10, unit: s, range: [5, 30], assumption: "A held junction is released this long after the ambulance has passed it"}
+
+evaluation:
+  horizon_s: {id: A-strat-016, value: 300, unit: s, range: [180, 900], assumption: "What-if horizon after dispatch: the demo ambulance needs 70-150 s, so 300 s also covers the queue recovery after preemption and holds; side effects beyond 5 min are not counted"}
+  not_arrived_factor: {id: A-strat-017, value: 2.0, unit: "x horizon", range: [1.5, 5], assumption: "An ambulance that has not arrived by the horizon is scored as if its travel time were 2x the horizon"}
+
+classification:
+  auto_max_added_veh_h: {id: A-strat-018, value: 2.0, unit: veh-h, range: [0.5, 5], assumption: "Reversible actions (reroute, preemption, rescue-lane proxy) are auto-eligible only while the option adds at most 2 vehicle-hours of background delay over the horizon versus no strategy"}
+  auto_max_signals: {id: A-strat-019, value: 6, unit: signals, range: [3, 12], assumption: "Preempting more than 6 signals in one trip needs an operator's approval"}
+  approval_actions: {id: A-strat-020, value: "closure", unit: "action types", range: "closure|contraflow|evacuation_order", assumption: "Closures (and in M7 contraflow and evacuation orders) always need human approval (PROJECT.md 9.9 step 5)"}
+
+model:
+  save_state_precision: 6   # SUMO --save-state.precision (default 2 rounds positions to cm)
+  max_workers: 11           # what-if processes in parallel (11 cores; capped by candidate count)
+  top_n: 3                  # options returned
+  top_halted_edges: 3       # measured edges listed per option
+  top_routes_distinct: true # decision B-M6: distinct routes first in the top N

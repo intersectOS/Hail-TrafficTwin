@@ -1,0 +1,54 @@
+# Track A M2 network variant: the M1 city build plus the untagged-road overlay (A-net-201).
+# python -m sim.network.build_city --config sim/population/config/network-m2.yaml \
+#     --out data/jeddah/jeddah.m2.net.xml --no-side-outputs
+# Written under a new name: data/jeddah/jeddah.net.xml (M1) is never overwritten.
+# Paths are relative to the repo root.
+name: jeddah
+extract:
+  url: https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
+  # Geofabrik has no Saudi-only extract (checked 2026-10-15); the GCC States file contains Saudi Arabia.
+  file: data/osm/gcc-states-latest.osm.pbf
+polygon: data/osm/jeddah.poly
+clip_pbf: data/osm/jeddah.osm.pbf
+osm_xml: data/osm/jeddah.osm.gz
+fixes_dir: data/osm/fixes
+out_dir: data/jeddah
+net: data/jeddah/jeddah.m2.net.xml
+type_files:
+  - "${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml"
+  - sim/network/types/city.typ.xml
+  - sim/population/config/untagged.typ.xml   # Track A M2 overlay (A-net-201)
+# Behavioural defaults inherited from the type map (registered in docs/assumptions.md).
+assumptions:
+  A-network-003:
+    parameter: lanes and speed for OSM ways without lanes / maxspeed tags
+    value: "superseded in this variant by A-net-201 (sim/population/config/untagged.typ.xml)"
+    assumption: "Inherited, not chosen: 83 % of secondary and 73 % of primary km are untagged (docs/network-qa.md). M2 adds an overlay with argued per-class values."
+netconvert_options:
+  - --geometry.remove
+  - --ramps.guess
+  - --junctions.join
+  - [--junctions.join-dist, "20"]
+  - --tls.guess-signals
+  - --tls.discard-simple
+  - --tls.join
+  - --roundabouts.guess
+  - [--keep-edges.by-vclass, "passenger,bus,emergency,truck"]
+  - --remove-edges.isolated
+  - [--keep-edges.components, "1"]
+  - --osm.lane-access
+  - --no-turnarounds.except-deadend
+  - --output.street-names
+  - --output.original-names
+  - [--seed, "1"]
+districts:
+  out: data/jeddah/districts.geojson
+  # admin_level=10 boundary relations are the Jeddah districts (hay) in OSM (128 found 2026-10-15).
+  admin_levels: ["10"]
+  fallback_place_values: [neighbourhood, suburb, quarter]
+buildings:
+  out: data/jeddah/buildings.geojson
+  heights: sim/network/config/buildings.yaml
+viewer:
+  edges_out: web/public/data/edges.geojson
+  districts_out: web/public/data/districts.geojson

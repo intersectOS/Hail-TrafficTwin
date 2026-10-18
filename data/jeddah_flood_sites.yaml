@@ -1,0 +1,357 @@
+# Jeddah flood sites: reviewed list of flood-prone underpasses, wadi crossings and road segments.
+# Purpose: input to the flood event (sim/events/flood.py): edges within radius_m of each site are
+#   closed during a flood scenario. Simulation results using it remain "synthetic demand, uncalibrated".
+# Public literature and press only (peer-reviewed papers, SPA, Saudi/Arab press). No commercial
+#   traffic data, no scraping. Compiled 2026-10-16 by data-scout (Track B, M5).
+# Locations checked against OpenStreetMap (data/osm/jeddah.osm.pbf, ODbL) with osmium + shapely:
+#   osm_ways are the OSM way ids of the tunnel/bridge/channel structures matched to each site.
+#
+# events: years of the floods in which the site is reported flooded or closed.
+#   2009 = 25 Nov 2009, 2011 = 26 Jan 2011 (the two reference events). Later events are also
+#   recorded where a dated source names the site: 2015 = 17-19 Nov 2015, 2017 = 21-22 Nov 2017.
+#   The smaller rain of ~15-17 Jan 2011 (Municipality statement, SPA 17 Jan 2011) is NOT counted
+#   as "2011"; it is mentioned in review text only.
+#
+# confidence: high = site named in a source + structure located in OSM;
+#   medium = named, location approximate or identification partly inferred;
+#   low = area only (district / flood path), point chosen by the compiler.
+#
+# radius_m (ASSUMPTION, register in docs/assumptions.md):
+#   assumption: default 80 m for a single underpass (covers the depressed section and the
+#   intersection directly above, which sources say ponded too); 120-150 m for long tunnels or
+#   paired underpasses; 300-500 m for wadi crossings (flow spreads across the carriageway and
+#   ramps; 2009/2011 reports describe highway sections cut, not single points); 600-800 m for
+#   area-only (district) sites. Not calibrated against flood extents.
+#
+# Not included (named in sources but could not be located): Al-Salam tunnel on King Abdulaziz Rd
+#   (Al-Madina 2017), Kilo 14, Al-Sawaed, Al-Harazat, Umm Al-Khair dam/scheme, "Jack" Street in
+#   Quwaizah, Hail Street section (Al-Watan 29 Jan 2011, too long to place).
+version: 1
+compiled: 2026-10-16
+sites:
+  - id: FS-001
+    name: "King Abdullah Road / Madinah Road underpass (King Abdullah Tunnel)"
+    kind: underpass
+    lon: 39.18252
+    lat: 21.51062
+    radius_m: 150
+    osm_ways: [165530807, 165530830]
+    events: [2009, 2011, 2015, 2017]
+    sources:
+      - "Saudi Press Agency (30 Nov 2009). تشغيل نفق الملك عبدالله بجدة (tunnel fully flooded, ~70,000 m3, pumps overwhelmed). https://www.spa.gov.sa/723778"
+      - "Al-Watan (29 Jan 2011). سيول جبال شرق جدة قطعت 13 كيلو مترا إلى البحر (King Abdullah tunnel completely full when the Wadi Mraikh flood reached it). https://www.alwatan.com.sa/article/77984"
+      - "Al-Watan (29 Jan 2011). 10 وفيات و114 إصابة في سيول جدة (water pumped from King Abdullah tunnel). https://www.alwatan.com.sa/article/77988"
+      - "Arab News (21 Jan 2011). Engineers fault municipality for Jeddah underpass flooding (King Abdullah Tunnel under Khaled bin Waleed St and Madinah Rd). https://www.arabnews.com/archive/365974"
+      - "Saudi Press Agency (17 Jan 2011). بيان بخصوص إرتفاع منسوب مياه الأمطار في الأنفاق (Sharafiyah, next to the King Abdullah Rd tunnel; precursor rain). https://www.spa.gov.sa/856513"
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة ونزح ملايين الأمتار من المياه. https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» والشوارع تشكو مأساة كل عام. https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "2015/2017 sources name the King Abdullah Rd x Madinah Rd tunnel; OSM tunnel ways 165530807/165530830 pass under Madinah Rd beside Al-Sharafiyah (as the SPA statement says); the 2009/2011 'King Abdullah tunnel' is identified with it via Arab News 'under Khaled bin Waleed St and Madinah Rd' (Khalid bin Al Walid St is ~400 m east in OSM, so radius 150 m)."
+  - id: FS-002
+    name: "King Abdullah Road / King Fahd Road underpass"
+    kind: underpass
+    lon: 39.19315
+    lat: 21.51112
+    radius_m: 80
+    osm_ways: [766189946, 766189945]
+    events: [2015, 2017]
+    sources:
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة ونزح ملايين الأمتار من المياه. https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» والشوارع تشكو مأساة كل عام. https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in both sources; OSM King Fahd Rd tunnel ways 766189946/766189945 cross under King Abdullah Rd at this point."
+  - id: FS-003
+    name: "King Abdullah Roundabout underpass (Al Andalus Rd / King Abdulaziz Rd under King Abdullah Rd)"
+    kind: underpass
+    lon: 39.16928
+    lat: 21.50782
+    radius_m: 120
+    osm_ways: [240251205, 240251209, 113823290]
+    events: [2015, 2017]
+    sources:
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة (نفق طريق الملك عبدالله مع شارع الأندلس). https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» (نفق تقاطع طريق الملك عبد الله وطريق الملك عبدالعزيز). https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "OSM Al Andalus Rd tunnel (240251205/240251209) passes under King Abdullah Roundabout and continues south as the depressed King Abdulaziz Rd (113823290); the 2015 'King Abdullah x Al-Andalus' and 2017 'King Abdullah x King Abdulaziz' tunnels are taken to be this one structure (inference)."
+  - id: FS-004
+    name: "Prince Majid Road / Palestine Road underpass"
+    kind: underpass
+    lon: 39.20791
+    lat: 21.53484
+    radius_m: 80
+    osm_ways: [444205770, 444205771]
+    events: [2015, 2017]
+    sources:
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة (the only tunnel still flooded). https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق». https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in both sources; OSM Prince Majid Rd tunnel ways 444205770/444205771 pass under the Palestine Rd bridge here."
+  - id: FS-005
+    name: "Prince Majid Road / Hira Street underpass"
+    kind: underpass
+    lon: 39.1858
+    lat: 21.61968
+    radius_m: 80
+    osm_ways: [646811698, 646811703]
+    events: [2015, 2017]
+    sources:
+      - "Saudi Press Agency (17 Jan 2011). بيان بخصوص إرتفاع منسوب مياه الأمطار في الأنفاق (closed: inflow via Ibn Baz Rd exceeded pumps; precursor rain). https://www.spa.gov.sa/856513"
+      - "Al-Eqtisadiah (18 Jan 2011). أمانة جدة: أعدنا تشغيل نفق الملك عبدالله. https://www.aleqt.com/2011/01/17/article_492803.html"
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة. https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق». https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in all sources; OSM Prince Majid Rd tunnel ways 646811698/646811703 pass under Hera'a Street here."
+  - id: FS-006
+    name: "Prince Majid Road / Prince Saud Al-Faisal Street (Al-Rawdah St) underpass"
+    kind: underpass
+    lon: 39.19971
+    lat: 21.57286
+    radius_m: 80
+    osm_ways: [41409169, 444381757]
+    events: [2015, 2017]
+    sources:
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة (نفق طريق الأمير ماجد مع شارع الأمير سعود الفيصل). https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» (نفق تقاطع شارع الأمير ماجد مع شارع الروضة). https://www.al-madina.com/article/549464/"
+      - "Saudi Press Agency (17 Jan 2011). Rawdah tunnel closed as a precaution (precursor rain). https://www.spa.gov.sa/856513"
+    confidence: high
+    review: "OSM tunnel ways 41409169/444381757 pass under Prince Saud Al Faisal St, which runs through Al-Rawdah; equating the 2017 'Al-Rawdah St' tunnel with it is inference (no OSM way is named Rawdah St). Arab News 21 Jan 2011 quotes the mayor saying it did not flood in Jan 2011."
+  - id: FS-007
+    name: "Prince Majid Road / Tahlia Street (Prince Mohammed bin Abdulaziz St) underpass"
+    kind: underpass
+    lon: 39.20208
+    lat: 21.56232
+    radius_m: 80
+    osm_ways: [447159114, 447095108, 447159116]
+    events: [2017]
+    sources:
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق». https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in source; OSM Tahlia St tunnel ways 447159114/447095108 pass under Prince Majid Rd here."
+  - id: FS-008
+    name: "Tahlia Street / Makarona Road underpass"
+    kind: underpass
+    lon: 39.19218
+    lat: 21.5604
+    radius_m: 80
+    osm_ways: [646863430, 646863432]
+    events: [2015, 2017]
+    sources:
+      - "Al-Watan (19 Nov 2015). تحرير أنفاق جدة (نفق المكرونة مع شارع التحلية). https://www.alwatan.com.sa/article/280833"
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق». https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in both sources; OSM Tahlia St tunnel ways 646863430/646863432 pass under Makarunah Rd here."
+  - id: FS-009
+    name: "King Fahd Road / Tahlia Street underpass"
+    kind: underpass
+    lon: 39.18732
+    lat: 21.55942
+    radius_m: 80
+    osm_ways: [165403933, 165403931]
+    events: [2017]
+    sources:
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» (نفق تقاطع طريق الملك فهد شارع الأمير محمد بن عبدالعزيز). https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in source; OSM King Fahd Rd tunnel ways 165403933/165403931 pass under Tahlia St. Jan 2011 sources report it open (Al-Eqtisadiah 18 Jan 2011; Al-Watan 29 Jan 2011 'Sixty St tunnel at Tahlia', Sixty St = King Fahd Rd by local usage, inference)."
+  - id: FS-010
+    name: "King Fahd Road / Gharnata Street underpass"
+    kind: underpass
+    lon: 39.1905
+    lat: 21.5444
+    radius_m: 120
+    osm_ways: [165404257]
+    events: [2017]
+    sources:
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» (نفق تقاطع طريق الملك فهد مع شارع غرناطة). https://www.al-madina.com/article/549464/"
+    confidence: medium
+    review: "At the King Fahd Rd x Gharnatah St junction OSM has King Fahd Rd on bridges over an unnamed primary at layer -1 (165404257, ~1 km long); the match is plausible but the underpass is unnamed in OSM."
+  - id: FS-011
+    name: "Madinah Road / Sari Road underpass"
+    kind: underpass
+    lon: 39.16544
+    lat: 21.58103
+    radius_m: 80
+    osm_ways: [449440253, 449440254]
+    events: [2017]
+    sources:
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق». https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in source; OSM Sari Rd tunnel ways 449440253/449440254 pass under Madinah Rd here."
+  - id: FS-012
+    name: "Prince Majid Road / Bakhashab St and Abdullah Al-Sulaiman St underpasses"
+    kind: underpass
+    lon: 39.2329
+    lat: 21.4832
+    radius_m: 150
+    osm_ways: [646825036, 646825038, 766217929, 31694126]
+    events: [2017]
+    sources:
+      - "Al-Madina (22 Nov 2017). أنفاق جدة «تغرق» (نفق تقاطع شارع الأمير ماجد مع شارع باخشب وشارع عبدالله السليمان). https://www.al-madina.com/article/549464/"
+    confidence: high
+    review: "Named in source as one site; OSM has two Prince Majid Rd tunnels ~250 m apart under Bakhashab St and Abdulla Sulaiman St, so the point is their midpoint with radius 150 m."
+  - id: FS-013
+    name: "Prince Majid Road tunnel at King Abdulaziz University (2009)"
+    kind: underpass
+    lon: 39.2329
+    lat: 21.4832
+    radius_m: 150
+    osm_ways: [646825036, 646825038, 766217929, 31694126]
+    events: [2009]
+    sources:
+      - "Saudi Press Agency (30 Nov 2009). تشغيل نفق الملك عبدالله بجدة (pumping continues in 'the Prince Majid tunnel that belongs to King Abdulaziz University'). https://www.spa.gov.sa/723778"
+    confidence: medium
+    review: "SPA names only 'the Prince Majid tunnel belonging to KAU'; the Prince Majid tunnels at the KAU south-west corner (same structures as FS-012) are the nearest match, but this is inference."
+  - id: FS-014
+    name: "Jamia (University) Bridge, Al-Haramain Expressway"
+    kind: road_segment
+    lon: 39.268
+    lat: 21.488
+    radius_m: 300
+    osm_ways: [41459522, 41459521]
+    events: [2009]
+    sources:
+      - "Anqawi, A. (26 Nov 2009). Flooding kills 77 in Jeddah, Thousands of pilgrims stranded on highway. Saudi Gazette. https://web.archive.org/web/20091130010910/http://www.saudigazette.com.sa/index.cfm?method=home.regcon&contentID=2009112655554"
+      - "Alawi, I. and Al-Harthi, E. (27 Nov 2009). King orders aid for victims, Death toll in Jeddah flooding hits 77. Saudi Gazette. https://web.archive.org/web/20120302075732/http://www.saudigazette.com.sa/index.cfm?method=home.regcon&contentID=2009112755615"
+    confidence: medium
+    review: "Bridge partially collapsed and Haramain closed two days; placed at the Haramain interchange beside KAU (OSM motorway_link bridges 41459522/41459521), but the Gazette puts it ~1 km from the King Abdullah Bridge (OSM 39.2523, 21.5122) and this point is ~2.8 km away, and the expressway has been rebuilt since 2009."
+  - id: FS-015
+    name: "Palestine Road, Al-Hamra section (2011 flood path to the sea)"
+    kind: road_segment
+    lon: 39.17
+    lat: 21.5256
+    radius_m: 400
+    osm_ways: [240251212, 1510709654]
+    events: [2011]
+    sources:
+      - "Al-Watan (29 Jan 2011). سيول جبال شرق جدة قطعت 13 كيلو مترا إلى البحر (Wadi Bani Malik flood crossed Palestine St carrying cars toward the sea; residents of Palestine St, Al-Hamra and Madinah Rd). https://www.alwatan.com.sa/article/77984"
+      - "Arab News (28 Jan 2011). Flood-hit Jeddah still in shock ('most exit and entry points of the Palestine Street were submerged'). https://www.arabnews.com/archive/366574"
+    confidence: low
+    review: "Sources name Palestine St (about 8 km long) as flooded, not a point; this point on Palestine Rd inside Al-Hamra was picked by the compiler."
+  - id: FS-016
+    name: "Palestine Road, Bani Malik section (Wadi Bani Malik crossing, 2011)"
+    kind: road_segment
+    lon: 39.223
+    lat: 21.5376
+    radius_m: 500
+    osm_ways: [444537082, 444537083]
+    events: [2011]
+    sources:
+      - "Al-Watan (29 Jan 2011). سيول جبال شرق جدة قطعت 13 كيلو مترا إلى البحر (Wadi Bani Malik ran for the first time in 40 years and crossed Palestine St east to west). https://www.alwatan.com.sa/article/77984"
+      - "Arab News (28 Jan 2011). Flood-hit Jeddah still in shock (Palestine St and the entire Bani Malik district flooded or jammed). https://www.arabnews.com/archive/366574"
+    confidence: low
+    review: "Area only: Palestine Rd where it runs along Bani Malik district (OSM district polygon) was picked by the compiler; the wadi's crossing point is not given in the sources."
+  - id: FS-017
+    name: "Wadi Bani Malik crossing of Al-Haramain Expressway (2011)"
+    kind: wadi_crossing
+    lon: 39.2406
+    lat: 21.533
+    radius_m: 500
+    osm_ways: [346621217, 43159324]
+    events: [2011]
+    sources:
+      - "Al-Watan (29 Jan 2011). سيول جبال شرق جدة قطعت 13 كيلو مترا إلى البحر (Wadi Bani Malik flood 'cut the Haramain Rd'). https://www.alwatan.com.sa/article/77984"
+      - "Subyani, A.M. (2012). Flood Hazards Analysis of Jeddah City, Western Saudi Arabia. JKAU: Earth Sci. 23(1):35-48. DOI 10.4197/Ear.23-1.3. https://marz.kau.edu.sa/Files/320/Researches/62594_33620.pdf"
+    confidence: low
+    review: "Point is the Haramain mainline (OSM 346621217/43159324) where it bounds Bani Malik district; the exact crossing is not in the sources (an unnamed OSM drain culvert, way 1074122761, lies ~250 m away)."
+  - id: FS-018
+    name: "Wadi Mraikh / Umm Al-Khair dam-breach flood path across Al-Haramain Expressway (Al-Nakheel / Al-Naseem, 2011)"
+    kind: wadi_crossing
+    lon: 39.2434
+    lat: 21.525
+    radius_m: 500
+    osm_ways: [346621217, 43159324, 1001123605, 717096408]
+    events: [2011]
+    sources:
+      - "Al-Watan (29 Jan 2011). سيول جبال شرق جدة قطعت 13 كيلو مترا إلى البحر (Wadi Mraikh flood broke Umm Al-Khair dam, crossed Al-Nakheel and Al-Naseem toward the old airport, King Abdullah tunnel and Al-Ruwais). https://www.alwatan.com.sa/article/77984"
+    confidence: low
+    review: "Area only: Haramain point between the Al-Nakheel and Al-Naseem district polygons (OSM), including the interchange underpass ramps 1001123605/717096408; OSM maps a different channel named Wadi Mraikh far north (lat 21.78-21.83), so the wadi name and path are unverified."
+  - id: FS-019
+    name: "Wadi Al-Asla channel crossing of Al-Haramain Expressway"
+    kind: wadi_crossing
+    lon: 39.2303
+    lat: 21.571
+    radius_m: 300
+    osm_ways: [346621217, 43159324, 881696457]
+    events: []
+    sources:
+      - "Al Saud, M. (2010). Assessment of Flood Hazard of Jeddah Area 2009, Saudi Arabia. Journal of Water Resource and Protection 2(9):839-847. DOI 10.4236/jwarp.2010.29099 (CC BY 4.0). https://www.scirp.org/journal/paperinformation?paperid=2729"
+      - "Subyani, A.M. (2012). Flood Hazards Analysis of Jeddah City, Western Saudi Arabia. JKAU: Earth Sci. 23(1):35-48. https://marz.kau.edu.sa/Files/320/Researches/62594_33620.pdf"
+    confidence: medium
+    review: "Papers name Wadi Al-Asla (the largest basin, Bani Malik basin) but no flooded crossing; the OSM drain named وادي العصلاء crosses the Haramain in a culvert (881696457) at this point."
+  - id: FS-020
+    name: "Wadi Ghulail channel crossing of Jeddah-Makkah Expressway"
+    kind: wadi_crossing
+    lon: 39.2752
+    lat: 21.4435
+    radius_m: 300
+    osm_ways: [303040001, 161923577, 161923580]
+    events: []
+    sources:
+      - "Youssef, A.M., Sefry, S.A., Pradhan, B., Abu Alfadail, E. (2016). Analysis on causes of flash flood in Jeddah city (Kingdom of Saudi Arabia) of 2009 and 2011 using multi-sensor remote sensing data and GIS. Geomatics, Natural Hazards and Risk 7(3):1018-1042. https://doi.org/10.1080/19475705.2015.1012750"
+      - "Subyani, A.M. (2012). Flood Hazards Analysis of Jeddah City, Western Saudi Arabia. JKAU: Earth Sci. 23(1):35-48. https://marz.kau.edu.sa/Files/320/Researches/62594_33620.pdf"
+    confidence: medium
+    review: "Youssef et al. list Wadi Ghulail among the most affected wadis (read via abstract/snippets only, so which event is unresolved); the OSM drain named وادي غليل (303040001) passes under the Jeddah-Makkah Expressway bridges 161923577/161923580 here."
+  - id: FS-021
+    name: "Wadi Ghulail channel crossing of the 55M expressway"
+    kind: wadi_crossing
+    lon: 39.26
+    lat: 21.4512
+    radius_m: 300
+    osm_ways: [303040001, 43172605, 43172603]
+    events: []
+    sources:
+      - "Youssef, A.M., Sefry, S.A., Pradhan, B., Abu Alfadail, E. (2016). Geomatics, Natural Hazards and Risk 7(3):1018-1042. https://doi.org/10.1080/19475705.2015.1012750"
+    confidence: medium
+    review: "Same channel as FS-020; OSM motorway bridges 43172605/43172603 (ref 55M) span the named drain here; no source names this crossing."
+  - id: FS-022
+    name: "Quwaizah / Wadi Qaws (2009)"
+    kind: road_segment
+    lon: 39.3038
+    lat: 21.4013
+    radius_m: 800
+    osm_ways: []
+    events: [2009]
+    sources:
+      - "Alawi, I. and Al-Harthi, E. (27 Nov 2009). King orders aid for victims. Saudi Gazette (search in Quwaizah, Muntazahat, Jamia). https://web.archive.org/web/20120302075732/http://www.saudigazette.com.sa/index.cfm?method=home.regcon&contentID=2009112755615"
+      - "Al-Sulami, M. (25 Nov 2010). The deluge in Jeddah. Arab News (Al-Harazat, Quwaiza, Sawaed, Kilo 14, Jamia). https://www.arabnews.com/archive/361371"
+      - "Al-Watan (10 May 2010). أولاً: الأربعاء الأسود.. بداية فاجعة سيول جدة (Wadi Quwaizah). https://www.alwatan.com.sa/article/40160"
+      - "Youssef, A.M. et al. (2015). Remote sensing-based studies coupled with field data reveal urgent solutions to avert the risk of flash floods in the Wadi Qus (east of Jeddah). Natural Hazards. https://doi.org/10.1007/s11069-014-1383-1"
+    confidence: low
+    review: "Area only: point is the OSM neighbourhood node قويزه (n11005547753), which may be offset from the 2009 flood area; no crossing structure located."
+  - id: FS-023
+    name: "Abruq Al-Raghamah district (2009)"
+    kind: road_segment
+    lon: 39.2933
+    lat: 21.5018
+    radius_m: 800
+    osm_ways: []
+    events: [2009]
+    sources:
+      - "Anqawi, A. (26 Nov 2009). Flooding kills 77 in Jeddah. Saudi Gazette (eastern districts incl. Abruq Al-Raghamah cut off). https://web.archive.org/web/20091130010910/http://www.saudigazette.com.sa/index.cfm?method=home.regcon&contentID=2009112655554"
+      - "Alawi, I. and Al-Harthi, E. (27 Nov 2009). Saudi Gazette (~1,500 houses flooded in Abruq Al-Raghamah). https://web.archive.org/web/20120302075732/http://www.saudigazette.com.sa/index.cfm?method=home.regcon&contentID=2009112755615"
+      - "Assessment of Exposure to Flash Flooding in an Arid Environment: A Case Study of the Jeddah City Neighborhood Abruq Ar Rughamah (2021). Springer book chapter. https://link.springer.com/chapter/10.1007/978-981-16-2904-4_14"
+    confidence: low
+    review: "Area only: point is inside the OSM district polygon الرغامة (r20039297)."
+  - id: FS-024
+    name: "Al-Ajwad district (2011)"
+    kind: road_segment
+    lon: 39.258
+    lat: 21.6028
+    radius_m: 600
+    osm_ways: []
+    events: []
+    sources:
+      - "Humaidan, M. (21 Jan 2011). Officials tour Jeddah's flood-stricken areas. Arab News ('the swamped Al-Rahmaniya and Al-Ajwad neighborhoods'). https://www.arabnews.com/node/366085"
+    confidence: low
+    review: "Area only: point inside the OSM district polygon الأجواد (r20039299); article dated 21 Jan 2011, so it describes the mid-January rains, not the 26 Jan event; events left empty."
+  - id: FS-025
+    name: "Al-Rahmaniyah district (2011)"
+    kind: road_segment
+    lon: 39.2178
+    lat: 21.7897
+    radius_m: 600
+    osm_ways: []
+    events: []
+    sources:
+      - "Humaidan, M. (21 Jan 2011). Officials tour Jeddah's flood-stricken areas. Arab News. https://www.arabnews.com/node/366085"
+    confidence: low
+    review: "Area only: point inside the OSM district polygon الرحمانية (r20039338); same dating caveat as FS-024 (mid-January 2011 rains); events left empty."

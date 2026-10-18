@@ -1,0 +1,328 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "source": "data/osm/jeddah.osm.pbf",
+  "source_hash": "cafede24632a3e1b",
+  "method": "km-weighted quantiles of lanes per direction (oneway: lanes; two-way: lanes:forward/backward, else lanes/2) and maxspeed over OSM ways that carry the tag, per class x oneway; defaults = median if >= 5.0 km tagged",
+  "min_tagged_km": 5.0,
+  "assumptions": {
+    "lanes": "A-net-301",
+    "maxspeed": "A-net-302"
+  },
+  "stats": {
+    "motorway_link|oneway": {
+      "ways": 441,
+      "km": 177.2,
+      "lanes_tagged_ways": 55,
+      "lanes_tagged_km": 27.4,
+      "lanes_tagged_share": 0.155,
+      "maxspeed_tagged_km": 6.5,
+      "lanes_p25": 2.0,
+      "lanes_p50": 2.0,
+      "lanes_p75": 2.0,
+      "maxspeed_p25": 60,
+      "maxspeed_p50": 60,
+      "maxspeed_p75": 90
+    },
+    "motorway|oneway": {
+      "ways": 190,
+      "km": 450.7,
+      "lanes_tagged_ways": 98,
+      "lanes_tagged_km": 172.6,
+      "lanes_tagged_share": 0.383,
+      "maxspeed_tagged_km": 405.1,
+      "lanes_p25": 3.0,
+      "lanes_p50": 4.0,
+      "lanes_p75": 4.0,
+      "maxspeed_p25": 100,
+      "maxspeed_p50": 100,
+      "maxspeed_p75": 120
+    },
+    "primary_link|oneway": {
+      "ways": 554,
+      "km": 88.1,
+      "lanes_tagged_ways": 84,
+      "lanes_tagged_km": 13.6,
+      "lanes_tagged_share": 0.155,
+      "maxspeed_tagged_km": 0,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 2.0
+    },
+    "primary_link|twoway": {
+      "ways": 115,
+      "km": 1.9,
+      "lanes_tagged_ways": 0,
+      "lanes_tagged_km": 0,
+      "lanes_tagged_share": 0.0,
+      "maxspeed_tagged_km": 0
+    },
+    "primary|oneway": {
+      "ways": 893,
+      "km": 863.1,
+      "lanes_tagged_ways": 182,
+      "lanes_tagged_km": 251.5,
+      "lanes_tagged_share": 0.291,
+      "maxspeed_tagged_km": 308.4,
+      "lanes_p25": 2.0,
+      "lanes_p50": 3.0,
+      "lanes_p75": 4.0,
+      "maxspeed_p25": 80,
+      "maxspeed_p50": 80,
+      "maxspeed_p75": 90
+    },
+    "primary|twoway": {
+      "ways": 34,
+      "km": 2.9,
+      "lanes_tagged_ways": 1,
+      "lanes_tagged_km": 2.0,
+      "lanes_tagged_share": 0.703,
+      "maxspeed_tagged_km": 2.0,
+      "lanes_p25": 2.0,
+      "lanes_p50": 2.0,
+      "lanes_p75": 2.0,
+      "maxspeed_p25": 80,
+      "maxspeed_p50": 80,
+      "maxspeed_p75": 80
+    },
+    "residential|oneway": {
+      "ways": 4161,
+      "km": 2064.4,
+      "lanes_tagged_ways": 138,
+      "lanes_tagged_km": 52.7,
+      "lanes_tagged_share": 0.026,
+      "maxspeed_tagged_km": 10.7,
+      "lanes_p25": 2.0,
+      "lanes_p50": 2.0,
+      "lanes_p75": 2.0,
+      "maxspeed_p25": 40,
+      "maxspeed_p50": 60,
+      "maxspeed_p75": 60
+    },
+    "residential|twoway": {
+      "ways": 24372,
+      "km": 6375.4,
+      "lanes_tagged_ways": 178,
+      "lanes_tagged_km": 48.9,
+      "lanes_tagged_share": 0.008,
+      "maxspeed_tagged_km": 4.8,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0,
+      "maxspeed_p25": 30,
+      "maxspeed_p50": 30,
+      "maxspeed_p75": 40
+    },
+    "secondary_link|oneway": {
+      "ways": 305,
+      "km": 38.0,
+      "lanes_tagged_ways": 25,
+      "lanes_tagged_km": 3.3,
+      "lanes_tagged_share": 0.086,
+      "maxspeed_tagged_km": 0,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0
+    },
+    "secondary_link|twoway": {
+      "ways": 302,
+      "km": 4.4,
+      "lanes_tagged_ways": 0,
+      "lanes_tagged_km": 0,
+      "lanes_tagged_share": 0.0,
+      "maxspeed_tagged_km": 0
+    },
+    "secondary|oneway": {
+      "ways": 1319,
+      "km": 1389.9,
+      "lanes_tagged_ways": 179,
+      "lanes_tagged_km": 235.1,
+      "lanes_tagged_share": 0.169,
+      "maxspeed_tagged_km": 151.9,
+      "lanes_p25": 3.0,
+      "lanes_p50": 3.0,
+      "lanes_p75": 3.0,
+      "maxspeed_p25": 60,
+      "maxspeed_p50": 80,
+      "maxspeed_p75": 90
+    },
+    "secondary|twoway": {
+      "ways": 332,
+      "km": 106.4,
+      "lanes_tagged_ways": 1,
+      "lanes_tagged_km": 1.4,
+      "lanes_tagged_share": 0.014,
+      "maxspeed_tagged_km": 1.7,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0,
+      "maxspeed_p25": 20,
+      "maxspeed_p50": 20,
+      "maxspeed_p75": 20
+    },
+    "tertiary_link|oneway": {
+      "ways": 149,
+      "km": 10.2,
+      "lanes_tagged_ways": 18,
+      "lanes_tagged_km": 0.6,
+      "lanes_tagged_share": 0.062,
+      "maxspeed_tagged_km": 0.1,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0,
+      "maxspeed_p25": 50,
+      "maxspeed_p50": 50,
+      "maxspeed_p75": 60
+    },
+    "tertiary_link|twoway": {
+      "ways": 309,
+      "km": 4.4,
+      "lanes_tagged_ways": 1,
+      "lanes_tagged_km": 0.0,
+      "lanes_tagged_share": 0.003,
+      "maxspeed_tagged_km": 0,
+      "lanes_p25": 0.5,
+      "lanes_p50": 0.5,
+      "lanes_p75": 0.5
+    },
+    "tertiary|oneway": {
+      "ways": 1304,
+      "km": 1143.5,
+      "lanes_tagged_ways": 156,
+      "lanes_tagged_km": 122.6,
+      "lanes_tagged_share": 0.107,
+      "maxspeed_tagged_km": 75.4,
+      "lanes_p25": 2.0,
+      "lanes_p50": 2.0,
+      "lanes_p75": 3.0,
+      "maxspeed_p25": 80,
+      "maxspeed_p50": 80,
+      "maxspeed_p75": 80
+    },
+    "tertiary|twoway": {
+      "ways": 222,
+      "km": 77.8,
+      "lanes_tagged_ways": 4,
+      "lanes_tagged_km": 2.1,
+      "lanes_tagged_share": 0.027,
+      "maxspeed_tagged_km": 4.4,
+      "lanes_p25": 2.0,
+      "lanes_p50": 2.0,
+      "lanes_p75": 2.0,
+      "maxspeed_p25": 80,
+      "maxspeed_p50": 80,
+      "maxspeed_p75": 80
+    },
+    "trunk_link|oneway": {
+      "ways": 98,
+      "km": 38.6,
+      "lanes_tagged_ways": 6,
+      "lanes_tagged_km": 1.2,
+      "lanes_tagged_share": 0.032,
+      "maxspeed_tagged_km": 0,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0
+    },
+    "trunk_link|twoway": {
+      "ways": 8,
+      "km": 0.1,
+      "lanes_tagged_ways": 0,
+      "lanes_tagged_km": 0,
+      "lanes_tagged_share": 0.0,
+      "maxspeed_tagged_km": 0
+    },
+    "trunk|oneway": {
+      "ways": 243,
+      "km": 159.2,
+      "lanes_tagged_ways": 80,
+      "lanes_tagged_km": 55.3,
+      "lanes_tagged_share": 0.347,
+      "maxspeed_tagged_km": 72.7,
+      "lanes_p25": 3.0,
+      "lanes_p50": 3.0,
+      "lanes_p75": 3.0,
+      "maxspeed_p25": 90,
+      "maxspeed_p50": 90,
+      "maxspeed_p75": 90
+    },
+    "unclassified|oneway": {
+      "ways": 465,
+      "km": 263.3,
+      "lanes_tagged_ways": 12,
+      "lanes_tagged_km": 2.2,
+      "lanes_tagged_share": 0.009,
+      "maxspeed_tagged_km": 0.9,
+      "lanes_p25": 1.0,
+      "lanes_p50": 3.0,
+      "lanes_p75": 3.0,
+      "maxspeed_p25": 60,
+      "maxspeed_p50": 60,
+      "maxspeed_p75": 60
+    },
+    "unclassified|twoway": {
+      "ways": 667,
+      "km": 352.8,
+      "lanes_tagged_ways": 1,
+      "lanes_tagged_km": 1.0,
+      "lanes_tagged_share": 0.003,
+      "maxspeed_tagged_km": 0,
+      "lanes_p25": 1.0,
+      "lanes_p50": 1.0,
+      "lanes_p75": 1.0
+    }
+  },
+  "defaults": {
+    "motorway|oneway": {
+      "lanes": 4,
+      "lanes_from": "motorway|oneway (class x direction, 172.6 km tagged)",
+      "maxspeed": 100,
+      "maxspeed_from": "motorway|oneway (class x direction, 405.1 km tagged)"
+    },
+    "trunk|oneway": {
+      "lanes": 3,
+      "lanes_from": "trunk|oneway (class x direction, 55.3 km tagged)",
+      "maxspeed": 90,
+      "maxspeed_from": "trunk|oneway (class x direction, 72.7 km tagged)"
+    },
+    "primary|oneway": {
+      "lanes": 3,
+      "lanes_from": "primary|oneway (class x direction, 251.5 km tagged)",
+      "maxspeed": 80,
+      "maxspeed_from": "primary|oneway (class x direction, 308.4 km tagged)"
+    },
+    "primary|twoway": {
+      "maxspeed": 80,
+      "maxspeed_from": "primary|oneway (class, 308.4 km tagged)"
+    },
+    "secondary|oneway": {
+      "lanes": 3,
+      "lanes_from": "secondary|oneway (class x direction, 235.1 km tagged)",
+      "maxspeed": 80,
+      "maxspeed_from": "secondary|oneway (class x direction, 151.9 km tagged)"
+    },
+    "secondary|twoway": {
+      "maxspeed": 80,
+      "maxspeed_from": "secondary|oneway (class, 151.9 km tagged)"
+    },
+    "tertiary|oneway": {
+      "lanes": 2,
+      "lanes_from": "tertiary|oneway (class x direction, 122.6 km tagged)",
+      "maxspeed": 80,
+      "maxspeed_from": "tertiary|oneway (class x direction, 75.4 km tagged)"
+    },
+    "tertiary|twoway": {
+      "maxspeed": 80,
+      "maxspeed_from": "tertiary|oneway (class, 75.4 km tagged)"
+    },
+    "motorway_link|oneway": {
+      "lanes": 2,
+      "lanes_from": "motorway_link|oneway (class x direction, 27.4 km tagged)",
+      "maxspeed": 60,
+      "maxspeed_from": "motorway_link|oneway (class x direction, 6.5 km tagged)"
+    },
+    "primary_link|oneway": {
+      "lanes": 1,
+      "lanes_from": "primary_link|oneway (class x direction, 13.6 km tagged)"
+    }
+  }
+}

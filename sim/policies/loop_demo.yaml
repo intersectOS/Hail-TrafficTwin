@@ -1,0 +1,21 @@
+# Loop demo on the committed demo window (data/demo, Tahlia area): three stations about 1 km apart,
+# shuttle mode. Runs in seconds (tests/test_loop_run.py). Synthetic demand, uncalibrated.
+id: loop_demo
+kind: policy
+title: "Loop demo: 3-station shuttle line across the demo window (synthetic demand, uncalibrated)"
+daytype: weekday
+transforms:
+  - type: loop_shuttle
+    alignments:
+      - id: demo
+        name: "Demo window diagonal"
+        stations:
+          - {name: "south-west", lon: 39.1500, lat: 21.5440}
+          - {name: "centre", lon: 39.1571, lat: 21.5505}
+          - {name: "north-east", lon: 39.1640, lat: 21.5560}
+    alpha: 0.5
+    radius_o_m: 450
+    radius_d_m: 450
+    min_trip_km: 0.6
+    speed_kmh: 90
+    assumption: "A-loop-016: demo-only geometry (the window is 1.9 x 1.8 km, so station spacing is about 1 km, below the 1.5-3 km siting rule; catchment 450 m and minimum trip 0.6 km scaled down accordingly). Other parameters: sim/loop/config/loop.yaml (A-loop-001..020)."

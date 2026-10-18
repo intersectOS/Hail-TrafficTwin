@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tier B (window, micro) overlay: keep everything osmNetconvert.xml imports, including
+     service roads and parking aisles. Intentionally empty; listed so the window build has an
+     explicit, reviewable type configuration. -->
+<types>
+</types>

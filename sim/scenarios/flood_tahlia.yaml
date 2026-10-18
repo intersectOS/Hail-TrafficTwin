@@ -1,0 +1,18 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): the storm timing is invented; the flood-prone
+# sites come from the public-literature list data/jeddah_flood_sites.yaml.
+# Synthetic demand, uncalibrated.
+id: flood_tahlia
+kind: scenario
+window: tahlia
+daytype: weekday
+label: "Storm with flooding of reviewed flood-prone sites in the Tahlia window (medium/high confidence)"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: flood
+    id: storm_flood
+    start: 600
+    duration_min: 45
+    preset: storm             # A-rain-011..015
+    min_confidence: medium    # FS-009 King Fahd Rd / Tahlia St underpass; low-confidence area sites skipped

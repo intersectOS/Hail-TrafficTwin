@@ -1,0 +1,28 @@
+# Policy runs (python -m sim.runner --policy <id> ...). Model settings; behavioural numbers live in
+# the policy files with `source:`/`assumption:`. Registered decisions: TA-014.. in docs/status/trackA.md.
+kind: policy_run
+label: "synthetic demand, uncalibrated"
+
+# Incremental re-routing (TA-014, A-pol-090): vehicles whose trip is unchanged keep their baseline route; new,
+# re-timed, re-moded or affected vehicles get a one-shot shortest path on the baseline's congested
+# travel times (edgedata of the matching baseline run, aggregated per interval). No re-equilibration.
+reroute:
+  routing_algorithm: astar
+  # One-shot routing on fixed weights draws no random numbers, so it is repeatable with any thread
+  # count (tested: tests/test_policies_run.py::test_reroute_threads_repeatable).
+  routing_threads: 8
+  weights_interval_s: 900
+  # write a weight only where the congested travel time exceeds free flow by this factor;
+  # other edges are routed at free flow (smaller weight files, same routes in practice)
+  weights_min_ratio: 1.05
+
+# Edge-level comparisons: corridors are edges grouped by street name (unnamed edges by id).
+report:
+  top_corridors: 10
+  top_districts: 5
+  am_peak: ["06:00", "09:00"]
+  pm_peak: ["16:00", "19:00"]
+
+# Parameter sweeps run points in parallel processes; each point needs ~3-4 GB (duarouter + meso).
+sweep:
+  workers: 2

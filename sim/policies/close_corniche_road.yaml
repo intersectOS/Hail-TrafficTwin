@@ -1,0 +1,11 @@
+# Permanent closure of a 3 km section of the North Corniche Road (both carriageways).
+id: close_corniche_road
+kind: policy
+title: "Close the North Corniche Road between lat 21.60 and 21.63 (both directions)"
+daytype: weekday
+transforms:
+  - type: network_change
+    edits:
+      - {name: "Corniche Road", bbox: [39.09, 21.60, 39.12, 21.63], closed: true}
+      - {name: "طريق الكورنيش الشمالي", bbox: [39.09, 21.60, 39.12, 21.63], closed: true}
+    assumption: "A-pol-050: policy design, not behaviour (e.g. a pedestrianised waterfront section): every edge named Corniche Road / North Corniche Road (Arabic name in OSM) with its midpoint inside the box is removed from the network; about 3 km per direction. Trips that used it are re-routed on the baseline's congested travel times; trips starting or ending on it move to the nearest open edge of the same district."

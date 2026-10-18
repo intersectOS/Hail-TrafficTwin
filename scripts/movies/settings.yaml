@@ -1,0 +1,137 @@
+# Movie pipeline settings (Track E). Rendering choices with a real-world reading carry an
+# A-mov id and a `source:` or `assumption:`; they are listed in docs/assumptions-trackE.md.
+# Everything rendered from them stays "synthetic demand, uncalibrated".
+label: "synthetic demand, uncalibrated"
+
+render:
+  width: 1920
+  height: 1080
+  fps: 30
+  width_4k: 3840
+  height_4k: 2160
+  letterbox_aspect: 2.39
+  crf: 18                 # H.264 constant rate factor (visually lossless range)
+  preset: medium
+  pix_fmt: yuv420p
+  chunk_frames: 150       # frames on disk at most before a chunk is encoded and deleted
+  gif_seconds: 6
+  gif_max_bytes: 3000000
+  gif_width: 480
+  gif_fps: 10            # GIF delays are hundredths of a second: 10 fps keeps 6 s exact
+  max_browser_rss_mb: 2048
+  max_disk_mb: 1024
+  frame_timeout_s: 60
+
+buildings:
+  default_height_m:
+    id: A-mov-001
+    value: 6.0
+    unit: m
+    range: [3.2, 12.8]
+    assumption: "Buildings with neither height nor building:levels are drawn 6 m tall (about two storeys); a display choice for the films only, the viewer's own buildings use A-network heights"
+  metres_per_level:
+    id: A-mov-002
+    value: 3.2
+    unit: m/level
+    range: [3.0, 4.0]
+    assumption: "Storey height used to turn building:levels into a height (typical residential/commercial storey); films only"
+  max_features: 60000     # cap per camera area (most of Jeddah's OSM footprints fit)
+
+sun:
+  model:
+    id: A-mov-003
+    value: noaa
+    unit: "-"
+    assumption: "Sun azimuth and elevation from the NOAA solar-position equations (Meeus-based; better than 1 deg for 1800-2100), for Jeddah 21.54 N, 39.17 E, on the film's date with the sim clock read as local time AST = UTC+3; refraction ignored"
+    source: "NOAA Global Monitoring Laboratory, Solar Calculation Details (https://gml.noaa.gov/grad/solcalc/calcdetails.html)"
+  latitude: 21.54
+  longitude: 39.17
+  utc_offset_h: 3
+  twilight_deg:
+    id: A-mov-004
+    value: -6.0
+    unit: deg
+    range: [-6.0, -6.0]
+    assumption: "Night look (road glow, headlights, dim ambient light) blends in from elevation 0 deg to civil twilight (-6 deg); a display choice"
+
+trips:
+  trail_s:
+    id: A-mov-005
+    value: 40
+    unit: s
+    range: [10, 120]
+    assumption: "Motion trails show the last 40 simulated seconds of each vehicle (TripsLayer trailLength); display only, distances are from the FCD"
+  fcd_step:
+    id: A-mov-006
+    value: 1
+    unit: samples
+    range: [1, 5]
+    assumption: "Every FCD sample (1 s) is kept for vehicle paths; positions between samples are interpolated linearly by TripsLayer"
+
+clock:
+  window_t0:
+    id: A-mov-007
+    value: "08:00"
+    unit: local time
+    assumption: "Tier B window clock t = 0 is shown as 08:00, as in strategist/scenarios/emergency_tahlia_0830.yaml (the window demand is one weekday morning hour); used for the HUD clock and the sun on window films"
+
+strategist:
+  within_edge_motion:
+    id: A-mov-008
+    value: linear
+    unit: "-"
+    assumption: "The strategist what-ifs store the ambulance's time on each route edge (ambulance_edge_s), not FCD; the film moves the ambulance along each edge at a constant speed over the recorded time, so per-edge timings and the total ETA are the run's, the motion inside an edge is interpolated"
+
+heat:
+  quantization: 254       # uint8 levels for edge values (255 = no data)
+  ranges:                 # value range mapped onto the uint8 levels per metric
+    speed_rel: [0.0, 1.0]
+    delay_s_per_veh: [0.0, 180.0]
+    density_veh_km: [0.0, 120.0]
+  diff_half_range:        # difference mode: +/- this maps to full blue / full red
+    speed_rel: 0.25
+    delay_s_per_veh: 60.0
+    density_veh_km: 20.0
+
+# Voice-over (MOVIES_V2, scripts/movies/narrate.py): open TTS, fully offline, one voice for every film.
+# Display choices registered in docs/assumptions-trackI.md: A-mov-009 (model, voice, speed, seed),
+# A-mov-010 (lead, gap, tail, after_title), A-mov-011 (loudness, AAC).
+voice:
+  engine: kokoro           # Kokoro-82M (Apache-2.0), run by scripts/movies/tts_kokoro.py in the TTS venv
+  venv: .venv-tts          # created by `make voice-setup` (pinned scripts/movies/tts-requirements.txt)
+  voice: af_heart          # Kokoro American English female voice; calm, documentary read
+  speed: 0.95              # a little slower than Kokoro's default for a documentary pace (display choice)
+  seed: 1                  # torch seed before every line: same script + model => same samples
+  sample_rate: 24000
+  lead_s: 0.6              # a shot's first line starts at least this long after the shot starts
+  gap_s: 0.45              # silence between consecutive lines
+  tail_s: 0.7              # silence after a shot's last line before the cut
+  after_title_s: 0.3       # the first line waits for the title card to fade
+  max_stretch: 2.5         # a shot is slowed at most this much to fit its speech (warn beyond)
+  lufs: -16                # integrated loudness target (EBU R128 loudnorm, two-pass, linear)
+  true_peak_db: -1.5
+  aac_kbps: 160
+  # Arabic edition (pass 8, docs/movies-arabic.md RA-001; A-mov-015 voice, A-mov-016 clause
+  # synthesis in tts_ar.py): these keys override the ones above
+  ar:
+    engine: chatterbox-multilingual   # Resemble AI Chatterbox Multilingual (MIT), language id ar
+    worker: tts_ar.py        # scripts/movies/tts_ar.py, run in the Arabic TTS venv
+    venv: .venv-tts-ar       # created by `make voice-setup-ar` (pinned scripts/movies/tts-ar-requirements.txt)
+    model: ResembleAI/chatterbox
+    # reference voice: ClArTTS test clip ch_02_..._417 (one male MSA reader, CC-BY-4.0, from a
+    # LibriVox recording); `make voice-setup-ar` extracts it (scripts/movies/voice_ref_ar.py)
+    voice: runs/movies/_voice_ar/ref/clartts-417-24k.wav
+    speed: 1.0               # no time-stretch in the worker (the tempo is set in `post` below)
+    seed: 1
+    workers: 2               # parallel one-thread CPU worker processes (each ~3 GB; 4 swapped on 18 GB)
+    args: [--device, cpu, --exaggeration, "0.9", --cfg-weight, "0.4"]   # fastest clean pace of 4 tested
+    # after the TTS (cached takes untouched): pauses over 0.3 s shortened, tempo x1.12 (ffmpeg atempo,
+    # pitch kept), so the films stay within +25 % of the English length (A-mov-016)
+    post: {tempo: 1.12, max_pause_s: 0.3}
+
+# Map labels (MOVIES_V2, scripts/movies/labels.py + web/src/cinema/annotate.ts): display choices,
+# A-mov-012 (names from OSM name:en / name), A-mov-013 (zoom gating), A-mov-014 (movies/landmarks.yaml).
+labels:
+  # deck.gl zoom from which a street class is labelled: motorway/trunk, primary, secondary,
+  # tertiary, local. Bundles drop classes the film's cameras never get close to.
+  street_min_zoom: [11.5, 12.5, 14.0, 15.0, 16.0]

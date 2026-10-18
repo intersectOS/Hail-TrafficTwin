@@ -1,0 +1,20 @@
+# Loop demo, private-EV mode: the same three stations, tunnel open to passenger cars with a SAR 10
+# toll. Runs in seconds on the demo window (tests/test_loop_run.py). Synthetic demand, uncalibrated.
+id: loop_demo_private
+kind: policy
+title: "Loop demo: private-EV tunnel with SAR 10 toll across the demo window (synthetic demand, uncalibrated)"
+daytype: weekday
+transforms:
+  - type: loop_private
+    alignments:
+      - id: demo
+        name: "Demo window diagonal"
+        stations:
+          - {name: "south-west", lon: 39.1500, lat: 21.5440}
+          - {name: "centre", lon: 39.1571, lat: 21.5505}
+          - {name: "north-east", lon: 39.1640, lat: 21.5560}
+    toll_sar: 10
+    reroute_radius_m: 600
+    min_trip_km: 0.6
+    speed_kmh: 90
+    assumption: "A-loop-016: demo-only geometry and radii (see loop_demo.yaml); toll and value of time A-loop-011."

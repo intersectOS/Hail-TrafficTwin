@@ -1,0 +1,79 @@
+# Calibration settings (python -m sim.calibrate). Every behavioural or acceptance value carries an
+# assumption id registered in docs/assumptions-trackA.md. All results stay labelled
+# "synthetic demand, uncalibrated" until a calibration against real counts has been reviewed.
+
+geh:
+  threshold: 5.0            # A-cal-001
+  target_share: 0.85        # A-cal-001
+travel_time:
+  tolerance: 0.15           # A-cal-002: simulated segment time within +/-15 % of observed
+counts:
+  interval_s: 3600          # the count CSV is hourly (PROJECT.md 9.12)
+  # A-cal-003: two detectors reporting the same edge and hour are taken as repeated measurements
+  # of one flow and averaged (lane detectors must be summed upstream, in the partner's export)
+  duplicate_policy: mean
+  max_hour: 47              # allows the after-midnight tail of a day (runs end at 26:00)
+
+route_sampler:
+  # SUMO's routeSampler.py: greedy sampling of candidate routes against edge counts. The
+  # linear-programming optimiser (--optimize) needs scipy, which is not a project dependency.
+  edgedata_attribute: count
+  # --keep-attributes is NOT used: it restores each candidate's original depart time, which breaks
+  # the hourly placement. Sampled vehicles get one vType (below, copied from the candidate file if
+  # defined there; SUMO's default type otherwise); the candidates' mode mix is not preserved.
+  vehicle_type: car
+  extra_options: []
+
+# Simulation of the calibrated routes (round trip). Tier A = meso, with the baseline's capacity
+# scaling when the counts are fitted on a population sample.
+simulation:
+  measure_attribute: entered
+  tail_s: 1800              # simulate past the last counted hour so vehicles finish
+
+# Synthetic counts for the round-trip test (python -m sim.adapters.synthetic). Not real data.
+# The truth demand and the candidate routes come from different random-trip seeds, so the fit is
+# not a copy of the truth: routeSampler must choose among unrelated candidate routes.
+synthetic:
+  min_hourly_count: 30      # A-cal-004: only edges with at least this flow get a "detector"
+  detectors: 40
+  travel_time_segments: 10
+  begin: 0
+  end: 7200                 # two counted hours, so the hourly intervals are exercised
+  truth_trips: {period: 2.0, fringe_factor: 5, min_distance: 300, vclass: passenger}
+  candidate_trips: {period: 0.5, fringe_factor: 5, min_distance: 300, vclass: passenger}
+  candidate_seed_offset: 1000
+
+# City-scale check from a baseline run's edgeData (python -m sim.adapters.baseline_counts). Counts are
+# derived from the uncalibrated baseline itself: a mechanics check, not data. A-cal-006.
+baseline_counts:
+  detectors: 50
+  min_each_hour: 1          # veh per hour in sample units, every selected hour
+  min_mean_hour: 30         # veh per hour in sample units, mean over the selected hours
+
+# Behavioural and acceptance values above, in the house format (registered in
+# docs/assumptions-trackA.md; tests check that the values here match the settings above).
+assumptions:
+  A-cal-001:
+    parameter: geh.threshold, geh.target_share
+    value: [5.0, 0.85]
+    source: "UK DfT TAG unit M3.1 / DMRB: GEH < 5 for more than 85 % of hourly link flows."
+  A-cal-002:
+    parameter: travel_time.tolerance
+    value: 0.15
+    assumption: "Simulated segment time within +/-15 % of observed; judgement in line with common corridor journey-time criteria. Range 0.10-0.20."
+  A-cal-003:
+    parameter: counts.duplicate_policy
+    value: mean
+    assumption: "Two detectors on one edge and hour measure the same directional flow and are averaged; lane detectors must be summed in the partner export. Alternative: sum."
+  A-cal-004:
+    parameter: synthetic.min_hourly_count, synthetic.detectors, synthetic hours
+    value: [30, 40, 2]
+    assumption: "Round-trip test design on the demo window (detector edges with at least 30 veh/h in both hours); not behaviour."
+  A-cal-005:
+    parameter: route_sampler.vehicle_type
+    value: car
+    assumption: "Calibrated vehicles all take the candidates' car vType; routeSampler cannot keep each candidate's vType without also restoring its depart time (TA-032). The baseline mode mix (ride-hail, buses) is not preserved in a fit."
+  A-cal-006:
+    parameter: baseline_counts.detectors, min_each_hour, min_mean_hour
+    value: [50, 1, 30]
+    assumption: "City mechanics check: 50 edges, seed 1, carrying traffic in every selected hour and at least 30 veh/h on average (10 % sample units). Not data."

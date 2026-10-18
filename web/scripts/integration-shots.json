@@ -1,0 +1,8 @@
+[
+ {"name": "integration-baseline", "q": {"run": "baseline-weekday-f0.1-s1-e5f1906a-65fac195-65b0f3", "metric": "speed_rel", "t": "07:00", "hidenodata": "1", "view": "39.2,21.55,10.6"}},
+ {"name": "integration-policy", "q": {"run": "remote_work_30", "compare": "baseline-weekday-f0.1-s1-e5f1906a-65fac195-65b0f3", "mode": "diff", "metric": "speed_kmh", "t": "07:00", "hidenodata": "1", "view": "39.2,21.55,10.6"}},
+ {"name": "integration-policy-districts", "q": {"run": "remote_work_30", "compare": "baseline-weekday-f0.1-s1-e5f1906a-65fac195-65b0f3", "choropleth": "1", "districts": "1", "t": "07:00", "hidenodata": "1", "view": "39.2,21.55,10.6"}},
+ {"name": "integration-accident", "q": {"run": "accident_tahlia-tahlia-s1-257eae8d", "t": "00:20:00", "view": "39.1565,21.5495,15.2,50,-20", "metric": "speed_rel", "panel": "reports"}, "play": 4000},
+ {"name": "integration-strategist", "q": {"run": "strategist~emergency_tahlia_0830-tahlia-s1", "t": "00:30", "panel": "strategist", "view": "39.157,21.55,15.0,45,-15"}},
+ {"name": "integration-evacuation", "q": {"run": "evac_obhur-obhur-s1-ecff823b", "t": "00:35:00", "view": "39.104,21.700,14.6,45,-15", "metric": "speed_rel", "panel": "reports"}, "play": 4000}
+]

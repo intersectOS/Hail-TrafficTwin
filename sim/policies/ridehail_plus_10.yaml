@@ -1,0 +1,10 @@
+# P1 example: 10 % of car-driver tours move to ride-hail, with empty legs to each pickup.
+id: ridehail_plus_10
+kind: policy
+title: "10 % of car-driver tours to ride-hail, deadhead 0.4 km per occupied km"
+daytype: weekday
+transforms:
+  - type: ridehail_share
+    convert_share: 0.10
+    deadhead_factor: 0.4
+    assumption: "A-pol-060: illustrative shift of 10 % of car-driver tours to app ride-hail (range 0.05-0.2). A-pol-061: 0.4 empty km per occupied km for the new rides (US ride-hail studies report 35-45 % deadhead share of total km, i.e. 0.5-0.8 per occupied km; Jeddah's dense driver pool suggests the lower end; range 0.2-0.8). Baseline ride-hail trips carry no deadhead (A-mode-001), so only new rides get empty legs."

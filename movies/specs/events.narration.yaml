@@ -1,0 +1,14 @@
+# Narration for events (scripts/movies/narrate.py). Numbers only from the docs (docs/events.md).
+film: events
+lines:
+  - shot: rain
+    at: 0.6
+    text: "Heavy rain: drivers slow down and keep longer gaps. Mean delay rises by 23.3 percent."
+  - shot: flood
+    at: 0.6
+    text: "A storm floods the reviewed underpass sites, and 13 road segments close. Mean delay more than doubles, up 123.8 percent."
+  - shot: motorcade
+    at: 0.6
+    text: "A six-vehicle motorcade on Tahlia Street, with junctions held ahead of it."
+  - shot: motorcade
+    text: "It takes 85 seconds, against 66.5 at free flow. Fictional scenarios; synthetic demand, uncalibrated."

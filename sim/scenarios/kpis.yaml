@@ -1,0 +1,12 @@
+# Window KPI rules (Tier B). Halted = SUMO's halting definition (speed < 0.1 m/s).
+kind: kpi_rules
+gridlock:
+  halted_share_min: {id: A-kpi-001, value: 0.5, unit: share of running vehicles, range: [0.4, 0.7], assumption: "A window is gridlocked when a majority of the vehicles in it stands still ... Measured: the tahlia baseline (seed 1, a normal loaded hour) reaches 0.44 halted at signals and queues (highest single reading; flood 0.49), so the threshold must sit above that level"}
+  halted_vehicles_min: {id: A-kpi-002, value: 50, unit: vehicles, range: [20, 200], assumption: "... and at least this many vehicles (so a quiet window with three cars at a light is not a gridlock) ..."}
+  sustain_s: {id: A-kpi-003, value: 300, unit: s, range: [120, 600], assumption: "... continuously for this long (= the teleport time, A-sim-002)"}
+  jam_teleports_min: {id: A-kpi-004, value: 10, unit: jam teleports per throughput bin (A-kpi-005), range: [5, 20], assumption: "Gridlock when this many jam teleports fall within one 300 s bin. Isolated jam teleports at boundary or junction conflicts are micro-model artefacts (the tier-link flow-check baseline had 7 per hour), so a single one does not mean gridlock"}
+  throughput_bin_s: {id: A-kpi-005, value: 300, unit: s, range: [60, 900], assumption: "Bin for comparing arrivals with the baseline"}
+  throughput_collapse_ratio: {id: A-kpi-006, value: 0.5, unit: "scenario / baseline arrivals", range: [0.3, 0.7], assumption: "Throughput collapse when a bin's arrivals fall below half the baseline's ..."}
+  throughput_min_baseline_arrivals: {id: A-kpi-007, value: 20, unit: vehicles per bin, range: [10, 50], assumption: "... in bins where the baseline has at least this many arrivals"}
+queues:
+  top_edges: 5   # report setting

@@ -1,0 +1,60 @@
+# Sharm Obhur (Obhur Creek) window for the Track J bridge study, about 24.5 km2 of which 5.4 km2 is
+# creek water (19 km2 land), polygon 2026-10-17.
+# purpose: Tier B evaluation of the OBHUR_BRIDGE crossings (B1 mouth, B2 mid-creek, B3 both) against a
+# matched control, weekday AM and PM peak hours (docs/obhur-bridge.md).
+# Built as the union of: the OSM creek outline (sim/bridge/config/sharm_obhur.geojson: natural=coastline,
+# inner creek from the mouth neck at 39.0947 E, 21.7098 N to the head at about 39.15 E, 21.775 N)
+# buffered by 500 m in UTM 37N; a box over B1's landing junctions at the mouth (39.086-39.1025 E,
+# 21.703-21.7125 N); a polygon over the head interchange (King Abdulaziz Rd / Madinah Rd / Prince
+# Khalid bin Abdullah Rd, to 39.164 E / 21.788 N); and a 250 m band along today's north-to-south
+# route round the head through the south bank (39.1499 E 21.765 N - 39.1477 E 21.7436 N - 39.125 E
+# 21.726 N). Simplified at 120 m, corners rounded to 4 decimals. Without the head interchange and the
+# band, trips from the north bank to the south bank leave the window and are cut in two, so they could
+# never use a bridge (checked: share of arterial junction pairs reachable inside the window). Sized to
+# the brief's 3-25 km2 window range.
+# Why not Track I's `obhur` window: it covers the mouth only (up to 21.739 N), so the detour that
+# cross-creek trips make around the creek head today lies outside it and a bridge could not shorten it
+# inside the window (decision J-D-002). Both banks' arterials are inside: Prince Abdullah Al-Faisal St
+# (north bank), North Corniche Rd and King Abdulaziz Rd (south bank), and the head junctions.
+name: obhur_creek
+title: "Sharm Obhur (Obhur Creek), both banks from the mouth to the head"
+# polygon: list of [lon, lat]
+polygon:
+  - [39.0893, 21.7125]
+  - [39.0907, 21.7198]
+  - [39.0938, 21.7236]
+  - [39.1056, 21.7298]
+  - [39.1061, 21.7366]
+  - [39.1128, 21.7512]
+  - [39.1179, 21.7544]
+  - [39.1245, 21.7555]
+  - [39.1278, 21.7676]
+  - [39.1388, 21.7749]
+  - [39.1430, 21.7850]
+  - [39.1580, 21.7880]
+  - [39.1640, 21.7790]
+  - [39.1630, 21.7660]
+  - [39.1523, 21.7611]
+  - [39.1495, 21.7421]
+  - [39.1411, 21.7392]
+  - [39.1373, 21.7324]
+  - [39.1318, 21.7272]
+  - [39.1258, 21.7239]
+  - [39.1231, 21.7247]
+  - [39.1231, 21.7274]
+  - [39.1336, 21.7356]
+  - [39.1376, 21.7426]
+  - [39.1456, 21.7454]
+  - [39.1475, 21.7610]
+  - [39.1434, 21.7626]
+  - [39.1381, 21.7545]
+  - [39.1364, 21.7455]
+  - [39.1312, 21.7380]
+  - [39.1221, 21.7306]
+  - [39.1171, 21.7176]
+  - [39.1120, 21.7141]
+  - [39.1025, 21.7119]
+  - [39.1025, 21.7030]
+  - [39.0860, 21.7030]
+  - [39.0860, 21.7125]
+out_dir: data/windows/obhur_creek

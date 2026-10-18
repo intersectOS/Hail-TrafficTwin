@@ -1,0 +1,17 @@
+# Assumptions register: Track I (MOVIES_V2: voice-over, map labels, Obhur evacuation)
+
+Same row format as `docs/assumptions.md`; the rows are also added there (section "Movies v2
+(Track I)"). Rows A-mov-009..014 are display choices for the films and change no simulation result;
+A-evac-039/040 are the fictional demo parameters of the Obhur evacuation (PROJECT.md section 11).
+Everything stays **synthetic demand, uncalibrated**.
+
+| id | parameter | value | unit | range | source or assumption | status | used in |
+|---|---|---|---|---|---|---|---|
+| A-mov-009 | Narration voice | Kokoro-82M (hexgrad/Kokoro-82M, revision f3ff3571, Apache-2.0), voice af_heart, speed 0.95, seed 1 | - | - | Assumption: a calm, documentary read; one voice for every film; Kokoro is an open model that runs offline on Apple Silicon (no cloud TTS). Pinned in scripts/movies/tts-requirements.txt | assumed | scripts/movies/narrate.py, scripts/movies/tts_kokoro.py |
+| A-mov-010 | Narration timing | lead 0.6 s after a shot starts, 0.45 s between lines, 0.7 s after a shot's last line, first line 0.3 s after the title card | s | - | Assumption: pacing for a spoken commentary; shots are stretched to fit speech (camera keyframes and time-lapse slow down), never the speech to fit shots | assumed | scripts/movies/narrate.py |
+| A-mov-011 | Voice loudness | -16 LUFS integrated, true peak -1.5 dBTP (EBU R128 loudnorm, two-pass, linear), AAC 160 kbit/s, 48 kHz mono | LUFS | - | Source: -16 LUFS is the common target for online video and podcasts (AES TD1004 recommends -16 to -20 LUFS for streaming; quoted from memory, not verified) | assumed | scripts/movies/render.py |
+| A-mov-012 | Street label names | OSM `name:en`, else the English name most often paired with the same Arabic `name` in the map area; Arabic `name` as a second line | - | - | Source: OpenStreetMap (ODbL), the same extract the network is built from; no transliteration is invented, roads named only in Arabic are labelled in Arabic | sourced | scripts/movies/labels.py |
+| A-mov-013 | Label zoom gating | streets from deck.gl zoom 11.5 (motorway/trunk), 12.5 (primary), 14.0 (secondary), 15.0 (tertiary), 16.0 (local); districts up to 13.3-13.8 | zoom | - | Assumption: only arterials label at city zoom, local streets when the camera is low (display choice) | assumed | scripts/movies/settings.yaml, web/src/cinema/annotate.ts |
+| A-mov-014 | Landmark positions | KAIA, KAU, Al Balad, Obhur Creek (mid-creek bay node and the Ras Obhur cape at the mouth, close views only), Jeddah Tower site, Corniche | lon/lat | - | Source: OSM features named in movies/landmarks.yaml (reviewed 2026-10-17); labels only | sourced | movies/landmarks.yaml |
+| A-evac-039 | Obhur evacuation crowd | 1,500 vehicles (~3,750 persons at A-evac-001) from the south-bank creek-mouth zone, order at 900 s | vehicles | - | Assumption: fictional demo parameter (PROJECT.md section 11); a beach and resort crowd of the size the creek-side street grid can load; not a real venue or plan | assumed | sim/scenarios/evac_obhur.yaml |
+| A-evac-040 | Obhur window polygon | 10-vertex polygon 39.081-39.136 E, 21.686-21.738 N (24.8 km2 incl. about 4 km2 of water) | - | - | Assumption: covers the creek mouth on both banks, the Jeddah Tower site, King Abdulaziz Rd to the creek roundabout, the North Corniche and the Madinah Rd interchange ramps (placed from the OSM extract); same 25 km2 order as the other windows | assumed | sim/network/windows/obhur.yaml |

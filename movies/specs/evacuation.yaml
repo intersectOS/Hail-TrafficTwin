@@ -1,0 +1,54 @@
+# Fictional evacuation at the Obhur Creek mouth (movies/specs/scenarios/evac_obhur_film.yaml, run
+# evac_obhur_film-obhur-s1-83e89905): order at 08:15, the strategist's fastest-clearance option far_first_full (far-first phased
+# release in three bands, balanced exits, contraflow on three corridors from 08:25). The strategist's
+# recommended option is balanced exit guidance alone (docs/evacuation.md); the film says so.
+film: evacuation
+title: Evacuating the Obhur Creek mouth
+subtitle: Tier B window near the Jeddah Tower site, phased release with contraflow (fictional scenario)
+duration_s: 40
+showreel: [8, 28]           # excerpt in the showreel (2-3 min total)
+clock_t0: "08:00"            # A-mov-007
+tier: B
+fictional: true
+sources:
+  evac: {run: evac_obhur_film-obhur-s1-83e89905}
+shots:
+  - id: before
+    duration_s: 8
+    layers: {trips: evac, color_by: class, overlays: [zone, exits]}
+    camera:
+      - {t: 0, lon: 39.1010, lat: 21.7000, zoom: 14.2, pitch: 44, bearing: -18, sim_t: 600}
+      - {t: 8, lon: 39.1020, lat: 21.7030, zoom: 14.5, pitch: 50, bearing: -6, sim_t: 900, ease: in_out}
+    hud:
+      caption: A crowd of about 3,750 people in 1,500 cars
+      detail: Fictional beach and resort crowd on the south bank of the creek mouth; six exits (green); Jeddah Tower site across the water
+      legend: class
+  - id: release
+    duration_s: 20
+    layers: {trips: evac, color_by: class, overlays: [zone, exits, phases, contraflow]}
+    camera:
+      - {t: 0,  lon: 39.1020, lat: 21.7030, zoom: 14.5, pitch: 50, bearing: -6, sim_t: 900}
+      - {t: 10, lon: 39.1060, lat: 21.7050, zoom: 14.2, pitch: 52, bearing: 30, ease: in_out}
+      - {t: 20, lon: 39.1100, lat: 21.7070, zoom: 13.9, pitch: 50, bearing: 62, sim_t: 2100, ease: in_out}
+    hud:
+      caption: Far-first release in three bands, contraflow from 08:25
+      detail: Bands light up as their evacuees leave (yellow, orange, red); amber corridors run outbound on both carriageways; exits balanced
+      legend: class
+      kpis:
+        - {label: Evacuees on the road, series: evacuees_running, source: evac}
+        - {label: Evacuees out of the window, series: evacuees_out, source: evac}
+        - {label: "Stopped vehicles, all traffic", series: halted, source: evac}
+  - id: clearance
+    duration_s: 12
+    layers: {trips: evac, color_by: class, overlays: [zone, exits, phases, contraflow]}
+    camera:
+      - {t: 0,  lon: 39.1100, lat: 21.7070, zoom: 13.9, pitch: 50, bearing: 62, sim_t: 2100}
+      - {t: 12, lon: 39.1080, lat: 21.7100, zoom: 13.3, pitch: 40, bearing: 85, sim_t: 3000, ease: in_out}
+    hud:
+      caption: Time to clear the zone after the order
+      detail: Clearance from the run; the single-lane stretch of King Abdulaziz Road is the bottleneck. Recommended plan, balanced exit guidance alone, 90 % out in 23.4 min without approval
+      legend: class
+      kpis:
+        - {label: 50 % out, fact: result.clearance.t50_s, source: evac, unit: min, scale: 0.016666667, decimals: 1}
+        - {label: 90 % out, fact: result.clearance.t90_s, source: evac, unit: min, scale: 0.016666667, decimals: 1}
+        - {label: 100 % out, fact: result.clearance.t100_s, source: evac, unit: min, scale: 0.016666667, decimals: 1}

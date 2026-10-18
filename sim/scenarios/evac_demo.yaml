@@ -1,0 +1,19 @@
+# FICTIONAL evacuation on the committed demo window (PROJECT.md section 11): zone, crowd size and
+# timing are invented; used by the tests and as the quick demo. Synthetic demand, uncalibrated.
+id: evac_demo
+kind: scenario
+window: demo
+daytype: weekday
+label: "Small fictional crowd leaving a block of the demo window"
+fictional: true
+begin: 0
+end: 1500
+events:
+  - type: evacuation
+    id: demo_crowd
+    start: 300
+    zone: [[39.1535, 21.5475], [39.1595, 21.5475], [39.1595, 21.5525], [39.1535, 21.5525]]
+    vehicles: 150
+    release_s: 300
+    exit_count: 4
+    assumption: "Test scale: 150 vehicles released over 5 min to 4 exits so the demo window run stays under a minute"

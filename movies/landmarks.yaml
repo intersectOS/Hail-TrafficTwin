@@ -1,0 +1,61 @@
+# Landmark labels for the films (MOVIES_V2). Reviewed by hand on 2026-10-17: every position is an
+# OpenStreetMap feature in data/osm/jeddah.osm.pbf (Geofabrik GCC extract, ODbL); names are the
+# feature's name / name:en. Labels only: nothing here enters a simulation. Shown when the camera
+# zoom is within [min_zoom, max_zoom] and the point is in the film's map area.
+landmarks:
+  - id: kaia
+    en: King Abdulaziz International Airport (KAIA)
+    ar: مطار الملك عبد العزيز
+    lon: 39.1669
+    lat: 21.6893
+    source: "OSM place node 'مطار الملك عبد العزيز' / name:en King Abdulaziz International Airport"
+    min_zoom: 10.0
+    max_zoom: 15.5
+  - id: kau
+    en: King Abdulaziz University (KAU)
+    ar: جامعة الملك عبدالعزيز
+    lon: 39.2444
+    lat: 21.4942
+    source: "OSM amenity=university area 'جامعة الملك عبدالعزيز' (centroid of the outline)"
+    min_zoom: 10.0
+    max_zoom: 16.0
+  - id: al_balad
+    en: Al Balad (Historic Jeddah)
+    ar: البلد
+    lon: 39.1865
+    lat: 21.4861
+    source: "OSM historic=district 'جدة التاريخية' (Historic Jeddah, centroid of the outline)"
+    min_zoom: 10.0
+    max_zoom: 16.0
+  - id: obhur_creek
+    en: Obhur Creek (Sharm Obhur)
+    ar: شرم أبحر
+    lon: 39.1219
+    lat: 21.7428
+    source: "OSM natural=bay node 'شرم أبحر' / name:en Sharm Ubhur"
+    min_zoom: 10.0
+    max_zoom: 17.0
+  - id: obhur_creek_mouth
+    en: Obhur Creek mouth (Ras Obhur)
+    ar: رأس أبحر
+    lon: 39.0867
+    lat: 21.7055
+    source: "OSM natural=cape node 'رأس أبحر' / name:en Ra's Abhur, the headland at the creek mouth; close views only (the creek's own label sits mid-creek)"
+    min_zoom: 13.8
+    max_zoom: 17.0
+  - id: jeddah_tower
+    en: Jeddah Tower site (under construction)
+    ar: برج جدة
+    lon: 39.0829
+    lat: 21.7340
+    source: "OSM building=construction 'برج جدة' / name:en Jeddah Tower (centroid of the outline)"
+    min_zoom: 10.0
+    max_zoom: 17.0
+  - id: corniche
+    en: Jeddah Corniche
+    ar: الكورنيش
+    lon: 39.1065
+    lat: 21.5970
+    source: "A vertex of the OSM way name:en 'Corniche Road' (central Corniche, about 21.60 N)"
+    min_zoom: 10.0
+    max_zoom: 13.5

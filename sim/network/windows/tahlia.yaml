@@ -1,0 +1,10 @@
+# Tahlia commercial core window, about 23.8 km2 (placed from OSM street names and admin_level=10 districts, 2026-10-16;
+# max_lon extended 39.1830 -> 39.1900 by lead decision so it holds flood site FS-009, the King Fahd Rd / Tahlia St underpass).
+# purpose: Tier B accidents, rain, motorcade and strategist demos on the Tahlia / Al Andalus / Al Hamra commercial core.
+# Covers Prince Mohammed bin Abdulaziz St (Tahlia, شارع الأمير محمد بن عبدالعزيز) between Al Andalus Rd and
+# King Fahd Rd, most of Al Andalus (الأندلس) east of the Corniche, Al Hamra (الحمراء) and southern Al Rawdah. Contains the demo window.
+name: tahlia
+title: "Tahlia / Al Andalus / Al Hamra commercial core"
+# lon/lat bbox: min_lon, min_lat, max_lon, max_lat
+bbox: [39.1380, 21.5220, 39.1900, 21.5620]
+out_dir: data/windows/tahlia

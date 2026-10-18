@@ -1,0 +1,70 @@
+# M6 strategist, emergency_tahlia_0830 (fictional): an ambulance dispatched at 08:30 while a crash
+# blocks one of two lanes on its default route. No strategy first, then the top 3 ranked options
+# replayed one after another. Ambulance motion uses each what-if's recorded per-edge times
+# (A-mov-008); the cars around it are the window baseline (the what-ifs saved no trajectories).
+film: strategist
+title: Getting the ambulance through
+subtitle: Strategist, top three options tested from the 08:30 snapshot (fictional situation)
+duration_s: 40
+showreel: [8, 28]           # excerpt in the showreel (2-3 min total)
+clock_t0: "08:00"            # A-mov-007
+tier: B
+fictional: true             # fictional scenario parameters (PROJECT.md section 11): footer says so
+sources:
+  none: {strategist: rec-20261016T114454Z-22d13986, candidate: no_strategy, background: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+  r1: {strategist: rec-20261016T114454Z-22d13986, candidate: "A:reroute+rescue_lane", background: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+  r2: {strategist: rec-20261016T114454Z-22d13986, candidate: "B:preempt+rescue_lane", background: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+  r3: {strategist: rec-20261016T114454Z-22d13986, candidate: "C:reroute", background: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+shots:
+  - id: no-strategy
+    duration_s: 10
+    layers: {trips: none, route_source: none, overlays: [routes, events], color_by: class}
+    camera:
+      - {t: 0,  lon: 39.1735, lat: 21.5520, zoom: 15.4, pitch: 45, bearing: -8, sim_t: 1795}
+      - {t: 10, lon: 39.1735, lat: 21.5530, zoom: 15.6, pitch: 48, bearing: -2, sim_t: 1980, ease: in_out}
+    hud:
+      caption: "No strategy: the default route through the crash"
+      detail: "{none.title}"
+      legend: class
+      kpis:
+        - {label: Ambulance travel time, fact: travel_time_s, source: none, unit: s}
+        - {label: Free-flow time, fact: free_flow_s, source: none, unit: s, decimals: 1}
+  - id: option-1
+    duration_s: 10
+    layers: {trips: r1, route_source: r1, overlays: [routes, events], color_by: class}
+    camera:
+      - {t: 0,  lon: 39.1735, lat: 21.5520, zoom: 15.4, pitch: 45, bearing: -8, sim_t: 1795}
+      - {t: 10, lon: 39.1735, lat: 21.5530, zoom: 15.6, pitch: 48, bearing: -2, sim_t: 1885, ease: in_out}
+    hud:
+      caption: "Option {r1.rank}: {r1.label}"
+      detail: "{r1.reason}"
+      legend: class
+      kpis:
+        - {label: Ambulance travel time, fact: travel_time_s, source: r1, unit: s}
+        - {label: Against no strategy, fact: vs_no_strategy_s, source: r1, unit: s, sign: true}
+  - id: option-2
+    duration_s: 10
+    layers: {trips: r2, route_source: r2, overlays: [routes, events], color_by: class}
+    camera:
+      - {t: 0,  lon: 39.1735, lat: 21.5520, zoom: 15.4, pitch: 45, bearing: -8, sim_t: 1795}
+      - {t: 10, lon: 39.1735, lat: 21.5530, zoom: 15.6, pitch: 48, bearing: -2, sim_t: 1905, ease: in_out}
+    hud:
+      caption: "Option {r2.rank}: {r2.label}"
+      detail: "{r2.reason}"
+      legend: class
+      kpis:
+        - {label: Ambulance travel time, fact: travel_time_s, source: r2, unit: s}
+        - {label: Against no strategy, fact: vs_no_strategy_s, source: r2, unit: s, sign: true}
+  - id: option-3
+    duration_s: 10
+    layers: {trips: r3, route_source: r3, overlays: [routes, events], color_by: class}
+    camera:
+      - {t: 0,  lon: 39.1735, lat: 21.5520, zoom: 15.4, pitch: 45, bearing: -8, sim_t: 1795}
+      - {t: 10, lon: 39.1735, lat: 21.5530, zoom: 15.6, pitch: 48, bearing: -2, sim_t: 1905, ease: in_out}
+    hud:
+      caption: "Option {r3.rank}: {r3.label}"
+      detail: "{r3.reason}"
+      legend: class
+      kpis:
+        - {label: Ambulance travel time, fact: travel_time_s, source: r3, unit: s}
+        - {label: Against no strategy, fact: vs_no_strategy_s, source: r3, unit: s, sign: true}

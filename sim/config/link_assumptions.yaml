@@ -1,0 +1,104 @@
+# Tier link and window-build assumptions (values live in sim/config/link.yaml); rendered by python -m sim.scenarios register.
+kind: assumption_rows
+rows:
+- id: A-window-001
+  parameter: highway.service/services permissions in windows
+  value: passenger taxi delivery emergency motorcycle moped bicycle pedestrian; 1 lane, 5.56 m/s
+  unit: '-'
+  range: delivery-only (SUMO default) to all
+  assumption: OSM highway=service is open to motor traffic unless access tags say otherwise; SUMO's typemap
+    allows delivery only
+  used_in: sim/config/link.yaml (graft.type_overrides)
+  status: assumed
+- id: A-window-002
+  parameter: access values excluding a service way
+  value: private, no (keys access, motor_vehicle, motorcar, vehicle)
+  unit: '-'
+  range: '-'
+  assumption: Gated or private ways are not public through routes
+  used_in: sim/config/link.yaml (graft.exclude_access)
+  status: assumed
+- id: A-window-003
+  parameter: track graft
+  value: only if OSM tags make it passenger-permitted
+  unit: '-'
+  range: '-'
+  assumption: SUMO default allows motorcycle/moped only on tracks
+  used_in: sim/config/link.yaml (graft.service_types)
+  status: assumed
+- id: A-link-001
+  parameter: service-road snap tolerance
+  value: '20'
+  unit: m
+  range: 10-30
+  assumption: Covers city junction-join shifts (join-dist 20 m)
+  used_in: sim/config/link.yaml (graft.snap_tolerance_m)
+  status: assumed
+- id: A-link-002
+  parameter: junction snap / min split part / min split gap
+  value: '8'
+  unit: m
+  range: 5-15
+  assumption: Avoids slivers next to junctions
+  used_in: sim/config/link.yaml (graft.junction_snap_m)
+  status: assumed
+- id: A-link-003
+  parameter: cutRoutes disconnected action
+  value: keep (ids <id>_part<k>)
+  unit: '-'
+  range: discard/keep
+  assumption: Dropping routes that leave and re-enter the window would undercount window flow
+  used_in: sim/config/link.yaml (cut.disconnected_action)
+  status: assumed
+- id: A-link-004
+  parameter: cut-route departLane / departSpeed
+  value: best / max
+  unit: '-'
+  range: '-'
+  assumption: 'cutRoutes defaults: vehicles enter as if arriving from upstream'
+  used_in: sim/config/link.yaml (cut.default_depart_*)
+  status: assumed
+- id: A-link-005
+  parameter: tier-link flow-check GEH criterion
+  value: GEH < 5 on >= 85 % of edges with Tier A flow >= 50 veh/h
+  unit: veh/h
+  range: '-'
+  assumption: UK TAG M3.1 assignment-validation target applied model-to-model (micro vs meso); tests the
+    link, not realism
+  used_in: sim/config/link.yaml (check)
+  status: assumed
+- id: A-link-006
+  parameter: tier-link flow-check total ratio
+  value: within 10 %
+  unit: '-'
+  range: 5-15 %
+  assumption: As A-link-005
+  used_in: sim/config/link.yaml (check.total_ratio_tol)
+  status: assumed
+- id: A-link-007
+  parameter: Tier A exit-time run end
+  value: '14400'
+  unit: s
+  range: '>= demand end + longest trip'
+  assumption: Every vehicle of the demand hour finishes so exit times exist
+  used_in: sim/config/link.yaml (tier_a.sim_end)
+  status: assumed
+- id: A-link-008
+  parameter: backlog delay for reporting
+  value: '60'
+  unit: s
+  range: '-'
+  assumption: Reporting threshold only
+  used_in: sim/config/link.yaml (check.backlog_delay_s)
+  status: assumed
+- id: A-link-009
+  parameter: Tier B retiming of guessed signal programs
+  value: 'Webster (tools/tlsCycleAdaptation.py) from the window cut routes over [0, 3600): yellow 4 s,
+    all-red 0, lost time 4 s/phase, min green 4 s, cycle 20-120 s, saturation headway 2 s'
+  unit: s
+  range: cycle 20-120; headway 1.8-2.2
+  assumption: No Jeddah signal timing data; city programs are netconvert defaults and meso applies only
+    a red-time penalty (A-sim-001), so micro needs splits that match demand; values are SUMO 1.28 tool
+    defaults; Tier B additional only, city net untouched
+  used_in: sim/config/link.yaml (tls), data/windows/<w>/<w>.tls.add.xml
+  status: assumed

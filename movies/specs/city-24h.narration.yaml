@@ -1,0 +1,17 @@
+# Narration for city-24h (scripts/movies/narrate.py). Numbers only from the docs.
+film: city-24h
+lines:
+  - shot: timelapse
+    at: 3.2
+    text: "This is Jeddah on a regular weekday, from two in the morning to two the next night."
+  - shot: timelapse
+    sim_t: 21600
+    text: "Every road is coloured by its speed against the limit: red is congested, teal is free flow."
+  - shot: timelapse
+    sim_t: 27000
+    text: "The morning peak builds after seven, as work and school trips leave home."
+  - shot: timelapse
+    sim_t: 57600
+    text: "In the evening the network fills again, and the camera pulls back to the whole city."
+  - shot: timelapse
+    text: "A model caveat: 28.3 percent of vehicles still teleport through gridlock on this network; on the first network it was 50.5 percent. Synthetic demand, uncalibrated."

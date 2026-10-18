@@ -1,0 +1,52 @@
+[project]
+name = "traffictwin"
+version = "0.1.0"
+description = "TrafficTwin Jeddah: open-source city traffic digital twin, policy lab and emergency decision support"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "eclipse-sumo>=1.24",
+    "sumolib>=1.24",
+    "traci>=1.24",
+    "pyyaml>=6.0",
+    "pydantic>=2.7",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "duckdb>=1.0",
+    "shapely>=2.0",
+    "pyproj>=3.6",
+    "geopandas>=1.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "typer>=0.12",
+    "adhanpy>=1.0.5",
+    "matplotlib>=3.11.2",
+    "psutil>=7.2.2",
+    "pillow>=12.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.5",
+    "pytest>=8",
+    "httpx>=0.28.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["web", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008"]  # typer.Option defaults are the idiomatic typer CLI style
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]

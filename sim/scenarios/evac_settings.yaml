@@ -1,0 +1,65 @@
+# Evacuation settings (M7, PROJECT.md 9.7 and 9.9): the evacuation event (sim/events/evacuation.py)
+# and the evacuation strategist (strategist/evacuation.py). Every behavioural number is a
+# registered parameter (id + value + unit + range + source/assumption), rendered into the generated
+# register block of docs/evacuation.md (`python -m sim.events.evacuation register`). Pure model and
+# runtime settings sit under `model:`. All results: synthetic demand, uncalibrated; every
+# evacuation scenario is fictional (PROJECT.md section 11).
+kind: evacuation_settings
+
+event:
+  occupancy: {id: A-evac-001, value: 2.5, unit: "persons per vehicle", range: [1.5, 4.0], assumption: "Event crowds arrive in family and friend groups; used only to report persons, never in the simulation. No Jeddah event-parking survey found"}
+  release_s: {id: A-evac-002, value: 1200, unit: s, range: [300, 3600], assumption: "Mobilisation window: evacuees walk to their cars and start over 20 min after the order (evacuation literature uses S-shaped loading curves of 30 min to hours for residential areas; an event crowd that is already awake and gathered is assumed faster). Not calibrated"}
+  release_curve: {id: A-evac-003, value: uniform, unit: shape, range: "uniform", assumption: "Departures are spread evenly over each phase's release window (seeded jitter); no S-curve, so the first and last minutes are not thinner than the middle"}
+  reroute_period_s: {id: A-evac-004, value: 120, unit: s, range: [30, 600], assumption: "Evacuees re-plan the route to their assigned exit with current travel times at departure and every 2 min (navigation apps, perfect information); the exit itself does not change"}
+  origin_weight: {id: A-evac-005, value: lane_length, unit: "weight", range: "lane_length", assumption: "Evacuee vehicles start on passenger edges inside the zone in proportion to lane length (service roads = car-park aisles); no parking inventory for the site"}
+  evacuee_types: {id: A-evac-034, value: passenger_share_of_mix, unit: "vType shares", range: "", assumption: "Evacuees are private cars: each draws its vType (seeded) from the passenger-class members of the scenario's driver mix, renormalised (normal / slow / aggressive); trucks and buses are background only"}
+  background: {id: A-evac-006, value: unchanged, unit: mode, range: "unchanged", assumption: "Background demand is unchanged during the evacuation (no extra or cancelled background trips, no closure of the zone to inbound traffic; only a strategy's contraflow closes inbound carriageways, A-evac-020); side effects on it are measured, not modelled away"}
+exits:
+  count: {id: A-evac-007, value: 6, unit: exits, range: [2, 12], assumption: "With `exits: auto`, the six highest-capacity window fringe edges that pass the filters below; an operator would name the exits in a real plan"}
+  min_capacity: {id: A-evac-008, value: 40, unit: "lanes x m/s", range: [20, 80], assumption: "An exit must carry at least 2 lanes at 72 km/h (or 3 lanes at 48 km/h, ...); excludes residential and service stubs"}
+  min_distance_m: {id: A-evac-009, value: 800, unit: m, range: [300, 2000], assumption: "An exit must be at least 800 m from the zone, so leaving through it means leaving the crowd area"}
+  min_spacing_m: {id: A-evac-010, value: 400, unit: m, range: [100, 1000], assumption: "Exits closer than 400 m to an already chosen exit are treated as the same exit (parallel ramps of one road)"}
+  sat_flow_vps_lane: {id: A-evac-011, value: 0.5, unit: "veh/s per lane", range: [0.4, 0.6], source: "HCM base saturation flow about 1,900 pc/h/lane (unverified, quoted from memory); 1,800 veh/h/lane used", assumption: "Used only by the balanced exit assignment to estimate how long an exit needs to discharge its assigned vehicles"}
+assignment:
+  default: {id: A-evac-012, value: nearest, unit: mode, range: "nearest|balanced", assumption: "Without guidance every evacuee heads for the exit with the shortest free-flow time from where it starts"}
+  balanced_max_detour: {id: A-evac-013, value: 1.5, unit: "x nearest free-flow time", range: [1.2, 3.0], assumption: "Balanced guidance only sends a vehicle to an exit whose free-flow time is at most 1.5x its nearest exit"}
+phasing:
+  sectors: {id: A-evac-014, value: 3, unit: bands, range: [2, 5], assumption: "Phased release splits evacuees into 3 equal bands by free-flow time to their exit (near, middle, far); each band gets an equal share of the release window in turn, so the last departure time is the same as in a simultaneous release"}
+contraflow:
+  setup_s: {id: A-evac-015, value: 600, unit: s, range: [300, 1800], assumption: "Police and barriers need 10 min after the order before the inbound carriageway can be reversed; no Jeddah contraflow plan found"}
+  max_length_m: {id: A-evac-016, value: 2000, unit: m, range: [500, 5000], assumption: "A contraflow corridor covers at most the last 2 km of the route to an exit inside the window (staffing limit)"}
+  min_length_m: {id: A-evac-017, value: 300, unit: m, range: [100, 800], assumption: "Shorter reversible segments are not worth the crossover staffing"}
+  max_added_lanes: {id: A-evac-018, value: 3, unit: lanes, range: [1, 4], assumption: "At most 3 inbound lanes per edge are reversed"}
+  road_types: {id: A-evac-019, value: "highway.motorway|highway.trunk|highway.primary|highway.secondary", unit: "OSM road types", range: "", assumption: "Only divided or multi-lane arterials are reversed; tertiary and local streets are not"}
+  inbound_allowed: {id: A-evac-020, value: emergency, unit: vClass, range: "emergency|none", assumption: "While reversed, the inbound carriageway is closed to everyone except emergency vehicles; inbound background traffic reroutes"}
+  antiparallel_deg: {id: A-evac-036, value: 135, unit: deg, range: [120, 170], assumption: "An edge is the inbound carriageway of a corridor edge only if their headings differ by more than 135 deg (same threshold as the M5 rubbernecking search, sim/events/netindex.py); excludes cross streets"}
+  partner_search_m: {id: A-evac-037, value: 60, unit: m, range: [30, 100], assumption: "The inbound carriageway is searched within 60 m of the corridor edge's start, middle and end; covers Jeddah divided arterials with wide medians (not measured)"}
+  partner_coverage: {id: A-evac-038, value: 0.5, unit: "share of corridor length", range: [0.3, 0.9], assumption: "A corridor is reversible only if an inbound carriageway was found beside at least half of its length (short gaps: split edges, junction areas)"}
+  max_corridors: {id: A-evac-021, value: 3, unit: corridors, range: [1, 6], assumption: "Candidate corridors are built for the 3 exits used most under nearest and balanced assignment together; more reversals than that exceed one police shift"}
+signals:
+  green_factor: {id: A-evac-022, value: 1.5, unit: "x green", range: [1.2, 2.0], assumption: "Evacuation signal plan: phases that give green to an evacuation movement are lengthened by 50 %"}
+  other_factor: {id: A-evac-023, value: 0.6, unit: "x green", range: [0.4, 0.9], assumption: "... and the other green phases are shortened to 60 %"}
+  min_green_s: {id: A-evac-024, value: 6, unit: s, range: [5, 10], assumption: "No shortened green below 6 s (pedestrian and safety minimum; same order as the window programs' minimum green, A-link-009)"}
+  max_green_s: {id: A-evac-025, value: 90, unit: s, range: [60, 120], assumption: "No lengthened green above 90 s"}
+clearance:
+  not_cleared_factor: {id: A-evac-026, value: 1.5, unit: "x time to run end", range: [1.0, 3.0], assumption: "A clearance level not reached before the run ends is scored as 1.5x the time from the order to the run end"}
+
+strategy:
+  w_t90: {id: A-evac-027, value: 0.5, unit: "score per s", range: [0, 1], assumption: "Objective = clearance time: half the weight on the time to 90 % out (the bulk of the crowd) ..."}
+  w_t100: {id: A-evac-028, value: 0.5, unit: "score per s", range: [0, 1], assumption: "... and half on the time to 100 % out (the last vehicle), which is noisier because of stragglers"}
+  w_delay: {id: A-evac-029, value: 10.0, unit: "s per background veh-h", range: [2, 60], assumption: "One vehicle-hour of background delay added versus the no-strategy evacuation costs 10 s of clearance (life safety first; same scale as the M6 weight A-strat-022). A penalty only: a reduction is not rewarded, because the objective is clearance, not relieving background traffic; and only beyond the noise band (A-evac-035)"}
+  w_contraflow: {id: A-evac-030, value: 30.0, unit: "s per reversed lane-km", range: [0, 120], assumption: "Fixed cost per reversed lane-km (police staffing, crossover risk) on top of the measured delay"}
+  w_signal: {id: A-evac-031, value: 2.0, unit: "s per retimed signal", range: [0, 10], assumption: "Small fixed cost per signal switched to the evacuation plan"}
+  w_order: {id: A-evac-032, value: 60.0, unit: "s per extra staged order", range: [0, 300], assumption: "Each extra staged evacuation order (phased release) costs 1 min of clearance equivalent (communication, compliance risk)"}
+  noise_replicates: {id: A-evac-035, value: 1, unit: "replicate runs", range: [1, 5], assumption: "Run-to-run noise is estimated from one replicate of the no-strategy run with another SUMO seed (same evacuees and departure times): the absolute T90 / T100 / background-delay differences form the noise band. Background delay counts as a penalty, and towards the auto-eligibility limit, only beyond that band; T90 differences inside it are flagged. One replicate is a crude estimate (measured band: Obhur +/-0.9 veh-h, Al Balad +/-13.3 veh-h); where neither run reaches 90 % the T90 band is not measurable (n/a)"}
+  auto_max_added_veh_h: {id: A-evac-033, value: 5.0, unit: "veh-h beyond noise", range: [1, 20], assumption: "A signal plan or exit guidance is auto-eligible only while the option adds at most 5 background vehicle-hours versus no strategy; contraflow and staged evacuation orders always need approval (A-strat-020)"}
+
+model:
+  vehicle_prefix: "ev."            # evacuee ids: ev.<event id>.<n> (EVENT_VEHICLE_PREFIX)
+  dormant_owner: "evac.dormant"    # closure owner of the contraflow lanes while not reversed
+  bottleneck_sample_s: 5           # halted-vehicle sampling interval for bottleneck edges
+  top_bottlenecks: 5               # bottleneck edges reported
+  max_workers: 11                  # strategist what-if processes in parallel
+  top_n: 3                         # options returned
+  replicate_seed_offset: 1000      # SUMO seed of the noise replicate = seed + this
+  extra_sim_s: 0                   # extra seconds after scenario end (none: end is in the scenario)

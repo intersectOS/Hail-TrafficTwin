@@ -1,0 +1,110 @@
+# Synthetic population configuration: python -m sim.population.synthesize
+# Every block carries `source:` or `assumption:`; ids in docs/assumptions-trackA.md (A-pop-*).
+# Figures and citations: docs/data-sources-trackA.md.
+kind: population
+label: "synthetic demand, uncalibrated"
+
+nationality:   # A-pop-010
+  saudi_share: 0.518
+  source: "GASTAT Census 2022, Makkah region: 4,153,723 Saudi / 3,867,740 non-Saudi (GLMM re-publication, gulfmigration.grc.net/?p=9681). Jeddah-only split not published; regional share used (range 0.45-0.55)."
+
+# Household size distributions (probabilities by size). A-pop-011
+households:
+  saudi:
+    sizes: {1: 0.05, 2: 0.11, 3: 0.14, 4: 0.17, 5: 0.17, 6: 0.14, 7: 0.10, 8: 0.07, 9: 0.03, 10: 0.02}
+    source: "GASTAT Census 2022: Saudi households average 4.8 persons (Argaam 1647819, Saudipedia). The shape (1-10) is an assumption tuned to that mean (table mean 4.79; achieved mean reported in docs/population.md)."
+  non_saudi_family_share:
+    value: 0.40
+    assumption: "Share of non-Saudi residents living in family households; the rest live in shared labour housing (77 % of non-Saudis are male, GASTAT 2022). Range 0.3-0.5."
+  non_saudi_family:
+    sizes: {2: 0.25, 3: 0.25, 4: 0.25, 5: 0.15, 6: 0.10}
+    assumption: "Expatriate families, mean about 3.6. Combined with shared households of 1-6 it gives the census non-Saudi mean of 2.7 (Saudipedia 2022). Range 3-4.5."
+  non_saudi_shared:
+    sizes: {1: 0.35, 2: 0.25, 3: 0.15, 4: 0.12, 5: 0.08, 6: 0.05}
+    assumption: "Shared accommodation of unaccompanied workers (mean about 2.4); larger labour camps are not households for travel purposes. Range of mean 1.5-3.5."
+
+# Age shares (0-5, 6-17, 18-24, 25-59, 60+). Heads and spouses are drawn first; dependents fill
+# the remainder so that the achieved shares approach these targets. A-pop-012
+age_shares:
+  saudi: {a0_5: 0.140, a6_17: 0.267, a18_24: 0.131, a25_59: 0.406, a60p: 0.056}
+  non_saudi: {a0_5: 0.038, a6_17: 0.079, a18_24: 0.077, a25_59: 0.772, a60p: 0.034}
+  source: "GASTAT Census 2022 national 5-year bands by nationality (GLMM table), bands split linearly (docs/data-sources-trackA.md, derived). Jeddah-specific ages not published."
+
+heads:   # A-pop-013
+  saudi_head_60p: 0.15
+  non_saudi_head_60p: 0.04
+  saudi_single_head_female: 0.25
+  assumption: "Share of household heads aged 60+ and of one-person Saudi households headed by a woman (widows). Range 0.1-0.25 and 0.1-0.4."
+
+sex:   # A-pop-014
+  non_saudi_male_share: 0.77
+  shared_household_male_share: 0.95
+  source: "GASTAT Census 2022: 10,244,464 non-Saudi males of 13,382,962 (77 %). Shared labour housing assumed 95 % male (range 0.85-1.0)."
+
+# Daily status by age group, nationality and sex: probabilities of worker / student / homemaker;
+# the remainder is `other` (child under school age, retired, unemployed, not in labour force). A-pop-015
+status:
+  a0_5: {worker: 0.0, student: 0.0, homemaker: 0.0}
+  a6_17:
+    saudi: {worker: 0.0, student: 0.97, homemaker: 0.0}
+    non_saudi: {worker: 0.0, student: 0.90, homemaker: 0.0}
+  a18_24:
+    saudi_male: {worker: 0.30, student: 0.45, homemaker: 0.0}
+    saudi_female: {worker: 0.15, student: 0.45, homemaker: 0.20}
+    non_saudi_male: {worker: 0.85, student: 0.08, homemaker: 0.0}
+    non_saudi_female: {worker: 0.30, student: 0.10, homemaker: 0.45}
+  a25_59:
+    saudi_male: {worker: 0.80, student: 0.03, homemaker: 0.0}
+    saudi_female: {worker: 0.40, student: 0.02, homemaker: 0.45}
+    non_saudi_male: {worker: 0.96, student: 0.0, homemaker: 0.0}
+    non_saudi_female: {worker: 0.45, student: 0.0, homemaker: 0.50}
+  a60p:
+    saudi_male: {worker: 0.15, student: 0.0, homemaker: 0.0}
+    saudi_female: {worker: 0.03, student: 0.0, homemaker: 0.30}
+    non_saudi_male: {worker: 0.50, student: 0.0, homemaker: 0.0}
+    non_saudi_female: {worker: 0.10, student: 0.0, homemaker: 0.40}
+  source: "GASTAT LMS Q2 2025 (stats.gov.sa news/93): Saudi male LFPR 64.0 %, unemployment 4.3 %; Saudi female LFPR 34.5 %, unemployment 11.3 %; non-Saudi unemployment 1.4 %. Converted to age-specific employment shares by assumption (prime-age higher than the 15+ average); tertiary enrolment GER 83.9 % (UNESCO 2024) spread over the 18-24 band. Each value plausible within +/-0.1."
+
+# Sector of workers by nationality. A-pop-016
+sectors:
+  saudi: {government: 0.24, private_office: 0.24, retail_hospitality: 0.12, health: 0.08, education: 0.14, industrial_port: 0.08, logistics_ridehail: 0.10}
+  non_saudi: {government: 0.02, private_office: 0.12, retail_hospitality: 0.22, health: 0.06, education: 0.04, industrial_port: 0.38, logistics_ridehail: 0.16}
+  source: "Derived from GASTAT register Q2 2024 (construction 24.7 %, retail 14.1 %, manufacturing 11.5 %, accommodation/food 5.8 %, transport 4.8 %, health 3.8 %) plus 1.18 M civil servants of whom 461k teachers, 3.3 % non-Saudi (MHRSD 2025). The split by nationality and the Jeddah port/hospitality upweight are assumptions (+/-0.05 per sector). Construction counts as industrial_port."
+
+# Car ownership and driving. A-pop-017
+cars:
+  household_has_car:
+    saudi: 0.92
+    non_saudi_family: 0.65
+    non_saudi_shared: 0.15
+  cars_if_any:
+    saudi: {1: 0.40, 2: 0.38, 3: 0.17, 4: 0.05}
+    non_saudi_family: {1: 0.85, 2: 0.15}
+    non_saudi_shared: {1: 1.0}
+  licence:
+    saudi_male: 0.90
+    saudi_female: 0.30
+    non_saudi_male: 0.65
+    non_saudi_female: 0.12
+  assumption: "No Jeddah ownership survey; about 340 insured vehicles per 1,000 people nationally (IA 2025, includes commercial fleets). Saudi households 1.5-2.5 cars, expatriate families about one, labour housing rarely. Women's licences 20-35 % of adult Saudi women (sweep). Plausible ranges +/-0.1."
+
+# One person per household may be a household (domestic) driver: chauffeured trips use the family car.
+household_driver:
+  saudi_with_car: 0.25
+  assumption: "Share of Saudi car-owning households employing a live-in driver who makes the school escort and chauffeured trips. Not separately simulated as a person; it makes chauffeured/escort modes available. Range 0.15-0.4."
+
+# Primary-location choice (work, school, university), gravity: P(j|i) ~ attraction_j * exp(-beta * d_ij),
+# d = centroid distance x detour factor (km). A-pop-018
+location_choice:
+  detour_factor: 1.3
+  beta_per_km:
+    government: 0.07
+    private_office: 0.07
+    retail_hospitality: 0.10
+    health: 0.08
+    education: 0.12
+    industrial_port: 0.06
+    logistics_ridehail: 0.06
+    school: 0.45
+    university: 0.05
+  assumption: "No Jeddah commuting matrix. Decay rates chosen so mean commute distances fall in the 10-20 km range suggested for Jeddah (data-scout: one-way commute 20-35 min) and pupils mostly attend schools in or next to their district (mean 2-4 km). Sweep beta +/-50 %."

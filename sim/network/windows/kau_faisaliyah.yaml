@@ -1,0 +1,10 @@
+# King Abdulaziz University window, about 19.8 km2 (placed from admin_level=10 districts, 2026-10-16).
+# purpose: Tier B school and university peaks (term-time morning arrival and afternoon release).
+# Covers the KAU campus district (جامعة الملك عبدالعزيز), Al Jamiah (الجامعة) and Ath Thaghr. Note: in OSM the
+# Al Faisaliyyah district (الفيصلية, centroid 39.184, 21.572) lies about 9 km north-west of KAU (39.248, 21.494),
+# so one 3-25 km2 window cannot hold both; this window is KAU-centred and Al Faisaliyyah needs its own window.
+name: kau_faisaliyah
+title: "King Abdulaziz University / Al Jamiah (school peaks)"
+# lon/lat bbox: min_lon, min_lat, max_lon, max_lat
+bbox: [39.2250, 21.4620, 39.2650, 21.5050]
+out_dir: data/windows/kau_faisaliyah

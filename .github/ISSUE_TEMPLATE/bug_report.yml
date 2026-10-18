@@ -1,0 +1,48 @@
+name: Bug report
+description: Something does not work (a command fails, a test fails, the viewer misbehaves).
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Security problems go through the Security tab (private), not here.
+        Wrong-looking traffic numbers are not bugs by themselves: every result is synthetic and uncalibrated.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The exact command you ran and what you saw (paste the error or the last lines of logs/*.log).
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit or version
+      placeholder: "v0.1.0 or the output of git rev-parse --short HEAD"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [setup / make demo, network build, population / baseline, policies, events / windows, strategist, evacuation, Loop, viewer / API, films, docs, other]
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: OS and CPU, RAM, `uv --version`, `node --version`, SUMO version (meta.json of the run), Docker or not.
+    validations:
+      required: true
+  - type: input
+    id: seed
+    attributes:
+      label: Run id and seed (if a simulation result is involved)

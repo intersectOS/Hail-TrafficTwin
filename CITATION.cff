@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use TrafficTwin Jeddah, please cite it as below. Results are synthetic demand, uncalibrated."
+title: "TrafficTwin Jeddah: an open-source city traffic digital twin, policy lab and emergency decision support"
+type: software
+authors:
+  - given-names: Tariq
+    family-names: Alturkestani
+  - name: "The TrafficTwin Jeddah contributors"
+version: 0.1.0
+date-released: "2026-10-17"
+license: Apache-2.0
+repository-code: "https://github.com/alturkestani/TrafficTwin"
+keywords:
+  - traffic simulation
+  - digital twin
+  - Eclipse SUMO
+  - OpenStreetMap
+  - Jeddah
+  - transport policy
+  - emergency response
+abstract: >-
+  A traffic digital twin of Jeddah built on Eclipse SUMO and OpenStreetMap: a city-wide
+  mesoscopic model driven by a synthetic population for policy questions (remote work, staggered
+  hours, day types, public transport, pricing, Loop tunnels), microscopic focus windows for events
+  (crash, rain, flood, motorcade, evacuation), and an emergency strategist that ranks response
+  plans for human approval. All results are synthetic demand, uncalibrated.

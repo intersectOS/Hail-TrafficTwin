@@ -1,0 +1,21 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): times, place and duration are invented.
+# Synthetic demand, uncalibrated.
+id: accident_tahlia
+kind: scenario
+window: tahlia
+daytype: weekday
+label: "Serious crash closes both lanes of the northbound primary corridor into Madinah Road for 20 min"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: accident
+    id: crash_corridor_nb
+    start: 600
+    duration_min: 20
+    # OSM way 44795819 (unnamed primary, ~39.175 E 21.551 N), the busiest through corridor of the
+    # window demand (~816 veh/h on 2 lanes in the baseline); continues north as Madinah Road.
+    # (Tahlia St itself carries little of the current cut smoke-run demand.)
+    edge: "44795819#33"
+    lanes_closed: all         # whole edge: affected drivers reroute (A-event-003)
+    rubbernecking: true       # opposite carriageway slows (A-event-001)

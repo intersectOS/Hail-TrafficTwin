@@ -1,0 +1,13 @@
+# Default driver/vehicle mix for window demand (scenarios may override with `vtype_mix:`).
+# Shares must sum to 1. Emergency and convoy vehicles are added by events, not by the mix.
+kind: vtype_mix
+id: default
+title: "Default Jeddah window mix (assumed)"
+shares:
+  normal: {id: A-vtype-063, value: 0.70, unit: share, range: [0.6, 0.8], assumption: "No Jeddah driver-behaviour survey; most drivers modelled with SUMO defaults"}
+  slow: {id: A-vtype-064, value: 0.10, unit: share, range: [0.05, 0.2], assumption: "Cautious-driver share guessed"}
+  aggressive: {id: A-vtype-065, value: 0.12, unit: share, range: [0.05, 0.25], assumption: "Aggressive-driver share guessed; speeding is common in KSA road-safety reporting but no share was found"}
+  truck: {id: A-vtype-066, value: 0.05, unit: share, range: [0.02, 0.1], assumption: "Urban commercial district; no Jeddah classified counts found (truck entry to central Jeddah is time-restricted, not modelled)"}
+  bus: {id: A-vtype-067, value: 0.03, unit: share, range: [0.01, 0.05], assumption: "Public and school/staff buses; no classified counts found"}
+  emergency: {id: A-vtype-068, value: 0.0, unit: share, range: [0.0, 0.0], assumption: "Emergency vehicles come from emergency_trip events, not background demand"}
+  convoy: {id: A-vtype-069, value: 0.0, unit: share, range: [0.0, 0.0], assumption: "Convoy vehicles come from motorcade events, not background demand"}

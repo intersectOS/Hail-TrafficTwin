@@ -1,0 +1,51 @@
+# `docker compose up --build` = `make demo` in containers: the `demo` service builds the city
+# network (unless CITY=0) and the demo runs into ./data and ./runs, then the API and the viewer
+# start on http://localhost:8000 and http://localhost:5173 (TT_API_PORT / TT_WEB_PORT to change
+# the host ports). Synthetic demand, uncalibrated.
+services:
+  demo:
+    image: traffictwin-sim
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      CITY: "${CITY:-1}"
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        if [ "$$CITY" = "1" ] && [ ! -f data/jeddah/jeddah.net.xml ]; then python -m sim.network.build_city; fi
+        python -m sim.demo
+        python -m api.ingest --all
+    volumes:
+      - ./data:/app/data
+      - ./runs:/app/runs
+  api:
+    image: traffictwin-sim  # same image as demo (built once)
+    ports:
+      - "${TT_API_PORT:-8000}:8000"
+    environment:
+      TT_CORS_ORIGINS: "http://localhost:${TT_WEB_PORT:-5173}"
+    volumes:
+      - ./data:/app/data:ro
+      - ./runs:/app/runs
+    depends_on:
+      demo:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 5s
+      retries: 30
+  web:
+    image: node:22-alpine
+    working_dir: /web
+    command: sh -c "npm ci --include=dev --no-audit --no-fund && npx vite --host 0.0.0.0 --port 5173 --strictPort"
+    ports:
+      - "${TT_WEB_PORT:-5173}:5173"
+    volumes:
+      - ./web:/web
+      - /web/node_modules
+    depends_on:
+      api:
+        condition: service_healthy

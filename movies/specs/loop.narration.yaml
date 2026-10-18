@@ -1,0 +1,16 @@
+# Narration for loop (scripts/movies/narrate.py). Numbers only from the docs (docs/loop.md).
+film: loop
+lines:
+  - shot: corridor
+    at: 0.6
+    text: "The recommended Loop tunnel: corridor C1, from Al-Salamah to King Abdulaziz University, 17.9 kilometres with 8 stations."
+  - shot: relief
+    at: 0.6
+    text: "Two-seat shuttles carry 28,820 passengers a day, ridership capped by the measured capacity."
+  - shot: relief
+    text: "Blue roads are faster than the baseline. Morning-peak road delay falls by 2.85 percent."
+  - shot: city
+    at: 0.6
+    text: "Across the evening peak the relief is real but noisy, and 70 percent of riders are slower than by car."
+  - shot: city
+    text: "An early screening, not a business case. Synthetic demand, uncalibrated."

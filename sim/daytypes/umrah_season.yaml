@@ -1,0 +1,91 @@
+# Umrah-season weekday (Sun-Thu, school in session): the weekday profile with higher airport flows
+# and slightly more leisure in hotel/Corniche areas. Validated by sim.schemas.DayType. Unchanged
+# blocks keep their weekday ids (A-day-0xx); changes carry A-day-4xx (docs/assumptions-trackA.md).
+# Date check: 2027-01-17 = 9 Sha'ban 1448 AH (hijridate, Umm al-Qura): pre-Ramadan Umrah peak.
+id: umrah_season
+kind: daytype
+title: "Umrah-season weekday (Sun-Thu), school in session"
+date: "2027-01-17"   # a Sunday in term time, 9 Sha'ban 1448; drives the prayer times (Umm al-Qura method)
+special: {ramadan: false, friday: false, umrah_season: true, school_day: true}
+
+main_tours:
+  school:
+    participation: {value: 0.93, assumption: "Pupils attending on a given school day (absence, illness). Range 0.88-0.96."}
+    start: {dist: normal, mean: "06:45", sd_min: 10, lo: "06:15", hi: "07:30", source: "Riyadh directorate 2025: assembly 06:15-06:45, first class 06:30-07:00 (Gulf News Apr 2025; Ajel); Jeddah directorate times not found, assumed the same (A-day-001)."}
+    duration: {mean_min: 360, sd_min: 30, lo_min: 270, hi_min: 450, assumption: "School day ends around 12:30-13:30 (A-day-002). Range 5-7 h."}
+  university:
+    participation: {value: 0.75, assumption: "University students with classes on campus on a given weekday. Range 0.6-0.85."}
+    start: {dist: mixture, components: [{w: 0.5, mean: "08:00", sd_min: 20}, {w: 0.3, mean: "10:00", sd_min: 30}, {w: 0.2, mean: "13:00", sd_min: 45}], lo: "07:00", hi: "17:00", assumption: "Lecture start spread across the day (A-day-003)."}
+    duration: {mean_min: 300, sd_min: 90, lo_min: 90, hi_min: 540, assumption: "Time on campus 1.5-9 h."}
+  government:
+    participation: {value: 0.92, assumption: "Civil servants at work on a weekday (leave, sick, field work). Range 0.88-0.95."}
+    start: {dist: mixture, components: [{w: 0.7, mean: "07:30", sd_min: 15}, {w: 0.3, mean: "08:30", sd_min: 20}], lo: "06:45", hi: "09:45", source: "Civil-service day roughly 07:30-14:30 (PROJECT.md 6.3); 2020 MHRSD notice of flexible starts 07:30/08:30/09:30 (Gulf News). Not verified for 2026 (A-day-004)."}
+    duration: {mean_min: 420, sd_min: 20, lo_min: 360, hi_min: 480, assumption: "Seven-hour day (A-day-004)."}
+    stop_on_return: {value: 0.15, assumption: "Errand on the way home. Range 0.1-0.25."}
+  private_office:
+    participation: {value: 0.93, assumption: "Range 0.9-0.96."}
+    start: {dist: mixture, components: [{w: 0.6, mean: "08:00", sd_min: 20}, {w: 0.4, mean: "09:00", sd_min: 20}], lo: "07:00", hi: "10:30", source: "Labour Law Art. 98: 8 h per day / 48 h per week; office starts 08:00-09:00 per PROJECT.md 6.3 (A-day-005)."}
+    duration: {mean_min: 540, sd_min: 30, lo_min: 450, hi_min: 660, assumption: "8 h work plus a 1 h break on site: 17:00-18:00 finish (A-day-005)."}
+    stop_on_return: {value: 0.20, assumption: "Range 0.1-0.3."}
+  retail_hospitality:
+    participation: {value: 0.90, assumption: "Six-day rotas: about one in seven off on a given day. Range 0.85-0.93."}
+    start: {dist: mixture, components: [{w: 0.55, mean: "09:30", sd_min: 40}, {w: 0.45, mean: "15:30", sd_min: 60}], lo: "06:00", hi: "18:00", assumption: "Morning and afternoon shifts; malls open about 10:00-24:00 (A-day-006)."}
+    duration: {mean_min: 510, sd_min: 60, lo_min: 300, hi_min: 660, assumption: "Shift 8-9 h."}
+    split_shift:
+      probability: 0.35
+      break_start: {dist: normal, mean: "13:00", sd_min: 30, lo: "12:00", hi: "14:30", assumption: "Midday closure of many shops 12:00/13:00-16:00/17:00 (A-day-006)."}
+      break_min: {mean_min: 210, sd_min: 30, lo_min: 150, hi_min: 270, assumption: "3.5 h break."}
+      assumption: "Share of retail workers on a split shift who go home at midday (A-day-006). Range 0.2-0.5."
+  health:
+    participation: {value: 0.88, assumption: "24/7 rotas. Range 0.85-0.92."}
+    start: {dist: mixture, components: [{w: 0.65, mean: "07:30", sd_min: 20}, {w: 0.2, mean: "15:00", sd_min: 30}, {w: 0.15, mean: "23:00", sd_min: 30}], lo: "06:00", hi: "24:00", assumption: "Day, evening and night shifts (A-day-007)."}
+    duration: {mean_min: 510, sd_min: 60, lo_min: 420, hi_min: 720, assumption: "8-12 h shifts."}
+  education:
+    participation: {value: 0.94, assumption: "Teachers follow the school day. Range 0.9-0.96."}
+    start: {dist: normal, mean: "06:30", sd_min: 10, lo: "06:00", hi: "07:15", assumption: "Teachers arrive before assembly (A-day-001)."}
+    duration: {mean_min: 390, sd_min: 30, lo_min: 300, hi_min: 480, assumption: "Range 5-8 h."}
+    stop_on_return: {value: 0.15, assumption: "Range 0.1-0.25."}
+  industrial_port:
+    participation: {value: 0.92, assumption: "Range 0.88-0.95."}
+    start: {dist: mixture, components: [{w: 0.75, mean: "06:30", sd_min: 25}, {w: 0.25, mean: "18:30", sd_min: 30}], lo: "05:00", hi: "20:00", assumption: "Early day shift, some night shift; construction sites start early in the heat (A-day-008)."}
+    duration: {mean_min: 600, sd_min: 60, lo_min: 480, hi_min: 720, assumption: "10 h including transport waits."}
+  logistics_ridehail:
+    participation: {value: 0.90, assumption: "Range 0.85-0.95."}
+    start: {dist: mixture, components: [{w: 0.6, mean: "08:00", sd_min: 60}, {w: 0.4, mean: "15:00", sd_min: 90}], lo: "05:00", hi: "21:00", assumption: "Depots and delivery shifts spread over the day; ride-hail driving itself is represented by passengers' ride-hail trips, not by these tours (A-day-009)."}
+    duration: {mean_min: 540, sd_min: 90, lo_min: 300, hi_min: 720, assumption: "Range 5-12 h."}
+
+# Secondary tours per person per day by status (rates), with evening-heavy start times.
+secondary_tours:
+  worker:
+    shopping: {rate: {value: 0.20, assumption: "A-day-010: non-work tours of workers; range 0.1-0.35."}, start: {dist: mixture, components: [{w: 0.8, mean: "20:00", sd_min: 75}, {w: 0.2, mean: "17:00", sd_min: 60}], lo: "16:00", hi: "23:59", assumption: "Evening shopping, malls busy until midnight (PROJECT.md 6.3)."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+    leisure: {rate: {value: 0.28, assumption: "A-day-402: weekday A-day-011 (0.25) +10 % for Umrah-season activity around hotels, Corniche and the Al-Balad district; range 0.15-0.45."}, start: {dist: normal, mean: "20:30", sd_min: 75, lo: "17:00", hi: "23:59", assumption: "Evening leisure, Corniche and cafes until midnight."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.10, assumption: "A-day-012: errands, visits; range 0.05-0.2."}, start: {dist: normal, mean: "18:30", sd_min: 90, lo: "15:00", hi: "23:00", assumption: "After work."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 180, assumption: "Range 15-180."}}
+  student:
+    shopping: {rate: {value: 0.08, assumption: "A-day-013: pupils mostly travel with family (as passengers); range 0.05-0.15."}, start: {dist: normal, mean: "19:30", sd_min: 90, lo: "15:00", hi: "23:30", assumption: "After school."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+    leisure: {rate: {value: 0.27, assumption: "A-day-402: weekday A-day-013 (0.25) +8 %; range 0.15-0.45."}, start: {dist: normal, mean: "19:30", sd_min: 90, lo: "15:30", hi: "23:30", assumption: "Afternoon/evening."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.05, assumption: "A-day-013: range 0.02-0.1."}, start: {dist: normal, mean: "17:30", sd_min: 90, lo: "14:00", hi: "22:00", assumption: "Clinic visits, tutoring."}, duration: {mean_min: 60, sd_min: 30, lo_min: 15, hi_min: 150, assumption: "Range 15-150."}}
+  homemaker:
+    shopping: {rate: {value: 0.40, assumption: "A-day-014: range 0.25-0.6."}, start: {dist: mixture, components: [{w: 0.35, mean: "10:30", sd_min: 60}, {w: 0.65, mean: "19:30", sd_min: 90}], lo: "08:30", hi: "23:30", assumption: "Morning and evening shopping."}, duration: {mean_min: 90, sd_min: 30, lo_min: 20, hi_min: 210, assumption: "Range 20-210."}}
+    leisure: {rate: {value: 0.28, assumption: "A-day-402: weekday A-day-014 (0.25) +10 %; range 0.15-0.45."}, start: {dist: normal, mean: "20:00", sd_min: 75, lo: "16:00", hi: "23:59", assumption: "Family visits and outings in the evening."}, duration: {mean_min: 150, sd_min: 45, lo_min: 45, hi_min: 270, assumption: "Range 45-270."}}
+    personal: {rate: {value: 0.20, assumption: "A-day-014: range 0.1-0.3."}, start: {dist: normal, mean: "11:00", sd_min: 120, lo: "08:00", hi: "21:00", assumption: "Clinic, government services, visits."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+  other:
+    shopping: {rate: {value: 0.25, assumption: "A-day-015: retired, unemployed, pre-school (pre-school rows are dropped); range 0.15-0.4."}, start: {dist: mixture, components: [{w: 0.4, mean: "10:30", sd_min: 60}, {w: 0.6, mean: "19:30", sd_min: 90}], lo: "08:30", hi: "23:30", assumption: "Morning and evening."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+    leisure: {rate: {value: 0.22, assumption: "A-day-402: weekday A-day-015 (0.20) +10 %; range 0.1-0.4."}, start: {dist: normal, mean: "19:30", sd_min: 90, lo: "15:00", hi: "23:59", assumption: "Evening."}, duration: {mean_min: 120, sd_min: 45, lo_min: 30, hi_min: 240, assumption: "Range 30-240."}}
+    personal: {rate: {value: 0.20, assumption: "A-day-015: range 0.1-0.3."}, start: {dist: normal, mean: "10:30", sd_min: 120, lo: "07:30", hi: "21:00", assumption: "Clinic, government services."}, duration: {mean_min: 75, sd_min: 30, lo_min: 20, hi_min: 180, assumption: "Range 20-180."}}
+
+# Mosque trips: share of adults (18+) going to a mosque for each prayer, relative to the computed
+# adhan; dhuhr/asr exclude people at work or school at that time (they pray there).
+prayers:
+  fajr: {share_adult_males: 0.10, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 30, distance: local, assumption: "A-day-016: congregational attendance by prayer; no Jeddah survey. Most mosque trips are short walks (mode shares in modes.yaml). Range +/-50 %."}
+  dhuhr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
+  asr: {share_adult_males: 0.12, share_adult_females: 0.0, depart_offset_min: 10, duration_min: 25, distance: local, assumption: "A-day-016."}
+  maghrib: {share_adult_males: 0.20, share_adult_females: 0.01, depart_offset_min: 0, duration_min: 25, distance: local, assumption: "A-day-016: iqama shortly after adhan."}
+  isha: {share_adult_males: 0.15, share_adult_females: 0.01, depart_offset_min: 15, duration_min: 25, distance: local, assumption: "A-day-016."}
+
+airport:
+  trips_per_day: 91000
+  hourly_profile: [4.0, 3.5, 3.5, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5, 4.5, 4.5, 4.5, 4.5, 4.0, 3.5]
+  to_makkah_share: 0.35
+  assumption: "A-day-401: weekday 70k (A-day-017, KAIA 49.1 M passengers in 2024, Economy Middle East) +30 % = 91k ground trips/day; range +15-40 % (46k-140k in absolute terms when applied to the A-day-017 range of 40k-100k). Basis: 2024 Umrah performers 35.68 M of whom 16.80 M from abroad (GASTAT via Argaam); KAIA share of foreign Umrah arrivals not found, assumed 50-65 %; KAIA pre-Ramadan/Ramadan 2024 averaged about 139k passengers/day (arab.news/r6r6a) vs 134k annual, so the air-passenger uplift alone is modest and the rest is pilgrim drop-offs/coach-sharing assumptions. Makkah share 0.35 (range 0.25-0.45) for pilgrims heading straight to the Haram by car/taxi/ride-hail; coach-borne groups are excluded. Slightly heavier night hours (international arrivals)."
+
+notes: "Visitors (pilgrims, tourists) are not part of the resident population; their non-airport trips (hotel to Corniche, Al-Balad) are not modelled, only the residents' extra leisure (A-day-402). docs/data-sources-trackA.md suggests +15-30 %; the brief asked +25-40 %; 30 % sits in both."

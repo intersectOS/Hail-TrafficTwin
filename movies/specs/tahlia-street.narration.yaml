@@ -1,0 +1,14 @@
+# Narration for tahlia-street (scripts/movies/narrate.py). Numbers only from the docs.
+film: tahlia-street
+lines:
+  - shot: dolly
+    at: 2.6
+    text: "Street level on Tahlia Street in the morning peak. Here every vehicle is simulated, second by second."
+  - shot: dolly
+    at: 9
+    text: "Roads are coloured by speed against the limit, and each car by its own speed, with a short trail behind it."
+  - shot: dolly
+    at: 17
+    text: "Turning north, the queue builds on the corridor into Madinah Road."
+  - shot: dolly
+    text: "This focus window takes its traffic from the city model. Synthetic demand, uncalibrated."

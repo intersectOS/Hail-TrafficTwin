@@ -1,0 +1,41 @@
+# Tier A baseline (python -m sim.runner --baseline ...). Model settings; behavioural ones are registered.
+label: "synthetic demand, uncalibrated"
+net: data/jeddah/jeddah.v2.net.xml   # network v2 (Track F, TF-010, A-net-301/302); m2 runs used jeddah.m2.net.xml
+begin: 0
+end: 86400
+# Simulation continues past midnight so late trips can finish; KPIs count trips departing in [begin, end).
+drain_s: 7200
+
+assignment:            # duaIterate.py (SUMO tools/assign)
+  iterations: 3        # steps 0..iterations-1; few iterations by design (Tier A budget), see STATUS
+  aggregation_s: 900
+  routing_algorithm: astar
+  # 1 thread: routes follow from the seed bit for bit (PROJECT.md 9.2). 8 threads route ~4x faster
+  # (21k city trips, A*: 427 s vs 106 s) but are not repeatable even with a seed (TA-013); the run's
+  # meta.json then says routes_deterministic: false and the routes are reproducible from the cache only.
+  routing_threads: 1
+  max_alternatives: 3
+  extra: [--clean-alt, --disable-summary, --disable-tripinfos]
+  # incremental loading: step k simulates (k+1)/inc_base of the demand, so routes adapt before the
+  # full load (free-flow step-0 routes gridlock the AM peak; TA-010). inc_base = iterations.
+  inc_base: 3
+
+# Tier A option overrides for baselines (sim/config/runner.yaml is shared and left unchanged).
+# Full meso junction control jammed priority junctions even at light load (10 % demand unscaled,
+# 00-09 h: 1,969 teleports with full control, 59 with .limited, 13 without; TA-008).
+# At full-city-equivalent load the city network overloads in both peaks (TA-011), and a gridlocked
+# meso run crawls (real-time factor 1-4); a 120 s teleport time keeps a 24 h run bounded (A-sim-103).
+tier_A_overrides:
+  replace: {"--meso-junction-control": "--meso-junction-control.limited"}
+  set: {"--time-to-teleport": "120"}
+
+edgedata_freq_s: 300
+emissions_freq_s: 3600
+
+# Capacity scaling for population samples (MATSim-style): a sample f runs with vehicles 1/f times
+# longer (length + minGap) and meso headways 1/f times larger, so each sampled vehicle occupies the
+# road like 1/f real ones. Flows and totals are divided by f in the metrics. A-sim-101.
+capacity_scaling:
+  enabled: true
+  meso_tau_defaults: {tauff: 1.13, taufj: 1.13, taujf: 1.73, taujj: 1.4}
+  assumption: "Standard sampled-population practice (MATSim flowCapacityFactor/storageCapacityFactor). In SUMO meso the headways (tau*) set flow capacity and vehicle length sets storage. Not validated: the 25 % run did not complete (docs/status/trackA.md); the 10 % vs 25 % KPI comparison is open."

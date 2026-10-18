@@ -1,0 +1,66 @@
+# Obhur bridge study (Track J): model settings for building crossings and evaluating them.
+# Crossing geometry, lanes and speeds live in the policy files (sim/policies/obhur_bridge_*.yaml).
+# Every behavioural value is registered in docs/assumptions-trackJ.md (ids A-obh-0nn).
+kind: bridge_config
+label: "synthetic demand, uncalibrated"
+
+# Inner creek outline (OSM natural=coastline, ODbL), used for desire lines and water-span lengths.
+creek: sim/bridge/config/sharm_obhur.geojson
+
+network:
+  edge_prefix: obh
+  # A-obh-010: OSM highway classes whose junctions a bridge may connect to (both banks' arterials)
+  connect_types: [highway.trunk, highway.primary, highway.secondary, highway.tertiary]
+  # A-obh-011: a connect point snaps to the nearest such junction within this distance (m)
+  max_snap_m: 150
+  # on a window network (not strongly connected, D-017) junctions in any passenger SCC this large count
+  window_min_component_edges: 100
+  # A-obh-012: right-of-way priority of the bridge and its approaches = OSM highway.primary in
+  # SUMO's osmNetconvert type map (12): a new arterial crossing is built as a primary road
+  priority: 12
+  # vehicle classes allowed on the bridge (general traffic; no pedestrians or bicycles modelled)
+  allow: "passenger taxi bus coach delivery truck trailer emergency motorcycle moped evehicle"
+
+# One-shot re-routing in a city policy run (TA-014 / TA-018 treatment, see sim/bridge/transforms.py)
+reroute:
+  # only these vehicle classes can switch to the bridge (the exported vTypes' vClass)
+  vclasses: [passenger]
+
+# Tier B window evaluation (python -m sim.bridge.window ...)
+window:
+  name: obhur_creek
+  # weekday peak hours of the window (J-D-006): the hours with the most window entries in the cut
+  # baseline demand (06-07: 4,746, 18-19: 3,996 sampled vehicles). The policy report's 3-hour peaks
+  # (06-09, 16-19) cost ~30 min of wall time per micro run on the shared machine; one hour each
+  # keeps the 25-run grid near 40 min (A-obh-023).
+  peaks:
+    am: {begin: "06:00", end: "07:00"}
+    pm: {begin: "18:00", end: "19:00"}
+  # A-obh-020: vehicles enter from this many seconds before the peak so the window is loaded
+  warmup_s: 1800
+  # A-obh-020: vehicles still running at the end get this long to finish; KPIs still count every
+  # vehicle due in the peak hour, finished or not (A-obh-025)
+  cooldown_s: 900
+  # A-obh-021: the city baseline is a 10 % sample; each cut vehicle stands for 1/sample vehicles,
+  # copies depart uniformly within +/- this many seconds of the original (seeded)
+  replicate_jitter_s: 150
+  # A-obh-022: window entry times = baseline departure + the baseline's congested travel times
+  # (edgedata, 5-min bins) along the route up to the window, capped per edge at this factor of
+  # free-flow time (the 10 % city baseline has 50 % teleports, TA-011: its jammed edges would push
+  # entries hours late)
+  max_congestion_factor: 4.0
+  # A-obh-024: one-shot routing of control and bridge runs on the window baseline's congested times
+  weights_interval_s: 900
+  # edge bins of every window run (viewer, film, KPIs)
+  edgedata_freq_s: 300
+  # film runs write FCD only on edges within this distance (m) of a landing junction
+  fcd_radius_m: 900
+  routing_algorithm: astar
+  # micro options (same as the Tier B event runs: sim/config/runner.yaml tier B defaults)
+  time_to_teleport_s: 300   # A-sim-002
+  step_length_s: 1.0
+  # reporting rule (A-obh-026): approach roads = edges within this distance (m) of a landing junction
+  approach_radius_m: 600
+  # reporting rule (A-obh-026): edges counted as relieved / worsened when the bridge changes their
+  # peak-hour flow by at least this
+  winners_min_delta_vph: 50

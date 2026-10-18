@@ -1,0 +1,40 @@
+# Recommended Loop configuration (python -m sim.loop.optimise; run loop_opt_c1_a0p3).
+# synthetic demand, uncalibrated. Run: uv run python -m sim.loop.run loop_recommended
+id: loop_recommended
+kind: policy
+title: 'Recommended Loop: shift share alpha 0.3 (ridership capped by the measured capacity) (synthetic
+  demand, uncalibrated)'
+daytype: weekday
+transforms:
+- assumption: A-loop-001..020 (docs/assumptions-trackD.md); parameters from sim/loop/config/loop.yaml
+    unless set here
+  alignments:
+  - id: C1
+    name: Al-Salamah - King Abdulaziz University
+    stations:
+    - name: Al-Salamah
+      lon: 39.15068
+      lat: 21.59789
+    - name: Al-Salamah
+      lon: 39.1584
+      lat: 21.58455
+    - name: Al Faisaliyyah
+      lon: 39.17875
+      lat: 21.5689
+    - name: Al Aziziyah
+      lon: 39.19279
+      lat: 21.5544
+    - name: Al-Musharifah
+      lon: 39.20311
+      lat: 21.53635
+    - name: Al Naseem
+      lon: 39.22403
+      lat: 21.52746
+    - name: Al Naseem
+      lon: 39.23488
+      lat: 21.5109
+    - name: King Abdulaziz University
+      lon: 39.2489
+      lat: 21.4964
+  type: loop_shuttle
+  alpha: 0.3

@@ -1,0 +1,15 @@
+# Keep the build context small: data and runs are mounted, never copied into images.
+.git
+.worktrees
+.venv
+data
+runs
+logs
+web
+docs/img
+tests
+**/__pycache__
+.pytest_cache
+.ruff_cache
+.env
+.env.*

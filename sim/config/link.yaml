@@ -1,0 +1,105 @@
+# Tier link configuration (python -m sim.link). Paths relative to the repo root.
+# Every behavioural value is registered in docs/assumptions-trackB.md (ids A-link-0nn, A-window-0nn; rows in sim/config/link_assumptions.yaml).
+label: "synthetic demand, uncalibrated"
+city_net: data/jeddah/jeddah.net.xml
+city_pbf: data/osm/jeddah.osm.pbf
+
+# --- window build with service roads (B-D-001) -------------------------------------------------
+graft:
+  # netconvert type files for the window OSM import (the city type map discards the classes below)
+  osm_type_files:
+    - "${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml"
+    - sim/network/types/window.typ.xml
+  # minor road classes the city type map (sim/network/types/city.typ.xml) discards; only these are grafted
+  service_types: [highway.service, highway.services, highway.living_street, highway.track]
+  # Permission overlay for the window import (A-window-001). osmNetconvert.typ.xml lets only delivery,
+  # bicycle and pedestrian use highway.service; OSM tags highway=service as open to motor traffic unless
+  # access tags say otherwise, so the window allows cars and emergency vehicles on service roads.
+  # highway.track keeps the SUMO default (motorcycle/moped only): it is grafted only if OSM access tags
+  # make it passenger-permitted.
+  type_overrides:
+    highway.service:
+      {numLanes: 1, speed: 5.56, priority: 1, oneway: "false",
+       allow: "passenger taxi delivery emergency motorcycle moped bicycle pedestrian"}
+    highway.services:
+      {numLanes: 1, speed: 5.56, priority: 1, oneway: "false",
+       allow: "passenger taxi delivery emergency motorcycle moped bicycle pedestrian"}
+  # OSM access values that exclude a way from the graft (A-window-002): gated compounds and private
+  # driveways are not public through routes.
+  exclude_access: ["private", "no"]
+  access_keys: ["access", "motor_vehicle", "motorcar", "vehicle"]
+  # A-link-001: max distance (m) from a service-road attachment node to the city edge it is snapped to.
+  snap_tolerance_m: 20.0
+  # A-link-002: a snap point within this distance (m) of a city junction attaches at the junction
+  # (no split) unless the junction is signalised; also the minimum length of a split part and the
+  # minimum gap between two splits on one edge (closer attach points share one split node).
+  junction_snap_m: 8.0
+  # netconvert options for the window OSM import (service-road geometry only)
+  osm_netconvert_options:
+    - --geometry.remove
+    - [--keep-edges.by-vclass, "passenger"]
+    - --osm.lane-access
+    - --output.street-names
+    - --output.original-names
+    - [--seed, "1"]
+  # netconvert options for the graft rebuild (plain-XML roundtrip of the cut + split window)
+  graft_netconvert_options:
+    - --offset.disable-normalization
+    - --no-turnarounds.except-deadend   # same turnaround rule as the city build (city.yaml)
+    - --output.street-names
+    - --output.original-names
+
+# --- Tier A exit times (B-D-002) ----------------------------------------------------------------
+tier_a:
+  begin: 0
+  # simulate past the demand hour so every vehicle that departs in it finishes (exit times exist for
+  # all edges); vehicles still running at sim_end keep -1 exit times and are truncated in `cut`.
+  sim_end: 14400
+  edgedata_freq_s: 300
+  # whole-interval edgeData used by the flow check (the demand hour)
+  edgedata_interval: [0, 3600]
+
+# --- cut ----------------------------------------------------------------------------------------
+cut:
+  # cutRoutes.py options. 'keep' turns a route that leaves and re-enters the window into several
+  # vehicles (<id>_part<k>) instead of dropping it (A-link-003).
+  disconnected_action: keep
+  default_depart_lane: best    # A-link-004: cut routes enter on the best lane at max speed,
+  default_depart_speed: max    # i.e. as if arriving from upstream (cutRoutes defaults)
+  min_length: 0
+  time_shift_s: 0
+
+# --- Tier B signal retiming (A-link-009) --------------------------------------------------------
+# The city's signal programs are netconvert defaults (no Jeddah timing data). Tier A meso only
+# applies a red-time penalty (A-sim-001), Tier B micro enforces green splits, so a default program
+# can cap a movement far below the flow Tier A delivers. Each window's guessed programs are retimed
+# with SUMO's tools/tlsCycleAdaptation.py (Webster's method) from the window's own cut routes over
+# the demand hour [begin, begin + 3600), written as a Tier B additional data/windows/<w>/<w>.tls.add.xml
+# (the city net is untouched). Values below are the tool defaults (SUMO 1.28), stated explicitly.
+tls:
+  begin: 0                    # start of the hour whose route flows set the splits
+  program_id: webster         # new program id; the last loaded program is the active one
+  yellow_time_s: 4
+  all_red_s: 0
+  lost_time_s: 4              # start-up + clearance lost time per phase
+  min_green_s: 4
+  min_cycle_s: 20
+  max_cycle_s: 120
+  saturation_headway_s: 2.0   # 1800 veh/h/lane saturation flow
+
+# --- flow check (PROJECT.md 9.3 acceptance) -----------------------------------------------------
+check:
+  interval: [0, 3600]
+  sim_end: 3600
+  edgedata_freq_s: 300
+  # A-link-005 / A-link-006: hourly GEH < 5 on >= 85 % of window edges with Tier A flow >= 50 veh/h,
+  # plus total compared flow within 10 % of Tier A. GEH < 5 on 85 % of links is the usual
+  # assignment-validation target (UK TAG unit M3.1); here it compares two models (micro window vs
+  # meso city), whose dynamics differ (meso underestimates congestion and spillback), so it tests the
+  # link (same vehicles, same entry times), not realism.
+  min_tier_a_flow_vph: 50
+  geh_max: 5.0
+  geh_share_min: 0.85
+  total_ratio_tol: 0.10
+  # a departure delayed more than this (s) is reported as insertion backlog in the worst-edge reasons
+  backlog_delay_s: 60

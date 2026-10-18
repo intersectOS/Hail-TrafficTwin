@@ -1,0 +1,18 @@
+# 30 % of government and private-office workers on a hybrid scheme, 3 remote days a week.
+# Validated by sim.schemas.Policy (python -m sim.validate). Ids A-pol-* in docs/assumptions-trackA.md.
+id: remote_work_30
+kind: policy
+title: "30 % hybrid work (government + private office), 3 remote days/week"
+daytype: weekday
+transforms:
+  - type: remote_work
+    share: 0.30
+    days_per_week: 3
+    eligible_sectors: [government, private_office]
+    induced_trip_probability: 0.35
+    induced_purposes: {shopping: 0.4, personal: 0.4, leisure: 0.2}
+    assumption: "A-pol-001: share 0.30 of desk-based workers (government, private office) on a hybrid scheme, each remote 3 of 5 working days, so 18 % of them are at home on a given weekday (no Saudi survey of hybrid uptake found; post-2020 international office-worker surveys report 20-40 % hybrid; range share 0.1-0.5, days 1-4). A-pol-002: a remote worker makes one extra daytime non-work tour with probability 0.35 (international telework studies report 0.2-0.5 induced non-work trips per telework day; range 0.2-0.5), purposes 40/40/20 shopping/personal/leisure, timed like homemakers' tours of the day type."
+report:
+  kpis: [mean_delay, mean_speed, vkt, vht, throughput, peak_spreading, co2, nox]
+  by_district: true
+  top_corridors: 10

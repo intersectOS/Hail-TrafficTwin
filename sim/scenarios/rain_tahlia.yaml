@@ -1,0 +1,15 @@
+# FICTIONAL demo scenario (PROJECT.md section 11). Synthetic demand, uncalibrated.
+id: rain_tahlia
+kind: scenario
+window: tahlia
+daytype: weekday
+label: "Heavy rain over the Tahlia / Al Andalus / Al Hamra window for 40 min"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: rain
+    id: heavy_rain
+    start: 600
+    duration_min: 40
+    preset: heavy             # A-rain-006..010

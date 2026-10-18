@@ -1,0 +1,42 @@
+# Bridges B1 (mouth) and B2 (mid-creek) across Obhur Creek, 2+2 lanes
+# Track J (OBHUR_BRIDGE). Geometry and siting: docs/obhur-bridge.md; sources docs/data-sources-trackJ.md.
+# Run: python -m sim.bridge.run obhur_bridge_b3 --daytype weekday   (validate only: --validate)
+id: obhur_bridge_b3
+kind: policy
+title: "Bridges B1 (mouth) and B2 (mid-creek) across Obhur Creek, 2+2 lanes"
+daytype: weekday
+transforms:
+  - type: network_change
+    bridges:
+      - id: b1
+        name: "Obhur Creek mouth bridge (B1)"
+        lanes: 2
+        speed_kmh: 80
+        approach_speed_kmh: 60
+        south:
+          name: "North Corniche Rd west of the King Abdulaziz Rd roundabout (Obhur Al Janubiyah)"
+          abutment: [39.09641, 21.70950]
+          connect: [[39.10018, 21.70910]]
+        north:
+          name: "Prince Abdullah Al-Faisal St at the mouth, toward the Jeddah Tower site (Obhur Ash Shamaliyah)"
+          abutment: [39.09371, 21.70978]
+          connect: [[39.08792, 21.71039]]
+        navigation: "Crosses the creek mouth neck (about 280 m of water), the only passage between the marinas inside Sharm Obhur and the sea: needs a navigable clearance (fixed high bridge) or an opening span. Not modelled; flagged (docs/obhur-bridge.md)."
+        source_note: "Analysis alignment (A-obh-001): no published plan places a crossing at the mouth (docs/data-sources-trackJ.md section 1); chosen as the shortest water crossing next to the Jeddah Tower / Jeddah Economic City site."
+      - id: b2
+        name: "Obhur Creek mid-creek bridge (B2)"
+        lanes: 2
+        speed_kmh: 80
+        approach_speed_kmh: 60
+        south:
+          name: "North Corniche Rd near King Abdulaziz Rd (Obhur Al Janubiyah)"
+          abutment: [39.11948, 21.73488]
+          connect: [[39.11982, 21.73441]]
+        north:
+          name: "Prince Abdullah Al-Faisal St, both carriageways (Obhur Ash Shamaliyah)"
+          abutment: [39.11470, 21.74157]
+          connect: [[39.11184, 21.74551], [39.11197, 21.74546]]
+        navigation: "Crosses about 0.9 km of open creek between the marinas: boats pass under it, so it needs a navigable clearance or an opening span (the 2014-15 tender design reportedly had a 200 m main span). Not modelled; flagged."
+        source_note: "Follows the published route description (Al-Eqtisad, Sep 2020: from Madinah Rd across King Abdulaziz Rd and the Obhur Corniche, over the creek to Prince Abdullah Al-Faisal Rd) at a mid-creek site; the exact alignment is unpublished and the 2021 SYSTRA study compared five options (A-obh-002, docs/data-sources-trackJ.md)."
+    reroute: {window: obhur_creek, desire_crossing: true}
+    assumption: "A-obh-003: policy design, not behaviour: two two-way bridges, at the mouth (B1) and mid-creek (B2), 2+2 lanes, 80 km/h span and 60 km/h approaches (A-obh-004), built as a primary road (A-obh-012). Approach links run straight from each abutment to the snapped bank junctions. Vehicles whose baseline route uses an edge in the obhur_creek window or whose origin-destination line crosses the creek get a one-shot route on the baseline's congested times (A-obh-005); the matched control re-routes the same vehicles without the bridge (TA-018). No induced demand: trips, times and modes are unchanged (A-obh-006)."

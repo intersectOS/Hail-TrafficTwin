@@ -1,0 +1,17 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): the route, time and convoy size are invented and
+# do not describe any real movement. Synthetic demand, uncalibrated.
+id: motorcade_tahlia
+kind: scenario
+window: tahlia
+daytype: weekday
+label: "Fictional 6-vehicle motorcade eastbound along Tahlia St with rolling junction holds"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: motorcade
+    id: convoy_tahlia_eb
+    start: 900
+    from: "646863451#1"
+    to: "1492421519#18"       # 1.8 km, 24 edges
+    vehicles: 6

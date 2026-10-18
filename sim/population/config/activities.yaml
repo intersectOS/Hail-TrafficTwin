@@ -1,0 +1,44 @@
+# Activity-chain settings that do not depend on the day type (python -m sim.population.activities).
+# Ids A-act-* in docs/assumptions-trackA.md.
+kind: activities
+label: "synthetic demand, uncalibrated"
+
+travel_time:   # A-act-001: used only to time departures before a fixed activity start
+  speed_kmh: 28
+  min_min: 4
+  assumption: "Door-to-door planning speed for Jeddah car trips (zone-centroid distance x detour / speed). Range 20-40 km/h. The simulator computes the real travel time."
+
+# Main tours: people aim to arrive early by a random buffer, which spreads departures. A-act-006
+early_arrival:
+  lo_min: 0
+  hi_min: 25
+  assumption: "Commuters and school runs leave with a safety margin for congestion (uniform 0-25 min before the planned arrival). No Jeddah survey; range 0-40 min."
+
+# Secondary destinations: gravity from the tour origin, P(j) ~ attraction_j * exp(-beta d_ij). A-act-002
+destination_beta_per_km:
+  shopping: 0.15
+  leisure: 0.08
+  personal: 0.12
+  stop: 0.20
+  mosque: 1.0
+  assumption: "Shopping and errands stay local (mean 5-8 km), leisure travels further (Corniche, malls; mean 8-15 km), mosques are in or next to the home district. Range +/-50 %."
+
+stop_on_return:   # A-act-003
+  duration: {mean_min: 40, sd_min: 20, lo_min: 10, hi_min: 120}
+  purpose: shopping
+  assumption: "Errand on the way home from work: a shopping-type stop near the workplace. Range 10-120 min."
+
+# Who makes secondary tours: persons below this age group make them only as passengers. A-act-004
+secondary_min_age_group: a6_17
+min_tour_gap_min: 20
+assumption_secondary: "Children under 6 travel only with adults (no own trips); a secondary tour must start at least 20 min after the person is back from the main tour, otherwise it is dropped. Range 0-60 min."
+
+# External gates (edges at the clip boundary). A-act-005
+gates:
+  makkah:
+    out_edge: "1176291686#1"
+    in_edge: "1176291687#0"
+    assumption: "Eastbound/westbound trunk carriageways at the eastern clip boundary near lat 21.483 (Makkah expressway corridor), identified from the M1 network. Coarse: one gate for all Makkah traffic."
+
+# Times after 24:00 wrap to the early morning of the same simulated day (steady-state day). Code rule.
+wrap_after_midnight: true

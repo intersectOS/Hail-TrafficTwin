@@ -1,0 +1,35 @@
+{
+  "window": "demo",
+  "definition": {
+    "name": "demo",
+    "title": "Tahlia / Al Andalus demo window",
+    "bbox": [
+      39.148,
+      21.542,
+      39.166,
+      21.558
+    ],
+    "out_dir": "data/demo"
+  },
+  "city_net": "data/jeddah/jeddah.net.xml",
+  "city_net_hash": "5b8a19d3a3fd4d59",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "network": {
+    "edges": 939,
+    "junctions": 401,
+    "traffic_lights": 1,
+    "lanes": 1086,
+    "lane_km": 114.36,
+    "edge_km": 96.9,
+    "net_hash": "25c067631a1c0364"
+  },
+  "trips": {
+    "file": "data/demo/demo.trips.xml",
+    "seed": 1,
+    "hash": "3f9684a9c00d010c"
+  },
+  "osm_extract": {
+    "file": "data/demo/demo.osm.gz",
+    "source": "data/osm/jeddah.osm.pbf"
+  }
+}

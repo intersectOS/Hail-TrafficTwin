@@ -1,0 +1,25 @@
+# FICTIONAL evacuation (PROJECT.md section 11): a generic weekend beach-and-resort crowd on the south
+# bank of the Obhur Creek mouth (Obhur Al Janubiyah waterfront, west of King Abdulaziz Road), across
+# the water from the Jeddah Tower site, in the obhur window. The zone is a generic polygon over the
+# creek-side street grid and car parks, not a real venue or an operational plan; crowd size, timing
+# and exits are invented. Real-site evacuation plans stay private. Synthetic demand, uncalibrated.
+# Crowd size and zone: A-evac-039 (fictional demo parameter, docs/assumptions-trackI.md).
+id: evac_obhur
+kind: scenario
+window: obhur
+daytype: weekday
+label: "Fictional creek-side crowd evacuating the Obhur Creek mouth (south bank) by car (obhur window)"
+fictional: true
+begin: 0
+end: 7200
+events:
+  - type: evacuation
+    id: obhur_crowd
+    start: 900
+    zone: [[39.0940, 21.6990], [39.1030, 21.6965], [39.1065, 21.7055], [39.1015, 21.7110], [39.0955, 21.7090]]
+    vehicles: 1500
+    exits: auto
+    phasing: simultaneous
+    contraflow: []
+    signal_plan: default
+    notes: "No strategy as written: everyone released over A-evac-002 to the nearest exit; the strategist varies phasing, exit assignment, contraflow and signals"

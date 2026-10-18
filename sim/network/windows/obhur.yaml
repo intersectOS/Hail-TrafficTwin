@@ -1,0 +1,27 @@
+# Obhur Creek mouth window, about 24.8 km2 of which roughly 4 km2 is creek and sea (polygon, 2026-10-17).
+# The first version (25.7 km2) broke the 25 km2 window cap; its west and north-west vertices were pulled
+# in over sea and the empty Tower site only (>= 398 m from any edge), which gives a byte-identical cut net.
+# purpose: Tier B evacuation demo (fictional, PROJECT.md section 11) at the creek mouth near the Jeddah Tower site.
+# Placed from the Geofabrik PBF: Sharm Obhur (شرم أبحر) runs from the sea at about 39.09 E, 21.71 N
+# north-east to 39.145 E, 21.775 N; the Jeddah Tower construction site (برج جدة) is at 39.0825 E, 21.7338 N.
+# Covers the creek mouth on both banks: Obhur Al Janubiyah (south bank grid west of King Abdulaziz Rd),
+# the North Corniche (طريق الكورنيش الشمالي) along the south bank to about 21.73 N, the north-bank road
+# around the mouth to the Tower site, King Abdulaziz Rd (طريق الملك عبد العزيز) from 21.686 N to the
+# creek roundabout, and the Madinah Rd interchange ramps (39.115-39.135 E) whose links lead east to
+# Madinah Rd and Al Haramain Rd. Area counts water; the land area is close to the other windows'.
+# Polygon: A-evac-040 (docs/assumptions-trackI.md).
+name: obhur
+title: "Obhur Creek mouth and the Jeddah Tower site"
+# polygon: list of [lon, lat]
+polygon:
+  - [39.0900, 21.6900]
+  - [39.1200, 21.6860]
+  - [39.1330, 21.6990]
+  - [39.1360, 21.7150]
+  - [39.1230, 21.7300]
+  - [39.1080, 21.7380]
+  - [39.0940, 21.7350]
+  - [39.0812, 21.7345]
+  - [39.0820, 21.7130]
+  - [39.0860, 21.7000]
+out_dir: data/windows/obhur

@@ -1,0 +1,57 @@
+{
+  "sets": [
+    "v2-holdout",
+    "holdout",
+    "v2-calibration",
+    "calibration"
+  ],
+  "read_kind": {
+    "v2-holdout": "two agreeing reads",
+    "holdout": "single read",
+    "v2-calibration": "two agreeing reads",
+    "calibration": "single read"
+  },
+  "ways": 130,
+  "per_class": {
+    "motorway|oneway": {
+      "default_lanes": 4,
+      "ways": 42,
+      "agree_with_tag": 0.619,
+      "within_one_of_tag": 0.976,
+      "imagery_reads": 40,
+      "agree_with_imagery": 0.45,
+      "agree_with_tag[SUMO typemap (v1)]": 0.0,
+      "agree_with_tag[m2 overlay (A-net-201)]": 0.357
+    },
+    "primary|oneway": {
+      "default_lanes": 3,
+      "ways": 23,
+      "agree_with_tag": 0.391,
+      "within_one_of_tag": 0.739,
+      "imagery_reads": 23,
+      "agree_with_imagery": 0.565,
+      "agree_with_tag[SUMO typemap (v1)]": 0.174,
+      "agree_with_tag[m2 overlay (A-net-201)]": 0.391
+    },
+    "secondary|oneway": {
+      "default_lanes": 3,
+      "ways": 25,
+      "agree_with_tag": 0.6,
+      "within_one_of_tag": 0.96,
+      "imagery_reads": 25,
+      "agree_with_imagery": 0.68,
+      "agree_with_tag[SUMO typemap (v1)]": 0.04,
+      "agree_with_tag[m2 overlay (A-net-201)]": 0.28
+    },
+    "trunk|oneway": {
+      "default_lanes": 3,
+      "ways": 38,
+      "agree_with_tag": 0.895,
+      "within_one_of_tag": 0.947,
+      "imagery_reads": 34,
+      "agree_with_imagery": 0.647,
+      "agree_with_tag[SUMO typemap (v1)]": 0.053,
+      "agree_with_tag[m2 overlay (A-net-201)]": 0.895
+    }
+  }
+}

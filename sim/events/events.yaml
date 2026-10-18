@@ -1,0 +1,25 @@
+# Behavioural defaults for TraCI events (Tier B). A scenario may override a default only with its
+# own `source:` or `assumption:` on the event. Model settings (not behaviour) sit under `model:`.
+kind: event_defaults
+accident:
+  rubbernecking_factor: {id: A-event-001, value: 0.7, unit: "x speed limit", range: [0.5, 0.9], assumption: "Opposite-direction drivers slow to look at the incident; no Jeddah measurement, factor guessed"}
+  side: {id: A-event-002, value: left, unit: "lane side", range: "left|right", assumption: "Crash debris most often blocks the median-side (fast) lanes first; guess"}
+  reroute: {id: A-event-003, value: true, unit: bool, range: "true|false", assumption: "When an edge is fully closed every affected driver reroutes at once (navigation apps; perfect information). Partial lane closures do not trigger rerouting"}
+flood:
+  closure_delay_s: {id: A-event-004, value: 600, unit: s, range: [0, 3600], assumption: "Underpasses and wadi crossings flood some minutes after storm onset; 10 min guessed"}
+  reroute: {id: A-event-005, value: true, unit: bool, range: "true|false", assumption: "Drivers learn of flooded underpasses at once and reroute (perfect information)"}
+motorcade:
+  lead_time_s: {id: A-event-006, value: 120, unit: s, range: [60, 300], assumption: "Police hold cross traffic about two minutes before the convoy reaches a junction; fictional, no operational data used"}
+  clear_time_s: {id: A-event-007, value: 30, unit: s, range: [10, 120], assumption: "Hold kept briefly after the last convoy vehicle passes"}
+  headway_s: {id: A-event-008, value: 2.0, unit: s, range: [1.5, 4.0], assumption: "Departure spacing of convoy vehicles (tight formation)"}
+  hold: {id: A-event-009, value: all_other_movements, unit: mode, range: "all_other_movements|entering_only", assumption: "At each route junction every movement except the convoy's own is held (cross and turning traffic), as in typical motorcade practice"}
+emergency_trip:
+  headway_s: {id: A-event-010, value: 30, unit: s, range: [10, 120], assumption: "Spacing between dispatches when one event sends several vehicles"}
+model:
+  exempt_vclasses: [vip, emergency]   # never held by motorcade closures
+  max_trip_s: 1800                    # emergency / motorcade events end at the latest after this
+  flood_sites_file: data/jeddah_flood_sites.yaml
+  confidence_order: [low, medium, high]
+  opposite_search_m: 40               # rubbernecking: opposite carriageway search radius
+  opposite_sample_m: 50               # ... sampled every 50 m along the accident edge
+  opposite_exclude_types: [highway.service, highway.living_street, highway.track, highway.footway]

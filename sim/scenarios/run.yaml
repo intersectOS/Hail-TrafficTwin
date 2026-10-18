@@ -1,0 +1,7 @@
+# Model settings for scenario runs (Tier B, micro), applied identically to baseline and scenario.
+kind: scenario_run_settings
+sumo_options:
+  # Rain/flood presets raise minGap at runtime; with SUMO's default collision rule (gap < minGap
+  # counts as a collision) vehicles standing at the old gap would all "collide" and teleport the
+  # moment the preset starts. Only physical overlaps count as collisions.
+  - [--collision.mingap-factor, "0"]

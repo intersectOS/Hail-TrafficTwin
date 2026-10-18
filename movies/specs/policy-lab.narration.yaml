@@ -1,0 +1,18 @@
+# Narration for policy-lab (scripts/movies/narrate.py). Numbers only from the docs (docs/policies.md).
+# Network v2 (pass 7): one v2 figure per policy (vehicle-hours, or morning-peak delay for the
+# school stagger), with the first-network (v1, m2) figure in the same sentence.
+film: policy-lab
+lines:
+  - shot: remote-work
+    at: 0.6
+    text: "The policy lab, on the second city network: blue roads get faster, red roads slower."
+  - shot: remote-work
+    text: "With 30 percent remote work, vehicle-hours fall by 8.7 percent; on the first network it was 7.7 percent."
+  - shot: staggered-schools
+    at: 0.6
+    text: "Staggering school starts by 60 minutes cuts morning-peak delay by only 1.8 percent; on the first network it was 9.1 percent."
+  - shot: cordon
+    at: 0.6
+    text: "A 10 riyal cordon charge pushes traffic onto the perimeter: vehicle-hours rise by 17.2 percent; on the first network it was 12.4 percent."
+  - shot: cordon
+    text: "Gridlock and teleports remain, so results are indicative. Synthetic demand, uncalibrated."

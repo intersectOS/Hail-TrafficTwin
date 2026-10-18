@@ -1,0 +1,31 @@
+# Tier B microscopic window at street level: a dolly east along Tahlia Street
+# (Prince Mohammed bin Abdulaziz St) through the morning peak of the window baseline.
+film: tahlia-street
+title: Tahlia Street, morning peak
+subtitle: Tier B microscopic window, every vehicle simulated at 1 s
+duration_s: 30
+showreel: [2.5, 22.5]           # excerpt in the showreel (2-3 min total)
+clock_t0: "08:00"            # A-mov-007
+tier: B
+sources:
+  base: {run: "accident_tahlia-tahlia-s1-257eae8d~baseline"}
+shots:
+  - id: dolly
+    duration_s: 30
+    layers:
+      heat: base
+      trips: base
+      color_by: speed
+    camera:
+      - {t: 0,  lon: 39.1480, lat: 21.5490, zoom: 16.9, pitch: 58, bearing: 74, sim_t: 2700}
+      - {t: 15, lon: 39.1640, lat: 21.5525, zoom: 17.3, pitch: 62, bearing: 75, ease: in_out}
+      - {t: 22, lon: 39.1712, lat: 21.5560, zoom: 17.1, pitch: 60, bearing: 15, ease: in_out}
+      - {t: 30, lon: 39.1713, lat: 21.5596, zoom: 17.5, pitch: 64, bearing: 340, sim_t: 2880, ease: in_out}
+    hud:
+      caption: Tahlia Street to the corridor into Madinah Road
+      detail: Roads coloured by speed against the limit, vehicles by their own speed; trails = last 40 simulated seconds
+      legend: speed
+      kpis:
+        - {label: Vehicles in the window, series: running, source: base}
+        - {label: Stopped now, series: halted, source: base}
+        - {label: Mean speed, series: mean_speed_kmh, source: base, unit: km/h}
