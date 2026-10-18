@@ -1,0 +1,30 @@
+# FICTIONAL flood-day evacuation (PROJECT.md section 11): Wadi Al-Adiri runs, its crossing at Prince
+# Muqrin St closes (data/hail_flood_sites.yaml HFS-001), and the low-lying blocks on the west bank
+# next to the wadi are cleared by car. The zone is a generic box, not an operational plan; storm
+# timing, crowd size and order time are invented. Synthetic demand, uncalibrated.
+id: evac_wadi_flood
+kind: scenario
+window: sports_city
+daytype: weekday
+label: "Fictional flood-day evacuation of the Wadi Al-Adiri west bank near Prince Muqrin St"
+fictional: true
+begin: 0
+end: 7200
+events:
+  - type: flood
+    id: storm_flood
+    start: 300
+    duration_min: 80
+    preset: storm             # A-rain-011..015; closures 10 min after onset (A-event-004)
+    min_confidence: medium
+  - type: evacuation
+    id: wadi_bank
+    start: 1500
+    zone: [[41.6995, 27.4930], [41.7045, 27.4930], [41.7045, 27.4990], [41.6995, 27.4990]]
+    vehicles: 1200
+    exits: auto
+    phasing: simultaneous
+    contraflow: []
+    signal_plan: default
+    notes: "Order 20 min after the flood closures; no strategy as written. The storm also slows the evacuees (vType multipliers)"
+    assumption: "A-evac-042: fictional 1,200 households' cars from the blocks within about 400 m of the west bank; not a census count"

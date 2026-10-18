@@ -1,0 +1,24 @@
+# FICTIONAL evacuation (PROJECT.md section 11): a full-crowd release from Prince Abdulaziz bin
+# Musa'ed Sports City (ملعب مدينة الأمير عبدالعزيز بن مساعد الرياضية) after an event. The zone is a
+# generic polygon over the stadium and its car parks, not an operational plan; crowd size, timing and
+# exits are invented. Real-site evacuation plans stay private. Synthetic demand, uncalibrated.
+id: evac_stadium
+kind: scenario
+window: sports_city
+daytype: weekday
+label: "Fictional stadium crowd leaving Prince Abdulaziz bin Musa'ed Sports City by car"
+fictional: true
+begin: 0
+end: 7200
+events:
+  - type: evacuation
+    id: stadium_crowd
+    start: 900
+    zone: [[41.6940, 27.5010], [41.7010, 27.5010], [41.7010, 27.5075], [41.6940, 27.5075]]
+    vehicles: 3000
+    exits: auto
+    phasing: simultaneous
+    contraflow: []
+    signal_plan: default
+    notes: "No strategy as written: everyone released over A-evac-002 to the nearest exit; the strategist varies phasing, exit assignment, contraflow and signals"
+    assumption: "A-evac-041: fictional crowd of about 7,500 spectators at 2.5 per car (A-evac-001) = 3,000 vehicles; the stadium's real capacity and parking are not modelled"

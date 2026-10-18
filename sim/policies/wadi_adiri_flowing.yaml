@@ -1,0 +1,50 @@
+# Wadi Al-Adiri (وادي الأديرع) running: every at-grade road crossing of the wadi inside the city
+# is closed for the whole day, both directions. Hail city lies on the wadi, which splits it into an
+# eastern and a western half (Saudipedia); when it flows, residents of the two banks are cut off.
+# Arterials that cross it on bridges (OSM bridge=yes) stay open, so the city's east-west traffic
+# concentrates on them. Crossings computed from OpenStreetMap (waterway named Wadi Al-Adiri x roads,
+# not bridges, 2026-10-17 extract): 23 crossings, edges within 10 m of each crossing point.
+id: wadi_adiri_flowing
+kind: policy
+title: "Wadi Al-Adiri running: all at-grade crossings closed for the day (bridges open)"
+daytype: weekday
+transforms:
+  - type: network_change
+    edits:
+      - edges:
+          - "-1092581422#1"
+          - "-1137169721#2"
+          - "-132026348#1"
+          - "-132053092#4"
+          - "-1482387671#1"
+          - "-323883294"
+          - "-325228506#3"
+          - "-325228512#6"
+          - "-465449939#3"
+          - "-556714337#2"
+          - "-556845011#8"
+          - "1083751438#0"
+          - "1083751439#0"
+          - "1092581422#0"
+          - "1137169721#1"
+          - "132015290#1"
+          - "132026263#0"
+          - "132026348#1"
+          - "132053092#4"
+          - "132154197#8"
+          - "1359397811#1"
+          - "1359397812#5"
+          - "1482387671#1"
+          - "1490901483#1"
+          - "323883264#5"
+          - "323883265#9"
+          - "323883294"
+          - "325228506#2"
+          - "325228512#6"
+          - "465449939#2"
+          - "556714337#0"
+          - "556845011#8"
+          - "737369845"
+          - "737369846"
+        closed: true
+    assumption: "A-pol-150: a full-day closure of every at-grade crossing (a conservative upper bound: in practice crossings close as the flow arrives and reopen after it passes, and Civil Defence may close more of the approaches). Trips that used a crossing are re-routed on the baseline's congested travel times; trips starting or ending on a closed edge move to the nearest open edge of the same district. Demand is not reduced (no school suspension or remote-work order is assumed; combine with remote_work_30 for that case)."

@@ -1,0 +1,12 @@
+# What the `simulate` workflow runs. Edit and push to start a run.
+# sample: share of Hail's 448,623 residents simulated (1.0 = everyone)
+sample: 0.02
+seed: 1
+daytypes: [weekday]
+policies: [remote_work_30]
+# Tier B: cut the 08:00-09:00 baseline demand into the windows, then run these scenarios
+windows: [center, sports_city]
+demand_hour: [28800, 32400]
+scenarios: [accident_center]
+strategist: []
+evacuations: []

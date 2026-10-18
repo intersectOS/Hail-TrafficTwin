@@ -28,8 +28,8 @@ BBOX = (41.690, 27.512, 41.708, 27.528)
 RESIDENTS = 8000
 POLICY_FILES = sorted((REPO_ROOT / "sim" / "policies").glob("*.yaml"))
 DEMO_POLICIES = (
-    "remote_work_30", "staggered_schools_60", "friday", "ramadan_weekday", "bus_line_tahlia",
-    "cordon_center", "close_corniche_road", "ramadan_remote_30",
+    "remote_work_30", "staggered_schools_60", "friday", "ramadan_weekday", "bus_line_king_abdulaziz",
+    "cordon_center", "wadi_adiri_flowing", "widen_king_abdulaziz", "ramadan_remote_30",
 )  # fmt: skip
 
 

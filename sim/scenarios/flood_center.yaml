@@ -1,0 +1,18 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): the storm timing is invented; the sites are the
+# Wadi Al-Adiri crossings of data/hail_flood_sites.yaml (medium confidence: named wadi with a
+# public source, crossing located in OSM). Synthetic demand, uncalibrated.
+id: flood_center
+kind: scenario
+window: center
+daytype: weekday
+label: "Storm: Wadi Al-Adiri runs and closes its crossings at Jarir St and King Faisal Rd"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: flood
+    id: storm_flood
+    start: 600
+    duration_min: 45
+    preset: storm             # A-rain-011..015
+    min_confidence: medium    # HFS-002 Jarir St, HFS-003 King Faisal Rd; low-confidence sites skipped

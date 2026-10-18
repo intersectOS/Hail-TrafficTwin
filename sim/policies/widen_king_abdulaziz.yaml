@@ -1,0 +1,12 @@
+# Project: one extra lane per direction on King Abdulaziz Road through central Hail (3 -> 4 lanes),
+# from the Sports City (lat 27.49) to Az Zahrah (lat 27.56), about 8 km. Illustrative; no published
+# widening plan was found. Tests what added capacity on the spine does to the network.
+id: widen_king_abdulaziz
+kind: policy
+title: "Widen King Abdulaziz Rd to 4 lanes per direction, Sports City to Az Zahrah (project)"
+daytype: weekday
+transforms:
+  - type: network_change
+    edits:
+      - {name: "طريق الملك عبدالعزيز", bbox: [41.6880, 27.4880, 41.7120, 27.5600], lanes: 4}
+    assumption: "A-pol-160: illustrative project: every edge named King Abdulaziz Rd (Arabic OSM name) with its midpoint in the box gets 4 lanes (the measured v2 default for untagged oneway primary roads is 3). Same speed limit; junction connections are rebuilt by netconvert. Induced demand is not modelled, so the saving is an upper bound (PROJECT.md section 7)."

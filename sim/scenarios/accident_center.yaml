@@ -1,0 +1,20 @@
+# FICTIONAL demo scenario (PROJECT.md section 11): times, place and duration are invented.
+# Synthetic demand, uncalibrated.
+id: accident_center
+kind: scenario
+window: center
+daytype: weekday
+label: "Serious crash closes all three southbound lanes of King Abdulaziz Rd in central Hail for 20 min"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: accident
+    id: crash_king_abdulaziz_sb
+    start: 600
+    duration_min: 20
+    # King Abdulaziz Rd (طريق الملك عبدالعزيز) southbound between King Faisal Rd and King Khalid St,
+    # Hail's north-south spine through the old centre (Barzan).
+    edge: "1358424025#6"
+    lanes_closed: all         # whole edge: affected drivers reroute (A-event-003)
+    rubbernecking: true       # opposite carriageway slows (A-event-001)

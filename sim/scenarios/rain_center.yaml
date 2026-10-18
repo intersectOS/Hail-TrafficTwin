@@ -1,9 +1,9 @@
 # FICTIONAL demo scenario (PROJECT.md section 11). Synthetic demand, uncalibrated.
-id: rain_tahlia
+id: rain_center
 kind: scenario
-window: tahlia
+window: center
 daytype: weekday
-label: "Heavy rain over the Tahlia / Al Andalus / Al Hamra window for 40 min"
+label: "Heavy rain over central Hail for 40 min"
 fictional: true
 begin: 0
 end: 3600

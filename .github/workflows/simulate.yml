@@ -1,0 +1,75 @@
+# Hail city simulation: zones, 24 h baseline(s), policies, tier link and Tier B scenarios, as listed
+# in .github/sim-request.yml. Reports, metadata and logs are published on the `results` branch; the
+# full run directories go into the `hail-runs` artifact for the site build. Synthetic demand, uncalibrated.
+name: simulate
+on:
+  push:
+    branches: [main]
+    paths: [".github/sim-request.yml", ".github/workflows/simulate.yml", "scripts/hail/simulate.sh"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: simulate
+  cancel-in-progress: true
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: System libraries for SUMO, and osmium-tool
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends libatomic1 libx11-6 libxext6 libxrender1 libgl1 osmium-tool
+      - uses: astral-sh/setup-uv@v5
+      - name: Python environment
+        run: uv python install 3.12 && uv sync --frozen
+      - name: Networks and windows from the build branch
+        run: |
+          git fetch --depth 1 origin build
+          git worktree add /tmp/build origin/build
+          mkdir -p data/hail data/windows
+          cp /tmp/build/hail/*.json /tmp/build/hail/*.geojson data/hail/
+          for f in hail.net.xml hail.v2.net.xml; do gunzip -c /tmp/build/hail/$f.gz > data/hail/$f; done
+          cp -r /tmp/build/windows/* data/windows/
+          cp /tmp/build/osm/* data/osm/
+          cp /tmp/build/web/* web/public/data/
+          ls -la data/hail data/windows/*
+      - name: Run the request
+        run: scripts/hail/simulate.sh .github/sim-request.yml
+      - name: Publish reports and logs on the results branch
+        if: always()
+        run: |
+          mkdir -p /tmp/res/runs
+          cp -r logs /tmp/res/ 2>/dev/null || true
+          cp .github/sim-request.yml /tmp/res/
+          cp -r data/population/zones /tmp/res/zones 2>/dev/null || true
+          find /tmp/res/zones -type f -size +20M -delete 2>/dev/null || true
+          for d in runs/*/; do
+            n=$(basename "$d"); mkdir -p "/tmp/res/runs/$n"
+            find "$d" -maxdepth 2 -type f \( -name '*.json' -o -name '*.md' -o -name '*.log' -o -name '*.csv' -o -name '*.png' \) -size -5M \
+              -exec cp --parents {} /tmp/res/ \; 2>/dev/null || true
+          done
+          du -sh /tmp/res
+          cd /tmp/res
+          git init -q -b results
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A
+          git commit -q -m "results: $(head -1 logs/sim-summary.txt 2>/dev/null | cut -c1-120)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" results
+      - name: Keep the run directories for the site build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hail-runs
+          path: |
+            runs/
+            data/population/
+            data/windows/
+          retention-days: 30
+          if-no-files-found: ignore

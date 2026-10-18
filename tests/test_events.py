@@ -18,7 +18,7 @@ from sim.vtypes.loader import apply_mix, load_library, resolve_mix, write_vtypes
 from sim.vtypes.schema import VTypeLibrary, check_mix
 
 DATA = REPO_ROOT / "tests" / "data"
-SCEN_FILES = sorted((REPO_ROOT / "sim" / "scenarios").glob("*_tahlia.yaml")) + sorted(
+SCEN_FILES = sorted((REPO_ROOT / "sim" / "scenarios").glob("*_center.yaml")) + sorted(
     (DATA / "scenarios").glob("*.yaml")
 )
 BASE = {
@@ -49,11 +49,11 @@ def test_shipped_scenarios_validate(path: Path) -> None:
     assert s.events
 
 
-def test_tahlia_demo_files_cover_every_event_type() -> None:
+def test_center_demo_files_cover_every_event_type() -> None:
     types = {
         e.type
         for p in SCEN_FILES
-        if p.name.endswith("_tahlia.yaml")
+        if p.name.endswith("_center.yaml")
         for e in load_scenario(p).events
     }
     assert {"accident", "rain", "flood", "motorcade", "emergency_trip"} <= types

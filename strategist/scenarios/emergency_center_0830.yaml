@@ -1,25 +1,25 @@
 # FICTIONAL demo situation for the M6 strategist (PROJECT.md section 11): crash and ambulance
 # trip are invented. Window clock t = 0 is 08:00 of the weekday demo hour (decision), so
 # 08:25 = 1500 s and 08:30 = 1800 s. Synthetic demand, uncalibrated.
-id: emergency_tahlia_0830
+id: emergency_center_0830
 kind: scenario
-window: tahlia
+window: center
 daytype: weekday
-label: "08:30 ambulance northbound to Madinah Road; a crash since 08:25 blocks one of two lanes on its route (fictional)"
+label: "08:30 ambulance from Al Wasita to King Khalid Hospital; a crash since 08:25 blocks one of four lanes on its route (fictional)"
 fictional: true
 begin: 0
 end: 3600
 events:
   - type: accident
-    id: crash_corridor_nb
+    id: crash_imam_st
     start: "00:25:00"         # 08:25
     duration_min: 20
-    edge: "44795819#33"       # on the ambulance's default route (as emergency_tahlia, M5)
-    lanes_closed: 1           # one of two lanes: the default route stays open but slowed, so
+    edge: "131718901#12"      # on the ambulance's default route (as emergency_center, M5)
+    lanes_closed: 1           # one of four lanes: the default route stays open but slowed, so
                               # rerouting, preemption and rescue lanes all have room to help
   - type: emergency_trip
     id: ambulance_1
     start: "00:30:00"         # 08:30 = dispatch time T of the strategist snapshot
-    from: "44795819#21"
-    to: "44796463#1"
+    from: "131792632#7"
+    to: "1501371310#0"
     strategist: true

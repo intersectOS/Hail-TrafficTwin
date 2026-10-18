@@ -5,8 +5,8 @@ title: "Cordon charge SAR 10 around central Hail, 07:00-19:00 (indicative)"
 daytype: weekday
 transforms:
   - type: road_pricing
-    # Al Balad, Al Baghdadiyah, Al Hamra, Al Andalus, Al Ruwais and Al Sharafiyah, about 4.6 x 8.9 km
-    polygon: [[39.150, 21.480], [39.195, 21.480], [39.195, 21.560], [39.150, 21.560]]
+    # Barzan, Al Olaya, Labdah, Samah, Mughidih, Al Aziziyah and Al Matar, about 3.5 x 4.4 km
+    polygon: [[41.685, 27.500], [41.720, 27.500], [41.720, 27.540], [41.685, 27.540]]
     charge_sar: 10
     hours: ["07:00", "19:00"]
     direction: both
@@ -14,4 +14,4 @@ transforms:
     base_trip_cost_sar: 25
     retime_share: 0.3
     value_of_time_sar_h: 40
-    assumption: "A-pol-040: illustrative design (no Saudi cordon scheme exists): SAR 10 per crossing in either direction 07:00-19:00, a rectangle around the historic centre and the Tahlia/Al Hamra commercial core (Stockholm's cordon covers about 35 km2). A-pol-041: constant elasticity -0.3 of crossing trips to their generalised cost of SAR 25 (fuel, time and parking for a 10-15 km urban trip; international cordon elasticities -0.2 to -0.5), so 9.6 % of charged tours are suppressed; 30 % of those re-time to just outside the charging hours, the rest are not made by car. A-pol-042: value of time SAR 40/h (roughly half the mean Saudi hourly wage, the usual convention; range 20-60) turns the charge into a 15-min routing penalty on cordon-crossing edges."
+    assumption: "A-pol-040: illustrative design (no Saudi cordon scheme exists): SAR 10 per crossing in either direction 07:00-19:00, a rectangle around Hail's old centre (Barzan, Al Qishlah) and the King Abdulaziz Rd commercial core, about 15 km2 (Stockholm's cordon covers about 35 km2). A-pol-041: constant elasticity -0.3 of crossing trips to their generalised cost of SAR 25 (fuel, time and parking for a 5-10 km urban trip in Hail; international cordon elasticities -0.2 to -0.5), so 9.6 % of charged tours are suppressed; 30 % of those re-time to just outside the charging hours, the rest are not made by car. A-pol-042: value of time SAR 40/h (roughly half the mean Saudi hourly wage, the usual convention; range 20-60) turns the charge into a 15-min routing penalty on cordon-crossing edges."

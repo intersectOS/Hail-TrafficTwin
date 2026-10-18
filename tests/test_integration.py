@@ -29,8 +29,8 @@ def test_runner_routes_evacuation_scenarios(
     monkeypatch.setattr("sim.events.evacuation.run", fake_evac)
     monkeypatch.setattr("sim.scenarios.run.run_scenario", fake_scen)
     runner.run_scenario_cli("evac_demo", None, 1, tmp_path)
-    runner.run_scenario_cli("accident_tahlia", None, 1, tmp_path)
-    assert calls == [("evac", "evac_demo"), ("scenario", "accident_tahlia")]
+    runner.run_scenario_cli("accident_center", None, 1, tmp_path)
+    assert calls == [("evac", "evac_demo"), ("scenario", "accident_center")]
 
 
 def test_build_events_registers_evacuation_lazily(monkeypatch: pytest.MonkeyPatch) -> None:

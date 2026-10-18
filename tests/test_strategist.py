@@ -41,8 +41,8 @@ def ff_costs(sit: Situation, graph: EdgeGraph) -> dict[str, float]:
 
 def test_scenario_lookup_prefers_strategist_dir() -> None:
     assert find_scenario("emergency_demo").parent.name == "scenarios"
-    assert "strategist" in str(find_scenario("emergency_tahlia_0830"))
-    assert "sim" in str(find_scenario("emergency_tahlia"))  # falls back to sim/scenarios
+    assert "strategist" in str(find_scenario("emergency_center_0830"))
+    assert "sim" in str(find_scenario("emergency_center"))  # falls back to sim/scenarios
 
 
 def test_situation_splits_strategist_trip(sit: Situation) -> None:
