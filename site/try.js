@@ -28,6 +28,24 @@
   let view = { s: 1, ox: 0, oy: 0 }, roads = null;
   const ar = (n) => Number(n).toLocaleString("ar-SA");
 
+  // ------------------------------------------------------------ idle map: Hail's main roads
+  fetch("data/roads.json").then((r) => r.json()).then((d) => {
+    if (data) return;
+    const dprI = Math.min(window.devicePixelRatio || 1, 2), w = cv.clientWidth, h = cv.clientHeight;
+    cv.width = Math.round(w * dprI); cv.height = Math.round(h * dprI);
+    ctx.setTransform(dprI, 0, 0, dprI, 0, 0);
+    const s = Math.max(w, h) / 10000 * 1.1, ox = (w - 10000 * s) / 2, oy = (h - 10000 * s) / 2;
+    ctx.lineCap = "round"; ctx.strokeStyle = "rgba(184,155,114,0.45)";
+    for (const a of d.lines) {
+      ctx.lineWidth = a[0] <= 2 ? 1.8 : 1;
+      ctx.beginPath(); ctx.moveTo(ox + a[1] * s, oy + a[2] * s);
+      for (let k = 3; k < a.length; k += 2) ctx.lineTo(ox + a[k] * s, oy + a[k + 1] * s);
+      ctx.stroke();
+    }
+    ctx.fillStyle = "#eef1ec"; ctx.font = "600 15px 'IBM Plex Sans Arabic', system-ui"; ctx.textAlign = "center";
+    ctx.fillText("اختر تجربة من الأسفل ثم اضغط «شغّل المحاكاة»", w / 2, h - 50);
+  }).catch(() => {});
+
   // ------------------------------------------------------------ choices
   let chosen = null;
   fetch("data/play/index.json").then((r) => r.json()).then((idx) => {
@@ -48,6 +66,7 @@
       box.appendChild(b);
     }
     if (!list.length) box.innerHTML = `<p class="muted">لا توجد تجارب بعد: محاكاة المدينة ما زالت تعمل.</p>`;
+    else if (!real.length) box.insertAdjacentHTML("afterbegin", `<p class="muted" style="grid-column:1/-1;margin:0">تجارب صغيرة إلى أن تكتمل محاكاة المدينة الكاملة.</p>`);
   }).catch(() => { $("choices").innerHTML = `<p class="muted">تعذّر تحميل قائمة التجارب.</p>`; });
 
   $("run").addEventListener("click", () => chosen && start(chosen));
