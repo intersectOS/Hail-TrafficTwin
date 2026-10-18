@@ -111,8 +111,69 @@ def build_net(
         *netconvert_args(cfg),
     ]
     run_cmd(cmd, log=log)
+    if cfg.get("tls_rule"):
+        add_arterial_signals(raw, cfg["tls_rule"], log)
     resolved = apply_fixes(raw, net_out, fixes_dir, log=log, strict=strict_fixes)
     return resolved
+
+
+def arterial_crossings(net_file: Path, rule: dict[str, Any]) -> list[str]:
+    """Junctions where a major road meets another street of the crossing classes at grade.
+
+    A divided road crosses at one node per carriageway, so two approaches are enough; ramps added
+    by --ramps.guess do not count. Nodes that are already signals or dead ends are skipped."""
+    import sumolib
+
+    major = set(rule["major"])
+    cross = set(rule["cross"]) | major
+    net = sumolib.net.readNet(str(net_file))
+    ids: list[str] = []
+    for node in net.getNodes():
+        if node.getType() in ("traffic_light", "dead_end"):
+            continue
+        inc = [e for e in node.getIncoming() if not e.getID().endswith(("OnRampEdge", "OffRampEdge"))]
+        if len(inc) < 2:
+            continue
+        streets: dict[str, set[str]] = {}
+        for e in inc:
+            if e.getType() in cross:
+                key = e.getName() or e.getID().lstrip("-").split("#")[0]
+                streets.setdefault(key, set()).add(e.getType())
+        if len(streets) >= 2 and any(t & major for t in streets.values()):
+            ids.append(node.getID())
+    return sorted(ids)
+
+
+def add_arterial_signals(raw: Path, rule: dict[str, Any], log: Path) -> None:
+    """Rebuild the raw network with signals at the arterial crossings (A-net-303)."""
+    ids = arterial_crossings(raw, rule)
+    with log.open("a") as fh:
+        fh.write(f"arterial signals (A-net-303): {len(ids)} junctions\n")
+    if not ids:
+        return
+    node_file = raw.with_name(raw.name.replace(".net.xml", ".tls.nod.xml"))
+    node_file.write_text(
+        "<nodes>\n"
+        + "".join(f'    <node id="{i}" type="traffic_light"/>\n' for i in ids)
+        + "</nodes>\n"
+    )
+    tmp = raw.with_name(raw.name.replace(".net.xml", ".tls.net.xml"))
+    run_cmd(
+        [
+            sumo_bin("netconvert"),
+            "--sumo-net-file",
+            str(raw),
+            "--node-files",
+            str(node_file),
+            "--tls.join",
+            "--tls.default-type",
+            str(rule.get("type", "static")),
+            "-o",
+            str(tmp),
+        ],
+        log=log,
+    )
+    tmp.replace(raw)
 
 
 app = typer.Typer(add_completion=False, help=__doc__)

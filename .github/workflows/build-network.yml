@@ -57,6 +57,7 @@ jobs:
           cp web/public/data/*.geojson out/web/ 2>/dev/null || true
           cp logs/*.log out/logs/ 2>/dev/null || true
           cd out
+          find . -type f -size +40M -name "*.xml" -print -exec gzip -9 {} \;
           find . -type f -size +95M -print -delete
           git init -q -b build
           git config user.name "Sulaiman O. Alkhateeb"

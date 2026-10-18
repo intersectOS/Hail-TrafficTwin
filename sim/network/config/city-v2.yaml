@@ -28,21 +28,23 @@ assumptions:
     value: "median of tagged ways on the Hail clip: motorway 2, trunk 3, primary 3, secondary 3, tertiary 4 (oneway); two-way ways keep the SUMO typemap"
     source: "OSM tags on the same clip, sim/network/types/hail-lanes.json; held-out check sim/network/types/hail-lanes-crosscheck.json"
   A-net-303:
-    parameter: inferred traffic signals at major junctions
-    value: "netconvert --tls.guess with threshold 57 (sum of incoming lane speeds, m/s): at-grade junctions on the arterials (3-lane primary roads at 100 km/h) get a signal; tertiary and local crossings stay priority-controlled. On the demo window 57 gives 3 signals and 54 gives 78 (the speeds are discrete, so the count jumps), 78 in 3 km2 is far above reality."
-    assumption: "OpenStreetMap maps only 22 signal nodes in the whole Hail clip, so the plain build has 6 signals; Hail's King Abdulaziz, King Fahd and King Khalid corridors are signalised in reality. Threshold range 55-60 m/s. Replace with the Municipality's signal inventory when available."
+    parameter: traffic signals at arterial crossings
+    value: "a signal (static program, netconvert defaults) at every at-grade junction where a primary, secondary or trunk road meets another street of tertiary class or above (tls_rule below); signals on one junction cluster are joined"
+    assumption: "OpenStreetMap maps only 22 signal nodes in the whole Hail clip, and netconvert's --tls.guess picked 5-way residential clusters instead of the arterials. Hail's King Abdulaziz, King Fahd, King Khalid and King Faisal corridors are signalised in reality, so the rule targets their crossings. Replace with the Municipality's signal inventory and timings when available."
   A-net-302:
     parameter: maxspeed for untagged major OSM ways (class x oneway)
     value: "median of tagged ways on the Hail clip: motorway 120, trunk 100, primary 100, tertiary 80 km/h (the clip includes the intercity highways, so urban limits are probably lower; sweep -20 %)"
     source: "OSM tags on the same clip, sim/network/types/hail-lanes.json"
+tls_rule:
+  major: [highway.primary, highway.secondary, highway.trunk]
+  cross: [highway.tertiary]
+  type: static
 netconvert_options:
   - --geometry.remove
   - --ramps.guess
   - --junctions.join
   - [--junctions.join-dist, "20"]
   - --tls.guess-signals
-  - --tls.guess
-  - [--tls.guess.threshold, "57"]
   - --tls.discard-simple
   - --tls.join
   - --roundabouts.guess

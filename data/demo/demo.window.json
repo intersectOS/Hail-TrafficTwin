@@ -11,22 +11,22 @@
     ],
     "out_dir": "data/demo"
   },
-  "city_net": "data/hail/hail.net.xml",
-  "city_net_hash": "2094bbca8b715e1c",
+  "city_net": "data/hail/hail.v2.net.xml",
+  "city_net_hash": "c139f54d12e6919b",
   "sumo_version": "Eclipse SUMO sumo 1.28.0",
   "network": {
-    "edges": 1503,
-    "junctions": 622,
-    "traffic_lights": 0,
-    "lanes": 1617,
-    "lane_km": 119.08,
-    "edge_km": 111.07,
-    "net_hash": "0b7d55c1c4d9a7e0"
+    "edges": 1491,
+    "junctions": 615,
+    "traffic_lights": 3,
+    "lanes": 2272,
+    "lane_km": 159.1,
+    "edge_km": 108.56,
+    "net_hash": "081c84605203715e"
   },
   "trips": {
     "file": "data/demo/demo.trips.xml",
     "seed": 1,
-    "hash": "22ccf4154edc1208"
+    "hash": "ddfaec4ba8bcb0e2"
   },
   "osm_extract": {
     "file": "data/demo/demo.osm.gz",
