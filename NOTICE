@@ -1,5 +1,10 @@
-TrafficTwin Jeddah
-Copyright 2026 The TrafficTwin Jeddah contributors
+TrafficTwin Hail
+Copyright 2026 Sulaiman O. Alkhateeb (Hail adaptation)
+
+This product is a derivative of TrafficTwin Jeddah
+(https://github.com/alturkestani/TrafficTwin), Copyright 2026 The TrafficTwin Jeddah
+contributors, licensed under the Apache License, Version 2.0. Files were modified for
+the Hail study area; see README.md ("What changed from the Jeddah original").
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 
@@ -11,7 +16,7 @@ OpenStreetMap
   OpenStreetMap data, (c) OpenStreetMap contributors, available under the
   Open Database License (ODbL) 1.0: https://www.openstreetmap.org/copyright
   Extracts are obtained from Geofabrik GmbH (https://download.geofabrik.de/).
-  Derived databases (for example data/demo/*.net.xml and data/jeddah/*) remain
+  Derived databases (for example data/demo/*.net.xml and data/hail/*) remain
   subject to the ODbL; attribution "(c) OpenStreetMap contributors" must be kept.
 
 Eclipse SUMO

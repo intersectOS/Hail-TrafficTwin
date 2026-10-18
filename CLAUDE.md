@@ -1,6 +1,6 @@
-# CLAUDE.md — TrafficTwin Jeddah
+# CLAUDE.md — TrafficTwin Hail (adapted from TrafficTwin Jeddah)
 
-Read `PROJECT.md` first. It is the brief: scope, two-tier architecture (Tier A = all-Jeddah mesoscopic, Tier B = microscopic focus windows), policy lab, milestones and acceptance criteria. This file holds the working rules.
+Read `PROJECT.md` first. It is the brief: scope, two-tier architecture (Tier A = all-Hail mesoscopic, Tier B = microscopic focus windows), policy lab, milestones and acceptance criteria. This file holds the working rules.
 
 ## Machine
 Apple M3 Pro, 18 GB RAM, macOS. Tools present: claude, uv 0.11, python3 (3.14 system), node 25, npm, docker, brew, git. Missing: sumo, osmium (install them).
