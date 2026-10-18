@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: simulate
@@ -41,6 +42,18 @@ jobs:
           cp /tmp/build/osm/* data/osm/
           cp /tmp/build/web/* web/public/data/
           ls -la data/hail data/windows/*
+      - name: Previous runs (reuse mode)
+        if: hashFiles('.github/sim-request.yml') != ''
+        run: |
+          if grep -Eq '^reuse: *(true|True)' .github/sim-request.yml; then echo "REUSE=1" >> "$GITHUB_ENV"; fi
+      - name: Download the previous run directories
+        if: env.REUSE == '1'
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: simulate.yml
+          name: hail-runs
+          path: .
+          workflow_conclusion: success
       - name: Run the request
         run: scripts/hail/simulate.sh .github/sim-request.yml
       - name: Publish reports and logs on the results branch

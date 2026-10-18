@@ -9,14 +9,19 @@ mkdir -p logs runs
 q() { uv run python -c "import yaml,json,sys; d=yaml.safe_load(open('$REQ')); v=d.get('$1'); print(' '.join(map(str,v)) if isinstance(v,list) else ('' if v is None else v))"; }
 SAMPLE=$(q sample); SEED=$(q seed); DAYTYPES=$(q daytypes); POLICIES=$(q policies)
 WINDOWS=$(q windows); HOUR=($(q demand_hour)); SCENARIOS=$(q scenarios)
-STRATEGIST=$(q strategist); EVACS=$(q evacuations)
+STRATEGIST=$(q strategist); EVACS=$(q evacuations); REUSE=$(q reuse)
 step() { local name=$1; shift; echo "::group::$name"; local t0=$SECONDS
   if "$@" > "logs/sim-$name.log" 2>&1; then echo "ok $name $((SECONDS-t0)) s" | tee -a logs/sim-summary.txt
   else echo "FAILED $name $((SECONDS-t0)) s" | tee -a logs/sim-summary.txt; tail -40 "logs/sim-$name.log"; echo "::endgroup::"; return 1; fi
   tail -5 "logs/sim-$name.log"; echo "::endgroup::"; }
 
 echo "request: sample=$SAMPLE seed=$SEED daytypes=[$DAYTYPES] policies=[$POLICIES] windows=[$WINDOWS] scenarios=[$SCENARIOS]" | tee logs/sim-summary.txt
-step zones uv run python -m sim.population.zones
+if [ "$REUSE" = "True" ] || [ "$REUSE" = "true" ]; then
+  echo "reuse: keeping the previous run's baseline, policies and window demand" | tee -a logs/sim-summary.txt
+  DAYTYPES=""; POLICIES=""; WINDOWS=""
+else
+  step zones uv run python -m sim.population.zones
+fi
 for d in $DAYTYPES; do
   step "baseline-$d" uv run python -m sim.runner --baseline --daytype "$d" --sample "$SAMPLE" --seed "$SEED" --gzip
 done
