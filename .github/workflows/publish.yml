@@ -1,0 +1,89 @@
+# Build the project page and the static viewer from the latest `simulate` run and publish them on
+# the gh-pages branch (GitHub Pages serves it at https://<owner>.github.io/<repo>/).
+name: publish
+on:
+  workflow_run:
+    workflows: [simulate]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: ["site/**", "web/src/**", "web/index.html", "scripts/hail/build_site.sh", "scripts/hail/export_static.py", "scripts/hail/site_data.py", ".github/workflows/publish.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: System libraries for SUMO
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends libatomic1 libx11-6 libxext6 libxrender1 libgl1
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Python and viewer dependencies
+        run: |
+          uv python install 3.12 && uv sync --frozen
+          cd web && npm ci --include=dev --no-audit --no-fund
+      - name: Latest simulation runs
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: simulate.yml
+          name: hail-runs
+          path: .
+          workflow_conclusion: ""
+          if_no_artifact_found: warn
+      - name: Networks from the build branch
+        run: |
+          git fetch --depth 1 origin build
+          git worktree add --detach /tmp/build FETCH_HEAD
+          mkdir -p data/hail web/public/data runs
+          cp /tmp/build/hail/*.json /tmp/build/hail/*.geojson data/hail/
+          gunzip -c /tmp/build/hail/hail.v2.net.xml.gz > data/hail/hail.v2.net.xml
+          cp /tmp/build/web/* web/public/data/
+          ls runs | head -50
+      - name: Ingest runs and build the site
+        env:
+          TT_RUNS_READONLY: "0"
+        run: |
+          uv run python -m api.ingest --all > ingest.log 2>&1 || (tail -40 ingest.log; exit 1)
+          scripts/hail/build_site.sh _site "${{ github.repository }}"
+      - name: Screenshots for review
+        if: always()
+        run: |
+          cd _site && python3 -m http.server 8765 --directory .. >/dev/null 2>&1 &
+          sleep 2
+          cat > /tmp/shot.mjs <<'JS'
+          import puppeteer from "puppeteer-core";
+          const exe = process.env.CHROME;
+          const b = await puppeteer.launch({ executablePath: exe, args: ["--no-sandbox", "--use-gl=swiftshader", "--enable-webgl"] });
+          for (const [url, out, w, h, full] of [
+            ["http://localhost:8765/_site/index.html", "home.png", 1440, 900, true],
+            ["http://localhost:8765/_site/index.html", "home-mobile.png", 390, 844, true],
+          ]) {
+            const p = await b.newPage(); await p.setViewport({ width: w, height: h });
+            await p.goto(url, { waitUntil: "networkidle0", timeout: 60000 }).catch(() => {});
+            await new Promise((r) => setTimeout(r, 2000)); await p.screenshot({ path: "/tmp/shots/" + out, fullPage: full });
+          }
+          await b.close();
+          JS
+          mkdir -p /tmp/shots
+          cd web && CHROME=$(which google-chrome || which chromium) node /tmp/shot.mjs || true
+      - name: Publish on gh-pages
+        run: |
+          cp -r /tmp/shots _site/_shots 2>/dev/null || true
+          cd _site
+          git init -q -b gh-pages
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A
+          git commit -q -m "site: ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
