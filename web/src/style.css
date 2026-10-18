@@ -395,3 +395,24 @@ table.summary td:first-child {
 .maplibregl-ctrl-bottom-right {
   bottom: 80px;
 }
+
+/* Hail edition: credit line and banner link */
+.credit {
+  position: absolute;
+  left: 10px;
+  bottom: 6px;
+  z-index: 5;
+  max-width: calc(100% - 380px);
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(10, 14, 20, 0.72);
+  color: #d6dde6;
+  pointer-events: auto;
+}
+.banner-home { color: inherit; text-decoration: none; }
+.banner-home:hover b { text-decoration: underline; }
+@media (max-width: 720px) {
+  .credit { max-width: calc(100% - 20px); bottom: auto; top: 44px; font-size: 10px; }
+}

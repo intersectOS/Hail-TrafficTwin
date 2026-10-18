@@ -187,7 +187,7 @@ export class Engine {
     this.map = new maplibregl.Map({
       container,
       style: BLANK_STYLE,
-      center: [39.18, 21.55],
+      center: [41.70, 27.52],
       zoom: 10.5,
       maxPitch: 75,
       attributionControl: { compact: true },

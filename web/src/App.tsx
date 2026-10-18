@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { FeatureCollection } from "geojson";
 
-import { api } from "./api";
+import { api, STATIC } from "./api";
 import { METRICS, metricDef } from "./config";
 import { Engine, VEHICLE_SCALE, type EngineStatus, type RunInput } from "./engine";
 import type {
@@ -300,8 +300,14 @@ export function App() {
     <div className="app">
       <div className="map" ref={mapEl} />
       <div className="tooltip" ref={tipEl} />
+      <div className="credit" dir="rtl">
+        تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929 · This platform has been developed by Sulaiman Alkhateeb
+        <span className="muted"> · based on the open-source TrafficTwin (Apache-2.0) · map data © OpenStreetMap contributors (ODbL)</span>
+      </div>
       <div className="banner">
-        <b>TrafficTwin Hail</b>
+        <a className="banner-home" href={STATIC ? `${import.meta.env.BASE_URL}../` : "#"} title="العودة إلى صفحة المشروع">
+          <b>التوأم الرقمي لمرور حائل</b> <span className="muted">TrafficTwin Hail</span>
+        </a>
         <span className="label-synthetic">{SYNTHETIC_LABEL}</span>
         {run ? (
           <span className="banner-run">
@@ -438,7 +444,7 @@ export function App() {
         ) : null}
         {panel === "jobs" ? (
           <div className="section">
-            <JobsPanel onDone={(id) => refreshRuns(id)} />
+            {STATIC ? <div className="muted">Read-only public viewer: new runs are started on a local installation.</div> : <JobsPanel onDone={(id) => refreshRuns(id)} />}
           </div>
         ) : null}
       </aside>
