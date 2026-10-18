@@ -99,9 +99,9 @@ def test_closed_edges_are_respected(sit: Situation) -> None:
 
 
 def test_signal_groups_and_rescue_lanes(sit: Situation) -> None:
-    tls_route = ["38500585#7", "1492421522#0"]
+    tls_route = ["107173635#20", "107173635#21"]
     (g,) = signal_groups(sit.idx, tls_route)
-    assert g["tls"] == "GS_cluster_10109918119_4419972011" and g["links"] == [0, 1]
+    assert g["tls"] == "1232215585" and g["links"] == [3, 4, 5]
     assert g["first_idx"] == g["last_idx"] == 0
     rl = rescue_lanes(sit.idx, sit.trip["route"], set(), "emergency")
     for r in rl:

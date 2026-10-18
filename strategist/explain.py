@@ -78,14 +78,18 @@ def explain(
                 if n:
                     nh = f.add("ns_edge_halted", n, "d", f"snapshot.halted_by_edge[{e}]")
                     r += f" with {nh} {_plural(n, 'vehicle')} halted there at dispatch"
-            else:
+            elif e in res["ambulance_edge_s"]:
                 oe = f.add(
                     "opt_edge_s",
-                    res["ambulance_edge_s"].get(e, 0.0),
+                    res["ambulance_edge_s"][e],
                     ".0f",
                     f"option.ambulance_edge_s[{e}]",
                 )
                 r = f"it also uses `{e}` but spends {oe} s there instead of {se} s"
+            else:
+                # no measured time on the option's pass (a sub-second or zero-length edge): cite
+                # only the measured no-strategy time, never an invented 0 s
+                r = f"it also uses `{e}` but passes it without the {se} s the no-strategy ambulance lost there"
             reasons.append(r)
         elif lost[e] > 0 and e in res["ambulance_edge_s"]:
             se = f.add("ns_edge_s", ns_edges[e], ".0f", f"no_strategy.ambulance_edge_s[{e}]")

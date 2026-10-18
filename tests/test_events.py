@@ -195,10 +195,10 @@ def test_strategist_flag() -> None:
 
 
 def test_reverse_edges_divided_road(idx: NetIndex) -> None:
-    # Tahlia St carriageways are separate one-way edges between different nodes
-    rev = idx.reverse_edges("1492421519#6", 40, 50)
-    assert "38500585#3" in rev
-    assert idx.reverse_edges("48364777#2", 40, 50) == ["-48364777#2"]
+    # King Abdulaziz Rd carriageways are separate one-way edges between different nodes
+    rev = idx.reverse_edges("107173635#21", 40, 50)
+    assert "1358424025#2" in rev
+    assert idx.reverse_edges("754202917", 40, 50) == ["-754202917"]
 
 
 def test_flood_site_selection(idx: NetIndex) -> None:
@@ -216,9 +216,9 @@ def test_flood_site_selection(idx: NetIndex) -> None:
     by_site = {s["site"]: s for s in plan["sites"]}
     assert set(by_site) == {"TS-001", "TS-002", "TS-004"}  # TS-003 lies outside the window
     assert by_site["TS-002"]["method"] == "origId"
-    assert by_site["TS-002"]["edges"] == ["166129018#0", "166129018#2"]
+    assert by_site["TS-002"]["edges"] == [f"107430299#{i}" for i in range(46, 53)]
     assert by_site["TS-001"]["method"] == "radius"
-    assert "1492421519#8" in by_site["TS-001"]["edges"]
+    assert "107173635#22" in by_site["TS-001"]["edges"]
     assert "A-event-flood-radius" in ids and "A-rain-011" in ids
     spec2 = spec.model_copy(update={"min_confidence": "medium"})
     assert {s["site"] for s in flood.resolve(spec2, idx, [])["sites"]} == {"TS-001", "TS-002"}

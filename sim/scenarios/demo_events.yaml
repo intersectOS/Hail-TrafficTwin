@@ -1,5 +1,5 @@
 # FICTIONAL demo on the committed demo window (PROJECT.md section 11), used by `make demo`
-# (python -m sim.demo): an accident closing Tahlia St eastbound under heavy rain, a motorcade and an
+# (python -m sim.demo): an accident closing Prince Muqrin St under heavy rain, a motorcade south on King Abdulaziz Rd and an
 # ambulance trip, all inside 15 minutes so a clean clone runs it in about a minute.
 # Times, places and convoy size are invented. Synthetic demand, uncalibrated.
 id: demo_events
@@ -15,7 +15,7 @@ events:
     id: acc
     start: 120
     duration_s: 420
-    edge: "1104788990"
+    edge: "1501371314#5"
     lanes_closed: all
   - type: rain
     id: rain
@@ -25,12 +25,12 @@ events:
   - type: motorcade
     id: convoy
     start: 200
-    from: "646863451#1"
-    to: "1492421519#11"
+    from: "1358424025#1"
+    to: "1358424025#8"
     vehicles: 4
   - type: emergency_trip
     id: amb
     start: 300
-    from: "38500585#2"
-    to: "1492421522#4"
+    from: "107418930#0"
+    to: "1501371315#4"
     strategist: true

@@ -31,10 +31,10 @@ def log_of(res: dict[str, Any], event: str, action: str) -> dict[str, Any]:
 def test_accident_closes_lanes_and_cuts_flow(all_events: dict[str, Any]) -> None:
     rep = all_events["report"]
     closed = log_of(all_events, "acc", "close_lanes")
-    assert closed["verified_disallowed"] == 2 and closed["full_closure"]
+    assert closed["verified_disallowed"] == 4 and closed["full_closure"]  # Prince Muqrin St: 4 lanes
     assert closed["rubbernecking_lanes"], "opposite carriageway found for rubbernecking"
-    assert log_of(all_events, "acc", "reopen_lanes")["verified_reopened"] == 2
-    edge = "1104788990"
+    assert log_of(all_events, "acc", "reopen_lanes")["verified_reopened"] == 4
+    edge = "1501371314#5"
     base, scen = (
         rep["event_edges_flow"]["baseline"][edge],
         rep["event_edges_flow"]["scenario"][edge],
@@ -57,7 +57,7 @@ def test_flood_closes_expected_edges(all_events: dict[str, Any]) -> None:
     assert {s["site"] for s in plan["sites"]} == {"TS-001", "TS-002"}  # min_confidence medium
     row = log_of(all_events, "flood", "close_sites")
     assert row["t"] == pytest.approx(430)  # start 400 + closure_delay_s 30
-    assert set(row["edges"]) == set(plan["closed_edges"]) >= {"166129018#0", "1492421519#8"}
+    assert set(row["edges"]) == set(plan["closed_edges"]) >= {"107430299#47", "107173635#22"}
     assert row["verified_disallowed"] == len(plan["closed_lanes"])
     assert log_of(all_events, "flood", "reopen_sites")["lanes"] == len(plan["closed_lanes"])
 
@@ -91,7 +91,7 @@ def test_outputs_reports_and_meta(all_events: dict[str, Any]) -> None:
         assert fcd.num_rows > 10_000 and {"time", "id", "lon", "lat", "speed"} <= set(
             fcd.column_names
         )
-        assert 39.1 < fcd.column("lon")[0].as_py() < 39.2  # geo coordinates
+        assert 41.6 < fcd.column("lon")[0].as_py() < 41.8  # geo coordinates
         for name in ("tripinfo.parquet", "edgedata.parquet", "timeseries.parquet", "stats.xml"):
             assert (d / name).exists()
     for name in ("meta.json", "scenario_report.json", "scenario_report.md"):

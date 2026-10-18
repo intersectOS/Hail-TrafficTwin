@@ -26,7 +26,7 @@ from sim.schemas import DayType, TimeDist, hhmm_to_s, load_daytype, validate_fil
 
 DEMO_NET = REPO_ROOT / "data" / "demo" / "demo.net.xml"
 DAYTYPES = ("weekday", "friday", "saturday", "ramadan_weekday", "hail_season")
-BBOX = (39.148, 21.542, 39.166, 21.558)
+BBOX = (41.690, 27.512, 41.708, 27.528)
 RESIDENTS = 8000
 
 

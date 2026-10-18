@@ -143,9 +143,11 @@ def test_preemption_switches_and_restores_signal(rec: dict[str, Any]) -> None:
     assert pre, "demo routes cross the demo signal"
     for c in pre:
         res = r["results"][c["id"]]
-        assert res["signals_preempted"] == 1
-        (p,) = res["preempted"]
-        assert p["tls"] == "GS_cluster_10109918119_4419972011" and p["held_s"] > 0
+        # the King Khalid St route crosses King Abdulaziz Rd at one joined signal cluster
+        # one signal program, held at each of its junctions on the route
+        assert res["signals_preempted"] >= 1 and len(res["preempted"]) >= res["signals_preempted"]
+        assert all(p["held_s"] > 0 for p in res["preempted"])
+        assert "joinedS_1232215587_13744987841_3312798848" in {p["tls"] for p in res["preempted"]}
 
 
 def test_side_entry_hold_applied_and_released(rec: dict[str, Any], tmp_path: Path) -> None:

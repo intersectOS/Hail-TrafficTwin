@@ -12,16 +12,16 @@
     "out_dir": "data/demo"
   },
   "city_net": "data/hail/hail.v2.net.xml",
-  "city_net_hash": "c139f54d12e6919b",
+  "city_net_hash": "e81b97f0a6527687",
   "sumo_version": "Eclipse SUMO sumo 1.28.0",
   "network": {
     "edges": 1491,
     "junctions": 615,
-    "traffic_lights": 3,
+    "traffic_lights": 5,
     "lanes": 2272,
     "lane_km": 159.1,
     "edge_km": 108.56,
-    "net_hash": "081c84605203715e"
+    "net_hash": "ffb2a22587c10895"
   },
   "trips": {
     "file": "data/demo/demo.trips.xml",

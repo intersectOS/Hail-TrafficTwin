@@ -169,7 +169,7 @@ def test_bus_line_cordon_and_closure_run(penv: dict, tmp_path: Path) -> None:
     xm = (BBOX[0] + BBOX[2]) / 2
     cordon = load_policy("cordon_center").model_dump()
     cordon["id"] = "cordon_demo"
-    cordon["transforms"][0]["polygon"] = [[xm, 21.53], [39.2, 21.53], [39.2, 21.57], [xm, 21.57]]
+    cordon["transforms"][0]["polygon"] = [[xm, 27.50], [41.75, 27.50], [41.75, 27.54], [xm, 27.54]]
     mc = run_policy(Policy.model_validate(cordon), "weekday", runs_dir=tmp_path, **penv["kw"])
     ec = mc["effects"][0]
     assert ec["charged_vehicles"] > 0 and ec["vehicles_rerouted_with_penalty"] > 0

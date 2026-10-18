@@ -28,7 +28,7 @@ def test_unknown_window() -> None:
 
 
 def test_cut_subwindow_keeps_ids(tmp_path: Path, demo_net: Path) -> None:
-    cfg = {"name": "sub", "bbox": [39.150, 21.545, 39.158, 21.552]}
+    cfg = {"name": "sub", "bbox": [41.692, 27.515, 41.700, 27.522]}
     out = tmp_path / "sub.net.xml"
     cut_window(demo_net, cfg, out)
     src = {e.getID() for e in sumolib.net.readNet(str(demo_net)).getEdges()}
@@ -38,4 +38,4 @@ def test_cut_subwindow_keeps_ids(tmp_path: Path, demo_net: Path) -> None:
     assert ids <= src
     for edge in sub.getEdges():
         lon, lat = sub.convertXY2LonLat(*edge.getFromNode().getCoord())
-        assert 39.14 < lon < 39.17 and 21.54 < lat < 21.56
+        assert 41.682 < lon < 41.712 and 27.510 < lat < 27.530

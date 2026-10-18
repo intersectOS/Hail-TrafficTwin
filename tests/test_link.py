@@ -163,7 +163,7 @@ def test_window_yaml_area(name: str) -> None:
 
 def test_expected_windows_present() -> None:
     names = {p.stem for p in WINDOWS_DIR.glob("*.yaml")}
-    assert {"tahlia", "kaia_corridor", "al_balad", "kau_faisaliyah"} <= names
+    assert {"center", "sports_city", "demo"} <= names
 
 
 def _project(tr: Transformer, coords):  # noqa: ANN001, ANN202 - shapely coordinate callback

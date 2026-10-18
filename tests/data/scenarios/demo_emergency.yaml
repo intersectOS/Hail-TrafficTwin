@@ -3,7 +3,7 @@ id: demo_emergency
 kind: scenario
 window: demo
 daytype: weekday
-label: "Demo window: ambulance westbound on Tahlia St past a one-lane closure (test)"
+label: "Demo window: ambulance eastbound on King Khalid St past a one-lane closure (test)"
 fictional: true
 begin: 0
 end: 600
@@ -12,10 +12,10 @@ events:
     id: acc
     start: 100
     duration_min: 6
-    edge: "38500585#3"
+    edge: "107430299#49"
     lanes_closed: 1
   - type: emergency_trip
     id: amb
     start: 200
-    from: "38500585#2"
-    to: "1492421522#4"
+    from: "107430299#47"
+    to: "1501371315#4"
