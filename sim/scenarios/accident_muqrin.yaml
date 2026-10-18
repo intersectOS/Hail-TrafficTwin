@@ -1,0 +1,18 @@
+# FICTIONAL demo scenario for «جرّب بنفسك» (PROJECT.md section 11): time, place and duration are
+# invented. Synthetic demand, uncalibrated.
+id: accident_muqrin
+kind: scenario
+window: center
+daytype: weekday
+label: "Crash closes Prince Muqrin St for 20 min in the morning peak"
+fictional: true
+begin: 0
+end: 3600
+events:
+  - type: accident
+    id: crash_muqrin
+    start: 600
+    duration_min: 20
+    edge: "1501371314#5"         # Prince Muqrin St, 4 lanes
+    lanes_closed: all
+    rubbernecking: true
