@@ -1,0 +1,31 @@
+{
+  "window": "center",
+  "definition": {
+    "name": "center",
+    "title": "Central Hail: Barzan, King Abdulaziz Rd and the hospitals",
+    "bbox": [
+      41.665,
+      27.497,
+      41.718,
+      27.539
+    ],
+    "out_dir": "data/windows/center"
+  },
+  "city_net": "data/hail/hail.v2.net.xml",
+  "city_net_hash": "e81b97f0a6527687",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "network": {
+    "edges": 9861,
+    "junctions": 3695,
+    "traffic_lights": 17,
+    "lanes": 13082,
+    "lane_km": 995.1,
+    "edge_km": 703.54,
+    "net_hash": "7da58425bbb3b188"
+  },
+  "trips": {
+    "file": "data/windows/center/center.trips.xml",
+    "seed": 1,
+    "hash": "bac611b179c21861"
+  }
+}

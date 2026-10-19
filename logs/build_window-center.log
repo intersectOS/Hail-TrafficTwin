@@ -1,0 +1,6 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/hail/hail.v2.net.xml --keep-edges.in-geo-boundary 41.665,27.497,41.718,27.539 --remove-edges.isolated --keep-edges.components 1 --output.street-names --output.original-names --no-warnings -o data/windows/center/center.net.xml
+Success.
+$ .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/randomTrips.py -n data/windows/center/center.net.xml -o data/windows/center/center.trips.xml -b 0 -e 3600 -p 2.0 --fringe-factor 5 --min-distance 300 --vclass passenger --seed 1 --prefix smoke -r data/windows/center/center.trips.xml.scratch.rou.xml
+Warning: 81 total messages of type: Mandatory edge '%' not reachable by vehicle '%'.
+Warning: 81 total messages of type: No connection between edge '%' and edge '%' found.
+Warning: 81 total messages of type: The vehicle '%' has no valid route.

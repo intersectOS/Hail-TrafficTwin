@@ -1,0 +1,38 @@
+{
+  "config": "sim/network/config/city.yaml",
+  "profile": "v1",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "sumo_home": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumo",
+  "extract": "data/osm/hail-clip.osm.pbf",
+  "extract_timestamp": "unknown",
+  "polygon": "data/osm/hail.poly",
+  "polygon_hash": "5f0c966eedab0117",
+  "osm_input": "data/osm/hail.osm.gz",
+  "osm_hash": "3ca61f88c8faa7e7",
+  "fixes": {},
+  "network": {
+    "edges": 47425,
+    "junctions": 18651,
+    "traffic_lights": 6,
+    "lanes": 50672,
+    "lane_km": 7141.28,
+    "edge_km": 5948.43,
+    "net_hash": "2094bbca8b715e1c"
+  },
+  "side_outputs": {
+    "districts": {
+      "file": "data/hail/districts.geojson",
+      "features": 85
+    },
+    "buildings": {
+      "file": "data/hail/buildings.geojson",
+      "features": 434,
+      "mb": 0.2
+    },
+    "viewer_edges": {
+      "file": "web/public/data/edges.geojson",
+      "features": 47425
+    }
+  },
+  "build_seconds": 30.8
+}

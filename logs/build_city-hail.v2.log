@@ -1,0 +1,131 @@
+lane_defaults pre-pass data/osm/hail.osm.gz -> data/osm/hail.v2.osm.gz: {"ways": 15368, "lanes_added": 708, "maxspeed_added": 792}
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --osm-files data/osm/hail.v2.osm.gz -o data/hail/hail.v2.raw.net.xml --geometry.remove --ramps.guess --junctions.join --junctions.join-dist 20 --tls.guess-signals --tls.discard-simple --tls.join --roundabouts.guess --keep-edges.by-vclass passenger,bus,emergency,truck --remove-edges.isolated --keep-edges.components 1 --osm.lane-access --no-turnarounds.except-deadend --output.street-names --output.original-names --seed 1 --type-files .venv/lib/python3.12/site-packages/sumo/data/typemap/osmNetconvert.typ.xml,sim/network/types/city.typ.xml
+Warning: Discarding unusable type 'aeroway.runway' (first occurrence for edge '31164501').
+Warning: Discarding unusable type 'aeroway.taxiway' (first occurrence for edge '31164506').
+Warning: Discarding unusable type 'aeroway.terminal' (first occurrence for edge '107167939').
+Warning: Discarding unusable type 'aeroway.apron' (first occurrence for edge '318459304').
+Warning: Discarding unusable type 'waterway.river' (first occurrence for edge '556714398').
+Warning: Discarding unknown compound 'usage.main' in type 'railway.rail|usage.main' (first occurrence for edge '856371521').
+Warning: Removing pt stop '7984942388' on non existing edge '1036433391'.
+Warning: Removing pt stop '7984942389' on non existing edge '856371521'.
+Warning: Removed a road without junctions: -1142020360.
+Warning: Removed a road without junctions: -1163534610.
+Warning: Removed a road without junctions: -844474270#1,-844474270#0.
+Warning: Removed a road without junctions: 1142020360.
+Warning: Removed a road without junctions: 1163534610.
+Warning: Cannot revise pt stop localization for pt line '13880224', which has no route edges. Ignoring!
+Warning: Removed invalid stop '7984942388' from line '13880224'.
+Warning: Cannot revise pt stop localization for pt line '13880225', which has no route edges. Ignoring!
+Warning: Removed invalid stop '7984942389' from line '13880225'.
+Warning: Not joining junctions 10000986917,10000986922 (parallel incoming -1091989923,-1091989924#0).
+Warning: Not joining junctions 10001167196,10001167198 (only 1 edge within and no cross-traffic).
+Warning: Not joining junctions 10001167200,10001167202 (only 1 edge within and no cross-traffic).
+Warning: Not joining junctions 10001167204,10001167206 (only 1 edge within and no cross-traffic).
+Warning: Not joining junctions 10001167208,10001167210 (only 1 edge within and no cross-traffic).
+Warning: Reducing junction cluster 10001201828,10001201830,10001221049,10001221050 (not compact (maxEdge=107539751#14 length=17.32)).
+Warning: Reducing junction cluster 10001967745,10001967749,10001967760 (parallel incoming -1092097503,1092097509#1).
+Warning: Reducing junction cluster 10003346874,10003346881,10003346886 (parallel incoming -1092249151,-1092249152).
+Warning: Reducing junction cluster 10005638854,10005638856,10005638860 (parallel incoming -1092519166,-1092519167).
+Warning: Reducing junction cluster 10005997453,10005997454,10005997464,10005997467,10005997469 (parallel incoming -1092564632#1,-1092564633#1).
+Warning: Ambiguity in turnarounds computation at junction '10097235789'.
+Warning: Ambiguity in turnarounds computation at junction '10600520391'.
+Warning: Ambiguity in turnarounds computation at junction '10600722565'.
+Warning: Ambiguity in turnarounds computation at junction '10613824130'.
+Warning: Ambiguity in turnarounds computation at junction '10653527207'.
+Warning: Found sharp turn with radius 7.74 at the start of edge '-1028529174#1'.
+Warning: Found sharp turn with radius 1.34 at the start of edge '-1028529310#1'.
+Warning: Found sharp turn with radius 1.15 at the start of edge '-1028529313#8'.
+Warning: Found angle of 100.47 degrees at edge '-1042333362', segment 4.
+Warning: Found sharp turn with radius 7.61 at the end of edge '-1086916047#4'.
+Warning: Found sharp turn with radius 7.54 at the start of edge '-1088324087#0'.
+Warning: Found angle of 100.08 degrees at edge '-1091141380#0', segment 1.
+Warning: Found angle of 102.33 degrees at edge '-1092293863#0', segment 1.
+Warning: Found angle of 115.20 degrees at edge '-1098230406#0', segment 0.
+Warning: Found angle of 99.32 degrees at edge '-1098995020#0', segment 0.
+Warning: Shape for junction '1232228523' has distance 30.01 to its given position.
+Warning: Shape for junction '3315303835' has distance 20.66 to its given position.
+Warning: Shape for junction '8478274097' has distance 43.65 to its given position.
+Warning: Replacing loaded roundabout '1040491306#0 1040491306#1 1040491306#2 1040491306#3 1040491306#4 1040491306#5 1040491306#6 1040491306#7 1040491306#8 1040491306#9' with '1040491306#1 1040491306#3 1040491306#4 1040491306#5 1040491306#6 1040491306#7 1040491306#8 1040491306#9'.
+Warning: Replacing loaded roundabout '1028529293#0 1028529293#1 1028529293#2 1028529293#3 1028529293#4 1028529293#5 1028529293#6 1028529293#7 1028529293#8' with '1028529293#1 1028529293#2 1028529293#3 1028529293#4 1028529293#5 1028529293#6 1028529293#7 1028529293#8'.
+Warning: Replacing loaded roundabout '324069724#0 324069724#1 324069724#2 324069724#3 324069724#4 324069724#5 324069724#6 324069724#7 324069724#8' with '324069724#1 324069724#2 324069724#3 324069724#4 324069724#5 324069724#6 324069724#7 324069724#8'.
+Warning: Replacing loaded roundabout '1028529336#0 1028529336#1 1028529336#2 1028529336#3 1028529336#4 1028529336#5 1028529336#6 1028529336#7 1028529336#8' with '1028529336#1 1028529336#2 1028529336#3 1028529336#4 1028529336#5 1028529336#6 1028529336#7 1028529336#8'.
+Warning: Replacing loaded roundabout '553625014#0 553625014#1 553625014#2 553625014#3 553625014#4 553625014#5 553625014#6' with '553625014#1 553625014#2 553625014#3 553625014#4 553625014#5 553625014#6'.
+Warning: Minor green from edge '107434779#18' to edge '324857026#12' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '107417765#9' to edge '1084932139#4' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '556691544' to edge '474035424#7' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '556691545' to edge '1359626499#3' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Speed of straight connection '1092564637#5_0->-1092564630_0' reduced by 7.33 due to turning radius of 7.82 (length=9.47, angle=92.25).
+Warning: Speed of straight connection '1092564630_0->-1092564637#5_0' reduced by 6.33 due to turning radius of 10.39 (length=12.93, angle=92.25).
+Warning: Speed of straight connection '1092879138_0->1092879137#1_0' reduced by 6.55 due to turning radius of 9.80 (length=12.00, angle=91.35).
+Warning: Speed of straight connection '1095160021_0->1095160020-AddedOnRampEdge_1' reduced by 7.94 due to turning radius of 37.08 (length=10.39, angle=31.41).
+Warning: Speed of straight connection '1096656702#1_0->1096656702#2_0' reduced by 5.53 due to turning radius of 12.72 (length=12.32, angle=74.23).
+Warning: Intersecting left turns at junction '12577027007' from lane '1358885502#1_0' and lane '-1247825231_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452847269' from lane '132037477#0_0' and lane '-132037477#1_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452847281' from lane '132037519#1_0' and lane '-132037519#2_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452887914' from lane '132042644#0_0' and lane '-132042644#1_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '5369854684' from lane '556691575_3' and lane '1359626499#4_5' (increase junction radius to avoid this).
+Warning: Connection '1091141380#1_0->553640679#1_1' is only 0.01m short.
+Warning: Minor green from edge '107417765#9' to edge '1084932139#4' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Removing pt stop '7984942388' on non existing edge ''.
+Warning: Removing pt stop '7984942389' on non existing edge ''.
+Warning: Removed 2 pt stops because they could not be assigned to the network
+Warning: Writing incomplete roundabout. Edges: '844332874#0' no longer exist'
+Warning: 27 total messages of type: Ambiguity in turnarounds computation at junction '%'.
+Warning: 12 total messages of type: Discarding unusable type '%' (first occurrence for edge '%').
+Warning: 99 total messages of type: Found angle of % degrees at edge '%', segment %.
+Warning: 214 total messages of type: Found sharp turn with radius % at the % of edge '%'.
+Warning: 157 total messages of type: Intersecting left turns at junction '%' from lane '%' and lane '%' (increase junction radius to avoid this).
+Warning: 8 total messages of type: Minor green from edge '%' to edge '%' exceeds %m/s. Maybe a left-turn lane is missing.
+Warning: 1107 total messages of type: Not joining junctions % (%).
+Warning: 318 total messages of type: Reducing junction cluster % (%).
+Warning: 68 total messages of type: Replacing loaded roundabout '%' with '%'.
+Warning: 346 total messages of type: Speed of % connection '%' reduced by % due to turning radius of % (length=%, angle=%).
+Success.
+arterial signals (A-net-303): 226 junctions
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/hail/hail.v2.raw.net.xml --node-files data/hail/hail.v2.raw.tls.nod.xml --tls.join --tls.default-type static -o data/hail/hail.v2.raw.tls.net.xml
+Warning: Ambiguity in turnarounds computation at junction '10097235789'.
+Warning: Ambiguity in turnarounds computation at junction '10600520391'.
+Warning: Ambiguity in turnarounds computation at junction '10600722565'.
+Warning: Ambiguity in turnarounds computation at junction '10613824130'.
+Warning: Ambiguity in turnarounds computation at junction '10653527207'.
+Warning: Found sharp turn with radius 7.74 at the start of edge '-1028529174#1'.
+Warning: Found sharp turn with radius 1.34 at the start of edge '-1028529310#1'.
+Warning: Found sharp turn with radius 1.15 at the start of edge '-1028529313#8'.
+Warning: Found angle of 100.47 degrees at edge '-1042333362', segment 4.
+Warning: Found sharp turn with radius 7.61 at the end of edge '-1086916047#4'.
+Warning: Found sharp turn with radius 7.54 at the start of edge '-1088324087#0'.
+Warning: Found angle of 100.08 degrees at edge '-1091141380#0', segment 1.
+Warning: Found angle of 102.33 degrees at edge '-1092293863#0', segment 1.
+Warning: Found angle of 115.20 degrees at edge '-1098230406#0', segment 0.
+Warning: Found angle of 99.32 degrees at edge '-1098995020#0', segment 0.
+Warning: Shape for junction '1232228523' has distance 30.01 to its given position.
+Warning: Shape for junction '3315303835' has distance 20.66 to its given position.
+Warning: Shape for junction '8478274097' has distance 43.65 to its given position.
+Warning: Minor green from edge '346917107#2' to edge '107435929#0' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '-1083751404#7' to edge '131951522#0' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '-1083751437#5' to edge '-1175903217#2' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '-1083751437#16' to edge '1175903195#0' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '-1083751404#3' to edge '473661973#0' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: The traffic light 'joinedS_8080304942_8080304985_8080304994_8080305004' cannot be adapted to a cycle time of 90.00.
+Warning: The traffic light 'joinedS_8080304942_8080304985_8080304994_8080305004' has a high cycle time of 296.00.
+Warning: Speed of straight connection '1092564637#5_0->-1092564630_0' reduced by 7.33 due to turning radius of 7.82 (length=9.47, angle=92.25).
+Warning: Speed of straight connection '1092564630_0->-1092564637#5_0' reduced by 6.33 due to turning radius of 10.39 (length=12.93, angle=92.25).
+Warning: Speed of straight connection '1092879138_0->1092879137#1_0' reduced by 6.55 due to turning radius of 9.80 (length=12.00, angle=91.35).
+Warning: Speed of straight connection '1095160021_0->1095160020-AddedOnRampEdge_1' reduced by 7.93 due to turning radius of 37.15 (length=10.39, angle=31.37).
+Warning: Speed of straight connection '1096656702#1_0->1096656702#2_0' reduced by 5.53 due to turning radius of 12.72 (length=12.32, angle=74.23).
+Warning: Intersecting left turns at junction '12577027007' from lane '1358885502#1_0' and lane '-1247825231_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452847269' from lane '132037477#0_0' and lane '-132037477#1_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452847281' from lane '132037519#1_0' and lane '-132037519#2_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction '1452887914' from lane '132042644#0_0' and lane '-132042644#1_0' (increase junction radius to avoid this).
+Warning: Connection '244838068#1-AddedOnRampEdge_4->244838068#1_0' is only 0.06m short.
+Warning: Intersecting left turns at junction '5369854684' from lane '556691575_3' and lane '1359626499#4_5' (increase junction radius to avoid this).
+Warning: Connection '1091141380#1_0->553640679#1_1' is only 0.01m short.
+Warning: 27 total messages of type: Ambiguity in turnarounds computation at junction '%'.
+Warning: 99 total messages of type: Found angle of % degrees at edge '%', segment %.
+Warning: 214 total messages of type: Found sharp turn with radius % at the % of edge '%'.
+Warning: 157 total messages of type: Intersecting left turns at junction '%' from lane '%' and lane '%' (increase junction radius to avoid this).
+Warning: 72 total messages of type: Minor green from edge '%' to edge '%' exceeds %m/s. Maybe a left-turn lane is missing.
+Warning: 342 total messages of type: Speed of % connection '%' reduced by % due to turning radius of % (length=%, angle=%).
+Success.
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/hail/hail.v2.raw.net.xml --edge-files data/hail/hail.v2.net.fixes.edg.xml --output-file data/hail/hail.v2.net.xml --output.street-names --output.original-names --no-warnings
+Success.

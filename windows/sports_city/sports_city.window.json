@@ -1,0 +1,31 @@
+{
+  "window": "sports_city",
+  "definition": {
+    "name": "sports_city",
+    "title": "Prince Abdulaziz bin Musa'ed Sports City",
+    "bbox": [
+      41.68,
+      27.49,
+      41.715,
+      27.52
+    ],
+    "out_dir": "data/windows/sports_city"
+  },
+  "city_net": "data/hail/hail.v2.net.xml",
+  "city_net_hash": "e81b97f0a6527687",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "network": {
+    "edges": 4929,
+    "junctions": 1907,
+    "traffic_lights": 12,
+    "lanes": 6815,
+    "lane_km": 521.45,
+    "edge_km": 360.01,
+    "net_hash": "1a0060848f6a9de2"
+  },
+  "trips": {
+    "file": "data/windows/sports_city/sports_city.trips.xml",
+    "seed": 1,
+    "hash": "864e5e13d615748b"
+  }
+}

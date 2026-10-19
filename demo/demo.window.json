@@ -1,0 +1,35 @@
+{
+  "window": "demo",
+  "definition": {
+    "name": "demo",
+    "title": "Central Hail demo window (Barzan / King Abdulaziz Rd)",
+    "bbox": [
+      41.69,
+      27.512,
+      41.708,
+      27.528
+    ],
+    "out_dir": "data/demo"
+  },
+  "city_net": "data/hail/hail.v2.net.xml",
+  "city_net_hash": "e81b97f0a6527687",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "network": {
+    "edges": 1491,
+    "junctions": 615,
+    "traffic_lights": 5,
+    "lanes": 2272,
+    "lane_km": 159.1,
+    "edge_km": 108.56,
+    "net_hash": "ffb2a22587c10895"
+  },
+  "trips": {
+    "file": "data/demo/demo.trips.xml",
+    "seed": 1,
+    "hash": "ddfaec4ba8bcb0e2"
+  },
+  "osm_extract": {
+    "file": "data/demo/demo.osm.gz",
+    "source": "data/osm/hail.osm.pbf"
+  }
+}
