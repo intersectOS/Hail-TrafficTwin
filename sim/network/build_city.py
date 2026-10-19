@@ -113,8 +113,6 @@ def build_net(
     run_cmd(cmd, log=log)
     if cfg.get("tls_rule"):
         add_arterial_signals(raw, cfg["tls_rule"], log)
-    if cfg.get("speed_calibration"):
-        calibrate_speeds(raw, cfg["speed_calibration"]["factors"], log)
     resolved = apply_fixes(raw, net_out, fixes_dir, log=log, strict=strict_fixes)
     return resolved
 
@@ -144,30 +142,6 @@ def arterial_crossings(net_file: Path, rule: dict[str, Any]) -> list[str]:
         if len(streets) >= 2 and any(t & major for t in streets.values()):
             ids.append(node.getID())
     return sorted(ids)
-
-
-def calibrate_speeds(raw: Path, factors: dict[str, float], log: Path) -> None:
-    """Scale lane speeds by road class (A-net-304): the network's limits times the ratio of TomTom's
-    free-flow speed to the limit, measured on the same corridors. Streams the XML, edits in place."""
-    import re
-
-    pat_edge = re.compile(r'<edge id="[^"]*"[^>]*\btype="([^"]+)"')
-    pat_speed = re.compile(r'(\bspeed=")([0-9.]+)(")')
-    tmp = raw.with_name(raw.name + ".speed.tmp")
-    factor = 1.0
-    changed = 0
-    with raw.open(encoding="utf-8") as src, tmp.open("w", encoding="utf-8") as dst:
-        for line in src:
-            if "<edge " in line:
-                m = pat_edge.search(line)
-                factor = factors.get(m.group(1), 1.0) if m and 'function="internal"' not in line else 1.0
-            elif "<lane " in line and factor != 1.0:
-                line = pat_speed.sub(lambda m: f"{m.group(1)}{float(m.group(2)) * factor:.2f}{m.group(3)}", line, count=1)
-                changed += 1
-            dst.write(line)
-    tmp.replace(raw)
-    with log.open("a") as fh:
-        fh.write(f"speed calibration (A-net-304): {changed} lanes scaled, factors {factors}\n")
 
 
 def add_arterial_signals(raw: Path, rule: dict[str, Any], log: Path) -> None:
