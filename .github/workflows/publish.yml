@@ -50,6 +50,10 @@ jobs:
           cp /tmp/build/hail/*.json /tmp/build/hail/*.geojson data/hail/
           gunzip -c /tmp/build/hail/hail.v2.net.xml.gz > data/hail/hail.v2.net.xml
           cp /tmp/build/web/* web/public/data/
+          if git fetch --depth 1 origin observed; then
+            git worktree add --detach /tmp/observed FETCH_HEAD
+            mkdir -p data/observed && cp /tmp/observed/*.json data/observed/ || true
+          fi
           ls runs | head -50
       - name: Ingest runs and build the site
         env:
