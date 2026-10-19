@@ -86,5 +86,6 @@ jobs:
             runs/
             data/population/
             data/windows/
+            data/hail/hail.v2.*-*.net.xml.gz
           retention-days: 30
           if-no-files-found: ignore

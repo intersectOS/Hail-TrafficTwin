@@ -56,6 +56,7 @@ jobs:
         run: |
           mkdir -p publog
           ls -la runs > publog/runs.txt 2>&1 || true
+          uv run python -m scripts.hail.rebuild_variants > publog/variants.log 2>&1 || (tail -30 publog/variants.log; exit 1)
           uv run python -m api.ingest --all > publog/ingest.log 2>&1 || (tail -40 publog/ingest.log; exit 1)
           scripts/hail/build_site.sh _site "${{ github.repository }}" > publog/build.log 2>&1 || (tail -60 publog/build.log; exit 1)
       - name: Publish the build log
