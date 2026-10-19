@@ -20,6 +20,8 @@ from typing import Any
 
 import numpy as np
 import typer
+
+HIDDEN = set(__import__("json").loads((Path(__file__).resolve().parents[2] / "site" / "hidden.json").read_text())["ids"])
 from fastapi.testclient import TestClient
 
 from api.main import create_app
@@ -137,7 +139,7 @@ def build(out: Path) -> dict[str, Any]:
             base = f"{rid}~baseline" if r["kind"] == "scenario" else f"{rid}~reference"
             if base in by_id:
                 stories.append(S.story(rid.split("-")[0], r["kind"], r, base))
-    stories = [s for s in stories if s]
+    stories = [s for s in stories if s and s["id"] not in HIDDEN]
     data = {"label": "synthetic demand, uncalibrated", "metric": "speed_rel", "geoms": S.geoms, "stories": stories}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))

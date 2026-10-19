@@ -17,6 +17,8 @@ from typing import Any
 
 import typer
 
+HIDDEN = set(__import__("json").loads((Path(__file__).resolve().parents[2] / "site" / "hidden.json").read_text())["ids"])
+
 CLASSES = ["motorway", "trunk", "primary", "secondary", "tertiary"]
 app = typer.Typer(add_completion=False, help=__doc__)
 
@@ -90,6 +92,8 @@ def results(runs: Path) -> dict[str, Any]:
         out["strategist"].append({"id": rec.get("scenario"), "title": rec.get("title"), "options": [
             {k: o.get(k) for k in ("rank", "label", "travel_time_s", "no_strategy_tt_s", "vs_no_strategy_s",
                                    "classification", "reason")} for o in (rec.get("options") or [])[:3]]})
+    for key in ("policies", "scenarios", "evacuations", "strategist"):
+        out[key] = [x for x in out[key] if x.get("id") not in HIDDEN]
     return out
 
 

@@ -23,6 +23,8 @@ import numpy as np
 import pyarrow.parquet as pq
 import typer
 
+HIDDEN = set(__import__("json").loads((Path(__file__).resolve().parents[2] / "site" / "hidden.json").read_text())["ids"])
+
 from scripts.hail.stories import Stories, parse_edges_bin
 
 STEP_S = 3.0
@@ -139,6 +141,8 @@ def build(runs: Path, out: Path) -> dict[str, Any]:
         w, s_, e, n = geom["bbox"]
         frame = {"w": w, "n": n, "span": geom["span"]}
         sid = rep.get("scenario") or rid.split("-")[0]
+        if sid in HIDDEN:
+            continue
         sides: dict[str, Any] = {}
         for side, fcd in (("scen", scen), ("base", base)):
             if fcd.exists():
