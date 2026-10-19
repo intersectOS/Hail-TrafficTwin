@@ -7,18 +7,18 @@ end: 86400
 drain_s: 7200
 
 assignment:            # duaIterate.py (SUMO tools/assign)
-  iterations: 3        # steps 0..iterations-1; few iterations by design (Tier A budget), see STATUS
+  iterations: 6        # Hail: 6 (Jeddah used 3). With 3, the 25 % run routed most trips on the shortest paths and gridlocked the evening peak (16 % teleports); Hail's smaller network affords more steps
   aggregation_s: 900
   routing_algorithm: astar
   # 1 thread: routes follow from the seed bit for bit (PROJECT.md 9.2). 8 threads route ~4x faster
   # (21k city trips, A*: 427 s vs 106 s) but are not repeatable even with a seed (TA-013); the run's
   # meta.json then says routes_deterministic: false and the routes are reproducible from the cache only.
-  routing_threads: 1
+  routing_threads: 4   # Hail: the GitHub runner has 4 cores; routes are then reproducible from the cache only (TA-013)
   max_alternatives: 3
   extra: [--clean-alt, --disable-summary, --disable-tripinfos]
   # incremental loading: step k simulates (k+1)/inc_base of the demand, so routes adapt before the
   # full load (free-flow step-0 routes gridlock the AM peak; TA-010). inc_base = iterations.
-  inc_base: 3
+  inc_base: 6
 
 # Tier A option overrides for baselines (sim/config/runner.yaml is shared and left unchanged).
 # Full meso junction control jammed priority junctions even at light load (10 % demand unscaled,

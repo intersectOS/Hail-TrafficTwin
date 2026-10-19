@@ -4,10 +4,10 @@
 sample: 0.25
 seed: 1
 daytypes: [weekday]
-policies: [remote_work_30, staggered_schools_60, cordon_center, wadi_adiri_flowing, widen_king_abdulaziz, bus_line_king_abdulaziz]
+policies: [remote_work_30, staggered_schools_60, cordon_center, wadi_adiri_flowing, bus_line_king_abdulaziz]
 # Tier B: cut the 08:00-09:00 baseline demand into the windows, then run these scenarios
 windows: [center, sports_city]
 demand_hour: [28800, 32400]
-scenarios: [accident_center, rain_center, flood_center, motorcade_center, emergency_center]
+scenarios: [accident_center, accident_king_khalid, accident_king_faisal, accident_muqrin, accident_imam, accident_ka_north, rain_center, flood_center, motorcade_center, emergency_center]
 strategist: [emergency_center_0830]
 evacuations: [evac_stadium, evac_wadi_flood]
