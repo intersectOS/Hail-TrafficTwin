@@ -39,7 +39,8 @@ jobs:
           workflow: simulate.yml
           name: hail-runs
           path: .
-          workflow_conclusion: ""
+          workflow_conclusion: success
+          search_artifacts: true
           if_no_artifact_found: warn
       - name: Networks from the build branch
         run: |
