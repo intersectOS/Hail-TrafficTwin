@@ -54,8 +54,19 @@ jobs:
         env:
           TT_RUNS_READONLY: "0"
         run: |
-          uv run python -m api.ingest --all > ingest.log 2>&1 || (tail -40 ingest.log; exit 1)
-          scripts/hail/build_site.sh _site "${{ github.repository }}"
+          mkdir -p publog
+          ls -la runs > publog/runs.txt 2>&1 || true
+          uv run python -m api.ingest --all > publog/ingest.log 2>&1 || (tail -40 publog/ingest.log; exit 1)
+          scripts/hail/build_site.sh _site "${{ github.repository }}" > publog/build.log 2>&1 || (tail -60 publog/build.log; exit 1)
+      - name: Publish the build log
+        if: always()
+        run: |
+          cd publog 2>/dev/null || exit 0
+          git init -q -b publish-log
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A && git commit -q -m "publish log" || exit 0
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" publish-log
       - name: Screenshots for review
         if: always()
         run: |
