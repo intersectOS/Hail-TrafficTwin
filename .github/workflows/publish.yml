@@ -39,6 +39,8 @@ jobs:
           workflow: simulate.yml
           name: hail-runs
           path: .
+          # pinned to the reviewed run (6 iterations, uncalibrated speeds); empty = latest successful
+          run_id: ${{ vars.HAIL_RUN_ID || '39204951013' }}
           workflow_conclusion: success
           search_artifacts: true
           if_no_artifact_found: warn
