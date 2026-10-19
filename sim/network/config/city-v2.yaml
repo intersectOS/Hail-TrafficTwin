@@ -35,6 +35,21 @@ assumptions:
     parameter: maxspeed for untagged major OSM ways (class x oneway)
     value: "median of tagged ways on the Hail clip: motorway 120, trunk 100, primary 100, tertiary 80 km/h (the clip includes the intercity highways, so urban limits are probably lower; sweep -20 %)"
     source: "OSM tags on the same clip, sim/network/types/hail-lanes.json"
+speed_calibration:
+  # A-net-304: lane speeds x (TomTom free-flow speed / network limit), median over the TomTom corridors
+  # of each class (data/observed, 202 corridors, 03:00 Sunday 2026-10-25): trunk 58 corridors 0.95,
+  # primary 29 0.88, secondary 20 0.65, tertiary 95 0.59. Classes without corridors keep their limit.
+  # The free-flow time includes junction slowing, which the model also simulates, so this is a mild
+  # double count on signalised arterials (range: factor +0.1).
+  factors:
+    highway.trunk: 0.95
+    highway.trunk_link: 0.95
+    highway.primary: 0.88
+    highway.primary_link: 0.88
+    highway.secondary: 0.65
+    highway.secondary_link: 0.65
+    highway.tertiary: 0.59
+    highway.tertiary_link: 0.59
 tls_rule:
   major: [highway.primary, highway.secondary, highway.trunk]
   cross: [highway.tertiary]
