@@ -1,4 +1,12 @@
 {
-  "note": "Results held back from the public pages until the model is fixed (implausible or not converged in the 2026-10-19 city run): see README.",
-  "ids": ["widen_king_abdulaziz", "evac_stadium", "evac_wadi_flood", "emergency_center_0830", "emergency_center", "accident_center", "bus_line_king_abdulaziz"]
+  "note": "Results held back from the public pages (2026-10-19, run with 6 assignment iterations): implausible or not converged. cordon_center gridlocks the perimeter (14.6 % teleports); accident_center lowers window delay; evacuations do not clear within the horizon; the strategist's best option is slower than no strategy; widen_king_abdulaziz breaks junction connections in the variant network.",
+  "ids": [
+    "widen_king_abdulaziz",
+    "cordon_center",
+    "accident_center",
+    "evac_stadium",
+    "evac_wadi_flood",
+    "emergency_center_0830",
+    "emergency_center"
+  ]
 }
