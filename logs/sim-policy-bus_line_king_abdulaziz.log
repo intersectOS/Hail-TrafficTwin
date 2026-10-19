@@ -1,0 +1,5 @@
+[bus_line_king_abdulaziz-f0.25] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  pt_line: line=H1, stops=28, directions=2, bus_departures=204, tours_in_catchment=213, tours_shifted=25, shift_tours_changed=25, shift_vehicles_before=53, shift_vehicles_after=0
+[bus_line_king_abdulaziz-f0.25] meso run: 124,923 baseline routes, 0 new routes
+Policy bus_line_king_abdulaziz vs weekday baseline [synthetic demand, uncalibrated]: mean delay -2.5 %, AM-peak delay +0.3 %, VKT +0.3 %, VHT -1.3 %, CO2 -0.6 %
+  report runs/bus_line_king_abdulaziz-f0.25/policy_report.md

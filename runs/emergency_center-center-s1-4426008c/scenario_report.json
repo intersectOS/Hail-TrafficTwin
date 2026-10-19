@@ -1,0 +1,528 @@
+{
+  "scenario": "emergency_center",
+  "title": "Ambulance from Al Wasita to King Khalid Hospital while a crash blocks one of four lanes on its route",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "center",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 3600.0,
+  "baseline_definition": "same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events",
+  "kpis": {
+    "baseline": {
+      "vehicles_loaded": 10086,
+      "vehicles_inserted": 9918,
+      "vehicles_running_at_end": 2452,
+      "vehicles_waiting_at_end": 44,
+      "background_completed": 7465,
+      "mean_travel_time_s": 278.93,
+      "mean_delay_s": 106.37,
+      "mean_depart_delay_s": 0.09,
+      "mean_speed_kmh": 19.32,
+      "vkt": 22470.5,
+      "vht": 1163.23,
+      "teleports": 456,
+      "teleports_jam": 297,
+      "teleport_share": 0.04521,
+      "queue_max_m": 344.1,
+      "queue_p95_m": 320.2,
+      "queue_max_veh": 128,
+      "halted_max_veh": 1698,
+      "halted_p95_veh": 1563.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 344.1,
+          "at_s": 3599.0,
+          "max_halted_veh": 128
+        },
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 327.9,
+          "at_s": 2853.0,
+          "max_halted_veh": 83
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 209.5,
+          "at_s": 3234.0,
+          "max_halted_veh": 26
+        },
+        {
+          "edge": "369685230#2",
+          "max_queue_m": 163.7,
+          "at_s": 3494.0,
+          "max_halted_veh": 22
+        },
+        {
+          "edge": "1358424025#1",
+          "max_queue_m": 152.1,
+          "at_s": 3540.0,
+          "max_halted_veh": 38
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2119.0,
+      "gridlock_jam_teleport_onset_s": 1684.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    },
+    "scenario": {
+      "vehicles_loaded": 10086,
+      "vehicles_inserted": 9914,
+      "vehicles_running_at_end": 2204,
+      "vehicles_waiting_at_end": 48,
+      "background_completed": 7709,
+      "mean_travel_time_s": 283.8,
+      "mean_delay_s": 108.82,
+      "mean_depart_delay_s": 0.12,
+      "mean_speed_kmh": 21.53,
+      "vkt": 23303.5,
+      "vht": 1082.45,
+      "teleports": 374,
+      "teleports_jam": 236,
+      "teleport_share": 0.03708,
+      "queue_max_m": 323.3,
+      "queue_p95_m": 322.6,
+      "queue_max_veh": 87,
+      "halted_max_veh": 1403,
+      "halted_p95_veh": 1343.0,
+      "top_queued_edges": [
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.3,
+          "at_s": 3560.0,
+          "max_halted_veh": 28
+        },
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 322.9,
+          "at_s": 3573.0,
+          "max_halted_veh": 84
+        },
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 235.8,
+          "at_s": 3595.0,
+          "max_halted_veh": 87
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 209.3,
+          "at_s": 3083.0,
+          "max_halted_veh": 27
+        },
+        {
+          "edge": "107418926#0",
+          "max_queue_m": 161.9,
+          "at_s": 1863.0,
+          "max_halted_veh": 21
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2544.0,
+      "gridlock_jam_teleport_onset_s": 1964.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    }
+  },
+  "delta": {
+    "vehicles_inserted": {
+      "delta": -4,
+      "pct": -0.04
+    },
+    "background_completed": {
+      "delta": 244,
+      "pct": 3.27
+    },
+    "mean_travel_time_s": {
+      "delta": 4.87,
+      "pct": 1.75
+    },
+    "mean_delay_s": {
+      "delta": 2.45,
+      "pct": 2.3
+    },
+    "mean_depart_delay_s": {
+      "delta": 0.03,
+      "pct": 33.33
+    },
+    "vehicles_waiting_at_end": {
+      "delta": 4,
+      "pct": 9.09
+    },
+    "mean_speed_kmh": {
+      "delta": 2.21,
+      "pct": 11.44
+    },
+    "vkt": {
+      "delta": 833.0,
+      "pct": 3.71
+    },
+    "vht": {
+      "delta": -80.78,
+      "pct": -6.94
+    },
+    "teleports": {
+      "delta": -82,
+      "pct": -17.98
+    },
+    "queue_max_m": {
+      "delta": -20.8,
+      "pct": -6.04
+    },
+    "queue_p95_m": {
+      "delta": 2.4,
+      "pct": 0.75
+    },
+    "queue_max_veh": {
+      "delta": -41,
+      "pct": -32.03
+    },
+    "halted_p95_veh": {
+      "delta": -220.0,
+      "pct": -14.08
+    }
+  },
+  "gridlock": {
+    "baseline": {
+      "gridlock": true,
+      "onset_s": 1684.0,
+      "rules_fired": {
+        "sustained_halt": 2119.0,
+        "jam_teleports": 1684.0
+      }
+    },
+    "scenario": {
+      "gridlock": true,
+      "onset_s": 1964.0,
+      "rules_fired": {
+        "sustained_halt": 2544.0,
+        "jam_teleports": 1964.0
+      }
+    }
+  },
+  "emergency": {
+    "baseline": [
+      {
+        "event": "ambulance_1",
+        "vehicle": "ev.ambulance_1.0",
+        "completed": true,
+        "travel_time_s": 207.0,
+        "depart_delay_s": 0.0,
+        "free_flow_s": 148.84,
+        "ratio_to_free_flow": 1.391,
+        "strategist": true
+      }
+    ],
+    "scenario": [
+      {
+        "event": "ambulance_1",
+        "vehicle": "ev.ambulance_1.0",
+        "completed": true,
+        "travel_time_s": 205.0,
+        "depart_delay_s": 0.0,
+        "free_flow_s": 148.84,
+        "ratio_to_free_flow": 1.377,
+        "strategist": true,
+        "baseline_travel_time_s": 207.0,
+        "ratio_to_baseline": 0.99
+      }
+    ]
+  },
+  "convoy": [],
+  "event_edges_flow": {
+    "baseline": {
+      "131718901#12": 38.0
+    },
+    "scenario": {
+      "131718901#12": 38.0
+    }
+  },
+  "events": [
+    {
+      "type": "accident",
+      "id": "crash_imam_st",
+      "start": 600.0,
+      "end": 1800.0,
+      "edges": [
+        "131718901#12"
+      ],
+      "closed_lanes": [
+        "131718901#12_3"
+      ],
+      "full_closure": false,
+      "side": "left",
+      "reroute": false,
+      "rubbernecking_factor": 0.7,
+      "rubbernecking_lanes": {
+        "131718867#2_0": 13.11,
+        "131718867#2_1": 13.11,
+        "131718867#2_2": 13.11,
+        "131718867#2_3": 13.11,
+        "131718867#3_0": 13.11,
+        "131718867#3_1": 13.11,
+        "131718867#3_2": 13.11,
+        "131718867#3_3": 13.11
+      }
+    },
+    {
+      "type": "emergency_trip",
+      "id": "ambulance_1",
+      "start": 900.0,
+      "end": null,
+      "max_end": 2700.0,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232090#1",
+        "-326232092#4",
+        "326232104",
+        "107175231#1",
+        "107175231#2",
+        "107175231#3",
+        "107175231#4",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "route_length_m": 2841.0,
+      "ff_total_s": 148.8408794804404,
+      "vtype": "emergency",
+      "vehicles": 1,
+      "headway_s": 0.0,
+      "strategist": true,
+      "vehicle_ids": [
+        "ev.ambulance_1.0"
+      ]
+    }
+  ],
+  "event_summaries": {
+    "crash_imam_st": {
+      "lanes_closed_verified": 1,
+      "rubbernecking_speed_ms": {
+        "131718867#2_0": 9.177,
+        "131718867#2_1": 9.177,
+        "131718867#2_2": 9.177,
+        "131718867#2_3": 9.177,
+        "131718867#3_0": 9.177,
+        "131718867#3_1": 9.177,
+        "131718867#3_2": 9.177,
+        "131718867#3_3": 9.177
+      },
+      "lanes_reopened_verified": 1
+    },
+    "ambulance_1": {
+      "arrived": 1,
+      "ff_total_s": 148.8408794804404
+    }
+  },
+  "event_log": [
+    {
+      "t": 600.0,
+      "event": "crash_imam_st",
+      "action": "start",
+      "type": "accident"
+    },
+    {
+      "t": 600.0,
+      "event": "crash_imam_st",
+      "action": "close_lanes",
+      "lanes": [
+        "131718901#12_3"
+      ],
+      "verified_disallowed": 1,
+      "full_closure": false,
+      "rerouted": 0,
+      "rubbernecking_lanes": [
+        "131718867#2_0",
+        "131718867#2_1",
+        "131718867#2_2",
+        "131718867#2_3",
+        "131718867#3_0",
+        "131718867#3_1",
+        "131718867#3_2",
+        "131718867#3_3"
+      ]
+    },
+    {
+      "t": 900.0,
+      "event": "ambulance_1",
+      "action": "start",
+      "type": "emergency_trip"
+    },
+    {
+      "t": 900.0,
+      "event": "ambulance_1",
+      "action": "dispatch",
+      "vehicles": [
+        "ev.ambulance_1.0"
+      ],
+      "route_edges": 42,
+      "ff_s": 148.8,
+      "strategist": true
+    },
+    {
+      "t": 1106.0,
+      "event": "ambulance_1",
+      "action": "arrived",
+      "vehicle": "ev.ambulance_1.0"
+    },
+    {
+      "t": 1106.0,
+      "event": "ambulance_1",
+      "action": "end",
+      "horizon": false
+    },
+    {
+      "t": 1800.0,
+      "event": "crash_imam_st",
+      "action": "reopen_lanes",
+      "lanes": [
+        "131718901#12_3"
+      ],
+      "verified_reopened": 1
+    },
+    {
+      "t": 1800.0,
+      "event": "crash_imam_st",
+      "action": "end",
+      "horizon": false
+    }
+  ],
+  "baseline_event_log": [
+    {
+      "t": 900.0,
+      "event": "ambulance_1",
+      "action": "start",
+      "type": "emergency_trip"
+    },
+    {
+      "t": 900.0,
+      "event": "ambulance_1",
+      "action": "dispatch",
+      "vehicles": [
+        "ev.ambulance_1.0"
+      ],
+      "route_edges": 42,
+      "ff_s": 148.8,
+      "strategist": true
+    },
+    {
+      "t": 1108.0,
+      "event": "ambulance_1",
+      "action": "arrived",
+      "vehicle": "ev.ambulance_1.0"
+    },
+    {
+      "t": 1108.0,
+      "event": "ambulance_1",
+      "action": "end",
+      "horizon": false
+    }
+  ],
+  "strategist_requested": true,
+  "assumption_ids": [
+    "A-vtype-063",
+    "A-vtype-064",
+    "A-vtype-065",
+    "A-vtype-066",
+    "A-vtype-067",
+    "A-vtype-068",
+    "A-vtype-069",
+    "A-vtype-001",
+    "A-vtype-002",
+    "A-vtype-003",
+    "A-vtype-004",
+    "A-vtype-005",
+    "A-vtype-006",
+    "A-vtype-007",
+    "A-vtype-008",
+    "A-vtype-009",
+    "A-vtype-010",
+    "A-vtype-011",
+    "A-vtype-012",
+    "A-vtype-013",
+    "A-vtype-014",
+    "A-vtype-015",
+    "A-vtype-016",
+    "A-vtype-017",
+    "A-vtype-018",
+    "A-vtype-019",
+    "A-vtype-020",
+    "A-vtype-021",
+    "A-vtype-022",
+    "A-vtype-023",
+    "A-vtype-024",
+    "A-vtype-025",
+    "A-vtype-026",
+    "A-vtype-027",
+    "A-vtype-028",
+    "A-vtype-029",
+    "A-vtype-030",
+    "A-vtype-031",
+    "A-vtype-032",
+    "A-vtype-033",
+    "A-vtype-034",
+    "A-vtype-035",
+    "A-vtype-036",
+    "A-vtype-037",
+    "A-vtype-038",
+    "A-vtype-039",
+    "A-vtype-040",
+    "A-vtype-041",
+    "A-vtype-042",
+    "A-vtype-043",
+    "A-vtype-044",
+    "A-vtype-045",
+    "A-vtype-046",
+    "A-vtype-047",
+    "A-vtype-048",
+    "A-vtype-049",
+    "A-vtype-050",
+    "A-vtype-051",
+    "A-vtype-052",
+    "A-vtype-053",
+    "A-vtype-054",
+    "A-event-002",
+    "A-event-003",
+    "A-event-001",
+    "A-kpi-001",
+    "A-kpi-002",
+    "A-kpi-003",
+    "A-kpi-004",
+    "A-kpi-005",
+    "A-kpi-006",
+    "A-kpi-007",
+    "A-sim-002"
+  ]
+}

@@ -1,0 +1,695 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "headline": "Policy remote_work_30 vs weekday baseline [synthetic demand, uncalibrated]: mean delay -14.4 %, AM-peak delay -21.1 %, VKT -1.9 %, VHT -10.0 %, CO2 -9.5 %",
+  "policy": "remote_work_30",
+  "title": "30 % hybrid work (government + private office), 3 remote days/week",
+  "run_id": "remote_work_30-f0.25",
+  "tier": "Tier A (meso)",
+  "daytype": "weekday",
+  "compare_baseline": "baseline-weekday-f0.25-s1-addfcb64-76573219-d30875",
+  "start_baseline": "baseline-weekday-f0.25-s1-addfcb64-76573219-d30875",
+  "sample": 0.25,
+  "seed": 1,
+  "kpis": [
+    {
+      "kpi": "mean_delay_s",
+      "label": "mean delay per trip",
+      "unit": "s",
+      "baseline": 881.5,
+      "policy": 754.3,
+      "delta": -127.2,
+      "delta_pct": -14.43,
+      "verdict": "better"
+    },
+    {
+      "kpi": "am_peak_mean_delay_s",
+      "label": "AM peak (06-09) mean delay",
+      "unit": "s",
+      "baseline": 328.5,
+      "policy": 259.1,
+      "delta": -69.4,
+      "delta_pct": -21.13,
+      "verdict": "better"
+    },
+    {
+      "kpi": "mean_speed_kmh",
+      "label": "mean speed",
+      "unit": "km/h",
+      "baseline": 25.03,
+      "policy": 27.28,
+      "delta": 2.25,
+      "delta_pct": 8.99,
+      "verdict": "better"
+    },
+    {
+      "kpi": "vkt",
+      "label": "vehicle-km (VKT)",
+      "unit": "km",
+      "baseline": 5094966,
+      "policy": 4998794,
+      "delta": -96172,
+      "delta_pct": -1.89,
+      "verdict": "better"
+    },
+    {
+      "kpi": "vht",
+      "label": "vehicle-hours (VHT)",
+      "unit": "h",
+      "baseline": 203551,
+      "policy": 183266,
+      "delta": -20285,
+      "delta_pct": -9.97,
+      "verdict": "better"
+    },
+    {
+      "kpi": "vht_delay",
+      "label": "vehicle-hours of delay",
+      "unit": "h",
+      "baseline": 122304,
+      "policy": 102998,
+      "delta": -19306,
+      "delta_pct": -15.79,
+      "verdict": "better"
+    },
+    {
+      "kpi": "trips_completed",
+      "label": "vehicle trips completed",
+      "unit": "",
+      "baseline": 499456,
+      "policy": 491564,
+      "delta": -7892,
+      "delta_pct": -1.58,
+      "verdict": ""
+    },
+    {
+      "kpi": "throughput_peak_hour_trips",
+      "label": "peak-hour departures",
+      "unit": "veh/h",
+      "baseline": 53908,
+      "policy": 52920,
+      "delta": -988,
+      "delta_pct": -1.83,
+      "verdict": ""
+    },
+    {
+      "kpi": "peak_hour",
+      "label": "peak hour (start)",
+      "unit": "h",
+      "baseline": 6,
+      "policy": 6,
+      "delta": 0,
+      "delta_pct": null,
+      "verdict": ""
+    },
+    {
+      "kpi": "peak_spreading_top_hour_share",
+      "label": "top-hour share of trips",
+      "unit": "",
+      "baseline": 0.1079,
+      "policy": 0.1077,
+      "delta": -0.0002,
+      "delta_pct": -0.19,
+      "verdict": "better"
+    },
+    {
+      "kpi": "co2_t",
+      "label": "CO2",
+      "unit": "t",
+      "baseline": 1960.9,
+      "policy": 1775.0,
+      "delta": -185.9,
+      "delta_pct": -9.48,
+      "verdict": "better"
+    },
+    {
+      "kpi": "co2_peak_hour_t",
+      "label": "CO2 in the peak hour",
+      "unit": "t",
+      "baseline": 127.0,
+      "policy": 112.2,
+      "delta": -14.8,
+      "delta_pct": -11.65,
+      "verdict": "better"
+    },
+    {
+      "kpi": "nox_kg",
+      "label": "NOx",
+      "unit": "kg",
+      "baseline": 1045.9,
+      "policy": 954.1,
+      "delta": -91.8,
+      "delta_pct": -8.78,
+      "verdict": "better"
+    },
+    {
+      "kpi": "mean_trip_km",
+      "label": "mean trip length",
+      "unit": "km",
+      "baseline": 10.2,
+      "policy": 10.17,
+      "delta": -0.03,
+      "delta_pct": -0.29,
+      "verdict": ""
+    },
+    {
+      "kpi": "teleports",
+      "label": "teleports (quality flag)",
+      "unit": "",
+      "baseline": 22814,
+      "policy": 19198,
+      "delta": -3616,
+      "delta_pct": -15.85,
+      "verdict": "better"
+    },
+    {
+      "kpi": "teleport_share",
+      "label": "teleports per loaded vehicle",
+      "unit": "",
+      "baseline": 0.182547,
+      "policy": 0.156123,
+      "delta": -0.0264,
+      "delta_pct": -14.48,
+      "verdict": "better"
+    }
+  ],
+  "control": null,
+  "peak_spreading": {
+    "baseline_peak_hour": 6,
+    "am": {
+      "baseline": {
+        "departures": 92736,
+        "share": 0.1857,
+        "mean_delay_s": 328.5
+      },
+      "policy": {
+        "departures": 87704,
+        "share": 0.1784,
+        "mean_delay_s": 259.1
+      }
+    },
+    "pm": {
+      "baseline": {
+        "departures": 81180,
+        "share": 0.1625,
+        "mean_delay_s": 1428.2
+      },
+      "policy": {
+        "departures": 78360,
+        "share": 0.1594,
+        "mean_delay_s": 1050.0
+      }
+    },
+    "peak_hour": {
+      "baseline": {
+        "departures": 53908,
+        "share": 0.1079,
+        "mean_delay_s": 307.0
+      },
+      "policy": {
+        "departures": 52920,
+        "share": 0.1077,
+        "mean_delay_s": 224.1
+      }
+    },
+    "hourly": [
+      {
+        "hour": 0,
+        "departures_base": 9460.0,
+        "mean_delay_s_base": 47.7,
+        "departures_policy": 9528.0,
+        "mean_delay_s_policy": 46.2
+      },
+      {
+        "hour": 1,
+        "departures_base": 4448.0,
+        "mean_delay_s_base": 44.1,
+        "departures_policy": 4460.0,
+        "mean_delay_s_policy": 44.4
+      },
+      {
+        "hour": 2,
+        "departures_base": 2368.0,
+        "mean_delay_s_base": 40.9,
+        "departures_policy": 2368.0,
+        "mean_delay_s_policy": 41.1
+      },
+      {
+        "hour": 3,
+        "departures_base": 1840.0,
+        "mean_delay_s_base": 51.4,
+        "departures_policy": 1840.0,
+        "mean_delay_s_policy": 52.4
+      },
+      {
+        "hour": 4,
+        "departures_base": 2056.0,
+        "mean_delay_s_base": 60.2,
+        "departures_policy": 2056.0,
+        "mean_delay_s_policy": 61.2
+      },
+      {
+        "hour": 5,
+        "departures_base": 30920.0,
+        "mean_delay_s_base": 116.0,
+        "departures_policy": 30920.0,
+        "mean_delay_s_policy": 92.1
+      },
+      {
+        "hour": 6,
+        "departures_base": 53908.0,
+        "mean_delay_s_base": 307.0,
+        "departures_policy": 52920.0,
+        "mean_delay_s_policy": 224.1
+      },
+      {
+        "hour": 7,
+        "departures_base": 22672.0,
+        "mean_delay_s_base": 488.0,
+        "departures_policy": 20072.0,
+        "mean_delay_s_policy": 422.7
+      },
+      {
+        "hour": 8,
+        "departures_base": 16156.0,
+        "mean_delay_s_base": 176.1,
+        "departures_policy": 14712.0,
+        "mean_delay_s_policy": 161.6
+      },
+      {
+        "hour": 9,
+        "departures_base": 9512.0,
+        "mean_delay_s_base": 122.3,
+        "departures_policy": 9464.0,
+        "mean_delay_s_policy": 110.9
+      },
+      {
+        "hour": 10,
+        "departures_base": 7192.0,
+        "mean_delay_s_base": 42.1,
+        "departures_policy": 7688.0,
+        "mean_delay_s_policy": 40.9
+      },
+      {
+        "hour": 11,
+        "departures_base": 18448.0,
+        "mean_delay_s_base": 48.7,
+        "departures_policy": 18880.0,
+        "mean_delay_s_policy": 51.6
+      },
+      {
+        "hour": 12,
+        "departures_base": 44212.0,
+        "mean_delay_s_base": 215.7,
+        "departures_policy": 44548.0,
+        "mean_delay_s_policy": 241.3
+      },
+      {
+        "hour": 13,
+        "departures_base": 22116.0,
+        "mean_delay_s_base": 713.8,
+        "departures_policy": 22128.0,
+        "mean_delay_s_policy": 785.9
+      },
+      {
+        "hour": 14,
+        "departures_base": 17272.0,
+        "mean_delay_s_base": 968.2,
+        "departures_policy": 16016.0,
+        "mean_delay_s_policy": 970.1
+      },
+      {
+        "hour": 15,
+        "departures_base": 23976.0,
+        "mean_delay_s_base": 786.6,
+        "departures_policy": 22680.0,
+        "mean_delay_s_policy": 711.9
+      },
+      {
+        "hour": 16,
+        "departures_base": 20472.0,
+        "mean_delay_s_base": 1105.9,
+        "departures_policy": 19132.0,
+        "mean_delay_s_policy": 829.1
+      },
+      {
+        "hour": 17,
+        "departures_base": 29848.0,
+        "mean_delay_s_base": 1348.4,
+        "departures_policy": 28700.0,
+        "mean_delay_s_policy": 871.1
+      },
+      {
+        "hour": 18,
+        "departures_base": 30860.0,
+        "mean_delay_s_base": 1719.3,
+        "departures_policy": 30528.0,
+        "mean_delay_s_policy": 1356.6
+      },
+      {
+        "hour": 19,
+        "departures_base": 36596.0,
+        "mean_delay_s_base": 1651.6,
+        "departures_policy": 36852.0,
+        "mean_delay_s_policy": 1471.7
+      },
+      {
+        "hour": 20,
+        "departures_base": 30680.0,
+        "mean_delay_s_base": 2170.4,
+        "departures_policy": 31088.0,
+        "mean_delay_s_policy": 1879.7
+      },
+      {
+        "hour": 21,
+        "departures_base": 26924.0,
+        "mean_delay_s_base": 1853.5,
+        "departures_policy": 27200.0,
+        "mean_delay_s_policy": 1625.0
+      },
+      {
+        "hour": 22,
+        "departures_base": 22056.0,
+        "mean_delay_s_base": 1460.6,
+        "departures_policy": 22180.0,
+        "mean_delay_s_policy": 1281.0
+      },
+      {
+        "hour": 23,
+        "departures_base": 15464.0,
+        "mean_delay_s_base": 1094.3,
+        "departures_policy": 15604.0,
+        "mean_delay_s_policy": 931.9
+      }
+    ]
+  },
+  "districts": {
+    "winners": [
+      {
+        "name_en": "Sinaiyah An Nahdah",
+        "trips_base": 3664.0,
+        "trips_policy": 3664.0,
+        "mean_delay_s_base": 2042.1,
+        "mean_delay_s_policy": 1307.5,
+        "delta_delay_s": -734.6
+      },
+      {
+        "name_en": "Al Khamashiyah",
+        "trips_base": 1572.0,
+        "trips_policy": 1568.0,
+        "mean_delay_s_base": 2231.9,
+        "mean_delay_s_policy": 1504.9,
+        "delta_delay_s": -727.0
+      },
+      {
+        "name_en": "Sinaiyah Altaqadum",
+        "trips_base": 2292.0,
+        "trips_policy": 2296.0,
+        "mean_delay_s_base": 1545.3,
+        "mean_delay_s_policy": 995.2,
+        "delta_delay_s": -550.1
+      },
+      {
+        "name_en": "Industrial Area",
+        "trips_base": 5564.0,
+        "trips_policy": 5160.0,
+        "mean_delay_s_base": 1813.2,
+        "mean_delay_s_policy": 1270.9,
+        "delta_delay_s": -542.4
+      },
+      {
+        "name_en": "Al Talal",
+        "trips_base": 4856.0,
+        "trips_policy": 4524.0,
+        "mean_delay_s_base": 1523.6,
+        "mean_delay_s_policy": 1038.4,
+        "delta_delay_s": -485.2
+      }
+    ],
+    "losers": [
+      {
+        "name_en": "An Nasiyah",
+        "trips_base": 2684.0,
+        "trips_policy": 2660.0,
+        "mean_delay_s_base": 870.5,
+        "mean_delay_s_policy": 951.9,
+        "delta_delay_s": 81.5
+      },
+      {
+        "name_en": "Al Jamiah",
+        "trips_base": 30764.0,
+        "trips_policy": 30524.0,
+        "mean_delay_s_base": 1405.2,
+        "mean_delay_s_policy": 1469.7,
+        "delta_delay_s": 64.5
+      },
+      {
+        "name_en": "Ar Rawabi",
+        "trips_base": 3112.0,
+        "trips_policy": 3120.0,
+        "mean_delay_s_base": 899.4,
+        "mean_delay_s_policy": 934.3,
+        "delta_delay_s": 34.9
+      }
+    ],
+    "districts_better": 58,
+    "districts_worse": 3,
+    "districts_ranked": 61
+  },
+  "corridors": {
+    "relieved": [
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 51790.9,
+        "time_loss_policy_veh_h": 44574.6,
+        "edges": 259,
+        "delta_veh_h": -7216.3
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0633\u0639\u0648\u062f \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 16709.5,
+        "time_loss_policy_veh_h": 12308.9,
+        "edges": 114,
+        "delta_veh_h": -4400.6
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0645\u0634\u0627\u0631",
+        "time_loss_base_veh_h": 2344.3,
+        "time_loss_policy_veh_h": 1756.4,
+        "edges": 53,
+        "delta_veh_h": -588.0
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0637\u0644\u062d\u0629 \u0628\u0646 \u0639\u0628\u064a\u062f\u0627\u0644\u0644\u0647",
+        "time_loss_base_veh_h": 1038.9,
+        "time_loss_policy_veh_h": 453.6,
+        "edges": 13,
+        "delta_veh_h": -585.3
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0641\u0647\u062f \u0628\u0646 \u0639\u0628\u062f \u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 1935.1,
+        "time_loss_policy_veh_h": 1366.0,
+        "edges": 86,
+        "delta_veh_h": -569.1
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0641\u0631\u062c",
+        "time_loss_base_veh_h": 5511.7,
+        "time_loss_policy_veh_h": 5239.5,
+        "edges": 24,
+        "delta_veh_h": -272.2
+      },
+      {
+        "corridor": "1084726666",
+        "time_loss_base_veh_h": 275.7,
+        "time_loss_policy_veh_h": 39.4,
+        "edges": 1,
+        "delta_veh_h": -236.3
+      },
+      {
+        "corridor": "1084932139#11",
+        "time_loss_base_veh_h": 274.9,
+        "time_loss_policy_veh_h": 92.7,
+        "edges": 1,
+        "delta_veh_h": -182.2
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0645\u0644\u0643 \u062e\u0627\u0644\u062f",
+        "time_loss_base_veh_h": 919.3,
+        "time_loss_policy_veh_h": 762.6,
+        "edges": 43,
+        "delta_veh_h": -156.7
+      },
+      {
+        "corridor": "350093266#3",
+        "time_loss_base_veh_h": 387.7,
+        "time_loss_policy_veh_h": 236.1,
+        "edges": 1,
+        "delta_veh_h": -151.6
+      }
+    ],
+    "worsened": [
+      {
+        "corridor": "553625016#11",
+        "time_loss_base_veh_h": 279.6,
+        "time_loss_policy_veh_h": 586.7,
+        "edges": 1,
+        "delta_veh_h": 307.1
+      },
+      {
+        "corridor": "553625016#10",
+        "time_loss_base_veh_h": 8.9,
+        "time_loss_policy_veh_h": 170.0,
+        "edges": 1,
+        "delta_veh_h": 161.1
+      },
+      {
+        "corridor": "553625016#7",
+        "time_loss_base_veh_h": 13.4,
+        "time_loss_policy_veh_h": 92.9,
+        "edges": 1,
+        "delta_veh_h": 79.5
+      },
+      {
+        "corridor": "553625016#13",
+        "time_loss_base_veh_h": 64.2,
+        "time_loss_policy_veh_h": 136.9,
+        "edges": 1,
+        "delta_veh_h": 72.7
+      },
+      {
+        "corridor": "107434755",
+        "time_loss_base_veh_h": 36.8,
+        "time_loss_policy_veh_h": 107.1,
+        "edges": 1,
+        "delta_veh_h": 70.3
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u062c\u062f\u0629",
+        "time_loss_base_veh_h": 665.0,
+        "time_loss_policy_veh_h": 717.6,
+        "edges": 28,
+        "delta_veh_h": 52.6
+      },
+      {
+        "corridor": "553625016#14",
+        "time_loss_base_veh_h": 50.9,
+        "time_loss_policy_veh_h": 94.0,
+        "edges": 1,
+        "delta_veh_h": 43.0
+      },
+      {
+        "corridor": "107434743#1",
+        "time_loss_base_veh_h": 70.8,
+        "time_loss_policy_veh_h": 101.5,
+        "edges": 1,
+        "delta_veh_h": 30.7
+      },
+      {
+        "corridor": "1191274601#2-AddedOnRampEdge",
+        "time_loss_base_veh_h": 67.9,
+        "time_loss_policy_veh_h": 94.3,
+        "edges": 1,
+        "delta_veh_h": 26.4
+      },
+      {
+        "corridor": "844332859#6",
+        "time_loss_base_veh_h": 45.0,
+        "time_loss_policy_veh_h": 68.6,
+        "edges": 1,
+        "delta_veh_h": 23.6
+      }
+    ]
+  },
+  "effects": [
+    {
+      "type": "remote_work",
+      "eligible_workers_with_tour": 13219,
+      "remote_today": 2359,
+      "tours_removed": 2359,
+      "person_trips_removed": 5104,
+      "vehicles_removed": 2967,
+      "induced_tours_added": 847,
+      "induced_person_trips_added": 1694,
+      "induced_vehicles_added": 958
+    }
+  ],
+  "routing": {
+    "vehicles": 122967,
+    "to_route": 958,
+    "reused": 122009,
+    "duarouter": {
+      "wall_s": 18.3,
+      "peak_rss_mb": 2274.8
+    },
+    "weights_rows": 387198,
+    "retyped": 0,
+    "rerouted": 958,
+    "unroutable": 0
+  },
+  "net_change": null,
+  "assumption_ids": {
+    "policy": [
+      "A-pol-001",
+      "A-pol-002"
+    ],
+    "daytype": [
+      "A-day-001",
+      "A-day-002",
+      "A-day-003",
+      "A-day-004",
+      "A-day-005",
+      "A-day-006",
+      "A-day-007",
+      "A-day-008",
+      "A-day-009",
+      "A-day-010",
+      "A-day-011",
+      "A-day-012",
+      "A-day-013",
+      "A-day-014",
+      "A-day-015",
+      "A-day-016",
+      "A-day-017"
+    ],
+    "baseline_model": [
+      "A-act-001",
+      "A-act-002",
+      "A-act-003",
+      "A-act-004",
+      "A-act-005",
+      "A-act-006",
+      "A-exp-001",
+      "A-mode-001",
+      "A-mode-002",
+      "A-mode-003",
+      "A-net-301",
+      "A-pop-001",
+      "A-pop-002",
+      "A-pop-010",
+      "A-pop-011",
+      "A-pop-012",
+      "A-pop-013",
+      "A-pop-014",
+      "A-pop-015",
+      "A-pop-016",
+      "A-pop-017",
+      "A-pop-018",
+      "A-sim-101",
+      "A-sim-103"
+    ]
+  },
+  "provenance": {
+    "seed": 1,
+    "sample": 0.25,
+    "config_hash": "812285a180a42888",
+    "policy_hash": "951e7175a9e93e34",
+    "population_hash": "765732190ffb2223",
+    "network": "data/hail/hail.v2.net.xml",
+    "network_hash": "addfcb64bedc9fa3",
+    "vehicles_hash": "caa66550344dd218",
+    "routes_hash": "94ec9f89edb7b147",
+    "routes_deterministic": false,
+    "sumo_version": "Eclipse SUMO sumo 1.28.0"
+  }
+}

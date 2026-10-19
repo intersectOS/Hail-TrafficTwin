@@ -1,0 +1,11 @@
+[wadi_adiri_flowing-f0.25] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  network_change: variant_network=data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz, edges_closed=34, edges_changed=0, edges_new=0, edges_removed_in_variant=34, endpoints_moved=561, vehicles_rerouted_closure=5686, closed_edge_names=['شارع الأمير مقرن بن عبدالعزيز', 'شارع جرير بن عبدالله', 'طريق الملك فيصل بن عبدالعزيز']
+[wadi_adiri_flowing-f0.25] meso run: 119,290 baseline routes, 5,011 new routes
+[wadi_adiri_flowing-f0.25] matched control: 5,686 baseline vehicles re-routed
+[wadi_adiri_flowing-f0.25--control] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  remote_work: eligible_workers_with_tour=7213, remote_today=0, tours_removed=0, person_trips_removed=0, vehicles_removed=0, induced_tours_added=0, induced_person_trips_added=0, induced_vehicles_added=0
+[wadi_adiri_flowing-f0.25--control] meso run: 119,290 baseline routes, 5,686 new routes
+Policy matched_control vs weekday baseline [synthetic demand, uncalibrated]: mean delay -11.3 %, AM-peak delay -11.3 %, VKT +0.2 %, VHT -6.6 %, CO2 -6.2 %
+  report runs/wadi_adiri_flowing-f0.25--control/policy_report.md
+Policy wadi_adiri_flowing vs weekday baseline [synthetic demand, uncalibrated]: mean delay -12.0 %, AM-peak delay +10.1 %, VKT +0.1 %, VHT -7.2 %, CO2 -6.6 %
+  report runs/wadi_adiri_flowing-f0.25/policy_report.md

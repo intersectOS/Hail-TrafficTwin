@@ -1,0 +1,651 @@
+{
+  "scenario": "motorcade_center",
+  "title": "Fictional 6-vehicle motorcade southbound along King Abdulaziz Rd with rolling junction holds",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "center",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 3600.0,
+  "baseline_definition": "same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events",
+  "kpis": {
+    "baseline": {
+      "vehicles_loaded": 10085,
+      "vehicles_inserted": 9910,
+      "vehicles_running_at_end": 2183,
+      "vehicles_waiting_at_end": 51,
+      "background_completed": 7727,
+      "mean_travel_time_s": 293.63,
+      "mean_delay_s": 118.59,
+      "mean_depart_delay_s": 0.1,
+      "mean_speed_kmh": 21.39,
+      "vkt": 23323.9,
+      "vht": 1090.38,
+      "teleports": 342,
+      "teleports_jam": 213,
+      "teleport_share": 0.03391,
+      "queue_max_m": 328.5,
+      "queue_p95_m": 321.7,
+      "queue_max_veh": 103,
+      "halted_max_veh": 1370,
+      "halted_p95_veh": 1291.0,
+      "top_queued_edges": [
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 328.5,
+          "at_s": 3527.0,
+          "max_halted_veh": 86
+        },
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.2,
+          "at_s": 3565.0,
+          "max_halted_veh": 26
+        },
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 268.9,
+          "at_s": 3591.0,
+          "max_halted_veh": 103
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 213.2,
+          "at_s": 3587.0,
+          "max_halted_veh": 27
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 212.8,
+          "at_s": 2765.0,
+          "max_halted_veh": 28
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2602.0,
+      "gridlock_jam_teleport_onset_s": 1691.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    },
+    "scenario": {
+      "vehicles_loaded": 10091,
+      "vehicles_inserted": 9924,
+      "vehicles_running_at_end": 2445,
+      "vehicles_waiting_at_end": 43,
+      "background_completed": 7473,
+      "mean_travel_time_s": 291.49,
+      "mean_delay_s": 118.78,
+      "mean_depart_delay_s": 0.08,
+      "mean_speed_kmh": 18.88,
+      "vkt": 22502.6,
+      "vht": 1191.58,
+      "teleports": 437,
+      "teleports_jam": 286,
+      "teleport_share": 0.04331,
+      "queue_max_m": 339.7,
+      "queue_p95_m": 323.7,
+      "queue_max_veh": 128,
+      "halted_max_veh": 1739,
+      "halted_p95_veh": 1498.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 339.7,
+          "at_s": 3598.0,
+          "max_halted_veh": 128
+        },
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 324.6,
+          "at_s": 3267.0,
+          "max_halted_veh": 90
+        },
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 316.5,
+          "at_s": 3510.0,
+          "max_halted_veh": 24
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 210.1,
+          "at_s": 2079.0,
+          "max_halted_veh": 26
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 191.4,
+          "at_s": 3587.0,
+          "max_halted_veh": 24
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2258.0,
+      "gridlock_jam_teleport_onset_s": 1971.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    }
+  },
+  "delta": {
+    "vehicles_inserted": {
+      "delta": 14,
+      "pct": 0.14
+    },
+    "background_completed": {
+      "delta": -254,
+      "pct": -3.29
+    },
+    "mean_travel_time_s": {
+      "delta": -2.14,
+      "pct": -0.73
+    },
+    "mean_delay_s": {
+      "delta": 0.19,
+      "pct": 0.16
+    },
+    "mean_depart_delay_s": {
+      "delta": -0.02,
+      "pct": -20.0
+    },
+    "vehicles_waiting_at_end": {
+      "delta": -8,
+      "pct": -15.69
+    },
+    "mean_speed_kmh": {
+      "delta": -2.51,
+      "pct": -11.73
+    },
+    "vkt": {
+      "delta": -821.3,
+      "pct": -3.52
+    },
+    "vht": {
+      "delta": 101.2,
+      "pct": 9.28
+    },
+    "teleports": {
+      "delta": 95,
+      "pct": 27.78
+    },
+    "queue_max_m": {
+      "delta": 11.2,
+      "pct": 3.41
+    },
+    "queue_p95_m": {
+      "delta": 2.0,
+      "pct": 0.62
+    },
+    "queue_max_veh": {
+      "delta": 25,
+      "pct": 24.27
+    },
+    "halted_p95_veh": {
+      "delta": 207.0,
+      "pct": 16.03
+    }
+  },
+  "gridlock": {
+    "baseline": {
+      "gridlock": true,
+      "onset_s": 1691.0,
+      "rules_fired": {
+        "sustained_halt": 2602.0,
+        "jam_teleports": 1691.0
+      }
+    },
+    "scenario": {
+      "gridlock": true,
+      "onset_s": 1971.0,
+      "rules_fired": {
+        "sustained_halt": 2258.0,
+        "jam_teleports": 1971.0
+      }
+    }
+  },
+  "emergency": {
+    "baseline": [],
+    "scenario": []
+  },
+  "convoy": [
+    {
+      "event": "convoy_king_abdulaziz_sb",
+      "completed": 6,
+      "vehicles": 6,
+      "mean_travel_time_s": 193.2,
+      "free_flow_s": 81.4
+    }
+  ],
+  "event_edges_flow": {
+    "baseline": {},
+    "scenario": {}
+  },
+  "events": [
+    {
+      "type": "motorcade",
+      "id": "convoy_king_abdulaziz_sb",
+      "start": 900.0,
+      "end": null,
+      "max_end": 2700.0,
+      "route": [
+        "107173634#15",
+        "107173634#17",
+        "107173634#18",
+        "107173634#19",
+        "107173634#20",
+        "107173634#21",
+        "107173634#22",
+        "107173634#23",
+        "107173634#24",
+        "107173634#25",
+        "107173634#26",
+        "107173634#27",
+        "1358424025#1",
+        "1358424025#1-AddedOffRampEdge",
+        "1358424025#2",
+        "1358424025#3",
+        "1358424025#4",
+        "1358424025#5",
+        "1358424025#6",
+        "1358424025#7",
+        "1358424025#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1358424025#15"
+      ],
+      "lengths_m": [
+        47.15,
+        25.69,
+        46.58,
+        34.39,
+        35.21,
+        68.14,
+        37.29,
+        34.84,
+        20.19,
+        50.67,
+        57.54,
+        319.2,
+        147.18,
+        94.76,
+        131.1,
+        74.37,
+        94.45,
+        29.61,
+        42.02,
+        21.19,
+        65.87,
+        95.95,
+        24.7,
+        51.41,
+        37.31,
+        153.7,
+        24.37,
+        34.03,
+        489.69
+      ],
+      "ff_s": [
+        1.607021131561009,
+        0.8755964553510567,
+        1.5875937286980233,
+        1.17211997273347,
+        1.2000681663258352,
+        2.3224267211997276,
+        1.2709611451942742,
+        1.1874573960463535,
+        0.6881390593047036,
+        1.726993865030675,
+        1.9611451942740288,
+        10.879345603271984,
+        5.0163599182004095,
+        3.229720518064077,
+        4.468302658486708,
+        2.5347648261758695,
+        3.219154737559646,
+        1.0092024539877302,
+        1.432174505794138,
+        0.7222222222222223,
+        2.24505794137696,
+        3.270279481935924,
+        0.8418541240627131,
+        1.7522154055896388,
+        1.2716428084526246,
+        5.238582140422632,
+        0.830606680299932,
+        1.159850034083163,
+        16.690184049079758
+      ],
+      "ff_total_s": 81.41104294478528,
+      "hold_mode": "all_other_movements",
+      "hold_lanes": [
+        [
+          ":3332061984_0_0",
+          ":3332061984_1_0",
+          ":3332061984_2_0",
+          ":3332061984_2_1",
+          ":3332061984_2_2"
+        ],
+        [
+          ":cluster_1231182660_1234614457_1234614469_1234614528_0_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_10_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_11_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_15_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_1_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_2_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_3_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_4_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_4_1",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_4_2",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_7_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_8_0",
+          ":cluster_1231182660_1234614457_1234614469_1234614528_9_0"
+        ],
+        [
+          ":1232215634_0_0",
+          ":1232215634_1_0"
+        ],
+        [
+          ":3332062075_0_0",
+          ":3332062075_1_0"
+        ],
+        [
+          ":1231182791_0_0",
+          ":1231182791_1_0"
+        ],
+        [
+          ":348090977_0_0",
+          ":348090977_1_0",
+          ":348090977_2_0",
+          ":348090977_3_0",
+          ":348090977_4_0",
+          ":348090977_5_0"
+        ],
+        [
+          ":3332062202_0_0",
+          ":3332062202_4_0"
+        ],
+        [
+          ":1198743033_0_0",
+          ":1198743033_4_0"
+        ],
+        [
+          ":1232215500_0_0",
+          ":1232215500_4_0"
+        ],
+        [
+          ":3332062210_0_0",
+          ":3332062210_4_0"
+        ],
+        [
+          ":3332062240_0_0",
+          ":3332062240_6_0",
+          ":3332062240_6_1",
+          ":3332062240_6_2",
+          ":3332062240_6_3"
+        ],
+        [
+          ":3312798853_0_0",
+          ":3312798853_0_1",
+          ":3312798853_0_2",
+          ":3312798853_0_3"
+        ],
+        [
+          ":13744987841_3_0",
+          ":13744987841_3_1",
+          ":13744987841_5_0",
+          ":13744987841_5_1",
+          ":13744987841_5_2",
+          ":13744987841_8_0",
+          ":13744987841_8_1",
+          ":13744987841_8_2",
+          ":13744987841_8_3"
+        ],
+        [],
+        [
+          ":13744987799_0_0"
+        ],
+        [
+          ":1232215658_0_0"
+        ],
+        [
+          ":1198742830_0_0",
+          ":1198742830_0_1",
+          ":1198742830_2_0"
+        ],
+        [
+          ":13744963188_3_0"
+        ],
+        [
+          ":1232215543_0_0",
+          ":1232215543_1_0"
+        ],
+        [
+          ":13744963189_4_0",
+          ":13744963189_4_1",
+          ":13744963189_4_2",
+          ":13744963189_4_3"
+        ],
+        [
+          ":10029622723_0_0",
+          ":10029622723_0_1",
+          ":10029622723_0_2",
+          ":10029622723_0_3"
+        ],
+        [
+          ":10029622722_0_0",
+          ":10029622722_0_1",
+          ":10029622722_0_2",
+          ":10029622722_0_3"
+        ],
+        [],
+        [
+          ":3328525975_0_0",
+          ":3328525975_0_1",
+          ":3328525975_0_2",
+          ":3328525975_0_3",
+          ":3328525975_0_4",
+          ":3328525975_0_5",
+          ":3328525975_6_0"
+        ],
+        [
+          ":13744987716_7_0"
+        ],
+        [
+          ":1232215648_0_0",
+          ":1232215648_0_1",
+          ":1232215648_0_2",
+          ":1232215648_0_3"
+        ],
+        [
+          ":13031132456_3_0",
+          ":13031132456_3_1",
+          ":13031132456_3_2",
+          ":13031132456_3_3"
+        ],
+        [
+          ":13744987717_0_0",
+          ":13744987717_0_1",
+          ":13744987717_0_2"
+        ],
+        [
+          ":3312468719_0_0",
+          ":3312468719_0_1",
+          ":3312468719_0_2"
+        ]
+      ],
+      "vehicles": 6,
+      "vtype": "convoy",
+      "headway_s": 2.0,
+      "lead_time_s": 120.0,
+      "clear_time_s": 30.0,
+      "exempt_vclasses": [
+        "vip",
+        "emergency"
+      ],
+      "vehicle_ids": [
+        "ev.convoy_king_abdulaziz_sb.0",
+        "ev.convoy_king_abdulaziz_sb.1",
+        "ev.convoy_king_abdulaziz_sb.2",
+        "ev.convoy_king_abdulaziz_sb.3",
+        "ev.convoy_king_abdulaziz_sb.4",
+        "ev.convoy_king_abdulaziz_sb.5"
+      ]
+    }
+  ],
+  "event_summaries": {
+    "convoy_king_abdulaziz_sb": {
+      "convoy_arrived": 6,
+      "convoy_vehicles": 6,
+      "junctions_held": 29,
+      "junctions_released": 29,
+      "closures_still_active": 0,
+      "mean_hold_s": 154.2,
+      "max_hold_s": 254.0,
+      "ff_total_s": 81.4
+    }
+  },
+  "event_log": [
+    {
+      "t": 900.0,
+      "event": "convoy_king_abdulaziz_sb",
+      "action": "start",
+      "type": "motorcade"
+    },
+    {
+      "t": 900.0,
+      "event": "convoy_king_abdulaziz_sb",
+      "action": "convoy_dispatched",
+      "vehicles": 6,
+      "route": [
+        "107173634#15",
+        "107173634#17",
+        "107173634#18",
+        "107173634#19",
+        "107173634#20",
+        "107173634#21",
+        "107173634#22",
+        "107173634#23",
+        "107173634#24",
+        "107173634#25",
+        "107173634#26",
+        "107173634#27",
+        "1358424025#1",
+        "1358424025#1-AddedOffRampEdge",
+        "1358424025#2",
+        "1358424025#3",
+        "1358424025#4",
+        "1358424025#5",
+        "1358424025#6",
+        "1358424025#7",
+        "1358424025#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1358424025#15"
+      ]
+    },
+    {
+      "t": 1154.0,
+      "event": "convoy_king_abdulaziz_sb",
+      "action": "closures_lifted",
+      "convoy_arrived": 6,
+      "convoy_vehicles": 6,
+      "junctions_held": 29,
+      "junctions_released": 29,
+      "closures_still_active": 0,
+      "mean_hold_s": 154.2,
+      "max_hold_s": 254.0,
+      "ff_total_s": 81.4
+    },
+    {
+      "t": 1154.0,
+      "event": "convoy_king_abdulaziz_sb",
+      "action": "end",
+      "horizon": false
+    }
+  ],
+  "baseline_event_log": [],
+  "strategist_requested": false,
+  "assumption_ids": [
+    "A-vtype-063",
+    "A-vtype-064",
+    "A-vtype-065",
+    "A-vtype-066",
+    "A-vtype-067",
+    "A-vtype-068",
+    "A-vtype-069",
+    "A-vtype-001",
+    "A-vtype-002",
+    "A-vtype-003",
+    "A-vtype-004",
+    "A-vtype-005",
+    "A-vtype-006",
+    "A-vtype-007",
+    "A-vtype-008",
+    "A-vtype-009",
+    "A-vtype-010",
+    "A-vtype-011",
+    "A-vtype-012",
+    "A-vtype-013",
+    "A-vtype-014",
+    "A-vtype-015",
+    "A-vtype-016",
+    "A-vtype-017",
+    "A-vtype-018",
+    "A-vtype-019",
+    "A-vtype-020",
+    "A-vtype-021",
+    "A-vtype-022",
+    "A-vtype-023",
+    "A-vtype-024",
+    "A-vtype-025",
+    "A-vtype-026",
+    "A-vtype-027",
+    "A-vtype-028",
+    "A-vtype-029",
+    "A-vtype-030",
+    "A-vtype-031",
+    "A-vtype-032",
+    "A-vtype-033",
+    "A-vtype-034",
+    "A-vtype-035",
+    "A-vtype-036",
+    "A-vtype-037",
+    "A-vtype-038",
+    "A-vtype-039",
+    "A-vtype-040",
+    "A-vtype-041",
+    "A-vtype-042",
+    "A-vtype-043",
+    "A-vtype-044",
+    "A-vtype-045",
+    "A-vtype-046",
+    "A-vtype-055",
+    "A-vtype-056",
+    "A-vtype-057",
+    "A-vtype-058",
+    "A-vtype-059",
+    "A-vtype-060",
+    "A-vtype-061",
+    "A-vtype-062",
+    "A-event-009",
+    "A-event-008",
+    "A-event-006",
+    "A-event-007",
+    "A-kpi-001",
+    "A-kpi-002",
+    "A-kpi-003",
+    "A-kpi-004",
+    "A-kpi-005",
+    "A-kpi-006",
+    "A-kpi-007",
+    "A-sim-002"
+  ]
+}

@@ -1,0 +1,6 @@
+$ .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/route/cutRoutes.py data/windows/sports_city/sports_city.cut.net.xml runs/tierA-exit-hour/exit_routes.rou.xml -o data/windows/sports_city/sports_city.rou.cutraw.xml --disconnected-action keep --default.departLane best --default.departSpeed max --min-length 0
+Valid area contains 4929 edges
+Parsing routes from runs/tierA-exit-hour/exit_routes.rou.xml
+Parsed 16128 vehicles, 0 persons, 0 flows and kept 8780 routes (avg teleportFactor 0.0)
+Number of disconnected routes: 760, broken routes: 0.
+Wrote 8780 vehicles

@@ -1,0 +1,66 @@
+# Scenario report: flood_center on window `center`
+
+**synthetic demand, uncalibrated**. Fictional scenario parameters (PROJECT.md section 11).
+
+Storm: Wadi Al-Adiri runs and closes its crossings at Jarir St and King Faisal Rd. Seed 1, 0-3600 s, Tier B (micro), Eclipse SUMO sumo 1.28.0. Run `flood_center-center-s1-243bf337`; config hash `243bf33793079992`, network hash `ff661b46062e0c11`, demand hash `6adc96939f3ef10c`.
+
+Baseline: same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events.
+
+| KPI | baseline | scenario | delta | delta % |
+|---|---:|---:|---:|---:|
+| vehicles inserted | 9910 | 9784 | -126 | -1.27 |
+| background trips completed | 7727 | 7134 | -593 | -7.67 |
+| running at end | 2183 | 2650 | - | - |
+| waiting to insert at end | 51 | 56 | 5 | 9.80 |
+| mean travel time (s) | 293.63 | 296.25 | 2.62 | 0.89 |
+| mean delay = timeLoss (s) | 118.59 | 124.42 | 5.83 | 4.92 |
+| mean insertion delay = departDelay (s) | 0.10 | 0.17 | 0.07 | 70.00 |
+| mean speed (km/h) | 21.39 | 16.71 | -4.68 | -21.88 |
+| VKT (veh-km) | 23,323.90 | 21,473.40 | -1,850.50 | -7.93 |
+| VHT (veh-h) | 1,090.38 | 1,284.73 | 194.35 | 17.82 |
+| longest queue, max (m) | 328.50 | 873.00 | 544.50 | 165.75 |
+| longest queue, p95 over steps (m) | 321.70 | 833.20 | 511.50 | 159.00 |
+| max halted on one edge (veh) | 103 | 152 | 49 | 47.57 |
+| halted in window, p95 (veh) | 1,291.00 | 1,721.00 | 430.00 | 33.31 |
+| teleports | 342 | 458 | 116 | 33.92 |
+| jam teleports | 213 | 283 | - | - |
+| vehicles rerouted by closures | 0 | 36 | - | - |
+| gridlock (onset s) | True (1,691.00) | True (1,645.00) | | |
+
+Gridlock rules fired in the scenario: {'sustained_halt': 2092.0, 'jam_teleports': 1645.0}.
+
+## Vehicles entering event edges
+
+| edge | baseline | scenario |
+|---|---:|---:|
+| `132026263#0` | 12 | 12 |
+| `132026263#1` | 12 | 12 |
+| `1359397812#6` | 4 | 4 |
+| `1359397812#7` | 59 | 33 |
+| `1359397812#8` | 107 | 41 |
+| `737369846` | 0 | 0 |
+
+## Top queued edges (scenario)
+
+| edge | max queue (m) | at (s) | max halted (veh) |
+|---|---:|---:|---:|
+| `298009826#3` | 873.0 | 3582 | 152 |
+| `107173634#27` | 329.5 | 2113 | 98 |
+| `107417760#0` | 323.3 | 3160 | 34 |
+| `1550792685#9` | 308.6 | 3386 | 35 |
+| `1501371308` | 208.6 | 2735 | 27 |
+
+## Event log (scenario)
+
+| t (s) | event | action | details |
+|---:|---|---|---|
+| 600 | storm_flood | start | type=flood |
+| 600 | storm_flood | weather_on | preset=storm |
+| 1200 | storm_flood | close_sites | sites=['HFS-001', 'HFS-002', 'HFS-003'], edges=6, verified_disallowed=24, rerouted=2 |
+| 3300 | storm_flood | reopen_sites | lanes=24 |
+| 3300 | storm_flood | weather_off |  |
+| 3300 | storm_flood | end | horizon=False |
+
+Wall time: baseline 277.79 s + 27.49 s post, scenario 292.39 s + 31.95 s post, total 328.17 s (parallel).
+
+Assumptions used (69): A-vtype-063, A-vtype-064, A-vtype-065, A-vtype-066, A-vtype-067, A-vtype-068, A-vtype-069, A-vtype-001, A-vtype-002, A-vtype-003, A-vtype-004, A-vtype-005, A-vtype-006, A-vtype-007, A-vtype-008, A-vtype-009, A-vtype-010, A-vtype-011, A-vtype-012, A-vtype-013, A-vtype-014, A-vtype-015, A-vtype-016, A-vtype-017, A-vtype-018, A-vtype-019, A-vtype-020, A-vtype-021, A-vtype-022, A-vtype-023, A-vtype-024, A-vtype-025, A-vtype-026, A-vtype-027, A-vtype-028, A-vtype-029, A-vtype-030, A-vtype-031, A-vtype-032, A-vtype-033, A-vtype-034, A-vtype-035, A-vtype-036, A-vtype-037, A-vtype-038, A-vtype-039, A-vtype-040, A-vtype-041, A-vtype-042, A-vtype-043, A-vtype-044, A-vtype-045, A-vtype-046, A-event-flood-radius, A-event-004, A-event-005, A-rain-011, A-rain-012, A-rain-013, A-rain-014, A-rain-015, A-kpi-001, A-kpi-002, A-kpi-003, A-kpi-004, A-kpi-005, A-kpi-006, A-kpi-007, A-sim-002 (docs/assumptions-trackB.md, docs/assumptions.md).

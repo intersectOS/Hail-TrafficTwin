@@ -1,0 +1,13 @@
+$ .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py -n data/windows/sports_city/sports_city.net.xml -r data/windows/sports_city/sports_city.rou.xml -o data/windows/sports_city/sports_city.tls.add.xml -b 0 -p webster -y 4 -a 0 -l 4 -g 4 --min-cycle 20 --max-cycle 120 -H 2.0 --sorted
+Begin time:0.0
+Warning: the number of unused states at TLS cluster_9939282984_9939282985: 18 (21 states, 3 connections)
+Traceback (most recent call last):
+  File "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py", line 683, in <module>
+    main(options)
+  File "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py", line 652, in main
+    r = getLaneGroupFlows(tl, connFlowsMap, phases, options.greenFilter,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py", line 320, in getLaneGroupFlows
+    inEdge = connsList[j][0]._edge._id
+             ~~~~~~~~~^^^
+IndexError: list index out of range

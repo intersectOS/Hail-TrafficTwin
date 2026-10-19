@@ -1,0 +1,59 @@
+# Scenario report: accident_king_faisal on window `center`
+
+**synthetic demand, uncalibrated**. Fictional scenario parameters (PROJECT.md section 11).
+
+Crash closes King Faisal Rd for 20 min in the morning peak. Seed 1, 0-3600 s, Tier B (micro), Eclipse SUMO sumo 1.28.0. Run `accident_king_faisal-center-s1-463a5fa0`; config hash `463a5fa0712c7277`, network hash `ff661b46062e0c11`, demand hash `6adc96939f3ef10c`.
+
+Baseline: same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events.
+
+| KPI | baseline | scenario | delta | delta % |
+|---|---:|---:|---:|---:|
+| vehicles inserted | 9910 | 9917 | 7 | 0.07 |
+| background trips completed | 7727 | 7532 | -195 | -2.52 |
+| running at end | 2183 | 2385 | - | - |
+| waiting to insert at end | 51 | 44 | -7 | -13.73 |
+| mean travel time (s) | 293.63 | 282.98 | -10.65 | -3.63 |
+| mean delay = timeLoss (s) | 118.59 | 110.30 | -8.29 | -6.99 |
+| mean insertion delay = departDelay (s) | 0.10 | 0.12 | 0.02 | 20.00 |
+| mean speed (km/h) | 21.39 | 19.97 | -1.42 | -6.64 |
+| VKT (veh-km) | 23,323.90 | 22,738.50 | -585.40 | -2.51 |
+| VHT (veh-h) | 1,090.38 | 1,138.36 | 47.98 | 4.40 |
+| longest queue, max (m) | 328.50 | 326.40 | -2.10 | -0.64 |
+| longest queue, p95 over steps (m) | 321.70 | 322.70 | 1.00 | 0.31 |
+| max halted on one edge (veh) | 103 | 94 | -9 | -8.74 |
+| halted in window, p95 (veh) | 1,291.00 | 1,500.10 | 209.10 | 16.20 |
+| teleports | 342 | 384 | 42 | 12.28 |
+| jam teleports | 213 | 247 | - | - |
+| vehicles rerouted by closures | 0 | 12 | - | - |
+| gridlock (onset s) | True (1,691.00) | True (1,976.00) | | |
+
+Gridlock rules fired in the scenario: {'sustained_halt': 2467.0, 'jam_teleports': 1976.0}.
+
+## Vehicles entering event edges
+
+| edge | baseline | scenario |
+|---|---:|---:|
+| `1358885503#3` | 16 | 4 |
+
+## Top queued edges (scenario)
+
+| edge | max queue (m) | at (s) | max halted (veh) |
+|---|---:|---:|---:|
+| `107173634#27` | 326.4 | 3064 | 94 |
+| `107417760#0` | 323.2 | 3098 | 23 |
+| `1501371308` | 209.5 | 3371 | 28 |
+| `298009826#3` | 176.2 | 3599 | 61 |
+| `369685230#2` | 163.6 | 3497 | 22 |
+
+## Event log (scenario)
+
+| t (s) | event | action | details |
+|---:|---|---|---|
+| 600 | crash_king_faisal | start | type=accident |
+| 600 | crash_king_faisal | close_lanes | lanes=['1358885503#3_3', '1358885503#3_2', '1358885503#3_1', '1358885503#3_0'], verified_disallowed=4, full_closure=True, rerouted=0, rub... |
+| 1800 | crash_king_faisal | reopen_lanes | lanes=['1358885503#3_3', '1358885503#3_2', '1358885503#3_1', '1358885503#3_0'], verified_reopened=4 |
+| 1800 | crash_king_faisal | end | horizon=False |
+
+Wall time: baseline 310.03 s + 29.48 s post, scenario 313.63 s + 31.27 s post, total 349.73 s (parallel).
+
+Assumptions used (64): A-vtype-063, A-vtype-064, A-vtype-065, A-vtype-066, A-vtype-067, A-vtype-068, A-vtype-069, A-vtype-001, A-vtype-002, A-vtype-003, A-vtype-004, A-vtype-005, A-vtype-006, A-vtype-007, A-vtype-008, A-vtype-009, A-vtype-010, A-vtype-011, A-vtype-012, A-vtype-013, A-vtype-014, A-vtype-015, A-vtype-016, A-vtype-017, A-vtype-018, A-vtype-019, A-vtype-020, A-vtype-021, A-vtype-022, A-vtype-023, A-vtype-024, A-vtype-025, A-vtype-026, A-vtype-027, A-vtype-028, A-vtype-029, A-vtype-030, A-vtype-031, A-vtype-032, A-vtype-033, A-vtype-034, A-vtype-035, A-vtype-036, A-vtype-037, A-vtype-038, A-vtype-039, A-vtype-040, A-vtype-041, A-vtype-042, A-vtype-043, A-vtype-044, A-vtype-045, A-vtype-046, A-event-002, A-event-003, A-event-001, A-kpi-001, A-kpi-002, A-kpi-003, A-kpi-004, A-kpi-005, A-kpi-006, A-kpi-007, A-sim-002 (docs/assumptions-trackB.md, docs/assumptions.md).

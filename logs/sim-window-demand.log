@@ -1,0 +1,1 @@
+runs/hail-source-hour/routes.rou.xml: {'vehicles_seen': 124976, 'vehicles_kept': 4032, 'vehicles_written': 16128, 'expand': 4}

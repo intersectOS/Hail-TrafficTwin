@@ -1,0 +1,9 @@
+[baseline-weekday-f0.25-s1-addfcb64-76573219-d30875] duaIterate x6 -> data/population/routes/8a2e8b3778eec6a5/dua
+[baseline-weekday-f0.25-s1-addfcb64-76573219-d30875] final meso run (93600 s)
+TrafficTwin baseline baseline-weekday-f0.25-s1-addfcb64-76573219-d30875  [synthetic demand, uncalibrated]
+  weekday 2026-10-18, sample 0.25 (capacity x4), seed 1, Eclipse SUMO sumo 1.28.0
+  persons 112,712, vehicle trips 124,976 (full city 499,904); completed 100.0%
+  mean delay 881.5 s, mean speed 25.03 km/h, VKT 5,094,966, VHT 203,551, peak hour 6:00 (10.8% of trips)
+  CO2 1,960.9 t, NOx 1,045.9 kg; teleports 22814 (18.255 %)
+  runtime: demand 3.3 s, assignment 3953.5 s (peak 1831.8 MB), simulation 275.1 s (peak 1177.5 MB)
+  outputs runs/baseline-weekday-f0.25-s1-addfcb64-76573219-d30875/

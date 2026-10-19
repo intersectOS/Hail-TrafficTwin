@@ -1,0 +1,39 @@
+{
+  "run_id": "evac_wadi_flood-sports_city-s1-a186c25d",
+  "label": "synthetic demand, uncalibrated",
+  "kind": "evacuation",
+  "scenario": "evac_wadi_flood",
+  "fictional": true,
+  "tier": "B",
+  "mode": "micro",
+  "window": "sports_city",
+  "seed": 1,
+  "config_hash": "a186c25d17ffbaf4",
+  "network": "data/windows/sports_city/sports_city.evac-7167b25861.net.xml",
+  "network_hash": "153d0e4a5e1382e5",
+  "window_network": "data/windows/sports_city/sports_city.net.xml",
+  "additionals": {},
+  "demand_source": "data/windows/sports_city/sports_city.rou.xml",
+  "population_hash": "da74433f5341ac06",
+  "demand_counts": {
+    "vehicles": 8780,
+    "typed_by_mix": 8780,
+    "kept_type": 0
+  },
+  "vtype_mix": {
+    "normal": 0.7,
+    "slow": 0.1,
+    "aggressive": 0.12,
+    "truck": 0.05,
+    "bus": 0.03,
+    "emergency": 0.0,
+    "convoy": 0.0
+  },
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "fcd": true,
+  "wall_s": {
+    "reference_sim": 353.58,
+    "evacuation_sim": 477.73,
+    "total": 582.84
+  }
+}

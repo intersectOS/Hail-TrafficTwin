@@ -1,0 +1,26 @@
+{
+ "window": "sports_city",
+ "label": "synthetic demand, uncalibrated",
+ "tier_a_run": "runs/tierA-exit-hour",
+ "tier_a_routes_hash": "e827beea1eb45cf1",
+ "tier_a_network_hash": "addfcb64bedc9fa3",
+ "routes": "data/windows/sports_city/sports_city.rou.xml",
+ "routes_hash": "bbfd339e4c3cbcef",
+ "cut_config": {
+  "disconnected_action": "keep",
+  "default_depart_lane": "best",
+  "default_depart_speed": "max",
+  "min_length": 0,
+  "time_shift_s": 0
+ },
+ "seconds": 4.2,
+ "vehicles": 8780,
+ "routes_rewritten": 5104,
+ "time_shift_s": 0.0,
+ "tls": {
+  "file": null,
+  "programs": 0,
+  "fallback": "network default signal programs",
+  "error": "command failed with code 1 (see /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/logs/link-tls-sports_city.log): .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py -n data/windows/sports_city/sports_city.net.xml -r data/windows/sports_city/sports_city.rou.xml -o "
+ }
+}

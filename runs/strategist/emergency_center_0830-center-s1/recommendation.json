@@ -1,0 +1,2682 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "recommendation_id": "rec-20261019T113840Z-620125fa",
+  "run_dir": "runs/strategist/rec-20261019T113840Z-620125fa",
+  "log_hash": "f133ca7f7a875a155ecdad0ce63c08be882af126c0c6b779936280bce4f62813",
+  "db": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/strategist/decisions.sqlite",
+  "scenario": "emergency_center_0830",
+  "title": "08:30 ambulance from Al Wasita to King Khalid Hospital; a crash since 08:25 blocks one of four lanes on its route (fictional)",
+  "fictional": true,
+  "window": "center",
+  "seed": 1,
+  "config_hash": "8d5dbbfef8bbd6e6",
+  "snapshot": {
+    "snapshot_id": "c08cf0c288b8ec34",
+    "reused": false,
+    "state_file": "runs/strategist/snapshots/c08cf0c288b8ec34/state.xml.gz",
+    "state_hash": "040f8ca242741928",
+    "t_dispatch": 1800.0,
+    "network_hash": "ff661b46062e0c11",
+    "demand_hash": "d8bdcd1e384f41f9",
+    "population_hash": "6adc96939f3ef10c",
+    "sumo_version": "Eclipse SUMO sumo 1.28.0",
+    "measured_at_t": {
+      "running": 1247,
+      "pending_insertion": 6,
+      "halted_total": 579,
+      "closed_lanes": [
+        "131718901#12_3"
+      ],
+      "tls": {
+        "10029622722": {
+          "program": "webster",
+          "phase": 0
+        },
+        "1232215502": {
+          "program": "webster",
+          "phase": 3
+        },
+        "1232215505": {
+          "program": "webster",
+          "phase": 2
+        },
+        "1232215535": {
+          "program": "webster",
+          "phase": 0
+        },
+        "1232215585": {
+          "program": "webster",
+          "phase": 3
+        },
+        "1232215671": {
+          "program": "webster",
+          "phase": 3
+        },
+        "1234707903": {
+          "program": "webster",
+          "phase": 2
+        },
+        "13031132456": {
+          "program": "webster",
+          "phase": 0
+        },
+        "1454255462": {
+          "program": "webster",
+          "phase": 5
+        },
+        "1465048257": {
+          "program": "webster",
+          "phase": 1
+        },
+        "3313221711": {
+          "program": "webster",
+          "phase": 0
+        },
+        "3326805213": {
+          "program": "webster",
+          "phase": 3
+        },
+        "9939282971": {
+          "program": "webster",
+          "phase": 0
+        },
+        "9939282993": {
+          "program": "webster",
+          "phase": 0
+        },
+        "cluster_1234707878_1234707914": {
+          "program": "webster",
+          "phase": 0
+        },
+        "cluster_1270104557_1270104561_1270104563_1270104564": {
+          "program": "webster",
+          "phase": 1
+        },
+        "joinedS_1232215587_13744987841_3312798848": {
+          "program": "webster",
+          "phase": 1
+        }
+      }
+    }
+  },
+  "weights": {
+    "values": {
+      "w_time": 1.0,
+      "w_delay": 10.0,
+      "w_closure": 5.0,
+      "w_preempt": 1.0
+    },
+    "ids": [
+      "A-strat-021",
+      "A-strat-022",
+      "A-strat-023",
+      "A-strat-024"
+    ],
+    "overrides": {},
+    "source": "strategist/weights.yaml"
+  },
+  "horizon_s": 300.0,
+  "routes": [
+    {
+      "edges": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "cost_s": 163.44,
+      "rank": 1,
+      "name": "Route A",
+      "length_m": 2920.3,
+      "ff_s": 152.17,
+      "is_default": false,
+      "overlap_with_default": 0.743
+    }
+  ],
+  "route_stats": {
+    "paths_examined": 40,
+    "routes_found": 1,
+    "k": 3
+  },
+  "closed_lanes_at_t": [
+    "131718901#12_3"
+  ],
+  "no_strategy": {
+    "travel_time_s": 208.0,
+    "arrived": true,
+    "free_flow_s": 148.84,
+    "background_veh_h": 107.3658,
+    "route_halted_max": [
+      {
+        "edge": "1358424025#10",
+        "halted": 5,
+        "t": 2096.0
+      },
+      {
+        "edge": "326232104",
+        "halted": 1,
+        "t": 1830.0
+      }
+    ],
+    "ambulance_edge_s": {
+      "131792632#7": 4.0,
+      "-131792621#10": 6.0,
+      "326224887": 10.0,
+      "-326224885#3": 3.0,
+      "326224903#0": 11.0,
+      "326224903#1": 3.0,
+      "326224920#0": 3.0,
+      "326224920#1": 3.0,
+      "326224920#2": 2.0,
+      "-326224919#5": 4.0,
+      "-326224919#4": 3.0,
+      "-326224919#3": 4.0,
+      "-326224919#1": 6.0,
+      "-326224919#0": 9.0,
+      "326224918#3": 3.0,
+      "326224931": 9.0,
+      "107431061#9": 6.0,
+      "1358872734#1": 4.0,
+      "1358872734#2": 3.0,
+      "1358872734#3": 6.0,
+      "132082407": 8.0,
+      "326232090#0": 3.0,
+      "326232090#1": 13.0,
+      "-326232092#4": 5.0,
+      "326232104": 14.0,
+      "107175231#1": 8.0,
+      "107175231#2": 1.0,
+      "107175231#3": 11.0,
+      "107175231#4": 3.0,
+      "107175231#5": 3.0,
+      "107175231#6": 1.0,
+      "107175231#7-AddedOnRampEdge": 6.0,
+      "107175231#7": 4.0,
+      "107175231#8": 4.0,
+      "1358424025#9-AddedOnRampEdge": 5.0,
+      "1358424025#9": 2.0,
+      "1358424025#10": 2.0,
+      "1358424025#11": 1.0,
+      "1358424025#12": 7.0,
+      "1358424025#13": 2.0,
+      "1358424025#14": 1.0,
+      "1501371310#0": 2.0
+    }
+  },
+  "options": [
+    {
+      "rank": 1,
+      "candidate_id": "A:reroute+preempt",
+      "label": "Route A + signal preemption",
+      "route_name": "Route A",
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        }
+      ],
+      "classification": "auto_eligible",
+      "action_classes": [
+        {
+          "type": "reroute",
+          "class": "auto_eligible",
+          "rule": "advisory reroute of the ambulance"
+        },
+        {
+          "type": "preempt",
+          "class": "auto_eligible",
+          "rule": "reversible, within A-strat-018/019"
+        }
+      ],
+      "arrived": true,
+      "travel_time_s": 211.0,
+      "no_strategy_tt_s": 208.0,
+      "vs_no_strategy_s": 3.0,
+      "free_flow_s": 152.17,
+      "vs_free_flow_s": 58.83,
+      "default_free_flow_s": 148.84,
+      "added_veh_h": -0.045,
+      "signals_preempted": 2,
+      "rescue_lane_edges": 0,
+      "junctions_held": 0,
+      "score": 212.55,
+      "score_terms": {
+        "time": 211.0,
+        "delay": -0.45,
+        "closure": 0.0,
+        "preempt": 2.0
+      },
+      "reason": "Route A + signal preemption gets the ambulance there in 211 s, 3 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s and preempting 2 signals saves 6 s against the same route without it. Over the 300 s horizon it saves 0.04 vehicle-hours of background delay versus no strategy; the longest queue on its route was 9 halted vehicles on `1358424025#10`.",
+      "facts": {
+        "horizon_s": {
+          "value": 300.0,
+          "text": "300",
+          "source": "settings.evaluation.horizon_s"
+        },
+        "tt_s": {
+          "value": 211.0,
+          "text": "211",
+          "source": "option.travel_time_s"
+        },
+        "gain_s": {
+          "value": 3.0,
+          "text": "3",
+          "source": "abs(no_strategy.travel_time_s - option.travel_time_s)"
+        },
+        "ns_tt_s": {
+          "value": 208.0,
+          "text": "208",
+          "source": "no_strategy.travel_time_s"
+        },
+        "ns_edge_s": {
+          "value": 14.0,
+          "text": "14",
+          "source": "no_strategy.ambulance_edge_s[326232104]"
+        },
+        "signals": {
+          "value": 2,
+          "text": "2",
+          "source": "option.signals_preempted"
+        },
+        "signals_own_s": {
+          "value": 6.0,
+          "text": "6",
+          "source": "without[preempt].travel_time_s - option.travel_time_s"
+        },
+        "added_veh_h": {
+          "value": 0.045,
+          "text": "0.04",
+          "source": "abs(option.background_veh_h - no_strategy.background_veh_h)"
+        },
+        "worst_halted": {
+          "value": 9,
+          "text": "9",
+          "source": "option.route_halted_max[0] (1358424025#10)"
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "candidate_id": "A:reroute+preempt+rescue_lane",
+      "label": "Route A + preemption + rescue lane",
+      "route_name": "Route A",
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        },
+        {
+          "type": "rescue_lane",
+          "edges": 14
+        }
+      ],
+      "classification": "auto_eligible",
+      "action_classes": [
+        {
+          "type": "reroute",
+          "class": "auto_eligible",
+          "rule": "advisory reroute of the ambulance"
+        },
+        {
+          "type": "preempt",
+          "class": "auto_eligible",
+          "rule": "reversible, within A-strat-018/019"
+        },
+        {
+          "type": "rescue_lane",
+          "class": "auto_eligible",
+          "rule": "reversible, within A-strat-018/019"
+        }
+      ],
+      "arrived": true,
+      "travel_time_s": 214.0,
+      "no_strategy_tt_s": 208.0,
+      "vs_no_strategy_s": 6.0,
+      "free_flow_s": 152.17,
+      "vs_free_flow_s": 61.83,
+      "default_free_flow_s": 148.84,
+      "added_veh_h": -0.0525,
+      "signals_preempted": 2,
+      "rescue_lane_edges": 14,
+      "junctions_held": 0,
+      "score": 215.475,
+      "score_terms": {
+        "time": 214.0,
+        "delay": -0.525,
+        "closure": 0.0,
+        "preempt": 2.0
+      },
+      "reason": "Route A + preemption + rescue lane gets the ambulance there in 214 s, 6 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s; it also preempts 2 signals and reserves a rescue lane on 14 edges. Over the 300 s horizon it saves 0.05 vehicle-hours of background delay versus no strategy; the longest queue on its route was 27 halted vehicles on `1358424025#10`.",
+      "facts": {
+        "horizon_s": {
+          "value": 300.0,
+          "text": "300",
+          "source": "settings.evaluation.horizon_s"
+        },
+        "tt_s": {
+          "value": 214.0,
+          "text": "214",
+          "source": "option.travel_time_s"
+        },
+        "gain_s": {
+          "value": 6.0,
+          "text": "6",
+          "source": "abs(no_strategy.travel_time_s - option.travel_time_s)"
+        },
+        "ns_tt_s": {
+          "value": 208.0,
+          "text": "208",
+          "source": "no_strategy.travel_time_s"
+        },
+        "ns_edge_s": {
+          "value": 14.0,
+          "text": "14",
+          "source": "no_strategy.ambulance_edge_s[326232104]"
+        },
+        "signals": {
+          "value": 2,
+          "text": "2",
+          "source": "option.signals_preempted"
+        },
+        "rescue_edges": {
+          "value": 14,
+          "text": "14",
+          "source": "option.rescue_lane_edges"
+        },
+        "added_veh_h": {
+          "value": 0.0525,
+          "text": "0.05",
+          "source": "abs(option.background_veh_h - no_strategy.background_veh_h)"
+        },
+        "worst_halted": {
+          "value": 27,
+          "text": "27",
+          "source": "option.route_halted_max[0] (1358424025#10)"
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "candidate_id": "A:reroute",
+      "label": "Route A only",
+      "route_name": "Route A",
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        }
+      ],
+      "classification": "auto_eligible",
+      "action_classes": [
+        {
+          "type": "reroute",
+          "class": "auto_eligible",
+          "rule": "advisory reroute of the ambulance"
+        }
+      ],
+      "arrived": true,
+      "travel_time_s": 217.0,
+      "no_strategy_tt_s": 208.0,
+      "vs_no_strategy_s": 9.0,
+      "free_flow_s": 152.17,
+      "vs_free_flow_s": 64.83,
+      "default_free_flow_s": 148.84,
+      "added_veh_h": 0.0456,
+      "signals_preempted": 0,
+      "rescue_lane_edges": 0,
+      "junctions_held": 0,
+      "score": 217.456,
+      "score_terms": {
+        "time": 217.0,
+        "delay": 0.456,
+        "closure": 0.0,
+        "preempt": 0.0
+      },
+      "reason": "Route A only gets the ambulance there in 217 s, 9 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s. Over the 300 s horizon it adds 0.05 vehicle-hours of background delay versus no strategy; the longest queue on its route was 8 halted vehicles on `1358424025#10`.",
+      "facts": {
+        "horizon_s": {
+          "value": 300.0,
+          "text": "300",
+          "source": "settings.evaluation.horizon_s"
+        },
+        "tt_s": {
+          "value": 217.0,
+          "text": "217",
+          "source": "option.travel_time_s"
+        },
+        "gain_s": {
+          "value": 9.0,
+          "text": "9",
+          "source": "abs(no_strategy.travel_time_s - option.travel_time_s)"
+        },
+        "ns_tt_s": {
+          "value": 208.0,
+          "text": "208",
+          "source": "no_strategy.travel_time_s"
+        },
+        "ns_edge_s": {
+          "value": 14.0,
+          "text": "14",
+          "source": "no_strategy.ambulance_edge_s[326232104]"
+        },
+        "added_veh_h": {
+          "value": 0.0456,
+          "text": "0.05",
+          "source": "abs(option.background_veh_h - no_strategy.background_veh_h)"
+        },
+        "worst_halted": {
+          "value": 8,
+          "text": "8",
+          "source": "option.route_halted_max[0] (1358424025#10)"
+        }
+      }
+    }
+  ],
+  "best_beats_no_strategy": false,
+  "candidates": [
+    {
+      "id": "no_strategy",
+      "label": "No strategy (default route, no interventions)",
+      "route_name": "default route",
+      "route_rank": 0,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232090#1",
+        "-326232092#4",
+        "326232104",
+        "107175231#1",
+        "107175231#2",
+        "107175231#3",
+        "107175231#4",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [],
+      "ff_s": 148.84,
+      "length_m": 2841.0,
+      "cost_s": 169.56,
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0
+    },
+    {
+      "id": "A:reroute",
+      "label": "Route A only",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        }
+      ],
+      "ff_s": 152.17,
+      "length_m": 2920.3,
+      "cost_s": 163.44,
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0
+    },
+    {
+      "id": "A:reroute+preempt",
+      "label": "Route A + signal preemption",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        }
+      ],
+      "ff_s": 152.17,
+      "length_m": 2920.3,
+      "cost_s": 163.44,
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0
+    },
+    {
+      "id": "A:reroute+preempt+rescue_lane",
+      "label": "Route A + preemption + rescue lane",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        },
+        {
+          "type": "rescue_lane",
+          "edges": 14
+        }
+      ],
+      "ff_s": 152.17,
+      "length_m": 2920.3,
+      "cost_s": 163.44,
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0
+    }
+  ],
+  "results": {
+    "no_strategy": {
+      "arrived": true,
+      "travel_time_s": 208.0,
+      "free_flow_s": 148.84,
+      "ratio_to_free_flow": 1.397,
+      "background_veh_h": 107.3658,
+      "background_arrived": 775,
+      "teleports": 20,
+      "route_halted_max": [
+        {
+          "edge": "1358424025#10",
+          "halted": 5,
+          "t": 2096.0
+        },
+        {
+          "edge": "326232104",
+          "halted": 1,
+          "t": 1830.0
+        }
+      ],
+      "ambulance_edge_s": {
+        "131792632#7": 4.0,
+        "-131792621#10": 6.0,
+        "326224887": 10.0,
+        "-326224885#3": 3.0,
+        "326224903#0": 11.0,
+        "326224903#1": 3.0,
+        "326224920#0": 3.0,
+        "326224920#1": 3.0,
+        "326224920#2": 2.0,
+        "-326224919#5": 4.0,
+        "-326224919#4": 3.0,
+        "-326224919#3": 4.0,
+        "-326224919#1": 6.0,
+        "-326224919#0": 9.0,
+        "326224918#3": 3.0,
+        "326224931": 9.0,
+        "107431061#9": 6.0,
+        "1358872734#1": 4.0,
+        "1358872734#2": 3.0,
+        "1358872734#3": 6.0,
+        "132082407": 8.0,
+        "326232090#0": 3.0,
+        "326232090#1": 13.0,
+        "-326232092#4": 5.0,
+        "326232104": 14.0,
+        "107175231#1": 8.0,
+        "107175231#2": 1.0,
+        "107175231#3": 11.0,
+        "107175231#4": 3.0,
+        "107175231#5": 3.0,
+        "107175231#6": 1.0,
+        "107175231#7-AddedOnRampEdge": 6.0,
+        "107175231#7": 4.0,
+        "107175231#8": 4.0,
+        "1358424025#9-AddedOnRampEdge": 5.0,
+        "1358424025#9": 2.0,
+        "1358424025#10": 2.0,
+        "1358424025#11": 1.0,
+        "1358424025#12": 7.0,
+        "1358424025#13": 2.0,
+        "1358424025#14": 1.0,
+        "1501371310#0": 2.0
+      },
+      "signals_preempted": 0,
+      "preempt_activations": 0,
+      "preempt_held_s": 0.0,
+      "preempted": [],
+      "rescue_lane_edges": 0,
+      "junctions_held": 0,
+      "hold_s_total": 0.0,
+      "closed_lanes_verified": [
+        "131718901#12_3"
+      ]
+    },
+    "A:reroute": {
+      "arrived": true,
+      "travel_time_s": 217.0,
+      "free_flow_s": 152.17,
+      "ratio_to_free_flow": 1.426,
+      "background_veh_h": 107.4114,
+      "background_arrived": 773,
+      "teleports": 22,
+      "route_halted_max": [
+        {
+          "edge": "1358424025#10",
+          "halted": 8,
+          "t": 2070.0
+        },
+        {
+          "edge": "1358424025#9",
+          "halted": 2,
+          "t": 2100.0
+        }
+      ],
+      "ambulance_edge_s": {
+        "131792632#7": 4.0,
+        "-131792621#10": 6.0,
+        "326224887": 10.0,
+        "-326224885#3": 3.0,
+        "326224903#0": 11.0,
+        "326224903#1": 3.0,
+        "326224920#0": 3.0,
+        "326224920#1": 3.0,
+        "326224920#2": 2.0,
+        "-326224919#5": 4.0,
+        "-326224919#4": 3.0,
+        "-326224919#3": 4.0,
+        "-326224919#1": 6.0,
+        "-326224919#0": 9.0,
+        "326224918#3": 3.0,
+        "326224931": 9.0,
+        "107431061#9": 6.0,
+        "1358872734#1": 4.0,
+        "1358872734#2": 3.0,
+        "1358872734#3": 6.0,
+        "132082407": 8.0,
+        "326232090#0": 4.0,
+        "326232091#0": 11.0,
+        "326232091#1": 10.0,
+        "286815796#5": 2.0,
+        "453669637#0": 1.0,
+        "453669637#1": 8.0,
+        "453669637#2": 8.0,
+        "-293333047#1": 6.0,
+        "1183380790": 10.0,
+        "369685228#6": 3.0,
+        "107175231#5": 3.0,
+        "107175231#6": 1.0,
+        "107175231#7-AddedOnRampEdge": 6.0,
+        "107175231#7": 5.0,
+        "107175231#8": 4.0,
+        "1358424025#9-AddedOnRampEdge": 6.0,
+        "1358424025#9": 2.0,
+        "1358424025#10": 3.0,
+        "1358424025#11": 3.0,
+        "1358424025#12": 6.0,
+        "1358424025#13": 1.0,
+        "1358424025#14": 2.0,
+        "1501371310#0": 2.0
+      },
+      "signals_preempted": 0,
+      "preempt_activations": 0,
+      "preempt_held_s": 0.0,
+      "preempted": [],
+      "rescue_lane_edges": 0,
+      "junctions_held": 0,
+      "hold_s_total": 0.0,
+      "closed_lanes_verified": [
+        "131718901#12_3"
+      ]
+    },
+    "A:reroute+preempt": {
+      "arrived": true,
+      "travel_time_s": 211.0,
+      "free_flow_s": 152.17,
+      "ratio_to_free_flow": 1.387,
+      "background_veh_h": 107.3208,
+      "background_arrived": 773,
+      "teleports": 19,
+      "route_halted_max": [
+        {
+          "edge": "1358424025#10",
+          "halted": 9,
+          "t": 2063.0
+        },
+        {
+          "edge": "1358424025#9",
+          "halted": 2,
+          "t": 2098.0
+        }
+      ],
+      "ambulance_edge_s": {
+        "131792632#7": 4.0,
+        "-131792621#10": 6.0,
+        "326224887": 10.0,
+        "-326224885#3": 3.0,
+        "326224903#0": 11.0,
+        "326224903#1": 3.0,
+        "326224920#0": 3.0,
+        "326224920#1": 3.0,
+        "326224920#2": 2.0,
+        "-326224919#5": 4.0,
+        "-326224919#4": 3.0,
+        "-326224919#3": 4.0,
+        "-326224919#1": 6.0,
+        "-326224919#0": 9.0,
+        "326224918#3": 3.0,
+        "326224931": 9.0,
+        "107431061#9": 6.0,
+        "1358872734#1": 4.0,
+        "1358872734#2": 3.0,
+        "1358872734#3": 6.0,
+        "132082407": 8.0,
+        "326232090#0": 4.0,
+        "326232091#0": 11.0,
+        "326232091#1": 10.0,
+        "286815796#5": 2.0,
+        "453669637#0": 1.0,
+        "453669637#1": 8.0,
+        "453669637#2": 8.0,
+        "-293333047#1": 6.0,
+        "1183380790": 10.0,
+        "369685228#6": 3.0,
+        "107175231#5": 3.0,
+        "107175231#6": 1.0,
+        "107175231#7-AddedOnRampEdge": 6.0,
+        "107175231#7": 5.0,
+        "107175231#8": 4.0,
+        "1358424025#9-AddedOnRampEdge": 4.0,
+        "1358424025#9": 1.0,
+        "1358424025#10": 2.0,
+        "1358424025#11": 1.0,
+        "1358424025#12": 6.0,
+        "1358424025#13": 1.0,
+        "1358424025#14": 2.0,
+        "1501371310#0": 2.0
+      },
+      "signals_preempted": 2,
+      "preempt_activations": 2,
+      "preempt_held_s": 26.0,
+      "preempted": [
+        {
+          "tls": "10029622722",
+          "junction": "10029622722",
+          "t_on": 1976.0,
+          "held_s": 17.0
+        },
+        {
+          "tls": "13031132456",
+          "junction": "13031132456",
+          "t_on": 1998.0,
+          "held_s": 9.0
+        }
+      ],
+      "rescue_lane_edges": 0,
+      "junctions_held": 0,
+      "hold_s_total": 0.0,
+      "closed_lanes_verified": [
+        "131718901#12_3"
+      ]
+    },
+    "A:reroute+preempt+rescue_lane": {
+      "arrived": true,
+      "travel_time_s": 214.0,
+      "free_flow_s": 152.17,
+      "ratio_to_free_flow": 1.406,
+      "background_veh_h": 107.3133,
+      "background_arrived": 771,
+      "teleports": 22,
+      "route_halted_max": [
+        {
+          "edge": "1358424025#10",
+          "halted": 27,
+          "t": 2096.0
+        },
+        {
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "halted": 19,
+          "t": 2085.0
+        },
+        {
+          "edge": "1358424025#9",
+          "halted": 7,
+          "t": 2062.0
+        }
+      ],
+      "ambulance_edge_s": {
+        "131792632#7": 4.0,
+        "-131792621#10": 6.0,
+        "326224887": 10.0,
+        "-326224885#3": 3.0,
+        "326224903#0": 11.0,
+        "326224903#1": 3.0,
+        "326224920#0": 3.0,
+        "326224920#1": 3.0,
+        "326224920#2": 2.0,
+        "-326224919#5": 4.0,
+        "-326224919#4": 3.0,
+        "-326224919#3": 4.0,
+        "-326224919#1": 6.0,
+        "-326224919#0": 9.0,
+        "326224918#3": 3.0,
+        "326224931": 9.0,
+        "107431061#9": 6.0,
+        "1358872734#1": 4.0,
+        "1358872734#2": 3.0,
+        "1358872734#3": 6.0,
+        "132082407": 8.0,
+        "326232090#0": 3.0,
+        "326232091#0": 12.0,
+        "326232091#1": 11.0,
+        "286815796#5": 2.0,
+        "453669637#0": 2.0,
+        "453669637#1": 8.0,
+        "453669637#2": 7.0,
+        "-293333047#1": 6.0,
+        "1183380790": 10.0,
+        "369685228#6": 3.0,
+        "107175231#5": 3.0,
+        "107175231#6": 1.0,
+        "107175231#7-AddedOnRampEdge": 7.0,
+        "107175231#7": 4.0,
+        "107175231#8": 4.0,
+        "1358424025#9-AddedOnRampEdge": 5.0,
+        "1358424025#9": 1.0,
+        "1358424025#10": 3.0,
+        "1358424025#11": 2.0,
+        "1358424025#12": 5.0,
+        "1358424025#13": 2.0,
+        "1358424025#14": 1.0,
+        "1501371310#0": 2.0
+      },
+      "signals_preempted": 2,
+      "preempt_activations": 2,
+      "preempt_held_s": 28.0,
+      "preempted": [
+        {
+          "tls": "10029622722",
+          "junction": "10029622722",
+          "t_on": 1977.0,
+          "held_s": 17.0
+        },
+        {
+          "tls": "13031132456",
+          "junction": "13031132456",
+          "t_on": 1999.0,
+          "held_s": 11.0
+        }
+      ],
+      "rescue_lane_edges": 14,
+      "junctions_held": 0,
+      "hold_s_total": 0.0,
+      "closed_lanes_verified": [
+        "131718901#12_3"
+      ]
+    }
+  },
+  "scores": [
+    {
+      "candidate_id": "no_strategy",
+      "route_name": "default route",
+      "added_veh_h": 0.0,
+      "terms": {
+        "time": 208.0,
+        "delay": 0.0,
+        "closure": 0.0,
+        "preempt": 0.0
+      },
+      "score": 208.0,
+      "classification": "auto_eligible"
+    },
+    {
+      "candidate_id": "A:reroute",
+      "route_name": "Route A",
+      "added_veh_h": 0.0456,
+      "terms": {
+        "time": 217.0,
+        "delay": 0.456,
+        "closure": 0.0,
+        "preempt": 0.0
+      },
+      "score": 217.456,
+      "rank": 3,
+      "classification": "auto_eligible"
+    },
+    {
+      "candidate_id": "A:reroute+preempt",
+      "route_name": "Route A",
+      "added_veh_h": -0.045,
+      "terms": {
+        "time": 211.0,
+        "delay": -0.45,
+        "closure": 0.0,
+        "preempt": 2.0
+      },
+      "score": 212.55,
+      "rank": 1,
+      "classification": "auto_eligible"
+    },
+    {
+      "candidate_id": "A:reroute+preempt+rescue_lane",
+      "route_name": "Route A",
+      "added_veh_h": -0.0525,
+      "terms": {
+        "time": 214.0,
+        "delay": -0.525,
+        "closure": 0.0,
+        "preempt": 2.0
+      },
+      "score": 215.475,
+      "rank": 2,
+      "classification": "auto_eligible"
+    }
+  ],
+  "fingerprint": "0e95374c78684110",
+  "assumption_ids": [
+    "A-event-002",
+    "A-event-003",
+    "A-event-001",
+    "A-strat-001",
+    "A-strat-002",
+    "A-strat-003",
+    "A-strat-004",
+    "A-strat-005",
+    "A-strat-006",
+    "A-strat-007",
+    "A-strat-008",
+    "A-strat-009",
+    "A-strat-010",
+    "A-strat-011",
+    "A-strat-012",
+    "A-strat-013",
+    "A-strat-014",
+    "A-strat-015",
+    "A-strat-016",
+    "A-strat-017",
+    "A-strat-018",
+    "A-strat-019",
+    "A-strat-020",
+    "A-strat-021",
+    "A-strat-022",
+    "A-strat-023",
+    "A-strat-024"
+  ],
+  "wall_s": {
+    "situation_s": 3.65,
+    "snapshot_s": 19.59,
+    "snapshot_reused": false,
+    "snapshot_build_s": {
+      "warm_up": 17.16,
+      "save_and_measure": 1.6
+    },
+    "candidates_s": 4.34,
+    "evaluation_s": 12.58,
+    "what_if_runs": 4,
+    "what_if_wall_s": {
+      "no_strategy": 11.62,
+      "A:reroute": 11.26,
+      "A:reroute+preempt": 11.26,
+      "A:reroute+preempt+rescue_lane": 11.58
+    },
+    "rank_explain_s": 0.0,
+    "total_s": 40.16,
+    "warm_total_s": 20.57
+  },
+  "fork": {
+    "net": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/data/windows/center/center.net.xml",
+    "demand": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/strategist/snapshots/c08cf0c288b8ec34/demand.rou.xml",
+    "vtypes_add": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/strategist/snapshots/c08cf0c288b8ec34/vtypes.add.xml",
+    "extra_additionals": [
+      "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/data/windows/center/center.tls.add.xml"
+    ],
+    "seed": 1,
+    "sumo_common": [
+      [
+        "--step-length",
+        "1"
+      ],
+      [
+        "--time-to-teleport",
+        "300"
+      ],
+      "--ignore-route-errors",
+      "--no-step-log",
+      "--duration-log.statistics",
+      [
+        "--verbose",
+        "true"
+      ]
+    ],
+    "tier_options": [
+      [
+        "--collision.mingap-factor",
+        "0"
+      ]
+    ],
+    "micro_cfg": {
+      "label": "synthetic demand, uncalibrated",
+      "sumo_common": [
+        [
+          "--step-length",
+          "1"
+        ],
+        [
+          "--time-to-teleport",
+          "300"
+        ],
+        "--ignore-route-errors",
+        "--no-step-log",
+        "--duration-log.statistics",
+        [
+          "--verbose",
+          "true"
+        ]
+      ],
+      "tier_A": {
+        "mode": "meso",
+        "options": [
+          "--mesosim",
+          "--meso-junction-control",
+          [
+            "--meso-tls-penalty",
+            "0.5"
+          ]
+        ]
+      },
+      "tier_B": {
+        "mode": "micro",
+        "options": []
+      },
+      "micro_only_options": [
+        "--lateral-resolution",
+        "--device.bluelight",
+        "--full-output",
+        "--netstate-dump",
+        "--lanechange.",
+        "--fcd-output",
+        "--lanechange-output",
+        "--queue-output",
+        "--lanedata-output"
+      ],
+      "micro_only_additional_elements": [
+        "laneData",
+        "laneAreaDetector",
+        "e2Detector"
+      ],
+      "smoke": {
+        "teleport_share_max": 0.005,
+        "edgedata_freq_s": 300,
+        "tier_A": {
+          "net": "data/hail/hail.v2.net.xml",
+          "begin": 0,
+          "end": 3600,
+          "random_trips": {
+            "period": 0.2,
+            "fringe_factor": 5,
+            "min_distance": 500,
+            "vclass": "passenger"
+          }
+        },
+        "tier_B": {
+          "net": "data/demo/demo.net.xml",
+          "begin": 0,
+          "end": 3600,
+          "random_trips": {
+            "period": 2.0,
+            "fringe_factor": 5,
+            "min_distance": 300,
+            "vclass": "passenger"
+          }
+        }
+      },
+      "assumptions": {
+        "A-sim-001": {
+          "parameter": "meso-tls-penalty",
+          "value": 0.5,
+          "assumption": "Scales the expected signal delay of a red phase on meso edges; SUMO docs suggest 0.5-1. No Hail signal timing data. Range 0.3-1.0; revisit in the M2 meso-vs-micro fidelity test."
+        },
+        "A-sim-002": {
+          "parameter": "time-to-teleport",
+          "value": 300,
+          "assumption": "Seconds a vehicle may stand still before SUMO teleports it; SUMO default. Governs the teleport acceptance metric (< 0.5 %). Range 120-600."
+        }
+      }
+    },
+    "distributions": [
+      "mix"
+    ],
+    "end": 3600.0,
+    "state": "/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/strategist/snapshots/c08cf0c288b8ec34/state.xml.gz",
+    "t": 1800.0,
+    "horizon_s": 300.0,
+    "plans": [
+      {
+        "type": "accident",
+        "id": "crash_imam_st",
+        "start": 1500.0,
+        "end": 2700.0,
+        "edges": [
+          "131718901#12"
+        ],
+        "closed_lanes": [
+          "131718901#12_3"
+        ],
+        "full_closure": false,
+        "side": "left",
+        "reroute": false,
+        "rubbernecking_factor": 0.7,
+        "rubbernecking_lanes": {
+          "131718867#2_0": 13.11,
+          "131718867#2_1": 13.11,
+          "131718867#2_2": 13.11,
+          "131718867#2_3": 13.11,
+          "131718867#3_0": 13.11,
+          "131718867#3_1": 13.11,
+          "131718867#3_2": 13.11,
+          "131718867#3_3": 13.11
+        }
+      }
+    ],
+    "trip": {
+      "type": "emergency_trip",
+      "id": "ambulance_1",
+      "start": 1800.0,
+      "end": null,
+      "max_end": 3600.0,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232090#1",
+        "-326232092#4",
+        "326232104",
+        "107175231#1",
+        "107175231#2",
+        "107175231#3",
+        "107175231#4",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "route_length_m": 2841.0,
+      "ff_total_s": 148.8408794804404,
+      "vtype": "emergency",
+      "vehicles": 1,
+      "headway_s": 0.0,
+      "strategist": true,
+      "vehicle_ids": [
+        "ev.ambulance_1.0"
+      ]
+    }
+  },
+  "candidate_specs": [
+    {
+      "id": "no_strategy",
+      "label": "No strategy (default route, no interventions)",
+      "route_name": "default route",
+      "route_rank": 0,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232090#1",
+        "-326232092#4",
+        "326232104",
+        "107175231#1",
+        "107175231#2",
+        "107175231#3",
+        "107175231#4",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [],
+      "signals": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 33,
+          "last_idx": 33,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 38,
+          "last_idx": 38,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue": [
+        {
+          "idx": 18,
+          "edge": "1358872734#2",
+          "lane_index": 3,
+          "lane": "1358872734#2_3"
+        },
+        {
+          "idx": 26,
+          "edge": "107175231#2",
+          "lane_index": 3,
+          "lane": "107175231#2_3"
+        },
+        {
+          "idx": 27,
+          "edge": "107175231#3",
+          "lane_index": 3,
+          "lane": "107175231#3_3"
+        },
+        {
+          "idx": 29,
+          "edge": "107175231#5",
+          "lane_index": 4,
+          "lane": "107175231#5_4"
+        },
+        {
+          "idx": 30,
+          "edge": "107175231#6",
+          "lane_index": 3,
+          "lane": "107175231#6_3"
+        },
+        {
+          "idx": 31,
+          "edge": "107175231#7-AddedOnRampEdge",
+          "lane_index": 4,
+          "lane": "107175231#7-AddedOnRampEdge_4"
+        },
+        {
+          "idx": 32,
+          "edge": "107175231#7",
+          "lane_index": 3,
+          "lane": "107175231#7_3"
+        },
+        {
+          "idx": 33,
+          "edge": "107175231#8",
+          "lane_index": 3,
+          "lane": "107175231#8_3"
+        },
+        {
+          "idx": 34,
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "lane_index": 6,
+          "lane": "1358424025#9-AddedOnRampEdge_6"
+        },
+        {
+          "idx": 35,
+          "edge": "1358424025#9",
+          "lane_index": 2,
+          "lane": "1358424025#9_2"
+        },
+        {
+          "idx": 36,
+          "edge": "1358424025#10",
+          "lane_index": 6,
+          "lane": "1358424025#10_6"
+        },
+        {
+          "idx": 37,
+          "edge": "1358424025#11",
+          "lane_index": 6,
+          "lane": "1358424025#11_6"
+        },
+        {
+          "idx": 38,
+          "edge": "1358424025#12",
+          "lane_index": 2,
+          "lane": "1358424025#12_2"
+        },
+        {
+          "idx": 39,
+          "edge": "1358424025#13",
+          "lane_index": 5,
+          "lane": "1358424025#13_5"
+        },
+        {
+          "idx": 40,
+          "edge": "1358424025#14",
+          "lane_index": 2,
+          "lane": "1358424025#14_2"
+        },
+        {
+          "idx": 41,
+          "edge": "1501371310#0",
+          "lane_index": 2,
+          "lane": "1501371310#0_2"
+        }
+      ],
+      "positions": [
+        0.0,
+        42.16,
+        109.7,
+        252.23000000000002,
+        265.09000000000003,
+        426.59000000000003,
+        461.62,
+        498.59000000000003,
+        551.74,
+        573.07,
+        621.5500000000001,
+        662.9200000000001,
+        683.69,
+        789.99,
+        906.26,
+        929.03,
+        1049.93,
+        1097.97,
+        1146.34,
+        1195.4599999999998,
+        1268.7399999999998,
+        1375.5599999999997,
+        1409.2599999999998,
+        1596.4599999999998,
+        1631.0699999999997,
+        1757.0099999999998,
+        1867.3399999999997,
+        1878.5199999999998,
+        2048.6499999999996,
+        2081.24,
+        2124.27,
+        2143.52,
+        2238.43,
+        2293.52,
+        2357.85,
+        2453.7999999999997,
+        2478.4999999999995,
+        2529.9099999999994,
+        2567.2199999999993,
+        2720.919999999999,
+        2745.289999999999,
+        2779.3199999999993,
+        2840.999999999999
+      ],
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0,
+      "cost_s": 169.56,
+      "ff_s": 148.84,
+      "edge_ff_s": {
+        "131792632#7": 2.4737428856421992,
+        "-131792621#10": 3.962917326761721,
+        "326224887": 7.89333776374813,
+        "-326224885#3": 0.7121891787118568,
+        "326224903#0": 8.943899872625574,
+        "326224903#1": 1.9399678794927173,
+        "326224920#0": 2.0474054383341636,
+        "326224920#1": 2.9434568311458156,
+        "326224920#2": 1.1812593454062135,
+        "-326224919#5": 2.6848313673367663,
+        "-326224919#4": 2.2910782522013617,
+        "-326224919#3": 1.1502464418231155,
+        "-326224919#1": 5.886913662291631,
+        "-326224919#0": 6.4390541064407145,
+        "326224918#3": 1.261006811762751,
+        "326224931": 6.695464362850972,
+        "107431061#9": 2.81875256703632,
+        "1358872734#1": 2.8381153552778264,
+        "1358872734#2": 2.882121692190342,
+        "1358872734#3": 4.299712491932172,
+        "132082407": 5.915711358475936,
+        "326232090#0": 1.8663122334828597,
+        "326232090#1": 10.36717062634989,
+        "-326232092#4": 1.9167082018053938,
+        "326232104": 6.974580495098853,
+        "107175231#1": 6.473625535410433,
+        "107175231#2": 0.6559877955758963,
+        "107175231#3": 9.982397465234994,
+        "107175231#4": 1.9122220266385028,
+        "107175231#5": 2.524790236460717,
+        "107175231#6": 1.1294959807545621,
+        "107175231#7-AddedOnRampEdge": 5.568855248489116,
+        "107175231#7": 3.232412134013965,
+        "107175231#8": 3.7745702047761545,
+        "1358424025#9-AddedOnRampEdge": 3.0187195217870064,
+        "1358424025#9": 0.7770961145194274,
+        "1358424025#10": 1.6174296051596664,
+        "1358424025#11": 1.1738241308793456,
+        "1358424025#12": 4.835614283467044,
+        "1358424025#13": 0.7667138587383986,
+        "1358424025#14": 1.0706308006921503,
+        "1501371310#0": 1.9405379896177442
+      },
+      "length_m": 2841.0,
+      "signals_plan": [],
+      "rescue_plan": [],
+      "holds_plan": []
+    },
+    {
+      "id": "A:reroute",
+      "label": "Route A only",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        }
+      ],
+      "signals": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 35,
+          "last_idx": 35,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 40,
+          "last_idx": 40,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue": [
+        {
+          "idx": 18,
+          "edge": "1358872734#2",
+          "lane_index": 3,
+          "lane": "1358872734#2_3"
+        },
+        {
+          "idx": 31,
+          "edge": "107175231#5",
+          "lane_index": 4,
+          "lane": "107175231#5_4"
+        },
+        {
+          "idx": 32,
+          "edge": "107175231#6",
+          "lane_index": 3,
+          "lane": "107175231#6_3"
+        },
+        {
+          "idx": 33,
+          "edge": "107175231#7-AddedOnRampEdge",
+          "lane_index": 4,
+          "lane": "107175231#7-AddedOnRampEdge_4"
+        },
+        {
+          "idx": 34,
+          "edge": "107175231#7",
+          "lane_index": 3,
+          "lane": "107175231#7_3"
+        },
+        {
+          "idx": 35,
+          "edge": "107175231#8",
+          "lane_index": 3,
+          "lane": "107175231#8_3"
+        },
+        {
+          "idx": 36,
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "lane_index": 6,
+          "lane": "1358424025#9-AddedOnRampEdge_6"
+        },
+        {
+          "idx": 37,
+          "edge": "1358424025#9",
+          "lane_index": 2,
+          "lane": "1358424025#9_2"
+        },
+        {
+          "idx": 38,
+          "edge": "1358424025#10",
+          "lane_index": 6,
+          "lane": "1358424025#10_6"
+        },
+        {
+          "idx": 39,
+          "edge": "1358424025#11",
+          "lane_index": 6,
+          "lane": "1358424025#11_6"
+        },
+        {
+          "idx": 40,
+          "edge": "1358424025#12",
+          "lane_index": 2,
+          "lane": "1358424025#12_2"
+        },
+        {
+          "idx": 41,
+          "edge": "1358424025#13",
+          "lane_index": 5,
+          "lane": "1358424025#13_5"
+        },
+        {
+          "idx": 42,
+          "edge": "1358424025#14",
+          "lane_index": 2,
+          "lane": "1358424025#14_2"
+        },
+        {
+          "idx": 43,
+          "edge": "1501371310#0",
+          "lane_index": 2,
+          "lane": "1501371310#0_2"
+        }
+      ],
+      "positions": [
+        0.0,
+        42.16,
+        109.7,
+        252.23000000000002,
+        265.09000000000003,
+        426.59000000000003,
+        461.62,
+        498.59000000000003,
+        551.74,
+        573.07,
+        621.5500000000001,
+        662.9200000000001,
+        683.69,
+        789.99,
+        906.26,
+        929.03,
+        1049.93,
+        1097.97,
+        1146.34,
+        1195.4599999999998,
+        1268.7399999999998,
+        1375.5599999999997,
+        1409.2599999999998,
+        1596.9099999999999,
+        1737.6399999999999,
+        1738.9799999999998,
+        1739.1799999999998,
+        1855.4399999999998,
+        1953.8799999999999,
+        2012.9799999999998,
+        2147.6099999999997,
+        2160.5799999999995,
+        2203.6099999999997,
+        2222.8599999999997,
+        2317.7699999999995,
+        2372.8599999999997,
+        2437.1899999999996,
+        2533.1399999999994,
+        2557.8399999999992,
+        2609.249999999999,
+        2646.559999999999,
+        2800.259999999999,
+        2824.6299999999987,
+        2858.659999999999,
+        2920.339999999999
+      ],
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0,
+      "cost_s": 163.44,
+      "ff_s": 152.17,
+      "edge_ff_s": {
+        "131792632#7": 2.4737428856421992,
+        "-131792621#10": 3.962917326761721,
+        "326224887": 7.89333776374813,
+        "-326224885#3": 0.7121891787118568,
+        "326224903#0": 8.943899872625574,
+        "326224903#1": 1.9399678794927173,
+        "326224920#0": 2.0474054383341636,
+        "326224920#1": 2.9434568311458156,
+        "326224920#2": 1.1812593454062135,
+        "-326224919#5": 2.6848313673367663,
+        "-326224919#4": 2.2910782522013617,
+        "-326224919#3": 1.1502464418231155,
+        "-326224919#1": 5.886913662291631,
+        "-326224919#0": 6.4390541064407145,
+        "326224918#3": 1.261006811762751,
+        "326224931": 6.695464362850972,
+        "107431061#9": 2.81875256703632,
+        "1358872734#1": 2.8381153552778264,
+        "1358872734#2": 2.882121692190342,
+        "1358872734#3": 4.299712491932172,
+        "132082407": 5.915711358475936,
+        "326232090#0": 1.8663122334828597,
+        "326232091#0": 10.392091709586309,
+        "326232091#1": 7.793653430802458,
+        "286815796#5": 0.0786246552836942,
+        "453669637#0": 0.01107603699396356,
+        "453669637#1": 6.438500304591017,
+        "453669637#2": 5.451625408428863,
+        "-293333047#1": 3.272968931716232,
+        "1183380790": 7.455834302486569,
+        "369685228#6": 0.7182809990585368,
+        "107175231#5": 2.524790236460717,
+        "107175231#6": 1.1294959807545621,
+        "107175231#7-AddedOnRampEdge": 5.568855248489116,
+        "107175231#7": 3.232412134013965,
+        "107175231#8": 3.7745702047761545,
+        "1358424025#9-AddedOnRampEdge": 3.0187195217870064,
+        "1358424025#9": 0.7770961145194274,
+        "1358424025#10": 1.6174296051596664,
+        "1358424025#11": 1.1738241308793456,
+        "1358424025#12": 4.835614283467044,
+        "1358424025#13": 0.7667138587383986,
+        "1358424025#14": 1.0706308006921503,
+        "1501371310#0": 1.9405379896177442
+      },
+      "length_m": 2920.3,
+      "signals_plan": [],
+      "rescue_plan": [],
+      "holds_plan": []
+    },
+    {
+      "id": "A:reroute+preempt",
+      "label": "Route A + signal preemption",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        }
+      ],
+      "signals": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 35,
+          "last_idx": 35,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 40,
+          "last_idx": 40,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue": [
+        {
+          "idx": 18,
+          "edge": "1358872734#2",
+          "lane_index": 3,
+          "lane": "1358872734#2_3"
+        },
+        {
+          "idx": 31,
+          "edge": "107175231#5",
+          "lane_index": 4,
+          "lane": "107175231#5_4"
+        },
+        {
+          "idx": 32,
+          "edge": "107175231#6",
+          "lane_index": 3,
+          "lane": "107175231#6_3"
+        },
+        {
+          "idx": 33,
+          "edge": "107175231#7-AddedOnRampEdge",
+          "lane_index": 4,
+          "lane": "107175231#7-AddedOnRampEdge_4"
+        },
+        {
+          "idx": 34,
+          "edge": "107175231#7",
+          "lane_index": 3,
+          "lane": "107175231#7_3"
+        },
+        {
+          "idx": 35,
+          "edge": "107175231#8",
+          "lane_index": 3,
+          "lane": "107175231#8_3"
+        },
+        {
+          "idx": 36,
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "lane_index": 6,
+          "lane": "1358424025#9-AddedOnRampEdge_6"
+        },
+        {
+          "idx": 37,
+          "edge": "1358424025#9",
+          "lane_index": 2,
+          "lane": "1358424025#9_2"
+        },
+        {
+          "idx": 38,
+          "edge": "1358424025#10",
+          "lane_index": 6,
+          "lane": "1358424025#10_6"
+        },
+        {
+          "idx": 39,
+          "edge": "1358424025#11",
+          "lane_index": 6,
+          "lane": "1358424025#11_6"
+        },
+        {
+          "idx": 40,
+          "edge": "1358424025#12",
+          "lane_index": 2,
+          "lane": "1358424025#12_2"
+        },
+        {
+          "idx": 41,
+          "edge": "1358424025#13",
+          "lane_index": 5,
+          "lane": "1358424025#13_5"
+        },
+        {
+          "idx": 42,
+          "edge": "1358424025#14",
+          "lane_index": 2,
+          "lane": "1358424025#14_2"
+        },
+        {
+          "idx": 43,
+          "edge": "1501371310#0",
+          "lane_index": 2,
+          "lane": "1501371310#0_2"
+        }
+      ],
+      "positions": [
+        0.0,
+        42.16,
+        109.7,
+        252.23000000000002,
+        265.09000000000003,
+        426.59000000000003,
+        461.62,
+        498.59000000000003,
+        551.74,
+        573.07,
+        621.5500000000001,
+        662.9200000000001,
+        683.69,
+        789.99,
+        906.26,
+        929.03,
+        1049.93,
+        1097.97,
+        1146.34,
+        1195.4599999999998,
+        1268.7399999999998,
+        1375.5599999999997,
+        1409.2599999999998,
+        1596.9099999999999,
+        1737.6399999999999,
+        1738.9799999999998,
+        1739.1799999999998,
+        1855.4399999999998,
+        1953.8799999999999,
+        2012.9799999999998,
+        2147.6099999999997,
+        2160.5799999999995,
+        2203.6099999999997,
+        2222.8599999999997,
+        2317.7699999999995,
+        2372.8599999999997,
+        2437.1899999999996,
+        2533.1399999999994,
+        2557.8399999999992,
+        2609.249999999999,
+        2646.559999999999,
+        2800.259999999999,
+        2824.6299999999987,
+        2858.659999999999,
+        2920.339999999999
+      ],
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0,
+      "cost_s": 163.44,
+      "ff_s": 152.17,
+      "edge_ff_s": {
+        "131792632#7": 2.4737428856421992,
+        "-131792621#10": 3.962917326761721,
+        "326224887": 7.89333776374813,
+        "-326224885#3": 0.7121891787118568,
+        "326224903#0": 8.943899872625574,
+        "326224903#1": 1.9399678794927173,
+        "326224920#0": 2.0474054383341636,
+        "326224920#1": 2.9434568311458156,
+        "326224920#2": 1.1812593454062135,
+        "-326224919#5": 2.6848313673367663,
+        "-326224919#4": 2.2910782522013617,
+        "-326224919#3": 1.1502464418231155,
+        "-326224919#1": 5.886913662291631,
+        "-326224919#0": 6.4390541064407145,
+        "326224918#3": 1.261006811762751,
+        "326224931": 6.695464362850972,
+        "107431061#9": 2.81875256703632,
+        "1358872734#1": 2.8381153552778264,
+        "1358872734#2": 2.882121692190342,
+        "1358872734#3": 4.299712491932172,
+        "132082407": 5.915711358475936,
+        "326232090#0": 1.8663122334828597,
+        "326232091#0": 10.392091709586309,
+        "326232091#1": 7.793653430802458,
+        "286815796#5": 0.0786246552836942,
+        "453669637#0": 0.01107603699396356,
+        "453669637#1": 6.438500304591017,
+        "453669637#2": 5.451625408428863,
+        "-293333047#1": 3.272968931716232,
+        "1183380790": 7.455834302486569,
+        "369685228#6": 0.7182809990585368,
+        "107175231#5": 2.524790236460717,
+        "107175231#6": 1.1294959807545621,
+        "107175231#7-AddedOnRampEdge": 5.568855248489116,
+        "107175231#7": 3.232412134013965,
+        "107175231#8": 3.7745702047761545,
+        "1358424025#9-AddedOnRampEdge": 3.0187195217870064,
+        "1358424025#9": 0.7770961145194274,
+        "1358424025#10": 1.6174296051596664,
+        "1358424025#11": 1.1738241308793456,
+        "1358424025#12": 4.835614283467044,
+        "1358424025#13": 0.7667138587383986,
+        "1358424025#14": 1.0706308006921503,
+        "1501371310#0": 1.9405379896177442
+      },
+      "length_m": 2920.3,
+      "signals_plan": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 35,
+          "last_idx": 35,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 40,
+          "last_idx": 40,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue_plan": [],
+      "holds_plan": []
+    },
+    {
+      "id": "A:reroute+preempt+rescue_lane",
+      "label": "Route A + preemption + rescue lane",
+      "route_name": "Route A",
+      "route_rank": 1,
+      "route": [
+        "131792632#7",
+        "-131792621#10",
+        "326224887",
+        "-326224885#3",
+        "326224903#0",
+        "326224903#1",
+        "326224920#0",
+        "326224920#1",
+        "326224920#2",
+        "-326224919#5",
+        "-326224919#4",
+        "-326224919#3",
+        "-326224919#1",
+        "-326224919#0",
+        "326224918#3",
+        "326224931",
+        "107431061#9",
+        "1358872734#1",
+        "1358872734#2",
+        "1358872734#3",
+        "132082407",
+        "326232090#0",
+        "326232091#0",
+        "326232091#1",
+        "286815796#5",
+        "453669637#0",
+        "453669637#1",
+        "453669637#2",
+        "-293333047#1",
+        "1183380790",
+        "369685228#6",
+        "107175231#5",
+        "107175231#6",
+        "107175231#7-AddedOnRampEdge",
+        "107175231#7",
+        "107175231#8",
+        "1358424025#9-AddedOnRampEdge",
+        "1358424025#9",
+        "1358424025#10",
+        "1358424025#11",
+        "1358424025#12",
+        "1358424025#13",
+        "1358424025#14",
+        "1501371310#0"
+      ],
+      "actions": [
+        {
+          "type": "reroute",
+          "route": "Route A"
+        },
+        {
+          "type": "preempt",
+          "signals": 2
+        },
+        {
+          "type": "rescue_lane",
+          "edges": 14
+        }
+      ],
+      "signals": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 35,
+          "last_idx": 35,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 40,
+          "last_idx": 40,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue": [
+        {
+          "idx": 18,
+          "edge": "1358872734#2",
+          "lane_index": 3,
+          "lane": "1358872734#2_3"
+        },
+        {
+          "idx": 31,
+          "edge": "107175231#5",
+          "lane_index": 4,
+          "lane": "107175231#5_4"
+        },
+        {
+          "idx": 32,
+          "edge": "107175231#6",
+          "lane_index": 3,
+          "lane": "107175231#6_3"
+        },
+        {
+          "idx": 33,
+          "edge": "107175231#7-AddedOnRampEdge",
+          "lane_index": 4,
+          "lane": "107175231#7-AddedOnRampEdge_4"
+        },
+        {
+          "idx": 34,
+          "edge": "107175231#7",
+          "lane_index": 3,
+          "lane": "107175231#7_3"
+        },
+        {
+          "idx": 35,
+          "edge": "107175231#8",
+          "lane_index": 3,
+          "lane": "107175231#8_3"
+        },
+        {
+          "idx": 36,
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "lane_index": 6,
+          "lane": "1358424025#9-AddedOnRampEdge_6"
+        },
+        {
+          "idx": 37,
+          "edge": "1358424025#9",
+          "lane_index": 2,
+          "lane": "1358424025#9_2"
+        },
+        {
+          "idx": 38,
+          "edge": "1358424025#10",
+          "lane_index": 6,
+          "lane": "1358424025#10_6"
+        },
+        {
+          "idx": 39,
+          "edge": "1358424025#11",
+          "lane_index": 6,
+          "lane": "1358424025#11_6"
+        },
+        {
+          "idx": 40,
+          "edge": "1358424025#12",
+          "lane_index": 2,
+          "lane": "1358424025#12_2"
+        },
+        {
+          "idx": 41,
+          "edge": "1358424025#13",
+          "lane_index": 5,
+          "lane": "1358424025#13_5"
+        },
+        {
+          "idx": 42,
+          "edge": "1358424025#14",
+          "lane_index": 2,
+          "lane": "1358424025#14_2"
+        },
+        {
+          "idx": 43,
+          "edge": "1501371310#0",
+          "lane_index": 2,
+          "lane": "1501371310#0_2"
+        }
+      ],
+      "positions": [
+        0.0,
+        42.16,
+        109.7,
+        252.23000000000002,
+        265.09000000000003,
+        426.59000000000003,
+        461.62,
+        498.59000000000003,
+        551.74,
+        573.07,
+        621.5500000000001,
+        662.9200000000001,
+        683.69,
+        789.99,
+        906.26,
+        929.03,
+        1049.93,
+        1097.97,
+        1146.34,
+        1195.4599999999998,
+        1268.7399999999998,
+        1375.5599999999997,
+        1409.2599999999998,
+        1596.9099999999999,
+        1737.6399999999999,
+        1738.9799999999998,
+        1739.1799999999998,
+        1855.4399999999998,
+        1953.8799999999999,
+        2012.9799999999998,
+        2147.6099999999997,
+        2160.5799999999995,
+        2203.6099999999997,
+        2222.8599999999997,
+        2317.7699999999995,
+        2372.8599999999997,
+        2437.1899999999996,
+        2533.1399999999994,
+        2557.8399999999992,
+        2609.249999999999,
+        2646.559999999999,
+        2800.259999999999,
+        2824.6299999999987,
+        2858.659999999999,
+        2920.339999999999
+      ],
+      "halted_at_t": 0,
+      "worst_edge_at_t": null,
+      "worst_edge_halted_at_t": 0,
+      "cost_s": 163.44,
+      "ff_s": 152.17,
+      "edge_ff_s": {
+        "131792632#7": 2.4737428856421992,
+        "-131792621#10": 3.962917326761721,
+        "326224887": 7.89333776374813,
+        "-326224885#3": 0.7121891787118568,
+        "326224903#0": 8.943899872625574,
+        "326224903#1": 1.9399678794927173,
+        "326224920#0": 2.0474054383341636,
+        "326224920#1": 2.9434568311458156,
+        "326224920#2": 1.1812593454062135,
+        "-326224919#5": 2.6848313673367663,
+        "-326224919#4": 2.2910782522013617,
+        "-326224919#3": 1.1502464418231155,
+        "-326224919#1": 5.886913662291631,
+        "-326224919#0": 6.4390541064407145,
+        "326224918#3": 1.261006811762751,
+        "326224931": 6.695464362850972,
+        "107431061#9": 2.81875256703632,
+        "1358872734#1": 2.8381153552778264,
+        "1358872734#2": 2.882121692190342,
+        "1358872734#3": 4.299712491932172,
+        "132082407": 5.915711358475936,
+        "326232090#0": 1.8663122334828597,
+        "326232091#0": 10.392091709586309,
+        "326232091#1": 7.793653430802458,
+        "286815796#5": 0.0786246552836942,
+        "453669637#0": 0.01107603699396356,
+        "453669637#1": 6.438500304591017,
+        "453669637#2": 5.451625408428863,
+        "-293333047#1": 3.272968931716232,
+        "1183380790": 7.455834302486569,
+        "369685228#6": 0.7182809990585368,
+        "107175231#5": 2.524790236460717,
+        "107175231#6": 1.1294959807545621,
+        "107175231#7-AddedOnRampEdge": 5.568855248489116,
+        "107175231#7": 3.232412134013965,
+        "107175231#8": 3.7745702047761545,
+        "1358424025#9-AddedOnRampEdge": 3.0187195217870064,
+        "1358424025#9": 0.7770961145194274,
+        "1358424025#10": 1.6174296051596664,
+        "1358424025#11": 1.1738241308793456,
+        "1358424025#12": 4.835614283467044,
+        "1358424025#13": 0.7667138587383986,
+        "1358424025#14": 1.0706308006921503,
+        "1501371310#0": 1.9405379896177442
+      },
+      "length_m": 2920.3,
+      "signals_plan": [
+        {
+          "tls": "10029622722",
+          "links": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "first_idx": 35,
+          "last_idx": 35,
+          "junction": "10029622722"
+        },
+        {
+          "tls": "13031132456",
+          "links": [
+            0,
+            1,
+            2
+          ],
+          "first_idx": 40,
+          "last_idx": 40,
+          "junction": "13031132456"
+        }
+      ],
+      "rescue_plan": [
+        {
+          "idx": 18,
+          "edge": "1358872734#2",
+          "lane_index": 3,
+          "lane": "1358872734#2_3"
+        },
+        {
+          "idx": 31,
+          "edge": "107175231#5",
+          "lane_index": 4,
+          "lane": "107175231#5_4"
+        },
+        {
+          "idx": 32,
+          "edge": "107175231#6",
+          "lane_index": 3,
+          "lane": "107175231#6_3"
+        },
+        {
+          "idx": 33,
+          "edge": "107175231#7-AddedOnRampEdge",
+          "lane_index": 4,
+          "lane": "107175231#7-AddedOnRampEdge_4"
+        },
+        {
+          "idx": 34,
+          "edge": "107175231#7",
+          "lane_index": 3,
+          "lane": "107175231#7_3"
+        },
+        {
+          "idx": 35,
+          "edge": "107175231#8",
+          "lane_index": 3,
+          "lane": "107175231#8_3"
+        },
+        {
+          "idx": 36,
+          "edge": "1358424025#9-AddedOnRampEdge",
+          "lane_index": 6,
+          "lane": "1358424025#9-AddedOnRampEdge_6"
+        },
+        {
+          "idx": 37,
+          "edge": "1358424025#9",
+          "lane_index": 2,
+          "lane": "1358424025#9_2"
+        },
+        {
+          "idx": 38,
+          "edge": "1358424025#10",
+          "lane_index": 6,
+          "lane": "1358424025#10_6"
+        },
+        {
+          "idx": 39,
+          "edge": "1358424025#11",
+          "lane_index": 6,
+          "lane": "1358424025#11_6"
+        },
+        {
+          "idx": 40,
+          "edge": "1358424025#12",
+          "lane_index": 2,
+          "lane": "1358424025#12_2"
+        },
+        {
+          "idx": 41,
+          "edge": "1358424025#13",
+          "lane_index": 5,
+          "lane": "1358424025#13_5"
+        },
+        {
+          "idx": 42,
+          "edge": "1358424025#14",
+          "lane_index": 2,
+          "lane": "1358424025#14_2"
+        },
+        {
+          "idx": 43,
+          "edge": "1501371310#0",
+          "lane_index": 2,
+          "lane": "1501371310#0_2"
+        }
+      ],
+      "holds_plan": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/duarouter -n data/hail/hail.v2.net.xml -r runs/staggered_schools_60-f0.25/reroute.trips.xml --weight-files runs/staggered_schools_60-f0.25/weights.xml.gz --weights.expand true --routing-algorithm astar --routing-threads 8 --seed 1 --begin 0 --end 93600 -o runs/staggered_schools_60-f0.25/reroute.rou.xml.gz --vtype-output runs/staggered_schools_60-f0.25/reroute.vtypes.xml --ignore-errors true --no-step-log true --aggregate-warnings 5
+Warning: No interval matches passed time=22029.90 in edge '132037468'.
+ Using edge's length / max speed.
+Success.

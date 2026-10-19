@@ -1,0 +1,81 @@
+{
+  "run_id": "baseline-weekday-f0.25-s1-addfcb64-76573219-d30875",
+  "label": "synthetic demand, uncalibrated",
+  "kind": "baseline",
+  "tier": "A",
+  "mode": "meso",
+  "daytype": "weekday",
+  "date": "2026-10-18",
+  "seed": 1,
+  "sample": 0.25,
+  "capacity_scale": 4.0,
+  "config_hash": "d3087540b097137a",
+  "network": "data/hail/hail.v2.net.xml",
+  "network_hash": "addfcb64bedc9fa3",
+  "population_hash": "765732190ffb2223",
+  "zones_hash": "28020c0cfacc627b",
+  "trips_hash": "f3a44f08d11122b8",
+  "vehicles_hash": "66090e81fca81412",
+  "route_key": "8a2e8b3778eec6a5",
+  "routes_deterministic": false,
+  "routes_hash": "01c9be37c7539394",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "sim_end_s": 86400,
+  "run_end_s": 93600,
+  "persons": 112712,
+  "vehicles": 124976,
+  "demand": {
+    "person_trips": 290647,
+    "mode_shares": {
+      "car": 0.2099,
+      "chauffeured": 0.0741,
+      "car_passenger": 0.368,
+      "ridehail": 0.07,
+      "escort": 0.0986,
+      "school_bus": 0.027,
+      "company_bus": 0.0524,
+      "bus": 0.0,
+      "walk": 0.1
+    },
+    "person_trips_per_person": 2.575
+  },
+  "timings": {
+    "demand_s": 3.3,
+    "assignment": {
+      "wall_s": 3953.5,
+      "peak_rss_mb": 1831.8,
+      "cached": false
+    },
+    "simulation": {
+      "wall_s": 275.1,
+      "peak_rss_mb": 1177.5
+    },
+    "postprocess_s": 33.5,
+    "total_s": 4266.4
+  },
+  "result": {
+    "trips_completed": 499456,
+    "trips_completed_sampled": 124864,
+    "vehicles_loaded_sampled": 124976,
+    "teleports": 22814,
+    "teleport_share": 0.182547,
+    "mean_delay_s": 881.5,
+    "mean_time_loss_s": 870.4,
+    "mean_depart_delay_s": 11.1,
+    "mean_duration_s": 1467.2,
+    "mean_trip_km": 10.2,
+    "mean_speed_kmh": 25.03,
+    "vkt": 5094966,
+    "vht": 203551,
+    "vht_delay": 122304,
+    "throughput_peak_hour_trips": 53908,
+    "peak_hour": 6,
+    "peak_spreading_top_hour_share": 0.1079,
+    "am_peak_mean_delay_s": 328.5,
+    "co2_t": 1960.9,
+    "nox_kg": 1045.9,
+    "co2_peak_hour_t": 127.0,
+    "vehicles_planned": 499904,
+    "completion_share": 1.0
+  }
+}

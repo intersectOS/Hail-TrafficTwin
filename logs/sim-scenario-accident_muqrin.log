@@ -1,0 +1,62 @@
+/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumolib/net/__init__.py:388: UserWarning: Module 'rtree' not available. Using brute-force fallback.
+  warnings.warn("Module 'rtree' not available. Using brute-force fallback.")
+# Scenario report: accident_muqrin on window `center`
+
+**synthetic demand, uncalibrated**. Fictional scenario parameters (PROJECT.md section 11).
+
+Crash closes Prince Muqrin St for 20 min in the morning peak. Seed 1, 0-3600 s, Tier B (micro), Eclipse SUMO sumo 1.28.0. Run `accident_muqrin-center-s1-2eaf1229`; config hash `2eaf1229dfdd75ca`, network hash `ff661b46062e0c11`, demand hash `6adc96939f3ef10c`.
+
+Baseline: same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events.
+
+| KPI | baseline | scenario | delta | delta % |
+|---|---:|---:|---:|---:|
+| vehicles inserted | 9910 | 9916 | 6 | 0.06 |
+| background trips completed | 7727 | 7699 | -28 | -0.36 |
+| running at end | 2183 | 2217 | - | - |
+| waiting to insert at end | 51 | 45 | -6 | -11.76 |
+| mean travel time (s) | 293.63 | 289.41 | -4.22 | -1.44 |
+| mean delay = timeLoss (s) | 118.59 | 115.10 | -3.49 | -2.94 |
+| mean insertion delay = departDelay (s) | 0.10 | 0.09 | -0.01 | -10.00 |
+| mean speed (km/h) | 21.39 | 21.51 | 0.12 | 0.56 |
+| VKT (veh-km) | 23,323.90 | 23,260.60 | -63.30 | -0.27 |
+| VHT (veh-h) | 1,090.38 | 1,081.23 | -9.15 | -0.84 |
+| longest queue, max (m) | 328.50 | 329.30 | 0.80 | 0.24 |
+| longest queue, p95 over steps (m) | 321.70 | 323.70 | 2.00 | 0.62 |
+| max halted on one edge (veh) | 103 | 104 | 1 | 0.97 |
+| halted in window, p95 (veh) | 1,291.00 | 1,361.00 | 70.00 | 5.42 |
+| teleports | 342 | 307 | -35 | -10.23 |
+| jam teleports | 213 | 192 | - | - |
+| vehicles rerouted by closures | 0 | 10 | - | - |
+| gridlock (onset s) | True (1,691.00) | True (1,738.00) | | |
+
+Gridlock rules fired in the scenario: {'sustained_halt': 2753.0, 'jam_teleports': 1738.0}.
+
+## Vehicles entering event edges
+
+| edge | baseline | scenario |
+|---|---:|---:|
+| `1501371314#5` | 28 | 18 |
+
+## Top queued edges (scenario)
+
+| edge | max queue (m) | at (s) | max halted (veh) |
+|---|---:|---:|---:|
+| `107173634#27` | 329.3 | 3236 | 104 |
+| `107417760#0` | 323.3 | 3535 | 25 |
+| `1501371308` | 209.5 | 3091 | 28 |
+| `107418926#0` | 161.6 | 1904 | 21 |
+| `1358424025#1` | 151.7 | 3368 | 39 |
+
+## Event log (scenario)
+
+| t (s) | event | action | details |
+|---:|---|---|---|
+| 600 | crash_muqrin | start | type=accident |
+| 600 | crash_muqrin | close_lanes | lanes=['1501371314#5_3', '1501371314#5_2', '1501371314#5_1', '1501371314#5_0'], verified_disallowed=4, full_closure=True, rerouted=7, rub... |
+| 1800 | crash_muqrin | reopen_lanes | lanes=['1501371314#5_3', '1501371314#5_2', '1501371314#5_1', '1501371314#5_0'], verified_reopened=4 |
+| 1800 | crash_muqrin | end | horizon=False |
+
+Wall time: baseline 302.06 s + 30.09 s post, scenario 304.66 s + 29.53 s post, total 339.54 s (parallel).
+
+Assumptions used (64): A-vtype-063, A-vtype-064, A-vtype-065, A-vtype-066, A-vtype-067, A-vtype-068, A-vtype-069, A-vtype-001, A-vtype-002, A-vtype-003, A-vtype-004, A-vtype-005, A-vtype-006, A-vtype-007, A-vtype-008, A-vtype-009, A-vtype-010, A-vtype-011, A-vtype-012, A-vtype-013, A-vtype-014, A-vtype-015, A-vtype-016, A-vtype-017, A-vtype-018, A-vtype-019, A-vtype-020, A-vtype-021, A-vtype-022, A-vtype-023, A-vtype-024, A-vtype-025, A-vtype-026, A-vtype-027, A-vtype-028, A-vtype-029, A-vtype-030, A-vtype-031, A-vtype-032, A-vtype-033, A-vtype-034, A-vtype-035, A-vtype-036, A-vtype-037, A-vtype-038, A-vtype-039, A-vtype-040, A-vtype-041, A-vtype-042, A-vtype-043, A-vtype-044, A-vtype-045, A-vtype-046, A-event-002, A-event-003, A-event-001, A-kpi-001, A-kpi-002, A-kpi-003, A-kpi-004, A-kpi-005, A-kpi-006, A-kpi-007, A-sim-002 (docs/assumptions-trackB.md, docs/assumptions.md).
+

@@ -1,0 +1,39 @@
+/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumolib/net/__init__.py:388: UserWarning: Module 'rtree' not available. Using brute-force fallback.
+  warnings.warn("Module 'rtree' not available. Using brute-force fallback.")
+{
+ "network": {
+  "edges": 10567,
+  "junctions": 3969,
+  "traffic_lights": 17,
+  "lanes": 13899,
+  "lane_km": 1014.56,
+  "edge_km": 724.5,
+  "net_hash": "ff661b46062e0c11"
+ },
+ "graft": {
+  "service_edges_candidate": 547,
+  "service_edges_grafted": 533,
+  "service_edges_dropped_unattached": 14,
+  "service_edges_dropped_access": 0,
+  "service_edges_dropped_loop": 0,
+  "attach_nodes": 119,
+  "attach_at_junction": 9,
+  "attach_unsnapped": 2,
+  "split_nodes": 110,
+  "split_edges": 126,
+  "extra": {}
+ },
+ "validation": {
+  "sumo_load_ok": true,
+  "sumo_load_errors": [],
+  "service_edges": 533,
+  "service_reachable_from_main": 533,
+  "service_can_reach_main": 533,
+  "service_connected_both_ways": 533,
+  "edgemap_broken": [],
+  "untouched_edges_compared": 9718,
+  "untouched_edges_connections_changed": 0,
+  "city_edges_missing": [],
+  "city_edges_missing_count": 0
+ }
+}

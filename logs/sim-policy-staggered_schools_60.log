@@ -1,0 +1,11 @@
+[staggered_schools_60-f0.25] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  staggered_hours: segment=school, institutions=75, institutions_shifted=34, mean_shift_min=63.3, tours_retimed=9182, vehicles_retimed=9796
+[staggered_schools_60-f0.25] meso run: 115,180 baseline routes, 9,796 new routes
+[staggered_schools_60-f0.25] matched control: 9,796 baseline vehicles re-routed
+[staggered_schools_60-f0.25--control] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  remote_work: eligible_workers_with_tour=7213, remote_today=0, tours_removed=0, person_trips_removed=0, vehicles_removed=0, induced_tours_added=0, induced_person_trips_added=0, induced_vehicles_added=0
+[staggered_schools_60-f0.25--control] meso run: 115,180 baseline routes, 9,796 new routes
+Policy matched_control vs weekday baseline [synthetic demand, uncalibrated]: mean delay -18.8 %, AM-peak delay +18.5 %, VKT +0.2 %, VHT -11.1 %, CO2 -10.3 %
+  report runs/staggered_schools_60-f0.25--control/policy_report.md
+Policy staggered_schools_60 vs weekday baseline [synthetic demand, uncalibrated]: mean delay +2.4 %, AM-peak delay -15.8 %, VKT +0.0 %, VHT +1.3 %, CO2 +1.1 %
+  report runs/staggered_schools_60-f0.25/policy_report.md

@@ -1,0 +1,9 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert -s data/hail/hail.v2.net.xml -o runs/bus_line_king_abdulaziz-f0.25/pt_H1/sub.net.xml.gz --keep-edges.in-geo-boundary 41.6803,27.459699999999998,41.7594,27.6236 --output.street-names true --output.original-names true --geometry.min-radius.fix.railways false --geometry.avoid-overlap false --geometry.max-grade.fix false --offset.disable-normalization true --no-warnings true
+Success.
+$ .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/ptlines2flows.py -n runs/bus_line_king_abdulaziz-f0.25/pt_H1/sub.net.xml.gz -l runs/bus_line_king_abdulaziz-f0.25/pt_H1/ptlines.xml -s runs/bus_line_king_abdulaziz-f0.25/pt_H1/stops.add.xml -o runs/bus_line_king_abdulaziz-f0.25/pt_H1/flows.rou.xml -t runs/bus_line_king_abdulaziz-f0.25/pt_H1/trips.xml -r runs/bus_line_king_abdulaziz-f0.25/pt_H1/vehroutes.xml -i runs/bus_line_king_abdulaziz-f0.25/pt_H1/stopinfos.xml -p 600 -b 21600 -e 82800 --vtype-prefix pt_ -d 20 --seed 1 --min-stops 2
+generating trips...
+done.
+running SUMO to determine actual departure times...
+done.
+creating routes...
+done.

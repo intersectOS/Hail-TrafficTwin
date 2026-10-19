@@ -1,0 +1,360 @@
+{
+  "scenario": "accident_king_khalid",
+  "title": "Crash closes King Khalid St for 20 min in the morning peak",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "center",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 3600.0,
+  "baseline_definition": "same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events",
+  "kpis": {
+    "baseline": {
+      "vehicles_loaded": 10085,
+      "vehicles_inserted": 9910,
+      "vehicles_running_at_end": 2183,
+      "vehicles_waiting_at_end": 51,
+      "background_completed": 7727,
+      "mean_travel_time_s": 293.63,
+      "mean_delay_s": 118.59,
+      "mean_depart_delay_s": 0.1,
+      "mean_speed_kmh": 21.39,
+      "vkt": 23323.9,
+      "vht": 1090.38,
+      "teleports": 342,
+      "teleports_jam": 213,
+      "teleport_share": 0.03391,
+      "queue_max_m": 328.5,
+      "queue_p95_m": 321.7,
+      "queue_max_veh": 103,
+      "halted_max_veh": 1370,
+      "halted_p95_veh": 1291.0,
+      "top_queued_edges": [
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 328.5,
+          "at_s": 3527.0,
+          "max_halted_veh": 86
+        },
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.2,
+          "at_s": 3565.0,
+          "max_halted_veh": 26
+        },
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 268.9,
+          "at_s": 3591.0,
+          "max_halted_veh": 103
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 213.2,
+          "at_s": 3587.0,
+          "max_halted_veh": 27
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 212.8,
+          "at_s": 2765.0,
+          "max_halted_veh": 28
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2602.0,
+      "gridlock_jam_teleport_onset_s": 1691.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    },
+    "scenario": {
+      "vehicles_loaded": 10085,
+      "vehicles_inserted": 9822,
+      "vehicles_running_at_end": 1517,
+      "vehicles_waiting_at_end": 139,
+      "background_completed": 8305,
+      "mean_travel_time_s": 318.53,
+      "mean_delay_s": 140.35,
+      "mean_depart_delay_s": 0.13,
+      "mean_speed_kmh": 25.33,
+      "vkt": 24847.9,
+      "vht": 980.97,
+      "teleports": 212,
+      "teleports_jam": 112,
+      "teleport_share": 0.02102,
+      "queue_max_m": 323.3,
+      "queue_p95_m": 321.3,
+      "queue_max_veh": 97,
+      "halted_max_veh": 797,
+      "halted_p95_veh": 743.0,
+      "top_queued_edges": [
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.3,
+          "at_s": 3095.0,
+          "max_halted_veh": 43
+        },
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 318.9,
+          "at_s": 1367.0,
+          "max_halted_veh": 97
+        },
+        {
+          "edge": "132154199#4",
+          "max_queue_m": 237.1,
+          "at_s": 3343.0,
+          "max_halted_veh": 32
+        },
+        {
+          "edge": "107430299#44",
+          "max_queue_m": 192.8,
+          "at_s": 3350.0,
+          "max_halted_veh": 51
+        },
+        {
+          "edge": "107173635#38",
+          "max_queue_m": 188.2,
+          "at_s": 3299.0,
+          "max_halted_veh": 8
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": null,
+      "gridlock_jam_teleport_onset_s": 2051.0,
+      "rerouted_vehicles": 335,
+      "reroute_failures": 1
+    }
+  },
+  "delta": {
+    "vehicles_inserted": {
+      "delta": -88,
+      "pct": -0.89
+    },
+    "background_completed": {
+      "delta": 578,
+      "pct": 7.48
+    },
+    "mean_travel_time_s": {
+      "delta": 24.9,
+      "pct": 8.48
+    },
+    "mean_delay_s": {
+      "delta": 21.76,
+      "pct": 18.35
+    },
+    "mean_depart_delay_s": {
+      "delta": 0.03,
+      "pct": 30.0
+    },
+    "vehicles_waiting_at_end": {
+      "delta": 88,
+      "pct": 172.55
+    },
+    "mean_speed_kmh": {
+      "delta": 3.94,
+      "pct": 18.42
+    },
+    "vkt": {
+      "delta": 1524.0,
+      "pct": 6.53
+    },
+    "vht": {
+      "delta": -109.41,
+      "pct": -10.03
+    },
+    "teleports": {
+      "delta": -130,
+      "pct": -38.01
+    },
+    "queue_max_m": {
+      "delta": -5.2,
+      "pct": -1.58
+    },
+    "queue_p95_m": {
+      "delta": -0.4,
+      "pct": -0.12
+    },
+    "queue_max_veh": {
+      "delta": -6,
+      "pct": -5.83
+    },
+    "halted_p95_veh": {
+      "delta": -548.0,
+      "pct": -42.45
+    }
+  },
+  "gridlock": {
+    "baseline": {
+      "gridlock": true,
+      "onset_s": 1691.0,
+      "rules_fired": {
+        "sustained_halt": 2602.0,
+        "jam_teleports": 1691.0
+      }
+    },
+    "scenario": {
+      "gridlock": true,
+      "onset_s": 2051.0,
+      "rules_fired": {
+        "jam_teleports": 2051.0
+      }
+    }
+  },
+  "emergency": {
+    "baseline": [],
+    "scenario": []
+  },
+  "convoy": [],
+  "event_edges_flow": {
+    "baseline": {
+      "107430299#49": 638.0
+    },
+    "scenario": {
+      "107430299#49": 228.0
+    }
+  },
+  "events": [
+    {
+      "type": "accident",
+      "id": "crash_king_khalid",
+      "start": 600.0,
+      "end": 1800.0,
+      "edges": [
+        "107430299#49"
+      ],
+      "closed_lanes": [
+        "107430299#49_3",
+        "107430299#49_2",
+        "107430299#49_1",
+        "107430299#49_0"
+      ],
+      "full_closure": true,
+      "side": "left",
+      "reroute": true,
+      "rubbernecking_factor": 0.7,
+      "rubbernecking_lanes": {
+        "-1124829899_0": 13.89
+      }
+    }
+  ],
+  "event_summaries": {
+    "crash_king_khalid": {
+      "lanes_closed_verified": 4,
+      "rubbernecking_speed_ms": {
+        "-1124829899_0": 9.723
+      },
+      "lanes_reopened_verified": 4
+    }
+  },
+  "event_log": [
+    {
+      "t": 600.0,
+      "event": "crash_king_khalid",
+      "action": "start",
+      "type": "accident"
+    },
+    {
+      "t": 600.0,
+      "event": "crash_king_khalid",
+      "action": "close_lanes",
+      "lanes": [
+        "107430299#49_3",
+        "107430299#49_2",
+        "107430299#49_1",
+        "107430299#49_0"
+      ],
+      "verified_disallowed": 4,
+      "full_closure": true,
+      "rerouted": 47,
+      "rubbernecking_lanes": [
+        "-1124829899_0"
+      ]
+    },
+    {
+      "t": 1800.0,
+      "event": "crash_king_khalid",
+      "action": "reopen_lanes",
+      "lanes": [
+        "107430299#49_3",
+        "107430299#49_2",
+        "107430299#49_1",
+        "107430299#49_0"
+      ],
+      "verified_reopened": 4
+    },
+    {
+      "t": 1800.0,
+      "event": "crash_king_khalid",
+      "action": "end",
+      "horizon": false
+    }
+  ],
+  "baseline_event_log": [],
+  "strategist_requested": false,
+  "assumption_ids": [
+    "A-vtype-063",
+    "A-vtype-064",
+    "A-vtype-065",
+    "A-vtype-066",
+    "A-vtype-067",
+    "A-vtype-068",
+    "A-vtype-069",
+    "A-vtype-001",
+    "A-vtype-002",
+    "A-vtype-003",
+    "A-vtype-004",
+    "A-vtype-005",
+    "A-vtype-006",
+    "A-vtype-007",
+    "A-vtype-008",
+    "A-vtype-009",
+    "A-vtype-010",
+    "A-vtype-011",
+    "A-vtype-012",
+    "A-vtype-013",
+    "A-vtype-014",
+    "A-vtype-015",
+    "A-vtype-016",
+    "A-vtype-017",
+    "A-vtype-018",
+    "A-vtype-019",
+    "A-vtype-020",
+    "A-vtype-021",
+    "A-vtype-022",
+    "A-vtype-023",
+    "A-vtype-024",
+    "A-vtype-025",
+    "A-vtype-026",
+    "A-vtype-027",
+    "A-vtype-028",
+    "A-vtype-029",
+    "A-vtype-030",
+    "A-vtype-031",
+    "A-vtype-032",
+    "A-vtype-033",
+    "A-vtype-034",
+    "A-vtype-035",
+    "A-vtype-036",
+    "A-vtype-037",
+    "A-vtype-038",
+    "A-vtype-039",
+    "A-vtype-040",
+    "A-vtype-041",
+    "A-vtype-042",
+    "A-vtype-043",
+    "A-vtype-044",
+    "A-vtype-045",
+    "A-vtype-046",
+    "A-event-002",
+    "A-event-003",
+    "A-event-001",
+    "A-kpi-001",
+    "A-kpi-002",
+    "A-kpi-003",
+    "A-kpi-004",
+    "A-kpi-005",
+    "A-kpi-006",
+    "A-kpi-007",
+    "A-sim-002"
+  ]
+}

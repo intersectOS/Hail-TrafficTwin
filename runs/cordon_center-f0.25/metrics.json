@@ -1,0 +1,371 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "run_id": "cordon_center-f0.25",
+  "summary": {
+    "trips_completed": 489148,
+    "trips_completed_sampled": 122287,
+    "vehicles_loaded_sampled": 122317,
+    "teleports": 12822,
+    "teleport_share": 0.104826,
+    "mean_delay_s": 528.1,
+    "mean_time_loss_s": 517.5,
+    "mean_depart_delay_s": 10.6,
+    "mean_duration_s": 1150.6,
+    "mean_trip_km": 10.6,
+    "mean_speed_kmh": 33.17,
+    "vkt": 5185180,
+    "vht": 156338,
+    "vht_delay": 71756,
+    "throughput_peak_hour_trips": 53996,
+    "peak_hour": 6,
+    "peak_spreading_top_hour_share": 0.1104,
+    "am_peak_mean_delay_s": 407.0,
+    "co2_t": 1532.8,
+    "nox_kg": 823.1,
+    "co2_peak_hour_t": 122.1,
+    "vehicles_planned": 489268,
+    "completion_share": 1.0
+  },
+  "hourly": [
+    {
+      "hour": 0,
+      "departures": 9412.0,
+      "mean_delay_s": 47.094,
+      "mean_speed_kmh": 59.152,
+      "vkt": 101318.934,
+      "co2_t": 18.255,
+      "nox_kg": 7.456
+    },
+    {
+      "hour": 1,
+      "departures": 4420.0,
+      "mean_delay_s": 45.152,
+      "mean_speed_kmh": 60.522,
+      "vkt": 49118.485,
+      "co2_t": 9.007,
+      "nox_kg": 5.122
+    },
+    {
+      "hour": 2,
+      "departures": 2328.0,
+      "mean_delay_s": 42.001,
+      "mean_speed_kmh": 60.792,
+      "vkt": 28017.673,
+      "co2_t": 5.155,
+      "nox_kg": 3.476
+    },
+    {
+      "hour": 3,
+      "departures": 1792.0,
+      "mean_delay_s": 49.688,
+      "mean_speed_kmh": 62.728,
+      "vkt": 23468.767,
+      "co2_t": 4.347,
+      "nox_kg": 3.034
+    },
+    {
+      "hour": 4,
+      "departures": 1972.0,
+      "mean_delay_s": 59.463,
+      "mean_speed_kmh": 65.929,
+      "vkt": 32554.592,
+      "co2_t": 6.307,
+      "nox_kg": 6.706
+    },
+    {
+      "hour": 5,
+      "departures": 30364.0,
+      "mean_delay_s": 99.265,
+      "mean_speed_kmh": 52.092,
+      "vkt": 273626.497,
+      "co2_t": 56.519,
+      "nox_kg": 51.096
+    },
+    {
+      "hour": 6,
+      "departures": 53996.0,
+      "mean_delay_s": 266.092,
+      "mean_speed_kmh": 40.29,
+      "vkt": 494680.156,
+      "co2_t": 122.078,
+      "nox_kg": 84.845
+    },
+    {
+      "hour": 7,
+      "departures": 21592.0,
+      "mean_delay_s": 586.853,
+      "mean_speed_kmh": 36.588,
+      "vkt": 307333.563,
+      "co2_t": 84.324,
+      "nox_kg": 47.825
+    },
+    {
+      "hour": 8,
+      "departures": 15288.0,
+      "mean_delay_s": 650.873,
+      "mean_speed_kmh": 34.226,
+      "vkt": 207274.451,
+      "co2_t": 60.758,
+      "nox_kg": 29.27
+    },
+    {
+      "hour": 9,
+      "departures": 9156.0,
+      "mean_delay_s": 582.112,
+      "mean_speed_kmh": 33.448,
+      "vkt": 109412.692,
+      "co2_t": 32.244,
+      "nox_kg": 15.687
+    },
+    {
+      "hour": 10,
+      "departures": 6840.0,
+      "mean_delay_s": 439.848,
+      "mean_speed_kmh": 37.698,
+      "vkt": 78478.47,
+      "co2_t": 20.687,
+      "nox_kg": 8.385
+    },
+    {
+      "hour": 11,
+      "departures": 17772.0,
+      "mean_delay_s": 272.029,
+      "mean_speed_kmh": 40.219,
+      "vkt": 167826.624,
+      "co2_t": 40.802,
+      "nox_kg": 18.175
+    },
+    {
+      "hour": 12,
+      "departures": 42836.0,
+      "mean_delay_s": 248.768,
+      "mean_speed_kmh": 38.404,
+      "vkt": 342323.616,
+      "co2_t": 86.732,
+      "nox_kg": 53.544
+    },
+    {
+      "hour": 13,
+      "departures": 21356.0,
+      "mean_delay_s": 587.757,
+      "mean_speed_kmh": 30.894,
+      "vkt": 221742.086,
+      "co2_t": 70.075,
+      "nox_kg": 42.169
+    },
+    {
+      "hour": 14,
+      "departures": 16260.0,
+      "mean_delay_s": 725.813,
+      "mean_speed_kmh": 32.334,
+      "vkt": 222409.91,
+      "co2_t": 68.493,
+      "nox_kg": 37.792
+    },
+    {
+      "hour": 15,
+      "departures": 22924.0,
+      "mean_delay_s": 509.516,
+      "mean_speed_kmh": 34.635,
+      "vkt": 262955.07,
+      "co2_t": 75.422,
+      "nox_kg": 47.069
+    },
+    {
+      "hour": 16,
+      "departures": 19520.0,
+      "mean_delay_s": 843.786,
+      "mean_speed_kmh": 29.756,
+      "vkt": 263136.843,
+      "co2_t": 87.627,
+      "nox_kg": 52.418
+    },
+    {
+      "hour": 17,
+      "departures": 28660.0,
+      "mean_delay_s": 1064.622,
+      "mean_speed_kmh": 23.932,
+      "vkt": 334579.823,
+      "co2_t": 134.793,
+      "nox_kg": 74.747
+    },
+    {
+      "hour": 18,
+      "departures": 29732.0,
+      "mean_delay_s": 940.643,
+      "mean_speed_kmh": 24.422,
+      "vkt": 322120.889,
+      "co2_t": 124.832,
+      "nox_kg": 60.514
+    },
+    {
+      "hour": 19,
+      "departures": 38020.0,
+      "mean_delay_s": 643.763,
+      "mean_speed_kmh": 27.919,
+      "vkt": 353635.773,
+      "co2_t": 120.573,
+      "nox_kg": 49.774
+    },
+    {
+      "hour": 20,
+      "departures": 30532.0,
+      "mean_delay_s": 692.225,
+      "mean_speed_kmh": 28.366,
+      "vkt": 311188.79,
+      "co2_t": 104.483,
+      "nox_kg": 42.487
+    },
+    {
+      "hour": 21,
+      "departures": 27084.0,
+      "mean_delay_s": 707.285,
+      "mean_speed_kmh": 29.632,
+      "vkt": 280201.262,
+      "co2_t": 89.805,
+      "nox_kg": 34.853
+    },
+    {
+      "hour": 22,
+      "departures": 21912.0,
+      "mean_delay_s": 548.665,
+      "mean_speed_kmh": 32.697,
+      "vkt": 230285.081,
+      "co2_t": 67.482,
+      "nox_kg": 27.204
+    },
+    {
+      "hour": 23,
+      "departures": 15380.0,
+      "mean_delay_s": 375.055,
+      "mean_speed_kmh": 39.303,
+      "vkt": 167490.203,
+      "co2_t": 42.03,
+      "nox_kg": 19.47
+    }
+  ],
+  "districts_top": [
+    {
+      "name_en": "Al Masif",
+      "trips": 3084.0,
+      "mean_delay_s": 1617.3,
+      "mean_speed_kmh": 16.8
+    },
+    {
+      "name_en": "Al Muruj",
+      "trips": 620.0,
+      "mean_delay_s": 1516.7,
+      "mean_speed_kmh": 23.0
+    },
+    {
+      "name_en": "Aja",
+      "trips": 65708.0,
+      "mean_delay_s": 1137.9,
+      "mean_speed_kmh": 20.0
+    },
+    {
+      "name_en": "Al Jamiah",
+      "trips": 30288.0,
+      "mean_delay_s": 977.8,
+      "mean_speed_kmh": 30.3
+    },
+    {
+      "name_en": "Mashar",
+      "trips": 1708.0,
+      "mean_delay_s": 967.4,
+      "mean_speed_kmh": 25.9
+    },
+    {
+      "name_en": "Safanah",
+      "trips": 9664.0,
+      "mean_delay_s": 872.8,
+      "mean_speed_kmh": 29.4
+    },
+    {
+      "name_en": "Sadyan",
+      "trips": 10692.0,
+      "mean_delay_s": 857.3,
+      "mean_speed_kmh": 23.9
+    },
+    {
+      "name_en": "Al Fayha",
+      "trips": 192.0,
+      "mean_delay_s": 851.2,
+      "mean_speed_kmh": 31.7
+    },
+    {
+      "name_en": "An Nasiyah",
+      "trips": 2664.0,
+      "mean_delay_s": 754.6,
+      "mean_speed_kmh": 29.8
+    },
+    {
+      "name_en": "Aljathamiuh",
+      "trips": 224.0,
+      "mean_delay_s": 725.8,
+      "mean_speed_kmh": 42.3
+    }
+  ],
+  "top_corridors": [
+    {
+      "edge_id": "1358446140#1",
+      "time_loss_veh_h_sampled": 1693.26,
+      "mean_speed_kmh": 24.5
+    },
+    {
+      "edge_id": "324069639#1",
+      "time_loss_veh_h_sampled": 1272.32,
+      "mean_speed_kmh": 34.1
+    },
+    {
+      "edge_id": "107425879#8",
+      "time_loss_veh_h_sampled": 996.14,
+      "mean_speed_kmh": 22.5
+    },
+    {
+      "edge_id": "350093246#4",
+      "time_loss_veh_h_sampled": 751.53,
+      "mean_speed_kmh": 28.6
+    },
+    {
+      "edge_id": "1358446140#5",
+      "time_loss_veh_h_sampled": 731.53,
+      "mean_speed_kmh": 16.8
+    },
+    {
+      "edge_id": "350093242#0",
+      "time_loss_veh_h_sampled": 639.05,
+      "mean_speed_kmh": 19.1
+    },
+    {
+      "edge_id": "324069547#7",
+      "time_loss_veh_h_sampled": 340.47,
+      "mean_speed_kmh": 19.8
+    },
+    {
+      "edge_id": "107430742#11",
+      "time_loss_veh_h_sampled": 274.28,
+      "mean_speed_kmh": 50.8
+    },
+    {
+      "edge_id": "324069547#6",
+      "time_loss_veh_h_sampled": 241.11,
+      "mean_speed_kmh": 19.2
+    },
+    {
+      "edge_id": "324069654#2",
+      "time_loss_veh_h_sampled": 240.94,
+      "mean_speed_kmh": 46.6
+    }
+  ],
+  "tripinfo_hash": "4974d61c0909df61",
+  "provenance": {
+    "seed": 1,
+    "sample": 0.25,
+    "config_hash": "64559c1f2183dbda",
+    "population_hash": "765732190ffb2223",
+    "network_hash": "addfcb64bedc9fa3",
+    "sumo_version": "Eclipse SUMO sumo 1.28.0",
+    "daytype": "weekday"
+  }
+}

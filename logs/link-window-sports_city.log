@@ -1,0 +1,13 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/hail/hail.v2.net.xml --keep-edges.in-geo-boundary 41.68,27.49,41.715,27.52 --remove-edges.isolated --keep-edges.components 1 --output.street-names --output.original-names --no-warnings -o data/windows/sports_city/sports_city.cut.net.xml
+Success.
+$ osmium extract -b 41.68,27.49,41.715,27.52 -s complete_ways data/osm/hail.osm.pbf -o data/windows/sports_city/sports_city.osm.gz --overwrite
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --osm-files data/windows/sports_city/sports_city.osm.gz --type-files .venv/lib/python3.12/site-packages/sumo/data/typemap/osmNetconvert.typ.xml,sim/network/types/window.typ.xml,data/windows/sports_city/graft/service.typ.xml --keep-edges.in-geo-boundary 41.68,27.49,41.715,27.52 --geometry.remove --keep-edges.by-vclass passenger --osm.lane-access --output.street-names --output.original-names --seed 1 --no-warnings -o data/windows/sports_city/graft/osm_window.net.xml
+Success.
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/windows/sports_city/sports_city.cut.net.xml --edge-files data/windows/sports_city/graft/splits.edg.xml --output.street-names --output.original-names --no-warnings -o data/windows/sports_city/graft/split.net.xml
+Success.
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --sumo-net-file data/windows/sports_city/graft/split.net.xml --plain-output-prefix data/windows/sports_city/graft/plain/p --no-warnings
+Success.
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert --node-files data/windows/sports_city/graft/plain/p.nod.xml,data/windows/sports_city/graft/svc.nod.xml --edge-files data/windows/sports_city/graft/plain/p.edg.xml,data/windows/sports_city/graft/svc.edg.xml --connection-files data/windows/sports_city/graft/plain/p.con.xml,data/windows/sports_city/graft/svc.con.xml --tllogic-files data/windows/sports_city/graft/plain/p.tll.xml --type-files .venv/lib/python3.12/site-packages/sumo/data/typemap/osmNetconvert.typ.xml,data/windows/sports_city/graft/service.typ.xml,data/windows/sports_city/graft/plain/p.typ.xml --offset.disable-normalization --no-turnarounds.except-deadend --output.street-names --output.original-names --no-warnings -o data/windows/sports_city/sports_city.net.xml
+Success.
+$ .venv/lib/python3.12/site-packages/sumo/bin/sumo -n data/windows/sports_city/sports_city.net.xml --end 1 --no-step-log --log data/windows/sports_city/sports_city.net.load.log
+Warning: Unused states in tlLogic 'cluster_9939282984_9939282985', program '0' in phase 0 after tl-index 6

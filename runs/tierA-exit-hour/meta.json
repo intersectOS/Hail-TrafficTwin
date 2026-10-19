@@ -1,0 +1,91 @@
+{
+  "run_id": "tierA-exit-hour",
+  "label": "synthetic demand, uncalibrated",
+  "kind": "tierA-exit",
+  "tier": "A",
+  "mode": "meso",
+  "seed": 1,
+  "config_hash": "cc34910d83348aca",
+  "network": "data/hail/hail.v2.net.xml",
+  "network_hash": "addfcb64bedc9fa3",
+  "routes": "runs/hail-source-hour/routes.rou.xml",
+  "routes_hash": "e827beea1eb45cf1",
+  "population_hash": "e827beea1eb45cf1",
+  "sumo_version": "Eclipse SUMO sumo 1.28.0",
+  "sim_begin": 0,
+  "sim_end": 14400,
+  "edgedata_interval": [
+    0,
+    3600
+  ],
+  "wall_seconds": 22.38,
+  "result": {
+    "vehicles_loaded": 16128,
+    "vehicles_inserted": 16128,
+    "vehicles_running_at_end": 0,
+    "vehicles_waiting_at_end": 0,
+    "teleports": 65,
+    "teleports_jam": 65,
+    "teleports_yield": 0,
+    "teleports_wrong_lane": 0,
+    "teleport_share": 0.00403,
+    "completed_trips": 16128,
+    "mean_trip_duration_s": 1382.19,
+    "mean_route_length_m": 12778.28,
+    "mean_speed_ms": 12.88,
+    "wall_seconds": 22.38,
+    "real_time_factor": 643.4,
+    "sumo_real_time_factor": 1021.28
+  },
+  "teleports": 65,
+  "teleport_share": 0.00403,
+  "teleport_ok": true,
+  "exit_routes": {
+    "file": "exit_routes.rou.xml",
+    "vehicles": 16128,
+    "written": 16128
+  },
+  "sumo_statistics": {
+    "performance": {
+      "clockBegin": "1792406408.58",
+      "clockEnd": "1792406422.68",
+      "clockDuration": "14.10",
+      "traciDuration": "8.38",
+      "realTimeFactor": "1021.28",
+      "vehicleUpdatesPerSecond": "1580988.16",
+      "personUpdatesPerSecond": "0.00",
+      "begin": "0.00",
+      "end": "14400.00",
+      "duration": "14400.00"
+    },
+    "vehicles": {
+      "loaded": "16128",
+      "inserted": "16128",
+      "running": "0",
+      "waiting": "0"
+    },
+    "teleports": {
+      "total": "65",
+      "jam": "65",
+      "yield": "0",
+      "wrongLane": "0"
+    },
+    "safety": {
+      "collisions": "0",
+      "emergencyStops": "0",
+      "emergencyBraking": "0"
+    },
+    "vehicleTripStatistics": {
+      "count": "16128",
+      "routeLength": "12778.28",
+      "speed": "12.88",
+      "duration": "1382.19",
+      "waitingTime": "49.87",
+      "timeLoss": "655.76",
+      "departDelay": "0.47",
+      "departDelayWaiting": "-1.00",
+      "totalTravelTime": "22291933.00",
+      "totalDepartDelay": "7519.37"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+$ /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/bin/python /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumo/tools/assign/duaIterate.py -n /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/data/hail/hail.v2.net.xml -t /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/baseline-weekday-f0.25-s1-addfcb64-76573219-d30875/trips.xml -b 0 -e 93600 -l 6 -a 900 --mesosim --meso-junctioncontrollimited --time-to-teleport 120 --routing-algorithm astar --max-alternatives 3 --clean-alt --disable-summary --disable-tripinfos --meso-tls-penalty 0.5 --inc-base 6 --inc-max 1 duarouter--routing-threads 4 duarouter--seed 1 sumo--seed 1 sumo--meso-tauff 4.520 sumo--meso-taufj 4.520 sumo--meso-taujf 6.920 sumo--meso-taujj 5.600 sumo--ignore-route-errors true
+> Executing step 0
+>> Running router on /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/runs/baseline-weekday-f0.25-s1-addfcb64-76573219-d30875/trips.xml
+>>> Begin time: 2026-10-19 08:43:20.113233
+>>> End time: 2026-10-19 08:50:12.148572
+>>> Duration: 0:06:52.035339
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 08:50:12.148614
+>>> End time: 2026-10-19 08:50:42.328530
+>>> Duration: 0:00:30.179916
+<<
+< Step 0 ended (duration: 0:07:22.215356)
+------------------
+
+> Executing step 1
+>> Running router on 000/trips_000.rou.alt.xml.gz
+>>> Begin time: 2026-10-19 08:50:42.329463
+>>> End time: 2026-10-19 08:59:47.465691
+>>> Duration: 0:09:05.136228
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 08:59:47.465735
+>>> End time: 2026-10-19 09:00:26.968904
+>>> Duration: 0:00:39.503169
+<<
+< Step 1 ended (duration: 0:09:44.639493)
+------------------
+
+> Executing step 2
+>> Running router on 001/trips_001.rou.alt.xml.gz
+>>> Begin time: 2026-10-19 09:00:26.969744
+>>> End time: 2026-10-19 09:09:59.246871
+>>> Duration: 0:09:32.277127
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 09:09:59.246908
+>>> End time: 2026-10-19 09:10:44.913116
+>>> Duration: 0:00:45.666208
+<<
+< Step 2 ended (duration: 0:10:17.943426)
+------------------
+
+> Executing step 3
+>> Running router on 002/trips_002.rou.alt.xml.gz
+>>> Begin time: 2026-10-19 09:10:44.914217
+>>> End time: 2026-10-19 09:20:52.817177
+>>> Duration: 0:10:07.902960
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 09:20:52.817216
+>>> End time: 2026-10-19 09:22:02.585512
+>>> Duration: 0:01:09.768296
+<<
+< Step 3 ended (duration: 0:11:17.671350)
+------------------
+
+> Executing step 4
+>> Running router on 003/trips_003.rou.alt.xml.gz
+>>> Begin time: 2026-10-19 09:22:02.586362
+>>> End time: 2026-10-19 09:32:35.930797
+>>> Duration: 0:10:33.344435
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 09:32:35.930859
+>>> End time: 2026-10-19 09:34:36.867846
+>>> Duration: 0:02:00.936987
+<<
+< Step 4 ended (duration: 0:12:34.281565)
+------------------
+
+> Executing step 5
+>> Running router on 004/trips_004.rou.alt.xml.gz
+>>> Begin time: 2026-10-19 09:34:36.868762
+>>> End time: 2026-10-19 09:45:12.892036
+>>> Duration: 0:10:36.023274
+<<
+>> Running simulation
+>>> Begin time: 2026-10-19 09:45:12.892074
+>>> End time: 2026-10-19 09:49:13.132111
+>>> Duration: 0:04:00.240037
+<<
+< Step 5 ended (duration: 0:14:36.263401)
+------------------
+
+dua-iterate ended (duration: 1:05:53.019903)

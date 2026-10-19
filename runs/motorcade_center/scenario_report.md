@@ -1,0 +1,57 @@
+# Scenario report: motorcade_center on window `center`
+
+**synthetic demand, uncalibrated**. Fictional scenario parameters (PROJECT.md section 11).
+
+Fictional 6-vehicle motorcade southbound along King Abdulaziz Rd with rolling junction holds. Seed 1, 0-3600 s, Tier B (micro), Eclipse SUMO sumo 1.28.0. Run `motorcade_center-center-s1-986ef80c`; config hash `986ef80c32c25722`, network hash `ff661b46062e0c11`, demand hash `6adc96939f3ef10c`.
+
+Baseline: same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events.
+
+| KPI | baseline | scenario | delta | delta % |
+|---|---:|---:|---:|---:|
+| vehicles inserted | 9910 | 9924 | 14 | 0.14 |
+| background trips completed | 7727 | 7473 | -254 | -3.29 |
+| running at end | 2183 | 2445 | - | - |
+| waiting to insert at end | 51 | 43 | -8 | -15.69 |
+| mean travel time (s) | 293.63 | 291.49 | -2.14 | -0.73 |
+| mean delay = timeLoss (s) | 118.59 | 118.78 | 0.19 | 0.16 |
+| mean insertion delay = departDelay (s) | 0.10 | 0.08 | -0.02 | -20.00 |
+| mean speed (km/h) | 21.39 | 18.88 | -2.51 | -11.73 |
+| VKT (veh-km) | 23,323.90 | 22,502.60 | -821.30 | -3.52 |
+| VHT (veh-h) | 1,090.38 | 1,191.58 | 101.20 | 9.28 |
+| longest queue, max (m) | 328.50 | 339.70 | 11.20 | 3.41 |
+| longest queue, p95 over steps (m) | 321.70 | 323.70 | 2.00 | 0.62 |
+| max halted on one edge (veh) | 103 | 128 | 25 | 24.27 |
+| halted in window, p95 (veh) | 1,291.00 | 1,498.00 | 207.00 | 16.03 |
+| teleports | 342 | 437 | 95 | 27.78 |
+| jam teleports | 213 | 286 | - | - |
+| vehicles rerouted by closures | 0 | 0 | - | - |
+| gridlock (onset s) | True (1,691.00) | True (1,971.00) | | |
+
+Gridlock rules fired in the scenario: {'sustained_halt': 2258.0, 'jam_teleports': 1971.0}.
+
+## Motorcade
+
+- convoy_king_abdulaziz_sb: 6/6 convoy vehicles completed, mean travel time 193.20 s (free flow 81.4 s); 29 junctions held, mean hold 154.20 s, max 254.00 s; closures still active at end: 0.
+
+## Top queued edges (scenario)
+
+| edge | max queue (m) | at (s) | max halted (veh) |
+|---|---:|---:|---:|
+| `298009826#3` | 339.7 | 3598 | 128 |
+| `107173634#27` | 324.6 | 3267 | 90 |
+| `107417760#0` | 316.5 | 3510 | 24 |
+| `1501371308` | 210.1 | 2079 | 26 |
+| `1550792685#9` | 191.4 | 3587 | 24 |
+
+## Event log (scenario)
+
+| t (s) | event | action | details |
+|---:|---|---|---|
+| 900 | convoy_king_abdulaziz_sb | start | type=motorcade |
+| 900 | convoy_king_abdulaziz_sb | convoy_dispatched | vehicles=6, route=29 |
+| 1154 | convoy_king_abdulaziz_sb | closures_lifted | convoy_arrived=6, convoy_vehicles=6, junctions_held=29, junctions_released=29, closures_still_active=0, mean_hold_s=154.2, max_hold_s=254... |
+| 1154 | convoy_king_abdulaziz_sb | end | horizon=False |
+
+Wall time: baseline 293.19 s + 27.76 s post, scenario 302.81 s + 30.58 s post, total 337.33 s (parallel).
+
+Assumptions used (73): A-vtype-063, A-vtype-064, A-vtype-065, A-vtype-066, A-vtype-067, A-vtype-068, A-vtype-069, A-vtype-001, A-vtype-002, A-vtype-003, A-vtype-004, A-vtype-005, A-vtype-006, A-vtype-007, A-vtype-008, A-vtype-009, A-vtype-010, A-vtype-011, A-vtype-012, A-vtype-013, A-vtype-014, A-vtype-015, A-vtype-016, A-vtype-017, A-vtype-018, A-vtype-019, A-vtype-020, A-vtype-021, A-vtype-022, A-vtype-023, A-vtype-024, A-vtype-025, A-vtype-026, A-vtype-027, A-vtype-028, A-vtype-029, A-vtype-030, A-vtype-031, A-vtype-032, A-vtype-033, A-vtype-034, A-vtype-035, A-vtype-036, A-vtype-037, A-vtype-038, A-vtype-039, A-vtype-040, A-vtype-041, A-vtype-042, A-vtype-043, A-vtype-044, A-vtype-045, A-vtype-046, A-vtype-055, A-vtype-056, A-vtype-057, A-vtype-058, A-vtype-059, A-vtype-060, A-vtype-061, A-vtype-062, A-event-009, A-event-008, A-event-006, A-event-007, A-kpi-001, A-kpi-002, A-kpi-003, A-kpi-004, A-kpi-005, A-kpi-006, A-kpi-007, A-sim-002 (docs/assumptions-trackB.md, docs/assumptions.md).

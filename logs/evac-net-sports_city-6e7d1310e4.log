@@ -1,0 +1,29 @@
+Warning: Ambiguity in turnarounds computation at junction '10653527207'.
+Warning: Found sharp turn with radius 0.31 at the start of edge '-1123661304#0'.
+Warning: Found angle of 104.83 degrees at edge '-132026349', segment 1.
+Warning: Found angle of 102.05 degrees at edge '-474043968#1', segment 0.
+Warning: Found sharp turn with radius 7.78 at the end of edge '107431058#84'.
+Warning: Found sharp turn with radius 7.68 at the end of edge '107537872#7'.
+Warning: Found sharp turn with radius 8.02 at the start of edge '107537886#1'.
+Warning: Found sharp turn with radius 6.35 at the end of edge '132015285#3.s1'.
+Warning: Found angle of 104.83 degrees at edge '132026349', segment 4.
+Warning: Found angle of 105.30 degrees at edge '324550862#0', segment 0.
+Warning: Found angle of 104.99 degrees at edge '324550866#3', segment 1.
+Warning: Shape for junction '10029622571' has distance 33.35 to its given position.
+Warning: Shape for junction '1232228523' has distance 30.01 to its given position.
+Warning: Speed of straight connection '1095160021_0->1095160020-AddedOnRampEdge_1' reduced by 5.26 due to turning radius of 37.15 (length=10.39, angle=31.37).
+Warning: Speed of straight connection '453669657#3_0->-453669658#0_0' reduced by 5.87 due to turning radius of 11.69 (length=12.53, angle=80.92).
+Warning: Speed of straight connection '453669658#0_0->453669658#1_0' reduced by 5.11 due to turning radius of 14.02 (length=15.21, angle=80.92).
+Warning: Speed of straight connection '1123661304#0_0->1123661304#1_0' reduced by 6.53 due to turning radius of 9.84 (length=11.46, angle=87.66).
+Warning: Speed of straight connection '-1123661304#1_0->-1123661304#0_0' reduced by 5.57 due to turning radius of 12.58 (length=14.94, angle=87.66).
+Warning: Intersecting left turns at junction 'cluster_10008127963_10008127970' from lane '1092794281#4_0' and lane '-1092794278#1_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction 'cluster_10276040972_1482181539' from lane '-1123661315#0_0' and lane '-1123661297#0_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction 'cluster_1449699414_5899219236' from lane '473832167#0_0' and lane '131757165#0_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction 'cluster_1449699484_1449699488' from lane '131757127_0' and lane '-131757174#0_0' (increase junction radius to avoid this).
+Warning: Intersecting left turns at junction 'cluster_1452607100_1452607105' from lane '132016867#2_0' and lane '-131757177#4_0' (increase junction radius to avoid this).
+Warning: Unused state in tlLogic 'cluster_9939282984_9939282985', program '0' at tl-index 0
+Warning: 6 total messages of type: Found angle of % degrees at edge '%', segment %.
+Warning: 17 total messages of type: Found sharp turn with radius % at the % of edge '%'.
+Warning: 9 total messages of type: Intersecting left turns at junction '%' from lane '%' and lane '%' (increase junction radius to avoid this).
+Warning: 15 total messages of type: Speed of % connection '%' reduced by % due to turning radius of % (length=%, angle=%).
+Success.

@@ -1,0 +1,2 @@
+$ .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py -n data/windows/center/center.net.xml -r data/windows/center/center.rou.xml -o data/windows/center/center.tls.add.xml -b 0 -p webster -y 4 -a 0 -l 4 -g 4 --min-cycle 20 --max-cycle 120 -H 2.0 --sorted
+Begin time:0.0

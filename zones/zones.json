@@ -1,0 +1,14 @@
+{
+  "config_hash": "6a64d652a25a9c10",
+  "inputs": {
+    "districts": "772194aad76fea86",
+    "net": "addfcb64bedc9fa3",
+    "buildings": "f7e45c45c3a17dfd",
+    "pois": "e1d8bb18c5d1aeed"
+  },
+  "zones_hash": "28020c0cfacc627b",
+  "label": "synthetic demand, uncalibrated",
+  "zones": 85,
+  "population": 448623,
+  "zone_edges": 41097
+}

@@ -1,0 +1,48 @@
+# Evacuation report: evac_stadium (sports_city window)
+
+**synthetic demand, uncalibrated.** Fictional scenario (PROJECT.md section 11). Seed 1, SUMO Eclipse SUMO sumo 1.28.0, run `evac_stadium-sports_city-s1-45009ba5`.
+
+Fictional stadium crowd leaving Prince Abdulaziz bin Musa'ed Sports City by car
+
+## Evacuation
+
+- Order at 900 s; 3000 vehicles (~7,500 persons at A-evac-001) from 208 zone edges (0.499 km2); release over 1200 s, phasing `simultaneous`, exit assignment `nearest`, signal plan `default`, contraflow none.
+- Exits: `298009828#1-AddedOffRampEdge` طريق الملك سعود بن عبدالعزيز (7 lanes): 2119 assigned; `323883296#0-AddedOnRampEdge` طريق الملك عبدالعزيز (7 lanes): 0 assigned; `107173635#22` طريق الملك عبدالعزيز (3 lanes): 881 assigned; `298009829#21` (unnamed) (3 lanes): 0 assigned; `298009832#13` (unnamed) (3 lanes): 0 assigned; `107171817#22` شارع الأديرع (4 lanes): 0 assigned
+- Contraflow corridors available: cf1 towards `298009828#1-AddedOffRampEdge` (طريق الملك سعود بن عبدالعزيز, 1670 m, 5.009 lane-km); cf2 towards `107173635#22` (طريق الملك عبدالعزيز, 1057 m, 3.171 lane-km); cf3 towards `323883296#0-AddedOnRampEdge` (طريق الملك عبدالعزيز, 1972 m, 5.915 lane-km)
+
+## Clearance (time after the order)
+
+| 50 % out | 90 % out | 100 % out | out by run end | last departure | max insertion backlog |
+|---|---|---|---|---|---|
+| 2,837 s | not reached | not reached | 2373 / 3000 | 6,134 s | 662 |
+
+## Bottleneck edges (halted vehicle-hours on evacuation routes)
+
+| edge | name | type | lanes | halted veh-h | max halted | at s | planned evacuee share |
+|---|---|---|---|---|---|---|---|
+| `1550792685#9` | طريق الملك عبدالعزيز | highway.primary | 3 | 153.47 | 127 | 5175 | 0.059 |
+| `107173635#0-AddedOnRampEdge` | طريق الملك عبدالعزيز | highway.primary | 6 | 91.77 | 65 | 4780 | 0.084 |
+| `107173635#2` | طريق الملك عبدالعزيز | highway.primary | 3 | 72.04 | 51 | 4960 | 0.223 |
+| `107173635#11-AddedOnRampEdge` | طريق الملك عبدالعزيز | highway.primary | 7 | 67.99 | 49 | 3970 | 0.294 |
+| `107173635#5-AddedOffRampEdge` | طريق الملك عبدالعزيز | highway.primary | 7 | 47.39 | 36 | 6085 | 0.243 |
+
+## Background traffic
+
+- Delay (time loss + insertion delay, unfinished trips included): reference 2238.401 veh-h, with evacuation 2587.811 veh-h (+349.41).
+- Teleports: reference 1270, evacuation 2632 (evacuees 1356).
+
+## Window KPIs (M5 definitions, background vehicles)
+
+| KPI | reference | evacuation |
+|---|---|---|
+| mean_travel_time_s | 1036.79 | 1278.23 |
+| mean_delay_s | 909.47 | 1148.97 |
+| mean_speed_kmh | 6.82 | 4.15 |
+| vht | 2041.55 | 3887.8 |
+| halted_max_veh | 1248 | 2439 |
+| queue_max_m | 1227.8 | 1548.4 |
+| teleports | 1270 | 2632 |
+
+Wall time: reference 339.43 s, evacuation 454.64 s, total 562.83 s.
+
+Assumptions: A-evac-007, A-evac-008, A-evac-009, A-evac-010, A-evac-001, A-evac-002, A-evac-003, A-evac-004, A-evac-005, A-evac-034, A-evac-006, A-evac-011, A-evac-012, A-evac-013, A-evac-014, A-evac-015, A-evac-016, A-evac-017, A-evac-018, A-evac-019, A-evac-020, A-evac-036, A-evac-037, A-evac-038, A-evac-021, A-evac-022, A-evac-023, A-evac-024, A-evac-025, A-evac-026

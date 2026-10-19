@@ -1,0 +1,18 @@
+/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumolib/net/__init__.py:388: UserWarning: Module 'rtree' not available. Using brute-force fallback.
+  warnings.warn("Module 'rtree' not available. Using brute-force fallback.")
+Strategist recommendation rec-20261019T113840Z-620125fa  [synthetic demand, uncalibrated]  FICTIONAL scenario
+  emergency_center_0830 on center, seed 1, dispatch t=1800 s, snapshot c08cf0c288b8ec34 (built), Eclipse SUMO sumo 1.28.0
+  no strategy: ambulance 208 s on the default route (free flow 148.8 s); 4 what-if runs, horizon 300 s
+
+  #  option                                               class              ambulance  vs none   vs ff  +veh-h   score
+  1  Route A + signal preemption                          auto_eligible          211 s     +3 s   +59 s   -0.04   212.6
+     Route A + signal preemption gets the ambulance there in 211 s, 3 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s and preempting 2 signals saves 6 s against the same route without it. Over the 300 s horizon it saves 0.04 vehicle-hours of background delay versus no strategy; the longest queue on its route was 9 halted vehicles on `1358424025#10`.
+  2  Route A + preemption + rescue lane                   auto_eligible          214 s     +6 s   +62 s   -0.05   215.5
+     Route A + preemption + rescue lane gets the ambulance there in 214 s, 6 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s; it also preempts 2 signals and reserves a rescue lane on 14 edges. Over the 300 s horizon it saves 0.05 vehicle-hours of background delay versus no strategy; the longest queue on its route was 27 halted vehicles on `1358424025#10`.
+  3  Route A only                                         auto_eligible          217 s     +9 s   +65 s   +0.05   217.5
+     Route A only gets the ambulance there in 217 s, 9 s slower than no strategy (208 s); it avoids `326232104`, where the no-strategy ambulance spent 14 s. Over the 300 s horizon it adds 0.05 vehicle-hours of background delay versus no strategy; the longest queue on its route was 8 halted vehicles on `1358424025#10`.
+
+  best beats no strategy: NO
+  wall: situation 3.65 s, snapshot 19.59 s (built: warm-up 17.16 s), candidates 4.34 s, evaluation 12.58 s, rank+explain 0.0 s; total 40.16 s (from saved state 20.57 s)
+  recommendation_id: rec-20261019T113840Z-620125fa  (apply: python -m strategist.approve rec-20261019T113840Z-620125fa)
+  outputs: runs/strategist/rec-20261019T113840Z-620125fa/recommendation.{json,md}

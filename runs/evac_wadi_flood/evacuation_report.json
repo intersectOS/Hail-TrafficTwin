@@ -1,0 +1,763 @@
+{
+  "scenario": "evac_wadi_flood",
+  "title": "Fictional flood-day evacuation of the Wadi Al-Adiri west bank near Prince Muqrin St",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "sports_city",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 7200.0,
+  "reference_definition": "same demand, vType mix, seed, network (incl. closed contraflow lanes) and other events; no evacuation",
+  "evacuation": {
+    "type": "evacuation",
+    "id": "wadi_bank",
+    "start": 0.0,
+    "end": null,
+    "order_t": 1500.0,
+    "run_end": 7200.0,
+    "release_s": 1200.0,
+    "phasing": "simultaneous",
+    "exit_assignment": "nearest",
+    "signal_plan": "default",
+    "contraflow": [],
+    "corridors": [
+      {
+        "exit": "107173635#22",
+        "pred": "1550792685#3.s1",
+        "succ": null,
+        "length_m": 1956.8,
+        "lane_km": 5.87,
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "inbound_edges": [
+          "1358424025#1",
+          "1358424025#1-AddedOffRampEdge",
+          "1358424025#10",
+          "1358424025#11",
+          "1358424025#12",
+          "1358424025#13",
+          "1358424025#14",
+          "1358424025#15",
+          "1358424025#2",
+          "1358424025#3",
+          "1358424025#4",
+          "1358424025#5",
+          "1358424025#6",
+          "1358424025#7",
+          "1358424025#8",
+          "1358424025#9",
+          "1358424025#9-AddedOnRampEdge",
+          "1501371310#5",
+          "1501371310#6"
+        ],
+        "partner_coverage": 1.0,
+        "id": "cf1",
+        "edges": 32
+      }
+    ],
+    "setup_s": 600.0,
+    "inbound_allowed": [
+      "emergency"
+    ],
+    "reroute_period_s": 120.0,
+    "signals": {
+      "green_factor": 1.5,
+      "other_factor": 0.6,
+      "min_green_s": 6.0,
+      "max_green_s": 90.0
+    },
+    "vtypes": {
+      "aggressive": 0.130435,
+      "normal": 0.76087,
+      "slow": 0.108696
+    },
+    "sample_s": 5.0,
+    "exits": [
+      {
+        "edge": "107173635#22",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.69604,
+        "lat": 27.52026,
+        "nearest_assigned": 1115,
+        "balanced_assigned": 539
+      },
+      {
+        "edge": "298009829#21",
+        "name": "",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.6823,
+        "lat": 27.48935,
+        "nearest_assigned": 0,
+        "balanced_assigned": 150
+      },
+      {
+        "edge": "298009832#13",
+        "name": "",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.67983,
+        "lat": 27.49278,
+        "nearest_assigned": 85,
+        "balanced_assigned": 171
+      },
+      {
+        "edge": "107171817#22",
+        "name": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u062f\u064a\u0631\u0639",
+        "type": "highway.tertiary",
+        "lanes": 4,
+        "speed_ms": 13.11,
+        "lon": 41.71517,
+        "lat": 27.50915,
+        "nearest_assigned": 0,
+        "balanced_assigned": 244
+      },
+      {
+        "edge": "107171819#2",
+        "name": "",
+        "type": "highway.tertiary",
+        "lanes": 4,
+        "speed_ms": 13.11,
+        "lon": 41.71507,
+        "lat": 27.51285,
+        "nearest_assigned": 0,
+        "balanced_assigned": 96
+      },
+      {
+        "edge": "107287966",
+        "name": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u062f\u064a\u0631\u0639",
+        "type": "highway.tertiary",
+        "lanes": 4,
+        "speed_ms": 13.11,
+        "lon": 41.71706,
+        "lat": 27.52105,
+        "nearest_assigned": 0,
+        "balanced_assigned": 0
+      }
+    ],
+    "assigned": {
+      "107173635#22": 1115,
+      "298009832#13": 85
+    },
+    "bands": {
+      "0": 400,
+      "1": 400,
+      "2": 400
+    },
+    "zone": [
+      [
+        41.6995,
+        27.493
+      ],
+      [
+        41.7045,
+        27.493
+      ],
+      [
+        41.7045,
+        27.499
+      ],
+      [
+        41.6995,
+        27.499
+      ]
+    ],
+    "zone_area_km2": 0.329,
+    "reference": false,
+    "assumption_ids": [
+      "A-evac-007",
+      "A-evac-008",
+      "A-evac-009",
+      "A-evac-010",
+      "A-evac-001",
+      "A-evac-002",
+      "A-evac-003",
+      "A-evac-004",
+      "A-evac-005",
+      "A-evac-034",
+      "A-evac-006",
+      "A-evac-011",
+      "A-evac-012",
+      "A-evac-013",
+      "A-evac-014",
+      "A-evac-015",
+      "A-evac-016",
+      "A-evac-017",
+      "A-evac-018",
+      "A-evac-019",
+      "A-evac-020",
+      "A-evac-036",
+      "A-evac-037",
+      "A-evac-038",
+      "A-evac-021",
+      "A-evac-022",
+      "A-evac-023",
+      "A-evac-024",
+      "A-evac-025",
+      "A-evac-026"
+    ],
+    "persons": 3000,
+    "origin_edges": 118
+  },
+  "result": {
+    "clearance": {
+      "vehicles": 1200,
+      "out": 132,
+      "out_share": 0.11,
+      "t50_s": null,
+      "t90_s": null,
+      "t100_s": null,
+      "horizon_s": 5700.0,
+      "last_departure_s": 5219.0,
+      "max_insertion_backlog": 142
+    },
+    "bottlenecks": [
+      {
+        "edge": "1550792685#9",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 6,
+        "halted_veh_h": 156.16,
+        "max_halted_veh": 130,
+        "max_at_s": 6795.0,
+        "planned_evacuee_share": 0.929,
+        "lon": 41.69871,
+        "lat": 27.50333
+      },
+      {
+        "edge": "107173635#0-AddedOnRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 9,
+        "halted_veh_h": 79.71,
+        "max_halted_veh": 67,
+        "max_at_s": 6575.0,
+        "planned_evacuee_share": 0.929,
+        "lon": 41.69874,
+        "lat": 27.50513
+      },
+      {
+        "edge": "1550792685#2",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "halted_veh_h": 68.01,
+        "max_halted_veh": 61,
+        "max_at_s": 5495.0,
+        "planned_evacuee_share": 0.703,
+        "lon": 41.70125,
+        "lat": 27.4978
+      },
+      {
+        "edge": "323883284",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "halted_veh_h": 62.0,
+        "max_halted_veh": 71,
+        "max_at_s": 7030.0,
+        "planned_evacuee_share": 0.451,
+        "lon": 41.70396,
+        "lat": 27.49498
+      },
+      {
+        "edge": "107173635#2",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 6,
+        "halted_veh_h": 61.86,
+        "max_halted_veh": 50,
+        "max_at_s": 5465.0,
+        "planned_evacuee_share": 0.929,
+        "lon": 41.69878,
+        "lat": 27.50737
+      }
+    ],
+    "background": {
+      "vehicles": 7038,
+      "time_loss_veh_h": 2355.427,
+      "depart_delay_veh_h": 285.959,
+      "delay_veh_h": 2641.386
+    },
+    "teleports": 2462,
+    "teleports_evacuees": 1041,
+    "contraflow_lanes_opened": 0,
+    "contraflow_lanes_closed": 0,
+    "signals_retimed": [],
+    "reroutes": 45933,
+    "add_errors": 0,
+    "sim_wall_s": 477.73
+  },
+  "background_added_veh_h": 197.914,
+  "reference": {
+    "background": {
+      "vehicles": 7168,
+      "time_loss_veh_h": 2129.102,
+      "depart_delay_veh_h": 314.37,
+      "delay_veh_h": 2443.472
+    },
+    "teleports": 1227
+  },
+  "evac_net": {
+    "net": "data/windows/sports_city/sports_city.evac-7167b25861.net.xml",
+    "key": "7167b25861",
+    "built": true,
+    "meta": {
+      "label": "synthetic demand, uncalibrated",
+      "window": "sports_city",
+      "window_net": "data/windows/sports_city/sports_city.net.xml",
+      "window_net_hash": "8fd8f4337a72d7ff",
+      "corridors": [
+        "cf1"
+      ],
+      "netconvert_s": 1.4,
+      "tls": null,
+      "net_hash": "153d0e4a5e1382e5",
+      "log": "logs/evac-net-sports_city-7167b25861.log"
+    }
+  },
+  "event_log": [
+    {
+      "t": 0.0,
+      "event": "wadi_bank",
+      "action": "start",
+      "type": "evacuation"
+    },
+    {
+      "t": 0.0,
+      "event": "wadi_bank",
+      "action": "dormant_lanes_closed",
+      "corridors": [
+        "cf1"
+      ]
+    },
+    {
+      "t": 300.0,
+      "event": "storm_flood",
+      "action": "start",
+      "type": "flood"
+    },
+    {
+      "t": 300.0,
+      "event": "storm_flood",
+      "action": "weather_on",
+      "preset": "storm"
+    },
+    {
+      "t": 900.0,
+      "event": "storm_flood",
+      "action": "close_sites",
+      "sites": [
+        "HFS-001",
+        "HFS-002"
+      ],
+      "edges": [
+        "-132015275#0",
+        "-134885510#8",
+        "-473869429#4",
+        "107171814#1",
+        "107171814#1-AddedOnRampEdge",
+        "107171816",
+        "107171819#1",
+        "107171819#2",
+        "107171819#8",
+        "107171822",
+        "132015275#0",
+        "134885510#8",
+        "1359397812#0",
+        "1359397812#1",
+        "1359397812#2",
+        "1359397812#2-AddedOnRampEdge",
+        "1359397812#3",
+        "1359397812#4",
+        "1359397812#5",
+        "1359397812#6",
+        "1359397812#7",
+        "1359397812#8",
+        "324512767",
+        "324512768#0",
+        "324512768#1",
+        "473869429#4"
+      ],
+      "verified_disallowed": 85,
+      "rerouted": 12
+    },
+    {
+      "t": 1500.0,
+      "event": "wadi_bank",
+      "action": "order",
+      "vehicles": 1200,
+      "phasing": "simultaneous",
+      "exit_assignment": "nearest",
+      "contraflow": [],
+      "signal_plan": "default",
+      "signals_retimed": []
+    },
+    {
+      "t": 5100.0,
+      "event": "storm_flood",
+      "action": "reopen_sites",
+      "lanes": 85
+    },
+    {
+      "t": 5100.0,
+      "event": "storm_flood",
+      "action": "weather_off"
+    },
+    {
+      "t": 5100.0,
+      "event": "storm_flood",
+      "action": "end",
+      "horizon": false
+    },
+    {
+      "t": 7200.0,
+      "event": "wadi_bank",
+      "action": "end",
+      "horizon": true
+    }
+  ],
+  "other_events": [
+    {
+      "type": "flood",
+      "id": "storm_flood",
+      "start": 300.0,
+      "end": 5100.0,
+      "preset": "storm",
+      "multipliers": {
+        "speedFactor": 0.85,
+        "tau": 1.3,
+        "minGap": 1.4,
+        "accel": 0.75,
+        "decel": 0.75
+      },
+      "sites_file": "data/hail_flood_sites.yaml",
+      "sites": [
+        {
+          "site": "HFS-001",
+          "name": "Wadi Al-Adiri crossing, Prince Muqrin bin Abdulaziz St (\u0648\u0627\u062f\u064a \u0627\u0644\u0623\u062f\u064a\u0631\u0639 / \u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u0645\u064a\u0631 \u0645\u0642\u0631\u0646)",
+          "kind": "wadi_crossing",
+          "confidence": "medium",
+          "method": "origId",
+          "radius_m": 300.0,
+          "edges": [
+            "1359397812#0",
+            "1359397812#1",
+            "1359397812#2",
+            "1359397812#2-AddedOnRampEdge",
+            "1359397812#3",
+            "1359397812#4",
+            "1359397812#5",
+            "1359397812#6",
+            "1359397812#7",
+            "1359397812#8"
+          ]
+        },
+        {
+          "site": "HFS-002",
+          "name": "Wadi Al-Adiri crossing, Jarir bin Abdullah St (\u0648\u0627\u062f\u064a \u0627\u0644\u0623\u062f\u064a\u0631\u0639 / \u0634\u0627\u0631\u0639 \u062c\u0631\u064a\u0631 \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0644\u0647)",
+          "kind": "wadi_crossing",
+          "confidence": "medium",
+          "method": "radius",
+          "radius_m": 300.0,
+          "edges": [
+            "-132015275#0",
+            "-134885510#8",
+            "-473869429#4",
+            "107171814#1",
+            "107171814#1-AddedOnRampEdge",
+            "107171816",
+            "107171819#1",
+            "107171819#2",
+            "107171819#8",
+            "107171822",
+            "132015275#0",
+            "134885510#8",
+            "324512767",
+            "324512768#0",
+            "324512768#1",
+            "473869429#4"
+          ]
+        }
+      ],
+      "closure_start": 900.0,
+      "closed_edges": [
+        "-132015275#0",
+        "-134885510#8",
+        "-473869429#4",
+        "107171814#1",
+        "107171814#1-AddedOnRampEdge",
+        "107171816",
+        "107171819#1",
+        "107171819#2",
+        "107171819#8",
+        "107171822",
+        "132015275#0",
+        "134885510#8",
+        "1359397812#0",
+        "1359397812#1",
+        "1359397812#2",
+        "1359397812#2-AddedOnRampEdge",
+        "1359397812#3",
+        "1359397812#4",
+        "1359397812#5",
+        "1359397812#6",
+        "1359397812#7",
+        "1359397812#8",
+        "324512767",
+        "324512768#0",
+        "324512768#1",
+        "473869429#4"
+      ],
+      "closed_lanes": [
+        "-132015275#0_0",
+        "-134885510#8_0",
+        "-473869429#4_0",
+        "107171814#1-AddedOnRampEdge_0",
+        "107171814#1-AddedOnRampEdge_1",
+        "107171814#1-AddedOnRampEdge_2",
+        "107171814#1-AddedOnRampEdge_3",
+        "107171814#1-AddedOnRampEdge_4",
+        "107171814#1-AddedOnRampEdge_5",
+        "107171814#1-AddedOnRampEdge_6",
+        "107171814#1-AddedOnRampEdge_7",
+        "107171814#1_0",
+        "107171814#1_1",
+        "107171814#1_2",
+        "107171814#1_3",
+        "107171816_0",
+        "107171816_1",
+        "107171816_2",
+        "107171816_3",
+        "107171819#1_0",
+        "107171819#1_1",
+        "107171819#1_2",
+        "107171819#1_3",
+        "107171819#2_0",
+        "107171819#2_1",
+        "107171819#2_2",
+        "107171819#2_3",
+        "107171819#8_0",
+        "107171819#8_1",
+        "107171819#8_2",
+        "107171819#8_3",
+        "107171822_0",
+        "107171822_1",
+        "107171822_2",
+        "107171822_3",
+        "132015275#0_0",
+        "134885510#8_0",
+        "1359397812#0_0",
+        "1359397812#0_1",
+        "1359397812#0_2",
+        "1359397812#0_3",
+        "1359397812#1_0",
+        "1359397812#1_1",
+        "1359397812#1_2",
+        "1359397812#1_3",
+        "1359397812#2-AddedOnRampEdge_0",
+        "1359397812#2-AddedOnRampEdge_1",
+        "1359397812#2-AddedOnRampEdge_2",
+        "1359397812#2-AddedOnRampEdge_3",
+        "1359397812#2-AddedOnRampEdge_4",
+        "1359397812#2-AddedOnRampEdge_5",
+        "1359397812#2-AddedOnRampEdge_6",
+        "1359397812#2-AddedOnRampEdge_7",
+        "1359397812#2_0",
+        "1359397812#2_1",
+        "1359397812#2_2",
+        "1359397812#2_3",
+        "1359397812#3_0",
+        "1359397812#3_1",
+        "1359397812#3_2",
+        "1359397812#3_3",
+        "1359397812#4_0",
+        "1359397812#4_1",
+        "1359397812#4_2",
+        "1359397812#4_3",
+        "1359397812#5_0",
+        "1359397812#5_1",
+        "1359397812#5_2",
+        "1359397812#5_3",
+        "1359397812#6_0",
+        "1359397812#6_1",
+        "1359397812#6_2",
+        "1359397812#6_3",
+        "1359397812#7_0",
+        "1359397812#7_1",
+        "1359397812#7_2",
+        "1359397812#7_3",
+        "1359397812#8_0",
+        "1359397812#8_1",
+        "1359397812#8_2",
+        "1359397812#8_3",
+        "324512767_0",
+        "324512768#0_0",
+        "324512768#1_0",
+        "473869429#4_0"
+      ],
+      "reroute": true
+    }
+  ],
+  "assumption_ids": [
+    "A-evac-007",
+    "A-evac-008",
+    "A-evac-009",
+    "A-evac-010",
+    "A-evac-001",
+    "A-evac-002",
+    "A-evac-003",
+    "A-evac-004",
+    "A-evac-005",
+    "A-evac-034",
+    "A-evac-006",
+    "A-evac-011",
+    "A-evac-012",
+    "A-evac-013",
+    "A-evac-014",
+    "A-evac-015",
+    "A-evac-016",
+    "A-evac-017",
+    "A-evac-018",
+    "A-evac-019",
+    "A-evac-020",
+    "A-evac-036",
+    "A-evac-037",
+    "A-evac-038",
+    "A-evac-021",
+    "A-evac-022",
+    "A-evac-023",
+    "A-evac-024",
+    "A-evac-025",
+    "A-evac-026",
+    "A-event-flood-radius",
+    "A-event-004",
+    "A-event-005",
+    "A-rain-011",
+    "A-rain-012",
+    "A-rain-013",
+    "A-rain-014",
+    "A-rain-015"
+  ],
+  "window_kpis": {
+    "reference": {
+      "vehicles_loaded": 8361,
+      "vehicles_inserted": 7168,
+      "vehicles_running_at_end": 1497,
+      "vehicles_waiting_at_end": 1008,
+      "background_completed": 7168,
+      "mean_travel_time_s": 1192.81,
+      "mean_delay_s": 1069.3,
+      "mean_depart_delay_s": 157.89,
+      "mean_speed_kmh": 5.61,
+      "vkt": 12476.4,
+      "vht": 2225.68,
+      "teleports": 1227,
+      "teleports_jam": 797,
+      "teleport_share": 0.14675,
+      "queue_max_m": 1546.0,
+      "queue_p95_m": 1511.4,
+      "queue_max_veh": 572,
+      "halted_max_veh": 1376,
+      "halted_p95_veh": 1331.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 1546.0,
+          "at_s": 7111.0,
+          "max_halted_veh": 572
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 330.0,
+          "at_s": 4525.0,
+          "max_halted_veh": 66
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 228.8,
+          "at_s": 4380.0,
+          "max_halted_veh": 28
+        },
+        {
+          "edge": "-131800158#1",
+          "max_queue_m": 211.8,
+          "at_s": 2645.0,
+          "max_halted_veh": 27
+        },
+        {
+          "edge": "369685230#2",
+          "max_queue_m": 172.2,
+          "at_s": 3800.0,
+          "max_halted_veh": 20
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 1769.0,
+      "gridlock_jam_teleport_onset_s": 1452.0,
+      "rerouted_vehicles": 254,
+      "reroute_failures": 65
+    },
+    "evacuation": {
+      "vehicles_loaded": 9561,
+      "vehicles_inserted": 8179,
+      "vehicles_running_at_end": 2617,
+      "vehicles_waiting_at_end": 1197,
+      "background_completed": 7038,
+      "mean_travel_time_s": 1336.1,
+      "mean_delay_s": 1204.82,
+      "mean_depart_delay_s": 146.27,
+      "mean_speed_kmh": 3.43,
+      "vkt": 13083.5,
+      "vht": 3809.24,
+      "teleports": 2462,
+      "teleports_jam": 1630,
+      "teleport_share": 0.2575,
+      "queue_max_m": 1547.0,
+      "queue_p95_m": 1546.6,
+      "queue_max_veh": 559,
+      "halted_max_veh": 2476,
+      "halted_p95_veh": 2397.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 1547.0,
+          "at_s": 5370.0,
+          "max_halted_veh": 559
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 332.0,
+          "at_s": 3646.0,
+          "max_halted_veh": 130
+        },
+        {
+          "edge": "107062076",
+          "max_queue_m": 305.8,
+          "at_s": 2298.0,
+          "max_halted_veh": 1
+        },
+        {
+          "edge": "-131800175#0",
+          "max_queue_m": 249.2,
+          "at_s": 5836.0,
+          "max_halted_veh": 34
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 229.8,
+          "at_s": 2755.0,
+          "max_halted_veh": 29
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 1767.0,
+      "gridlock_jam_teleport_onset_s": 1452.0,
+      "rerouted_vehicles": 687,
+      "reroute_failures": 65
+    }
+  }
+}

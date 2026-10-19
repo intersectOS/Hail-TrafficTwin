@@ -1,0 +1,106 @@
+/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumolib/net/__init__.py:388: UserWarning: Module 'rtree' not available. Using brute-force fallback.
+  warnings.warn("Module 'rtree' not available. Using brute-force fallback.")
+/home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/.venv/lib/python3.12/site-packages/sumolib/net/__init__.py:388: UserWarning: Module 'rtree' not available. Using brute-force fallback.
+  warnings.warn("Module 'rtree' not available. Using brute-force fallback.")
+# Evacuation report: evac_wadi_flood (sports_city window)
+
+**synthetic demand, uncalibrated.** Fictional scenario (PROJECT.md section 11). Seed 1, SUMO Eclipse SUMO sumo 1.28.0, run `evac_wadi_flood-sports_city-s1-a186c25d`.
+
+Fictional flood-day evacuation of the Wadi Al-Adiri west bank near Prince Muqrin St
+
+## Evacuation
+
+- Order at 1500 s; 1200 vehicles (~3,000 persons at A-evac-001) from 118 zone edges (0.329 km2); release over 1200 s, phasing `simultaneous`, exit assignment `nearest`, signal plan `default`, contraflow none.
+- Exits: `107173635#22` طريق الملك عبدالعزيز (3 lanes): 1115 assigned; `298009829#21` (unnamed) (3 lanes): 0 assigned; `298009832#13` (unnamed) (3 lanes): 85 assigned; `107171817#22` شارع الأديرع (4 lanes): 0 assigned; `107171819#2` (unnamed) (4 lanes): 0 assigned; `107287966` شارع الأديرع (4 lanes): 0 assigned
+- Contraflow corridors available: cf1 towards `107173635#22` (طريق الملك عبدالعزيز, 1957 m, 5.87 lane-km)
+
+## Clearance (time after the order)
+
+| 50 % out | 90 % out | 100 % out | out by run end | last departure | max insertion backlog |
+|---|---|---|---|---|---|
+| not reached | not reached | not reached | 132 / 1200 | 5,219 s | 142 |
+
+## Bottleneck edges (halted vehicle-hours on evacuation routes)
+
+| edge | name | type | lanes | halted veh-h | max halted | at s | planned evacuee share |
+|---|---|---|---|---|---|---|---|
+| `1550792685#9` | طريق الملك عبدالعزيز | highway.primary | 6 | 156.16 | 130 | 6795 | 0.929 |
+| `107173635#0-AddedOnRampEdge` | طريق الملك عبدالعزيز | highway.primary | 9 | 79.71 | 67 | 6575 | 0.929 |
+| `1550792685#2` | طريق الملك عبدالعزيز | highway.primary | 3 | 68.01 | 61 | 5495 | 0.703 |
+| `323883284` | طريق الملك عبدالعزيز | highway.primary | 3 | 62.0 | 71 | 7030 | 0.451 |
+| `107173635#2` | طريق الملك عبدالعزيز | highway.primary | 6 | 61.86 | 50 | 5465 | 0.929 |
+
+## Background traffic
+
+- Delay (time loss + insertion delay, unfinished trips included): reference 2443.472 veh-h, with evacuation 2641.386 veh-h (+197.91).
+- Teleports: reference 1227, evacuation 2462 (evacuees 1041).
+
+## Window KPIs (M5 definitions, background vehicles)
+
+| KPI | reference | evacuation |
+|---|---|---|
+| mean_travel_time_s | 1192.81 | 1336.1 |
+| mean_delay_s | 1069.3 | 1204.82 |
+| mean_speed_kmh | 5.61 | 3.43 |
+| vht | 2225.68 | 3809.24 |
+| halted_max_veh | 1376 | 2476 |
+| queue_max_m | 1546.0 | 1547.0 |
+| teleports | 1227 | 2462 |
+
+Other events: flood `storm_flood`
+
+Wall time: reference 353.58 s, evacuation 477.73 s, total 582.84 s.
+
+Assumptions: A-evac-007, A-evac-008, A-evac-009, A-evac-010, A-evac-001, A-evac-002, A-evac-003, A-evac-004, A-evac-005, A-evac-034, A-evac-006, A-evac-011, A-evac-012, A-evac-013, A-evac-014, A-evac-015, A-evac-016, A-evac-017, A-evac-018, A-evac-019, A-evac-020, A-evac-036, A-evac-037, A-evac-038, A-evac-021, A-evac-022, A-evac-023, A-evac-024, A-evac-025, A-evac-026, A-event-flood-radius, A-event-004, A-event-005, A-rain-011, A-rain-012, A-rain-013, A-rain-014, A-rain-015
+
+# Evacuation report: evac_wadi_flood (sports_city window)
+
+**synthetic demand, uncalibrated.** Fictional scenario (PROJECT.md section 11). Seed 1, SUMO Eclipse SUMO sumo 1.28.0, run `evac_wadi_flood-sports_city-s1-a186c25d`.
+
+Fictional flood-day evacuation of the Wadi Al-Adiri west bank near Prince Muqrin St
+
+## Evacuation
+
+- Order at 1500 s; 1200 vehicles (~3,000 persons at A-evac-001) from 118 zone edges (0.329 km2); release over 1200 s, phasing `simultaneous`, exit assignment `nearest`, signal plan `default`, contraflow none.
+- Exits: `107173635#22` طريق الملك عبدالعزيز (3 lanes): 1115 assigned; `298009829#21` (unnamed) (3 lanes): 0 assigned; `298009832#13` (unnamed) (3 lanes): 85 assigned; `107171817#22` شارع الأديرع (4 lanes): 0 assigned; `107171819#2` (unnamed) (4 lanes): 0 assigned; `107287966` شارع الأديرع (4 lanes): 0 assigned
+- Contraflow corridors available: cf1 towards `107173635#22` (طريق الملك عبدالعزيز, 1957 m, 5.87 lane-km)
+
+## Clearance (time after the order)
+
+| 50 % out | 90 % out | 100 % out | out by run end | last departure | max insertion backlog |
+|---|---|---|---|---|---|
+| not reached | not reached | not reached | 132 / 1200 | 5,219 s | 142 |
+
+## Bottleneck edges (halted vehicle-hours on evacuation routes)
+
+| edge | name | type | lanes | halted veh-h | max halted | at s | planned evacuee share |
+|---|---|---|---|---|---|---|---|
+| `1550792685#9` | طريق الملك عبدالعزيز | highway.primary | 6 | 156.16 | 130 | 6795 | 0.929 |
+| `107173635#0-AddedOnRampEdge` | طريق الملك عبدالعزيز | highway.primary | 9 | 79.71 | 67 | 6575 | 0.929 |
+| `1550792685#2` | طريق الملك عبدالعزيز | highway.primary | 3 | 68.01 | 61 | 5495 | 0.703 |
+| `323883284` | طريق الملك عبدالعزيز | highway.primary | 3 | 62.0 | 71 | 7030 | 0.451 |
+| `107173635#2` | طريق الملك عبدالعزيز | highway.primary | 6 | 61.86 | 50 | 5465 | 0.929 |
+
+## Background traffic
+
+- Delay (time loss + insertion delay, unfinished trips included): reference 2443.472 veh-h, with evacuation 2641.386 veh-h (+197.91).
+- Teleports: reference 1227, evacuation 2462 (evacuees 1041).
+
+## Window KPIs (M5 definitions, background vehicles)
+
+| KPI | reference | evacuation |
+|---|---|---|
+| mean_travel_time_s | 1192.81 | 1336.1 |
+| mean_delay_s | 1069.3 | 1204.82 |
+| mean_speed_kmh | 5.61 | 3.43 |
+| vht | 2225.68 | 3809.24 |
+| halted_max_veh | 1376 | 2476 |
+| queue_max_m | 1546.0 | 1547.0 |
+| teleports | 1227 | 2462 |
+
+Other events: flood `storm_flood`
+
+Wall time: reference 353.58 s, evacuation 477.73 s, total 582.84 s.
+
+Assumptions: A-evac-007, A-evac-008, A-evac-009, A-evac-010, A-evac-001, A-evac-002, A-evac-003, A-evac-004, A-evac-005, A-evac-034, A-evac-006, A-evac-011, A-evac-012, A-evac-013, A-evac-014, A-evac-015, A-evac-016, A-evac-017, A-evac-018, A-evac-019, A-evac-020, A-evac-036, A-evac-037, A-evac-038, A-evac-021, A-evac-022, A-evac-023, A-evac-024, A-evac-025, A-evac-026, A-event-flood-radius, A-event-004, A-event-005, A-rain-011, A-rain-012, A-rain-013, A-rain-014, A-rain-015
+

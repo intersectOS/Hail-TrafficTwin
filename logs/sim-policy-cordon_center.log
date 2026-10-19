@@ -1,0 +1,11 @@
+[cordon_center-f0.25] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  road_pricing: charged_edges=261, charged_vehicles=26395, charged_tours=18226, suppressed_share=0.096, tours_retimed_out_of_hours=520, vehicles_retimed=756, dropped_tours_removed=1206, dropped_person_trips_removed=2534, dropped_vehicles_removed=2659, vehicles_rerouted_with_penalty=23888, penalty_s=900.0
+[cordon_center-f0.25] meso run: 97,673 baseline routes, 24,644 new routes
+[cordon_center-f0.25] matched control: 24,644 baseline vehicles re-routed
+[cordon_center-f0.25--control] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  remote_work: eligible_workers_with_tour=7213, remote_today=0, tours_removed=0, person_trips_removed=0, vehicles_removed=0, induced_tours_added=0, induced_person_trips_added=0, induced_vehicles_added=0
+[cordon_center-f0.25--control] meso run: 100,332 baseline routes, 24,644 new routes
+Policy matched_control vs weekday baseline [synthetic demand, uncalibrated]: mean delay -76.8 %, AM-peak delay -20.2 %, VKT +1.5 %, VHT -44.4 %, CO2 -41.7 %
+  report runs/cordon_center-f0.25--control/policy_report.md
+Policy cordon_center vs weekday baseline [synthetic demand, uncalibrated]: mean delay +158.6 %, AM-peak delay +55.3 %, VKT +0.3 %, VHT +38.1 %, CO2 +34.1 %
+  report runs/cordon_center-f0.25/policy_report.md

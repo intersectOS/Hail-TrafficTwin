@@ -1,0 +1,22 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/duarouter -n data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz -r runs/wadi_adiri_flowing-f0.25/reroute.trips.xml --weight-files runs/wadi_adiri_flowing-f0.25/weights.xml.gz --weights.expand true --routing-algorithm astar --routing-threads 8 --seed 1 --begin 0 --end 93600 -o runs/wadi_adiri_flowing-f0.25/reroute.rou.xml.gz --vtype-output runs/wadi_adiri_flowing-f0.25/reroute.vtypes.xml --ignore-errors true --no-step-log true --aggregate-warnings 5
+Warning: No interval matches passed time=12.70 in edge '286856320#16'.
+ Using edge's length / max speed.
+Warning: No connection between edge '324069738#1' and edge '-556845009#0' found.
+Warning: Mandatory edge '-556845009#0' not reachable by vehicle 'a1_141229_0'.
+Warning: The vehicle 'a1_141229_0' has no valid route.
+Warning: No connection between edge '-132137510#1' and edge '-473658120#2' found.
+Warning: Mandatory edge '-473658120#2' not reachable by vehicle 'a1_141199_0'.
+Warning: The vehicle 'a1_141199_0' has no valid route.
+Warning: No connection between edge '689740908' and edge '473658119#2' found.
+Warning: Mandatory edge '473658119#2' not reachable by vehicle 'a1_141276_0'.
+Warning: The vehicle 'a1_141276_0' has no valid route.
+Warning: No connection between edge '1157650972' and edge '-556691523#0' found.
+Warning: Mandatory edge '-556691523#0' not reachable by vehicle 'a1_141204_0'.
+Warning: The vehicle 'a1_141204_0' has no valid route.
+Warning: No connection between edge '-132137513#1' and edge '1083751446' found.
+Warning: Mandatory edge '1083751446' not reachable by vehicle 'a1_141110_0'.
+Warning: The vehicle 'a1_141110_0' has no valid route.
+Warning: 675 total messages of type: Mandatory edge '%' not reachable by vehicle '%'.
+Warning: 675 total messages of type: No connection between edge '%' and edge '%' found.
+Warning: 675 total messages of type: The vehicle '%' has no valid route.
+Success.

@@ -1,0 +1,2 @@
+$ .venv/lib/python3.12/site-packages/sumo/bin/netconvert -s data/hail/hail.v2.net.xml -e runs/wadi_adiri_flowing-f0.25/hail.v2.wadi_adiri_flowing-9da41288.edg.xml -o data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz.tmp.net.xml.gz --output.street-names true --output.original-names true --geometry.min-radius.fix.railways false --geometry.avoid-overlap false --geometry.max-grade.fix false --offset.disable-normalization true --no-warnings true
+Success.

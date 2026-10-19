@@ -1,0 +1,6 @@
+{
+ "file": null,
+ "programs": 0,
+ "fallback": "network default signal programs",
+ "error": "command failed with code 1 (see /home/runner/work/Hail-TrafficTwin/Hail-TrafficTwin/logs/link-tls-sports_city.log): .venv/bin/python .venv/lib/python3.12/site-packages/sumo/tools/tlsCycleAdaptation.py -n data/windows/sports_city/sports_city.net.xml -r data/windows/sports_city/sports_city.rou.xml -o "
+}

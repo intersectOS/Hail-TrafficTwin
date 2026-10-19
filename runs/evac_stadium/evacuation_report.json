@@ -1,0 +1,542 @@
+{
+  "scenario": "evac_stadium",
+  "title": "Fictional stadium crowd leaving Prince Abdulaziz bin Musa'ed Sports City by car",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "sports_city",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 7200.0,
+  "reference_definition": "same demand, vType mix, seed, network (incl. closed contraflow lanes) and other events; no evacuation",
+  "evacuation": {
+    "type": "evacuation",
+    "id": "stadium_crowd",
+    "start": 0.0,
+    "end": null,
+    "order_t": 900.0,
+    "run_end": 7200.0,
+    "release_s": 1200.0,
+    "phasing": "simultaneous",
+    "exit_assignment": "nearest",
+    "signal_plan": "default",
+    "contraflow": [],
+    "corridors": [
+      {
+        "exit": "298009828#1-AddedOffRampEdge",
+        "pred": "1358424025#15",
+        "succ": null,
+        "length_m": 1669.7,
+        "lane_km": 5.009,
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0633\u0639\u0648\u062f \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "inbound_edges": [
+          "298009826#2-AddedOffRampEdge",
+          "298009826#3"
+        ],
+        "partner_coverage": 1.0,
+        "id": "cf1",
+        "edges": 4
+      },
+      {
+        "exit": "107173635#22",
+        "pred": "107173635#2",
+        "succ": null,
+        "length_m": 1057.1,
+        "lane_km": 3.171,
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "inbound_edges": [
+          "1358424025#1",
+          "1358424025#1-AddedOffRampEdge",
+          "1358424025#10",
+          "1358424025#11",
+          "1358424025#12",
+          "1358424025#13",
+          "1358424025#14",
+          "1358424025#2",
+          "1358424025#3",
+          "1358424025#4",
+          "1358424025#5",
+          "1358424025#6",
+          "1358424025#7",
+          "1358424025#8",
+          "1358424025#9",
+          "1358424025#9-AddedOnRampEdge"
+        ],
+        "partner_coverage": 0.874,
+        "id": "cf2",
+        "edges": 22
+      },
+      {
+        "exit": "323883296#0-AddedOnRampEdge",
+        "pred": "1501371310#5",
+        "succ": null,
+        "length_m": 1971.6,
+        "lane_km": 5.915,
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "inbound_edges": [
+          "1550792685#1",
+          "1550792685#2-AddedOnRampEdge",
+          "1550792685#7",
+          "286856321#14-AddedOffRampEdge",
+          "323883278",
+          "323883284",
+          "323883284-AddedOffRampEdge"
+        ],
+        "partner_coverage": 1.0,
+        "id": "cf3",
+        "edges": 7
+      }
+    ],
+    "setup_s": 600.0,
+    "inbound_allowed": [
+      "emergency"
+    ],
+    "reroute_period_s": 120.0,
+    "signals": {
+      "green_factor": 1.5,
+      "other_factor": 0.6,
+      "min_green_s": 6.0,
+      "max_green_s": 90.0
+    },
+    "vtypes": {
+      "aggressive": 0.130435,
+      "normal": 0.76087,
+      "slow": 0.108696
+    },
+    "sample_s": 5.0,
+    "exits": [
+      {
+        "edge": "298009828#1-AddedOffRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0633\u0639\u0648\u062f \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 7,
+        "speed_ms": 24.45,
+        "lon": 41.69662,
+        "lat": 27.48995,
+        "nearest_assigned": 2119,
+        "balanced_assigned": 1176
+      },
+      {
+        "edge": "323883296#0-AddedOnRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 7,
+        "speed_ms": 24.45,
+        "lon": 41.70882,
+        "lat": 27.48938,
+        "nearest_assigned": 0,
+        "balanced_assigned": 1139
+      },
+      {
+        "edge": "107173635#22",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.69604,
+        "lat": 27.52026,
+        "nearest_assigned": 881,
+        "balanced_assigned": 652
+      },
+      {
+        "edge": "298009829#21",
+        "name": "",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.6823,
+        "lat": 27.48935,
+        "nearest_assigned": 0,
+        "balanced_assigned": 0
+      },
+      {
+        "edge": "298009832#13",
+        "name": "",
+        "type": "highway.primary",
+        "lanes": 3,
+        "speed_ms": 24.45,
+        "lon": 41.67983,
+        "lat": 27.49278,
+        "nearest_assigned": 0,
+        "balanced_assigned": 33
+      },
+      {
+        "edge": "107171817#22",
+        "name": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u062f\u064a\u0631\u0639",
+        "type": "highway.tertiary",
+        "lanes": 4,
+        "speed_ms": 13.11,
+        "lon": 41.71517,
+        "lat": 27.50915,
+        "nearest_assigned": 0,
+        "balanced_assigned": 0
+      }
+    ],
+    "assigned": {
+      "107173635#22": 881,
+      "298009828#1-AddedOffRampEdge": 2119
+    },
+    "bands": {
+      "0": 1000,
+      "1": 1000,
+      "2": 1000
+    },
+    "zone": [
+      [
+        41.694,
+        27.501
+      ],
+      [
+        41.701,
+        27.501
+      ],
+      [
+        41.701,
+        27.5075
+      ],
+      [
+        41.694,
+        27.5075
+      ]
+    ],
+    "zone_area_km2": 0.499,
+    "reference": false,
+    "assumption_ids": [
+      "A-evac-007",
+      "A-evac-008",
+      "A-evac-009",
+      "A-evac-010",
+      "A-evac-001",
+      "A-evac-002",
+      "A-evac-003",
+      "A-evac-004",
+      "A-evac-005",
+      "A-evac-034",
+      "A-evac-006",
+      "A-evac-011",
+      "A-evac-012",
+      "A-evac-013",
+      "A-evac-014",
+      "A-evac-015",
+      "A-evac-016",
+      "A-evac-017",
+      "A-evac-018",
+      "A-evac-019",
+      "A-evac-020",
+      "A-evac-036",
+      "A-evac-037",
+      "A-evac-038",
+      "A-evac-021",
+      "A-evac-022",
+      "A-evac-023",
+      "A-evac-024",
+      "A-evac-025",
+      "A-evac-026"
+    ],
+    "persons": 7500,
+    "origin_edges": 208
+  },
+  "result": {
+    "clearance": {
+      "vehicles": 3000,
+      "out": 2373,
+      "out_share": 0.791,
+      "t50_s": 2837.0,
+      "t90_s": null,
+      "t100_s": null,
+      "horizon_s": 6300.0,
+      "last_departure_s": 6134.0,
+      "max_insertion_backlog": 662
+    },
+    "bottlenecks": [
+      {
+        "edge": "1550792685#9",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "halted_veh_h": 153.47,
+        "max_halted_veh": 127,
+        "max_at_s": 5175.0,
+        "planned_evacuee_share": 0.059,
+        "lon": 41.69871,
+        "lat": 27.50333
+      },
+      {
+        "edge": "107173635#0-AddedOnRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 6,
+        "halted_veh_h": 91.77,
+        "max_halted_veh": 65,
+        "max_at_s": 4780.0,
+        "planned_evacuee_share": 0.084,
+        "lon": 41.69874,
+        "lat": 27.50513
+      },
+      {
+        "edge": "107173635#2",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 3,
+        "halted_veh_h": 72.04,
+        "max_halted_veh": 51,
+        "max_at_s": 4960.0,
+        "planned_evacuee_share": 0.223,
+        "lon": 41.69878,
+        "lat": 27.50737
+      },
+      {
+        "edge": "107173635#11-AddedOnRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 7,
+        "halted_veh_h": 67.99,
+        "max_halted_veh": 49,
+        "max_at_s": 3970.0,
+        "planned_evacuee_share": 0.294,
+        "lon": 41.69796,
+        "lat": 27.51182
+      },
+      {
+        "edge": "107173635#5-AddedOffRampEdge",
+        "name": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "type": "highway.primary",
+        "lanes": 7,
+        "halted_veh_h": 47.39,
+        "max_halted_veh": 36,
+        "max_at_s": 6085.0,
+        "planned_evacuee_share": 0.243,
+        "lon": 41.69877,
+        "lat": 27.50895
+      }
+    ],
+    "background": {
+      "vehicles": 7322,
+      "time_loss_veh_h": 2336.875,
+      "depart_delay_veh_h": 250.936,
+      "delay_veh_h": 2587.811
+    },
+    "teleports": 2632,
+    "teleports_evacuees": 1356,
+    "contraflow_lanes_opened": 0,
+    "contraflow_lanes_closed": 0,
+    "signals_retimed": [],
+    "reroutes": 50265,
+    "add_errors": 0,
+    "sim_wall_s": 454.64
+  },
+  "background_added_veh_h": 349.41,
+  "reference": {
+    "background": {
+      "vehicles": 7611,
+      "time_loss_veh_h": 1922.78,
+      "depart_delay_veh_h": 315.621,
+      "delay_veh_h": 2238.401
+    },
+    "teleports": 1270
+  },
+  "evac_net": {
+    "net": "data/windows/sports_city/sports_city.evac-6e7d1310e4.net.xml",
+    "key": "6e7d1310e4",
+    "built": true,
+    "meta": {
+      "label": "synthetic demand, uncalibrated",
+      "window": "sports_city",
+      "window_net": "data/windows/sports_city/sports_city.net.xml",
+      "window_net_hash": "8fd8f4337a72d7ff",
+      "corridors": [
+        "cf1",
+        "cf2",
+        "cf3"
+      ],
+      "netconvert_s": 1.3,
+      "tls": null,
+      "net_hash": "bf06d8c756ac30c2",
+      "log": "logs/evac-net-sports_city-6e7d1310e4.log"
+    }
+  },
+  "event_log": [
+    {
+      "t": 0.0,
+      "event": "stadium_crowd",
+      "action": "start",
+      "type": "evacuation"
+    },
+    {
+      "t": 0.0,
+      "event": "stadium_crowd",
+      "action": "dormant_lanes_closed",
+      "corridors": [
+        "cf1",
+        "cf2",
+        "cf3"
+      ]
+    },
+    {
+      "t": 900.0,
+      "event": "stadium_crowd",
+      "action": "order",
+      "vehicles": 3000,
+      "phasing": "simultaneous",
+      "exit_assignment": "nearest",
+      "contraflow": [],
+      "signal_plan": "default",
+      "signals_retimed": []
+    },
+    {
+      "t": 7200.0,
+      "event": "stadium_crowd",
+      "action": "end",
+      "horizon": true
+    }
+  ],
+  "other_events": [],
+  "assumption_ids": [
+    "A-evac-007",
+    "A-evac-008",
+    "A-evac-009",
+    "A-evac-010",
+    "A-evac-001",
+    "A-evac-002",
+    "A-evac-003",
+    "A-evac-004",
+    "A-evac-005",
+    "A-evac-034",
+    "A-evac-006",
+    "A-evac-011",
+    "A-evac-012",
+    "A-evac-013",
+    "A-evac-014",
+    "A-evac-015",
+    "A-evac-016",
+    "A-evac-017",
+    "A-evac-018",
+    "A-evac-019",
+    "A-evac-020",
+    "A-evac-036",
+    "A-evac-037",
+    "A-evac-038",
+    "A-evac-021",
+    "A-evac-022",
+    "A-evac-023",
+    "A-evac-024",
+    "A-evac-025",
+    "A-evac-026"
+  ],
+  "window_kpis": {
+    "reference": {
+      "vehicles_loaded": 8361,
+      "vehicles_inserted": 7611,
+      "vehicles_running_at_end": 1437,
+      "vehicles_waiting_at_end": 686,
+      "background_completed": 7611,
+      "mean_travel_time_s": 1036.79,
+      "mean_delay_s": 909.47,
+      "mean_depart_delay_s": 149.29,
+      "mean_speed_kmh": 6.82,
+      "vkt": 13914.6,
+      "vht": 2041.55,
+      "teleports": 1270,
+      "teleports_jam": 892,
+      "teleport_share": 0.1519,
+      "queue_max_m": 1227.8,
+      "queue_p95_m": 1149.3,
+      "queue_max_veh": 468,
+      "halted_max_veh": 1248,
+      "halted_p95_veh": 1222.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 1227.8,
+          "at_s": 7180.0,
+          "max_halted_veh": 468
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 327.7,
+          "at_s": 3821.0,
+          "max_halted_veh": 71
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 227.7,
+          "at_s": 3459.0,
+          "max_halted_veh": 30
+        },
+        {
+          "edge": "-131800158#1",
+          "max_queue_m": 173.7,
+          "at_s": 2672.0,
+          "max_halted_veh": 21
+        },
+        {
+          "edge": "1358424025#1",
+          "max_queue_m": 157.7,
+          "at_s": 2777.0,
+          "max_halted_veh": 21
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 1851.0,
+      "gridlock_jam_teleport_onset_s": 1720.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    },
+    "evacuation": {
+      "vehicles_loaded": 11361,
+      "vehicles_inserted": 10094,
+      "vehicles_running_at_end": 1950,
+      "vehicles_waiting_at_end": 1203,
+      "background_completed": 7322,
+      "mean_travel_time_s": 1278.23,
+      "mean_delay_s": 1148.97,
+      "mean_depart_delay_s": 123.38,
+      "mean_speed_kmh": 4.15,
+      "vkt": 16153.4,
+      "vht": 3887.8,
+      "teleports": 2632,
+      "teleports_jam": 1655,
+      "teleport_share": 0.23167,
+      "queue_max_m": 1548.4,
+      "queue_p95_m": 1545.2,
+      "queue_max_veh": 599,
+      "halted_max_veh": 2439,
+      "halted_p95_veh": 2358.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 1548.4,
+          "at_s": 6642.0,
+          "max_halted_veh": 599
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 331.6,
+          "at_s": 6016.0,
+          "max_halted_veh": 127
+        },
+        {
+          "edge": "131800164#0",
+          "max_queue_m": 278.6,
+          "at_s": 2776.0,
+          "max_halted_veh": 37
+        },
+        {
+          "edge": "-131800164#1.s1",
+          "max_queue_m": 273.4,
+          "at_s": 3420.0,
+          "max_halted_veh": 37
+        },
+        {
+          "edge": "131800175#0",
+          "max_queue_m": 245.7,
+          "at_s": 1196.0,
+          "max_halted_veh": 33
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 1160.0,
+      "gridlock_jam_teleport_onset_s": 1441.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    }
+  }
+}

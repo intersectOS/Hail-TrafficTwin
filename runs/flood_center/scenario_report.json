@@ -1,0 +1,455 @@
+{
+  "scenario": "flood_center",
+  "title": "Storm: Wadi Al-Adiri runs and closes its crossings at Jarir St and King Faisal Rd",
+  "label": "synthetic demand, uncalibrated",
+  "fictional": true,
+  "window": "center",
+  "daytype": "weekday",
+  "seed": 1,
+  "begin": 0.0,
+  "end": 3600.0,
+  "baseline_definition": "same demand, vType mix, seed and step loop; probe events (emergency trips) only, no disruptive events",
+  "kpis": {
+    "baseline": {
+      "vehicles_loaded": 10085,
+      "vehicles_inserted": 9910,
+      "vehicles_running_at_end": 2183,
+      "vehicles_waiting_at_end": 51,
+      "background_completed": 7727,
+      "mean_travel_time_s": 293.63,
+      "mean_delay_s": 118.59,
+      "mean_depart_delay_s": 0.1,
+      "mean_speed_kmh": 21.39,
+      "vkt": 23323.9,
+      "vht": 1090.38,
+      "teleports": 342,
+      "teleports_jam": 213,
+      "teleport_share": 0.03391,
+      "queue_max_m": 328.5,
+      "queue_p95_m": 321.7,
+      "queue_max_veh": 103,
+      "halted_max_veh": 1370,
+      "halted_p95_veh": 1291.0,
+      "top_queued_edges": [
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 328.5,
+          "at_s": 3527.0,
+          "max_halted_veh": 86
+        },
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.2,
+          "at_s": 3565.0,
+          "max_halted_veh": 26
+        },
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 268.9,
+          "at_s": 3591.0,
+          "max_halted_veh": 103
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 213.2,
+          "at_s": 3587.0,
+          "max_halted_veh": 27
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 212.8,
+          "at_s": 2765.0,
+          "max_halted_veh": 28
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2602.0,
+      "gridlock_jam_teleport_onset_s": 1691.0,
+      "rerouted_vehicles": 0,
+      "reroute_failures": 0
+    },
+    "scenario": {
+      "vehicles_loaded": 10085,
+      "vehicles_inserted": 9784,
+      "vehicles_running_at_end": 2650,
+      "vehicles_waiting_at_end": 56,
+      "background_completed": 7134,
+      "mean_travel_time_s": 296.25,
+      "mean_delay_s": 124.42,
+      "mean_depart_delay_s": 0.17,
+      "mean_speed_kmh": 16.71,
+      "vkt": 21473.4,
+      "vht": 1284.73,
+      "teleports": 458,
+      "teleports_jam": 283,
+      "teleport_share": 0.04541,
+      "queue_max_m": 873.0,
+      "queue_p95_m": 833.2,
+      "queue_max_veh": 152,
+      "halted_max_veh": 1919,
+      "halted_p95_veh": 1721.0,
+      "top_queued_edges": [
+        {
+          "edge": "298009826#3",
+          "max_queue_m": 873.0,
+          "at_s": 3582.0,
+          "max_halted_veh": 152
+        },
+        {
+          "edge": "107173634#27",
+          "max_queue_m": 329.5,
+          "at_s": 2113.0,
+          "max_halted_veh": 98
+        },
+        {
+          "edge": "107417760#0",
+          "max_queue_m": 323.3,
+          "at_s": 3160.0,
+          "max_halted_veh": 34
+        },
+        {
+          "edge": "1550792685#9",
+          "max_queue_m": 308.6,
+          "at_s": 3386.0,
+          "max_halted_veh": 35
+        },
+        {
+          "edge": "1501371308",
+          "max_queue_m": 208.6,
+          "at_s": 2735.0,
+          "max_halted_veh": 27
+        }
+      ],
+      "gridlock_sustained_halt_onset_s": 2092.0,
+      "gridlock_jam_teleport_onset_s": 1645.0,
+      "rerouted_vehicles": 36,
+      "reroute_failures": 17
+    }
+  },
+  "delta": {
+    "vehicles_inserted": {
+      "delta": -126,
+      "pct": -1.27
+    },
+    "background_completed": {
+      "delta": -593,
+      "pct": -7.67
+    },
+    "mean_travel_time_s": {
+      "delta": 2.62,
+      "pct": 0.89
+    },
+    "mean_delay_s": {
+      "delta": 5.83,
+      "pct": 4.92
+    },
+    "mean_depart_delay_s": {
+      "delta": 0.07,
+      "pct": 70.0
+    },
+    "vehicles_waiting_at_end": {
+      "delta": 5,
+      "pct": 9.8
+    },
+    "mean_speed_kmh": {
+      "delta": -4.68,
+      "pct": -21.88
+    },
+    "vkt": {
+      "delta": -1850.5,
+      "pct": -7.93
+    },
+    "vht": {
+      "delta": 194.35,
+      "pct": 17.82
+    },
+    "teleports": {
+      "delta": 116,
+      "pct": 33.92
+    },
+    "queue_max_m": {
+      "delta": 544.5,
+      "pct": 165.75
+    },
+    "queue_p95_m": {
+      "delta": 511.5,
+      "pct": 159.0
+    },
+    "queue_max_veh": {
+      "delta": 49,
+      "pct": 47.57
+    },
+    "halted_p95_veh": {
+      "delta": 430.0,
+      "pct": 33.31
+    }
+  },
+  "gridlock": {
+    "baseline": {
+      "gridlock": true,
+      "onset_s": 1691.0,
+      "rules_fired": {
+        "sustained_halt": 2602.0,
+        "jam_teleports": 1691.0
+      }
+    },
+    "scenario": {
+      "gridlock": true,
+      "onset_s": 1645.0,
+      "rules_fired": {
+        "sustained_halt": 2092.0,
+        "jam_teleports": 1645.0
+      }
+    }
+  },
+  "emergency": {
+    "baseline": [],
+    "scenario": []
+  },
+  "convoy": [],
+  "event_edges_flow": {
+    "baseline": {
+      "132026263#0": 12.0,
+      "132026263#1": 12.0,
+      "1359397812#6": 4.0,
+      "1359397812#7": 59.0,
+      "1359397812#8": 107.0,
+      "737369846": 0.0
+    },
+    "scenario": {
+      "132026263#0": 12.0,
+      "132026263#1": 12.0,
+      "1359397812#6": 4.0,
+      "1359397812#7": 33.0,
+      "1359397812#8": 41.0,
+      "737369846": 0.0
+    }
+  },
+  "events": [
+    {
+      "type": "flood",
+      "id": "storm_flood",
+      "start": 600.0,
+      "end": 3300.0,
+      "preset": "storm",
+      "multipliers": {
+        "speedFactor": 0.85,
+        "tau": 1.3,
+        "minGap": 1.4,
+        "accel": 0.75,
+        "decel": 0.75
+      },
+      "sites_file": "data/hail_flood_sites.yaml",
+      "sites": [
+        {
+          "site": "HFS-001",
+          "name": "Wadi Al-Adiri crossing, Prince Muqrin bin Abdulaziz St (\u0648\u0627\u062f\u064a \u0627\u0644\u0623\u062f\u064a\u0631\u0639 / \u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u0645\u064a\u0631 \u0645\u0642\u0631\u0646)",
+          "kind": "wadi_crossing",
+          "confidence": "medium",
+          "method": "origId",
+          "radius_m": 300.0,
+          "edges": [
+            "1359397812#6",
+            "1359397812#7",
+            "1359397812#8"
+          ]
+        },
+        {
+          "site": "HFS-002",
+          "name": "Wadi Al-Adiri crossing, Jarir bin Abdullah St (\u0648\u0627\u062f\u064a \u0627\u0644\u0623\u062f\u064a\u0631\u0639 / \u0634\u0627\u0631\u0639 \u062c\u0631\u064a\u0631 \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0644\u0647)",
+          "kind": "wadi_crossing",
+          "confidence": "medium",
+          "method": "origId",
+          "radius_m": 300.0,
+          "edges": [
+            "132026263#0",
+            "132026263#1"
+          ]
+        },
+        {
+          "site": "HFS-003",
+          "name": "Wadi Al-Adiri crossing, King Faisal bin Abdulaziz Rd (\u0648\u0627\u062f\u064a \u0627\u0644\u0623\u062f\u064a\u0631\u0639 / \u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0641\u064a\u0635\u0644)",
+          "kind": "wadi_crossing",
+          "confidence": "medium",
+          "method": "origId",
+          "radius_m": 300.0,
+          "edges": [
+            "737369846"
+          ]
+        }
+      ],
+      "closure_start": 1200.0,
+      "closed_edges": [
+        "132026263#0",
+        "132026263#1",
+        "1359397812#6",
+        "1359397812#7",
+        "1359397812#8",
+        "737369846"
+      ],
+      "closed_lanes": [
+        "132026263#0_0",
+        "132026263#0_1",
+        "132026263#0_2",
+        "132026263#0_3",
+        "132026263#1_0",
+        "132026263#1_1",
+        "132026263#1_2",
+        "132026263#1_3",
+        "1359397812#6_0",
+        "1359397812#6_1",
+        "1359397812#6_2",
+        "1359397812#6_3",
+        "1359397812#7_0",
+        "1359397812#7_1",
+        "1359397812#7_2",
+        "1359397812#7_3",
+        "1359397812#8_0",
+        "1359397812#8_1",
+        "1359397812#8_2",
+        "1359397812#8_3",
+        "737369846_0",
+        "737369846_1",
+        "737369846_2",
+        "737369846_3"
+      ],
+      "reroute": true
+    }
+  ],
+  "event_summaries": {
+    "storm_flood": {
+      "closed_edges": [
+        "132026263#0",
+        "132026263#1",
+        "1359397812#6",
+        "1359397812#7",
+        "1359397812#8",
+        "737369846"
+      ],
+      "lanes_closed_verified": 24
+    }
+  },
+  "event_log": [
+    {
+      "t": 600.0,
+      "event": "storm_flood",
+      "action": "start",
+      "type": "flood"
+    },
+    {
+      "t": 600.0,
+      "event": "storm_flood",
+      "action": "weather_on",
+      "preset": "storm"
+    },
+    {
+      "t": 1200.0,
+      "event": "storm_flood",
+      "action": "close_sites",
+      "sites": [
+        "HFS-001",
+        "HFS-002",
+        "HFS-003"
+      ],
+      "edges": [
+        "132026263#0",
+        "132026263#1",
+        "1359397812#6",
+        "1359397812#7",
+        "1359397812#8",
+        "737369846"
+      ],
+      "verified_disallowed": 24,
+      "rerouted": 2
+    },
+    {
+      "t": 3300.0,
+      "event": "storm_flood",
+      "action": "reopen_sites",
+      "lanes": 24
+    },
+    {
+      "t": 3300.0,
+      "event": "storm_flood",
+      "action": "weather_off"
+    },
+    {
+      "t": 3300.0,
+      "event": "storm_flood",
+      "action": "end",
+      "horizon": false
+    }
+  ],
+  "baseline_event_log": [],
+  "strategist_requested": false,
+  "assumption_ids": [
+    "A-vtype-063",
+    "A-vtype-064",
+    "A-vtype-065",
+    "A-vtype-066",
+    "A-vtype-067",
+    "A-vtype-068",
+    "A-vtype-069",
+    "A-vtype-001",
+    "A-vtype-002",
+    "A-vtype-003",
+    "A-vtype-004",
+    "A-vtype-005",
+    "A-vtype-006",
+    "A-vtype-007",
+    "A-vtype-008",
+    "A-vtype-009",
+    "A-vtype-010",
+    "A-vtype-011",
+    "A-vtype-012",
+    "A-vtype-013",
+    "A-vtype-014",
+    "A-vtype-015",
+    "A-vtype-016",
+    "A-vtype-017",
+    "A-vtype-018",
+    "A-vtype-019",
+    "A-vtype-020",
+    "A-vtype-021",
+    "A-vtype-022",
+    "A-vtype-023",
+    "A-vtype-024",
+    "A-vtype-025",
+    "A-vtype-026",
+    "A-vtype-027",
+    "A-vtype-028",
+    "A-vtype-029",
+    "A-vtype-030",
+    "A-vtype-031",
+    "A-vtype-032",
+    "A-vtype-033",
+    "A-vtype-034",
+    "A-vtype-035",
+    "A-vtype-036",
+    "A-vtype-037",
+    "A-vtype-038",
+    "A-vtype-039",
+    "A-vtype-040",
+    "A-vtype-041",
+    "A-vtype-042",
+    "A-vtype-043",
+    "A-vtype-044",
+    "A-vtype-045",
+    "A-vtype-046",
+    "A-event-flood-radius",
+    "A-event-004",
+    "A-event-005",
+    "A-rain-011",
+    "A-rain-012",
+    "A-rain-013",
+    "A-rain-014",
+    "A-rain-015",
+    "A-kpi-001",
+    "A-kpi-002",
+    "A-kpi-003",
+    "A-kpi-004",
+    "A-kpi-005",
+    "A-kpi-006",
+    "A-kpi-007",
+    "A-sim-002"
+  ]
+}

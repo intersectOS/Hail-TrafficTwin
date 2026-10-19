@@ -1,0 +1,5 @@
+[remote_work_30-f0.25] transforms on baseline-weekday-f0.25-s1-addfcb64-76573219-d30875
+  remote_work: eligible_workers_with_tour=13219, remote_today=2359, tours_removed=2359, person_trips_removed=5104, vehicles_removed=2967, induced_tours_added=847, induced_person_trips_added=1694, induced_vehicles_added=958
+[remote_work_30-f0.25] meso run: 122,009 baseline routes, 958 new routes
+Policy remote_work_30 vs weekday baseline [synthetic demand, uncalibrated]: mean delay -14.4 %, AM-peak delay -21.1 %, VKT -1.9 %, VHT -10.0 %, CO2 -9.5 %
+  report runs/remote_work_30-f0.25/policy_report.md

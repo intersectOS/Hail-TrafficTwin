@@ -1,0 +1,922 @@
+{
+  "label": "synthetic demand, uncalibrated",
+  "headline": "Policy wadi_adiri_flowing vs weekday baseline [synthetic demand, uncalibrated]: mean delay -12.0 %, AM-peak delay +10.1 %, VKT +0.1 %, VHT -7.2 %, CO2 -6.6 %",
+  "policy": "wadi_adiri_flowing",
+  "title": "Wadi Al-Adiri running: all at-grade crossings closed for the day (bridges open)",
+  "run_id": "wadi_adiri_flowing-f0.25",
+  "tier": "Tier A (meso)",
+  "daytype": "weekday",
+  "compare_baseline": "wadi_adiri_flowing-f0.25--control",
+  "start_baseline": "baseline-weekday-f0.25-s1-addfcb64-76573219-d30875",
+  "sample": 0.25,
+  "seed": 1,
+  "kpis": [
+    {
+      "kpi": "mean_delay_s",
+      "label": "mean delay per trip",
+      "unit": "s",
+      "baseline": 782.2,
+      "policy": 688.6,
+      "delta": -93.6,
+      "delta_pct": -11.97,
+      "verdict": "better"
+    },
+    {
+      "kpi": "am_peak_mean_delay_s",
+      "label": "AM peak (06-09) mean delay",
+      "unit": "s",
+      "baseline": 291.4,
+      "policy": 320.9,
+      "delta": 29.5,
+      "delta_pct": 10.12,
+      "verdict": "worse"
+    },
+    {
+      "kpi": "mean_speed_kmh",
+      "label": "mean speed",
+      "unit": "km/h",
+      "baseline": 26.85,
+      "policy": 28.98,
+      "delta": 2.13,
+      "delta_pct": 7.93,
+      "verdict": "better"
+    },
+    {
+      "kpi": "vkt",
+      "label": "vehicle-km (VKT)",
+      "unit": "km",
+      "baseline": 5105525,
+      "policy": 5113042,
+      "delta": 7517,
+      "delta_pct": 0.15,
+      "verdict": "worse"
+    },
+    {
+      "kpi": "vht",
+      "label": "vehicle-hours (VHT)",
+      "unit": "h",
+      "baseline": 190139,
+      "policy": 176460,
+      "delta": -13679,
+      "delta_pct": -7.19,
+      "verdict": "better"
+    },
+    {
+      "kpi": "vht_delay",
+      "label": "vehicle-hours of delay",
+      "unit": "h",
+      "baseline": 108555,
+      "policy": 95087,
+      "delta": -13468,
+      "delta_pct": -12.41,
+      "verdict": "better"
+    },
+    {
+      "kpi": "trips_completed",
+      "label": "vehicle trips completed",
+      "unit": "",
+      "baseline": 499584,
+      "policy": 497096,
+      "delta": -2488,
+      "delta_pct": -0.5,
+      "verdict": ""
+    },
+    {
+      "kpi": "throughput_peak_hour_trips",
+      "label": "peak-hour departures",
+      "unit": "veh/h",
+      "baseline": 53936,
+      "policy": 53676,
+      "delta": -260,
+      "delta_pct": -0.48,
+      "verdict": ""
+    },
+    {
+      "kpi": "peak_hour",
+      "label": "peak hour (start)",
+      "unit": "h",
+      "baseline": 6,
+      "policy": 6,
+      "delta": 0,
+      "delta_pct": null,
+      "verdict": ""
+    },
+    {
+      "kpi": "peak_spreading_top_hour_share",
+      "label": "top-hour share of trips",
+      "unit": "",
+      "baseline": 0.108,
+      "policy": 0.108,
+      "delta": 0.0,
+      "delta_pct": 0.0,
+      "verdict": ""
+    },
+    {
+      "kpi": "co2_t",
+      "label": "CO2",
+      "unit": "t",
+      "baseline": 1839.9,
+      "policy": 1719.2,
+      "delta": -120.7,
+      "delta_pct": -6.56,
+      "verdict": "better"
+    },
+    {
+      "kpi": "co2_peak_hour_t",
+      "label": "CO2 in the peak hour",
+      "unit": "t",
+      "baseline": 122.0,
+      "policy": 128.9,
+      "delta": 6.9,
+      "delta_pct": 5.66,
+      "verdict": "worse"
+    },
+    {
+      "kpi": "nox_kg",
+      "label": "NOx",
+      "unit": "kg",
+      "baseline": 985.9,
+      "policy": 930.9,
+      "delta": -55.0,
+      "delta_pct": -5.58,
+      "verdict": "better"
+    },
+    {
+      "kpi": "mean_trip_km",
+      "label": "mean trip length",
+      "unit": "km",
+      "baseline": 10.22,
+      "policy": 10.29,
+      "delta": 0.07,
+      "delta_pct": 0.68,
+      "verdict": ""
+    },
+    {
+      "kpi": "teleports",
+      "label": "teleports (quality flag)",
+      "unit": "",
+      "baseline": 20554,
+      "policy": 16950,
+      "delta": -3604,
+      "delta_pct": -17.53,
+      "verdict": "better"
+    },
+    {
+      "kpi": "teleport_share",
+      "label": "teleports per loaded vehicle",
+      "unit": "",
+      "baseline": 0.164464,
+      "policy": 0.136363,
+      "delta": -0.0281,
+      "delta_pct": -17.09,
+      "verdict": "better"
+    }
+  ],
+  "control": {
+    "control_run": "wadi_adiri_flowing-f0.25--control",
+    "vehicles_rerouted_in_control": 5686,
+    "raw_baseline": "baseline-weekday-f0.25-s1-addfcb64-76573219-d30875",
+    "kpis_vs_raw_baseline": [
+      {
+        "kpi": "mean_delay_s",
+        "label": "mean delay per trip",
+        "unit": "s",
+        "baseline": 881.5,
+        "policy": 688.6,
+        "delta": -192.9,
+        "delta_pct": -21.88,
+        "verdict": "better"
+      },
+      {
+        "kpi": "am_peak_mean_delay_s",
+        "label": "AM peak (06-09) mean delay",
+        "unit": "s",
+        "baseline": 328.5,
+        "policy": 320.9,
+        "delta": -7.6,
+        "delta_pct": -2.31,
+        "verdict": "better"
+      },
+      {
+        "kpi": "mean_speed_kmh",
+        "label": "mean speed",
+        "unit": "km/h",
+        "baseline": 25.03,
+        "policy": 28.98,
+        "delta": 3.95,
+        "delta_pct": 15.78,
+        "verdict": "better"
+      },
+      {
+        "kpi": "vkt",
+        "label": "vehicle-km (VKT)",
+        "unit": "km",
+        "baseline": 5094966,
+        "policy": 5113042,
+        "delta": 18076,
+        "delta_pct": 0.35,
+        "verdict": "worse"
+      },
+      {
+        "kpi": "vht",
+        "label": "vehicle-hours (VHT)",
+        "unit": "h",
+        "baseline": 203551,
+        "policy": 176460,
+        "delta": -27091,
+        "delta_pct": -13.31,
+        "verdict": "better"
+      },
+      {
+        "kpi": "vht_delay",
+        "label": "vehicle-hours of delay",
+        "unit": "h",
+        "baseline": 122304,
+        "policy": 95087,
+        "delta": -27217,
+        "delta_pct": -22.25,
+        "verdict": "better"
+      },
+      {
+        "kpi": "trips_completed",
+        "label": "vehicle trips completed",
+        "unit": "",
+        "baseline": 499456,
+        "policy": 497096,
+        "delta": -2360,
+        "delta_pct": -0.47,
+        "verdict": ""
+      },
+      {
+        "kpi": "throughput_peak_hour_trips",
+        "label": "peak-hour departures",
+        "unit": "veh/h",
+        "baseline": 53908,
+        "policy": 53676,
+        "delta": -232,
+        "delta_pct": -0.43,
+        "verdict": ""
+      },
+      {
+        "kpi": "peak_hour",
+        "label": "peak hour (start)",
+        "unit": "h",
+        "baseline": 6,
+        "policy": 6,
+        "delta": 0,
+        "delta_pct": null,
+        "verdict": ""
+      },
+      {
+        "kpi": "peak_spreading_top_hour_share",
+        "label": "top-hour share of trips",
+        "unit": "",
+        "baseline": 0.1079,
+        "policy": 0.108,
+        "delta": 0.0001,
+        "delta_pct": 0.09,
+        "verdict": "worse"
+      },
+      {
+        "kpi": "co2_t",
+        "label": "CO2",
+        "unit": "t",
+        "baseline": 1960.9,
+        "policy": 1719.2,
+        "delta": -241.7,
+        "delta_pct": -12.33,
+        "verdict": "better"
+      },
+      {
+        "kpi": "co2_peak_hour_t",
+        "label": "CO2 in the peak hour",
+        "unit": "t",
+        "baseline": 127.0,
+        "policy": 128.9,
+        "delta": 1.9,
+        "delta_pct": 1.5,
+        "verdict": "worse"
+      },
+      {
+        "kpi": "nox_kg",
+        "label": "NOx",
+        "unit": "kg",
+        "baseline": 1045.9,
+        "policy": 930.9,
+        "delta": -115.0,
+        "delta_pct": -11.0,
+        "verdict": "better"
+      },
+      {
+        "kpi": "mean_trip_km",
+        "label": "mean trip length",
+        "unit": "km",
+        "baseline": 10.2,
+        "policy": 10.29,
+        "delta": 0.09,
+        "delta_pct": 0.88,
+        "verdict": ""
+      },
+      {
+        "kpi": "teleports",
+        "label": "teleports (quality flag)",
+        "unit": "",
+        "baseline": 22814,
+        "policy": 16950,
+        "delta": -5864,
+        "delta_pct": -25.7,
+        "verdict": "better"
+      },
+      {
+        "kpi": "teleport_share",
+        "label": "teleports per loaded vehicle",
+        "unit": "",
+        "baseline": 0.182547,
+        "policy": 0.136363,
+        "delta": -0.0462,
+        "delta_pct": -25.3,
+        "verdict": "better"
+      }
+    ],
+    "headline_vs_raw_baseline": "Policy wadi_adiri_flowing vs weekday baseline [synthetic demand, uncalibrated]: mean delay -21.9 %, AM-peak delay -2.3 %, VKT +0.3 %, VHT -13.3 %, CO2 -12.3 %"
+  },
+  "peak_spreading": {
+    "baseline_peak_hour": 6,
+    "am": {
+      "baseline": {
+        "departures": 92732,
+        "share": 0.1856,
+        "mean_delay_s": 291.4
+      },
+      "policy": {
+        "departures": 92328,
+        "share": 0.1857,
+        "mean_delay_s": 320.9
+      }
+    },
+    "pm": {
+      "baseline": {
+        "departures": 81216,
+        "share": 0.1626,
+        "mean_delay_s": 1271.0
+      },
+      "policy": {
+        "departures": 80836,
+        "share": 0.1626,
+        "mean_delay_s": 911.0
+      }
+    },
+    "peak_hour": {
+      "baseline": {
+        "departures": 53936,
+        "share": 0.108,
+        "mean_delay_s": 268.4
+      },
+      "policy": {
+        "departures": 53676,
+        "share": 0.108,
+        "mean_delay_s": 318.3
+      }
+    },
+    "hourly": [
+      {
+        "hour": 0,
+        "departures_base": 9460.0,
+        "mean_delay_s_base": 48.0,
+        "departures_policy": 9388.0,
+        "mean_delay_s_policy": 45.9
+      },
+      {
+        "hour": 1,
+        "departures_base": 4448.0,
+        "mean_delay_s_base": 44.0,
+        "departures_policy": 4408.0,
+        "mean_delay_s_policy": 44.3
+      },
+      {
+        "hour": 2,
+        "departures_base": 2368.0,
+        "mean_delay_s_base": 41.0,
+        "departures_policy": 2348.0,
+        "mean_delay_s_policy": 41.0
+      },
+      {
+        "hour": 3,
+        "departures_base": 1840.0,
+        "mean_delay_s_base": 52.0,
+        "departures_policy": 1788.0,
+        "mean_delay_s_policy": 49.2
+      },
+      {
+        "hour": 4,
+        "departures_base": 2056.0,
+        "mean_delay_s_base": 60.0,
+        "departures_policy": 1984.0,
+        "mean_delay_s_policy": 59.7
+      },
+      {
+        "hour": 5,
+        "departures_base": 30924.0,
+        "mean_delay_s_base": 102.7,
+        "departures_policy": 30776.0,
+        "mean_delay_s_policy": 168.1
+      },
+      {
+        "hour": 6,
+        "departures_base": 53936.0,
+        "mean_delay_s_base": 268.4,
+        "departures_policy": 53676.0,
+        "mean_delay_s_policy": 318.3
+      },
+      {
+        "hour": 7,
+        "departures_base": 22656.0,
+        "mean_delay_s_base": 448.9,
+        "departures_policy": 22572.0,
+        "mean_delay_s_policy": 444.8
+      },
+      {
+        "hour": 8,
+        "departures_base": 16140.0,
+        "mean_delay_s_base": 147.3,
+        "departures_policy": 16080.0,
+        "mean_delay_s_policy": 155.7
+      },
+      {
+        "hour": 9,
+        "departures_base": 9512.0,
+        "mean_delay_s_base": 98.8,
+        "departures_policy": 9444.0,
+        "mean_delay_s_policy": 96.9
+      },
+      {
+        "hour": 10,
+        "departures_base": 7192.0,
+        "mean_delay_s_base": 42.1,
+        "departures_policy": 7112.0,
+        "mean_delay_s_policy": 41.5
+      },
+      {
+        "hour": 11,
+        "departures_base": 18448.0,
+        "mean_delay_s_base": 48.5,
+        "departures_policy": 18364.0,
+        "mean_delay_s_policy": 50.2
+      },
+      {
+        "hour": 12,
+        "departures_base": 44212.0,
+        "mean_delay_s_base": 211.2,
+        "departures_policy": 43964.0,
+        "mean_delay_s_policy": 180.0
+      },
+      {
+        "hour": 13,
+        "departures_base": 22124.0,
+        "mean_delay_s_base": 717.6,
+        "departures_policy": 22032.0,
+        "mean_delay_s_policy": 627.6
+      },
+      {
+        "hour": 14,
+        "departures_base": 17264.0,
+        "mean_delay_s_base": 955.0,
+        "departures_policy": 17176.0,
+        "mean_delay_s_policy": 808.6
+      },
+      {
+        "hour": 15,
+        "departures_base": 23964.0,
+        "mean_delay_s_base": 753.7,
+        "departures_policy": 23844.0,
+        "mean_delay_s_policy": 667.7
+      },
+      {
+        "hour": 16,
+        "departures_base": 20480.0,
+        "mean_delay_s_base": 1008.9,
+        "departures_policy": 20368.0,
+        "mean_delay_s_policy": 753.3
+      },
+      {
+        "hour": 17,
+        "departures_base": 29856.0,
+        "mean_delay_s_base": 1172.1,
+        "departures_policy": 29712.0,
+        "mean_delay_s_policy": 733.2
+      },
+      {
+        "hour": 18,
+        "departures_base": 30880.0,
+        "mean_delay_s_base": 1540.5,
+        "departures_policy": 30756.0,
+        "mean_delay_s_policy": 1187.1
+      },
+      {
+        "hour": 19,
+        "departures_base": 36600.0,
+        "mean_delay_s_base": 1513.9,
+        "departures_policy": 36440.0,
+        "mean_delay_s_policy": 1424.1
+      },
+      {
+        "hour": 20,
+        "departures_base": 30716.0,
+        "mean_delay_s_base": 1893.9,
+        "departures_policy": 30568.0,
+        "mean_delay_s_policy": 1697.1
+      },
+      {
+        "hour": 21,
+        "departures_base": 26908.0,
+        "mean_delay_s_base": 1524.2,
+        "departures_policy": 26776.0,
+        "mean_delay_s_policy": 1396.6
+      },
+      {
+        "hour": 22,
+        "departures_base": 22000.0,
+        "mean_delay_s_base": 1167.1,
+        "departures_policy": 21900.0,
+        "mean_delay_s_policy": 1085.6
+      },
+      {
+        "hour": 23,
+        "departures_base": 15600.0,
+        "mean_delay_s_base": 912.9,
+        "departures_policy": 15620.0,
+        "mean_delay_s_policy": 916.5
+      }
+    ]
+  },
+  "districts": {
+    "winners": [
+      {
+        "name_en": "Industrial Area",
+        "trips_base": 5564.0,
+        "trips_policy": 5564.0,
+        "mean_delay_s_base": 1660.2,
+        "mean_delay_s_policy": 1158.2,
+        "delta_delay_s": -502.1
+      },
+      {
+        "name_en": "Sinaiyah An Nahdah",
+        "trips_base": 3664.0,
+        "trips_policy": 3656.0,
+        "mean_delay_s_base": 1642.1,
+        "mean_delay_s_policy": 1254.6,
+        "delta_delay_s": -387.5
+      },
+      {
+        "name_en": "Al Khamashiyah",
+        "trips_base": 1572.0,
+        "trips_policy": 1572.0,
+        "mean_delay_s_base": 1669.6,
+        "mean_delay_s_policy": 1303.1,
+        "delta_delay_s": -366.5
+      },
+      {
+        "name_en": "Al Talal",
+        "trips_base": 4856.0,
+        "trips_policy": 4848.0,
+        "mean_delay_s_base": 1367.8,
+        "mean_delay_s_policy": 1036.1,
+        "delta_delay_s": -331.7
+      },
+      {
+        "name_en": "Al Jabal",
+        "trips_base": 2624.0,
+        "trips_policy": 2620.0,
+        "mean_delay_s_base": 1265.7,
+        "mean_delay_s_policy": 941.0,
+        "delta_delay_s": -324.7
+      }
+    ],
+    "losers": [
+      {
+        "name_en": "Al Buhayrah",
+        "trips_base": 4596.0,
+        "trips_policy": 4744.0,
+        "mean_delay_s_base": 982.6,
+        "mean_delay_s_policy": 1198.3,
+        "delta_delay_s": 215.7
+      },
+      {
+        "name_en": "An Narjis",
+        "trips_base": 1168.0,
+        "trips_policy": 1168.0,
+        "mean_delay_s_base": 842.6,
+        "mean_delay_s_policy": 900.4,
+        "delta_delay_s": 57.8
+      },
+      {
+        "name_en": "Qurtubah",
+        "trips_base": 1404.0,
+        "trips_policy": 1404.0,
+        "mean_delay_s_base": 94.9,
+        "mean_delay_s_policy": 137.9,
+        "delta_delay_s": 42.9
+      },
+      {
+        "name_en": "An Nafl",
+        "trips_base": 3296.0,
+        "trips_policy": 3288.0,
+        "mean_delay_s_base": 419.3,
+        "mean_delay_s_policy": 455.6,
+        "delta_delay_s": 36.3
+      },
+      {
+        "name_en": "Mashar",
+        "trips_base": 1724.0,
+        "trips_policy": 1724.0,
+        "mean_delay_s_base": 418.2,
+        "mean_delay_s_policy": 445.7,
+        "delta_delay_s": 27.5
+      }
+    ],
+    "districts_better": 55,
+    "districts_worse": 6,
+    "districts_ranked": 61
+  },
+  "corridors": {
+    "relieved": [
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 47406.1,
+        "time_loss_policy_veh_h": 40526.3,
+        "edges": 259,
+        "delta_veh_h": -6879.8
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0633\u0639\u0648\u062f \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 13369.2,
+        "time_loss_policy_veh_h": 10226.1,
+        "edges": 114,
+        "delta_veh_h": -3143.1
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0637\u0644\u062d\u0629 \u0628\u0646 \u0639\u0628\u064a\u062f\u0627\u0644\u0644\u0647",
+        "time_loss_base_veh_h": 893.5,
+        "time_loss_policy_veh_h": 555.2,
+        "edges": 13,
+        "delta_veh_h": -338.3
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0641\u0647\u062f \u0628\u0646 \u0639\u0628\u062f \u0627\u0644\u0639\u0632\u064a\u0632",
+        "time_loss_base_veh_h": 1231.2,
+        "time_loss_policy_veh_h": 953.9,
+        "edges": 86,
+        "delta_veh_h": -277.3
+      },
+      {
+        "corridor": "553625016#11",
+        "time_loss_base_veh_h": 294.1,
+        "time_loss_policy_veh_h": 54.5,
+        "edges": 1,
+        "delta_veh_h": -239.6
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u062c\u062f\u0629",
+        "time_loss_base_veh_h": 715.9,
+        "time_loss_policy_veh_h": 530.8,
+        "edges": 28,
+        "delta_veh_h": -185.1
+      },
+      {
+        "corridor": "\u0637\u0631\u064a\u0642 \u0645\u0634\u0627\u0631",
+        "time_loss_base_veh_h": 1914.0,
+        "time_loss_policy_veh_h": 1780.0,
+        "edges": 53,
+        "delta_veh_h": -134.0
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0647\u0627\u0631\u0648\u0646 \u0627\u0644\u0631\u0634\u064a\u062f",
+        "time_loss_base_veh_h": 135.1,
+        "time_loss_policy_veh_h": 20.1,
+        "edges": 21,
+        "delta_veh_h": -115.1
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0623\u0645\u064a\u0631 \u0627\u0644\u0645\u0624\u0645\u0646\u064a\u0646 \u0639\u0645\u0631 \u0628\u0646 \u0627\u0644\u062e\u0637\u0627\u0628",
+        "time_loss_base_veh_h": 527.2,
+        "time_loss_policy_veh_h": 426.7,
+        "edges": 86,
+        "delta_veh_h": -100.5
+      },
+      {
+        "corridor": "350093266#3",
+        "time_loss_base_veh_h": 251.6,
+        "time_loss_policy_veh_h": 158.6,
+        "edges": 1,
+        "delta_veh_h": -93.1
+      }
+    ],
+    "worsened": [
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0641\u0631\u062c",
+        "time_loss_base_veh_h": 5150.6,
+        "time_loss_policy_veh_h": 5284.9,
+        "edges": 24,
+        "delta_veh_h": 134.3
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0627\u0644\u0646\u0639\u0645\u0627\u0646 \u0628\u0646 \u0639\u0645\u0631\u0648",
+        "time_loss_base_veh_h": 625.4,
+        "time_loss_policy_veh_h": 690.7,
+        "edges": 43,
+        "delta_veh_h": 65.3
+      },
+      {
+        "corridor": "324857034#1",
+        "time_loss_base_veh_h": 194.6,
+        "time_loss_policy_veh_h": 224.0,
+        "edges": 1,
+        "delta_veh_h": 29.3
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0639\u062a\u0628\u0629 \u0628\u0646 \u0633\u0647\u064a\u0644",
+        "time_loss_base_veh_h": 7.1,
+        "time_loss_policy_veh_h": 25.8,
+        "edges": 60,
+        "delta_veh_h": 18.7
+      },
+      {
+        "corridor": "-111184603#1",
+        "time_loss_base_veh_h": 14.6,
+        "time_loss_policy_veh_h": 31.9,
+        "edges": 1,
+        "delta_veh_h": 17.2
+      },
+      {
+        "corridor": "325736853#0",
+        "time_loss_base_veh_h": 102.2,
+        "time_loss_policy_veh_h": 117.0,
+        "edges": 1,
+        "delta_veh_h": 14.8
+      },
+      {
+        "corridor": "350093267#27",
+        "time_loss_base_veh_h": 12.0,
+        "time_loss_policy_veh_h": 26.0,
+        "edges": 1,
+        "delta_veh_h": 14.0
+      },
+      {
+        "corridor": "131722997#6",
+        "time_loss_base_veh_h": 229.7,
+        "time_loss_policy_veh_h": 243.6,
+        "edges": 1,
+        "delta_veh_h": 13.9
+      },
+      {
+        "corridor": "\u0634\u0627\u0631\u0639 \u0642\u0631\u0637\u0628\u0629",
+        "time_loss_base_veh_h": 1259.0,
+        "time_loss_policy_veh_h": 1272.7,
+        "edges": 18,
+        "delta_veh_h": 13.7
+      },
+      {
+        "corridor": "131722997#5",
+        "time_loss_base_veh_h": 25.0,
+        "time_loss_policy_veh_h": 38.1,
+        "edges": 1,
+        "delta_veh_h": 13.2
+      }
+    ]
+  },
+  "effects": [
+    {
+      "type": "network_change",
+      "variant_network": "data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz",
+      "edges_closed": 34,
+      "edges_changed": 0,
+      "edges_new": 0,
+      "edges_removed_in_variant": 34,
+      "endpoints_moved": 561,
+      "vehicles_rerouted_closure": 5686,
+      "closed_edge_names": [
+        "\u0634\u0627\u0631\u0639 \u0627\u0644\u0623\u0645\u064a\u0631 \u0645\u0642\u0631\u0646 \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632",
+        "\u0634\u0627\u0631\u0639 \u062c\u0631\u064a\u0631 \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0644\u0647",
+        "\u0637\u0631\u064a\u0642 \u0627\u0644\u0645\u0644\u0643 \u0641\u064a\u0635\u0644 \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632"
+      ]
+    }
+  ],
+  "routing": {
+    "vehicles": 124976,
+    "to_route": 5686,
+    "reused": 119290,
+    "duarouter": {
+      "wall_s": 51.1,
+      "peak_rss_mb": 2274.8
+    },
+    "weights_rows": 385976,
+    "retyped": 0,
+    "rerouted": 5011,
+    "unroutable": 675
+  },
+  "net_change": {
+    "base": "data/hail/hail.v2.net.xml",
+    "variant": "data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz",
+    "closed_edges": [
+      "-1092581422#1",
+      "-1137169721#2",
+      "-132026348#1",
+      "-132053092#4",
+      "-1482387671#1",
+      "-323883294",
+      "-325228506#3",
+      "-325228512#6",
+      "-465449939#3",
+      "-556714337#2",
+      "-556845011#8",
+      "1083751438#0",
+      "1083751439#0",
+      "1092581422#0",
+      "1137169721#1",
+      "132015290#1",
+      "132026263#0",
+      "132026348#1",
+      "132053092#4",
+      "132154197#8",
+      "1359397811#1",
+      "1359397812#5",
+      "1482387671#1",
+      "1490901483#1",
+      "323883264#5",
+      "323883265#9",
+      "323883294",
+      "325228506#2",
+      "325228512#6",
+      "465449939#2",
+      "556714337#0",
+      "556845011#8",
+      "737369845",
+      "737369846"
+    ],
+    "changed_edges": [],
+    "new_edges": []
+  },
+  "assumption_ids": {
+    "policy": [
+      "A-pol-150"
+    ],
+    "daytype": [
+      "A-day-001",
+      "A-day-002",
+      "A-day-003",
+      "A-day-004",
+      "A-day-005",
+      "A-day-006",
+      "A-day-007",
+      "A-day-008",
+      "A-day-009",
+      "A-day-010",
+      "A-day-011",
+      "A-day-012",
+      "A-day-013",
+      "A-day-014",
+      "A-day-015",
+      "A-day-016",
+      "A-day-017"
+    ],
+    "baseline_model": [
+      "A-act-001",
+      "A-act-002",
+      "A-act-003",
+      "A-act-004",
+      "A-act-005",
+      "A-act-006",
+      "A-exp-001",
+      "A-mode-001",
+      "A-mode-002",
+      "A-mode-003",
+      "A-net-301",
+      "A-pop-001",
+      "A-pop-002",
+      "A-pop-010",
+      "A-pop-011",
+      "A-pop-012",
+      "A-pop-013",
+      "A-pop-014",
+      "A-pop-015",
+      "A-pop-016",
+      "A-pop-017",
+      "A-pop-018",
+      "A-sim-101",
+      "A-sim-103"
+    ]
+  },
+  "provenance": {
+    "seed": 1,
+    "sample": 0.25,
+    "config_hash": "7727326c6bbbdc73",
+    "policy_hash": "e5816193812c5619",
+    "population_hash": "765732190ffb2223",
+    "network": "data/hail/hail.v2.wadi_adiri_flowing-9da41288.net.xml.gz",
+    "network_hash": "594810cf106bb39d",
+    "vehicles_hash": "fc1d2383bd099e80",
+    "routes_hash": "24adeb5221524c49",
+    "routes_deterministic": false,
+    "sumo_version": "Eclipse SUMO sumo 1.28.0"
+  }
+}

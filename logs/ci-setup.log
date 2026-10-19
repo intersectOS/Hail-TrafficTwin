@@ -1,0 +1,31 @@
+From https://github.com/intersectOS/Hail-TrafficTwin
+ * branch            build      -> FETCH_HEAD
+ * [new branch]      build      -> origin/build
+Preparing worktree (detached HEAD f31ea8f)
+HEAD is now at f31ea8f build: Hail networks from 2eff2f9
+data/hail:
+total 222712
+drwxr-xr-x 2 runner runner      4096 Oct 19 08:43 .
+drwxr-xr-x 8 runner runner      4096 Oct 19 08:43 ..
+-rw-r--r-- 1 runner runner    175911 Oct 19 08:43 buildings.geojson
+-rw-r--r-- 1 runner runner     82117 Oct 19 08:43 districts.geojson
+-rw-r--r-- 1 runner runner      1002 Oct 19 08:43 hail.build.json
+-rw-r--r-- 1 runner runner 107516815 Oct 19 08:43 hail.net.xml
+-rw-r--r-- 1 runner runner      1337 Oct 19 08:43 hail.v2.build.json
+-rw-r--r-- 1 runner runner 120256762 Oct 19 08:43 hail.v2.net.xml
+
+data/windows/center:
+total 25304
+drwxr-xr-x 2 runner runner     4096 Oct 19 08:43 .
+drwxr-xr-x 4 runner runner     4096 Oct 19 08:43 ..
+-rw-r--r-- 1 runner runner 25749865 Oct 19 08:43 center.net.xml
+-rw-r--r-- 1 runner runner   144265 Oct 19 08:43 center.trips.xml
+-rw-r--r-- 1 runner runner      688 Oct 19 08:43 center.window.json
+
+data/windows/sports_city:
+total 12684
+drwxr-xr-x 2 runner runner     4096 Oct 19 08:43 .
+drwxr-xr-x 4 runner runner     4096 Oct 19 08:43 ..
+-rw-r--r-- 1 runner runner 12828127 Oct 19 08:43 sports_city.net.xml
+-rw-r--r-- 1 runner runner   144475 Oct 19 08:43 sports_city.trips.xml
+-rw-r--r-- 1 runner runner      693 Oct 19 08:43 sports_city.window.json
