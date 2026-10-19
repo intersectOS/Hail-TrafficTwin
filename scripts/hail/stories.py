@@ -125,7 +125,7 @@ def build(out: Path) -> dict[str, Any]:
         rid = r["run_id"]
         if (("demo" in rid) and not __import__("os").environ.get("STORIES_DEMO")) or rid.startswith(("smoke-", "tierA-exit", "hail-source")):
             continue
-        if r["kind"] == "policy":
+        if r["kind"] == "policy" and not rid.endswith("--control"):
             rep = S.get(f"/api/runs/{rid}/policy-report")
             base = rep.json().get("compare_baseline") if rep is not None else None
             if base in by_id:

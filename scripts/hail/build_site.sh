@@ -19,4 +19,5 @@ if [ "$(cat "$OUT/data/play/index.json")" = "[]" ]; then
 fi
 rm -rf "$OUT/viewer/data"   # dev-only GeoJSON copies; the static viewer reads viewer/api/
 touch "$OUT/.nojekyll"
+find "$OUT" -type f -size +90M -print -delete   # GitHub Pages: 100 MB per file, 1 GB per site
 echo "site built in $OUT ($(du -sh "$OUT" | cut -f1))"

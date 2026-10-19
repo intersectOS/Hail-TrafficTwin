@@ -85,7 +85,8 @@ def export(out: Path) -> dict[str, Any]:
 
     # internal helper runs (tier-link exit times, smoke tests, demo window) stay out of the public list
     hidden = ("tierA-exit", "hail-source", "smoke-", "demo")
-    runs = [r for r in get("/api/runs").json() if not str(r["run_id"]).startswith(hidden) and "-demo-" not in str(r["run_id"])]
+    runs = [r for r in get("/api/runs").json() if not str(r["run_id"]).startswith(hidden)
+            and "-demo-" not in str(r["run_id"]) and not str(r["run_id"]).endswith("--control")]
     sizes["runs.json"] = _write(out / "runs.json", runs)
     for name in ("districts",):
         r = get(f"/api/geo/{name}")
@@ -120,7 +121,7 @@ def export(out: Path) -> dict[str, Any]:
                         else np.full(int(info["n_edges"]), np.nan, np.float32)
                     )
                 sizes[f"runs/{rid}/bins/{m}.pack"] = _write(base / "bins" / f"{m}.pack", pack_bins(arrs))
-        if run.get("tier") == "B":
+        if run.get("tier") == "B" and "-demo-" in rid:  # window traces are played on try.html (data/play)
             end = float(run.get("sim_seconds") or 3600)
             r = get(f"/api/runs/{rid}/trajectories", begin=0, end=end, step=1)
             if r is not None:
