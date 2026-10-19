@@ -1,4 +1,4 @@
-# Build the project page and the static viewer from the latest `simulate` run and publish them on
+# Build the project page and the static viewer from the latest `simulate` run and publish them on 
 # the gh-pages branch (GitHub Pages serves it at https://<owner>.github.io/<repo>/).
 name: publish
 on:
