@@ -60,6 +60,7 @@ jobs:
       - name: Ingest runs and build the site
         env:
           TT_RUNS_READONLY: "0"
+          TOMTOM_KEY: ${{ secrets.TOMTOM_KEY }}
         run: |
           mkdir -p publog
           ls -la runs > publog/runs.txt 2>&1 || true
@@ -87,10 +88,11 @@ jobs:
           for (const [url, out, w, h, full] of [
             ["http://localhost:8765/_site/index.html", "home.png", 1440, 900, true],
             ["http://localhost:8765/_site/index.html", "home-mobile.png", 390, 844, true],
+            ["http://localhost:8765/_site/actual.html#now", "live-mobile.png", 390, 844, false],
           ]) {
             const p = await b.newPage(); await p.setViewport({ width: w, height: h });
             await p.goto(url, { waitUntil: "networkidle0", timeout: 60000 }).catch(() => {});
-            await new Promise((r) => setTimeout(r, 2000)); await p.screenshot({ path: "/tmp/shots/" + out, fullPage: full });
+            await new Promise((r) => setTimeout(r, 8000)); await p.screenshot({ path: "/tmp/shots/" + out, fullPage: full });
           }
           await b.close();
           JS

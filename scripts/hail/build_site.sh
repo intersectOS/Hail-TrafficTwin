@@ -8,6 +8,7 @@ rm -rf "$OUT"; mkdir -p "$OUT/data"
 sed "s#__REPO__#${REPO}#g" site/index.html > "$OUT/index.html"
 cp site/style.css site/page.js site/try.html site/try.css site/try.js "$OUT/"
 cp site/actual.html site/actual.js "$OUT/" 2>/dev/null || true
+printf 'window.HAIL_LIVE = { tomtomKey: "%s" };\n' "${TOMTOM_KEY:-}" > "$OUT/live-config.js"
 uv run python -m scripts.hail.site_data --edges web/public/data/edges.geojson --runs runs --out "$OUT/data"
 (cd web && VITE_STATIC=1 npx vite build --base "/${NAME}/viewer/" --outDir "$OUT/viewer" --emptyOutDir)
 uv run python -m scripts.hail.export_static --out "$OUT/viewer/api"

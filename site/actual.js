@@ -106,6 +106,52 @@
   });
   window.addEventListener("resize", () => { if (obs) { fit(); draw(); } });
 
+  // ------------------------------------------------------------ live: TomTom traffic flow tiles
+  let liveMap = null, liveTimer = null;
+  const KEY = (window.HAIL_LIVE && window.HAIL_LIVE.tomtomKey) || "";
+  const flowUrl = () => `https://api.tomtom.com/traffic/map/4/tile/flow/relative0-dark/{z}/{x}/{y}.png?key=${KEY}&thickness=6&tileSize=256&t=${Math.floor(Date.now() / 120000)}`;
+  function stamp() {
+    const d = new Date();
+    $("live-when").textContent = `من TomTom مباشرة. آخر تحديث الساعة ${d.toLocaleTimeString("ar-SA", { hour: "numeric", minute: "2-digit" })}، ويتحدّث كل دقيقتين.`;
+  }
+  function startLive() {
+    document.querySelector(".stage").classList.add("is-live");
+    $("live-panel").hidden = false; $("typical-panel").hidden = true;
+    if (!KEY || !window.maplibregl) { $("live-when").textContent = "الزحمة المباشرة غير متاحة حالياً."; return; }
+    if (!liveMap) {
+      liveMap = new maplibregl.Map({
+        container: "live", style: "https://tiles.openfreemap.org/styles/dark", center: [41.705, 27.53], zoom: 11.6,
+        attributionControl: { compact: true, customAttribution: "Traffic © TomTom" },
+      });
+      liveMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
+      liveMap.on("load", () => {
+        liveMap.addSource("flow", { type: "raster", tiles: [flowUrl()], tileSize: 256 });
+        liveMap.addLayer({ id: "flow", type: "raster", source: "flow", paint: { "raster-opacity": 0.95 } });
+        stamp();
+      });
+    } else { liveMap.resize(); }
+    clearInterval(liveTimer);
+    liveTimer = setInterval(() => {
+      const src = liveMap && liveMap.getSource("flow");
+      if (src && src.setTiles) { src.setTiles([flowUrl()]); stamp(); }
+    }, 120000);
+  }
+  function stopLive() {
+    document.querySelector(".stage").classList.remove("is-live");
+    $("live-panel").hidden = true; $("typical-panel").hidden = false;
+    clearInterval(liveTimer);
+    if (obs) { fit(); draw(); }
+  }
+  document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-mode]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    if (b.dataset.mode === "live") startLive(); else stopLive();
+  }));
+  if (location.hash === "#now") document.querySelector('[data-mode="live"]').click();
+
+  // start on the current hour in Hail
+  hour = (new Date().getUTCHours() + 3) % 24;
+  $("hour").value = String(hour); $("hour-out").textContent = clock(hour);
+
   Promise.all([fetch("data/observed.json").then((r) => (r.ok ? r.json() : null)), fetch("data/roads.json").then((r) => r.json()).catch(() => null)])
     .then(([o, rd]) => {
       roads = rd;
