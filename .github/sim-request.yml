@@ -1,6 +1,7 @@
 # What the `simulate` workflow runs. Edit and push to start a run.
 # sample: share of Hail's 448,623 residents simulated (1.0 = everyone). Each sampled vehicle takes
 # 1/sample of the road capacity in Tier A, and is expanded back to 1/sample copies in the windows.
+# run 2026-10-19 b: network with TomTom-calibrated speeds (A-net-304)
 sample: 0.25
 seed: 1
 daytypes: [weekday]
