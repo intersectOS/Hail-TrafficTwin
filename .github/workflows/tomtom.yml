@@ -1,4 +1,4 @@
-# Typical travel times on Hail's main corridors from TomTom (historical traffic), for calibration and
+# Typical travel times on Hail's main corridors from TomTom (historical traffic), for calibration and (run 2026-10-19)
 # for the "actual traffic" view. Needs the repository secret TOMTOM_KEY. Results on the `observed`
 # branch. Free tier: 20,000 routing requests per month; this run uses about 8,600.
 name: tomtom
