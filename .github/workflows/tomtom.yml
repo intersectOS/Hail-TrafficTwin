@@ -1,0 +1,50 @@
+# Typical travel times on Hail's main corridors from TomTom (historical traffic), for calibration and
+# for the "actual traffic" view. Needs the repository secret TOMTOM_KEY. Results on the `observed`
+# branch. Free tier: 20,000 routing requests per month; this run uses about 8,600.
+name: tomtom
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/tomtom.yml", "scripts/hail/tomtom_corridors.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the key
+        env: { TOMTOM_KEY: "${{ secrets.TOMTOM_KEY }}" }
+        run: test -n "$TOMTOM_KEY" || { echo "::error::Add the repository secret TOMTOM_KEY"; exit 1; }
+      - name: System libraries for SUMO
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends libatomic1 libx11-6 libxext6 libxrender1 libgl1
+      - uses: astral-sh/setup-uv@v5
+      - run: uv python install 3.12 && uv sync --frozen
+      - name: Network from the build branch
+        run: |
+          git fetch --depth 1 origin build
+          git worktree add --detach /tmp/build FETCH_HEAD
+          mkdir -p data/hail
+          gunzip -c /tmp/build/hail/hail.v2.net.xml.gz > data/hail/hail.v2.net.xml
+      - name: Fetch typical travel times
+        env: { TOMTOM_KEY: "${{ secrets.TOMTOM_KEY }}" }
+        run: |
+          mkdir -p logs
+          uv run python -m scripts.hail.tomtom_corridors corridors 2>&1 | tee logs/corridors.log
+          uv run python -m scripts.hail.tomtom_corridors fetch --days weekday --hours 0-23 2>&1 | tee logs/fetch-weekday.log
+          mkdir -p /tmp/thu && uv run python -m scripts.hail.tomtom_corridors fetch --days thursday --hours 14-23 --out-dir /tmp/thu 2>&1 | tee logs/fetch-thursday.log
+          cp /tmp/thu/tomtom_traveltimes.json data/observed/tomtom_thursday.json || true
+      - name: Publish on the observed branch
+        if: always()
+        run: |
+          mkdir -p /tmp/obs && cp -r data/observed/* logs /tmp/obs/ 2>/dev/null || true
+          cd /tmp/obs
+          git init -q -b observed
+          git config user.name "Sulaiman O. Alkhateeb"
+          git config user.email "sulaiman@intersect.com.sa"
+          git add -A && git commit -q -m "observed: TomTom typical travel times"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" observed

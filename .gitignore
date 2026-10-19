@@ -36,3 +36,4 @@ movies/*
 # GitHub Pages build output (scripts/build_site.sh)
 _site/
 !movies/landmarks.yaml
+!data/observed/
