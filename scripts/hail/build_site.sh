@@ -8,6 +8,7 @@ rm -rf "$OUT"; mkdir -p "$OUT/data"
 sed "s#__REPO__#${REPO}#g" site/index.html > "$OUT/index.html"
 cp site/style.css site/page.js site/try.html site/try.css site/try.js "$OUT/"
 cp site/actual.html site/actual.js "$OUT/" 2>/dev/null || true
+cp site/whatif.html site/whatif.css site/whatif.js site/whatif-worker.js "$OUT/"
 printf 'window.HAIL_LIVE = { tomtomKey: "%s" };\n' "${TOMTOM_KEY:-}" > "$OUT/live-config.js"
 uv run python -m scripts.hail.site_data --edges web/public/data/edges.geojson --runs runs --out "$OUT/data"
 (cd web && VITE_STATIC=1 npx vite build --base "/${NAME}/viewer/" --outDir "$OUT/viewer" --emptyOutDir)
@@ -23,6 +24,9 @@ rm -rf "$OUT/viewer/data"   # dev-only GeoJSON copies; the static viewer reads v
 if [ -f data/observed/tomtom_traveltimes.json ]; then
   uv run python -m scripts.hail.observed_compare --out "$OUT/data/observed.json" --roads "$OUT/data/roads.json"
 fi
+# «لو صار الآن»: road graph and one file of routes per hour from the city baseline
+uv run python -m scripts.hail.whatif_data --net data/hail/hail.v2.net.xml --runs runs --out "$OUT/data/whatif" \
+  || echo "what-if data skipped (no city baseline routes)"
 touch "$OUT/.nojekyll"
 find "$OUT" -type f -size +90M -print -delete   # GitHub Pages: 100 MB per file, 1 GB per site
 echo "site built in $OUT ($(du -sh "$OUT" | cut -f1))"

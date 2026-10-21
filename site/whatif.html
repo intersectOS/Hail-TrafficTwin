@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>لو صار الآن · التوأم الرقمي لمرور حائل</title>
+  <meta name="author" content="SULAIMAN O. ALKHATEEB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="whatif.css" />
+</head>
+<body class="wi">
+  <div id="map" aria-label="خريطة حائل: اضغط على شارع"></div>
+
+  <header class="wi-top">
+    <a href="./" class="wi-back" aria-label="الرئيسية">→</a>
+    <div>
+      <h1>لو صار الآن</h1>
+      <p id="wi-clock">زحمة حائل مباشرة من TomTom</p>
+    </div>
+    <span class="live" id="live-dot">مباشر</span>
+  </header>
+
+  <section class="sheet" id="sheet" aria-live="polite">
+    <button type="button" class="grab" aria-label="صغّر أو كبّر اللوحة"></button>
+
+    <!-- step 1: pick a street -->
+    <div id="s-pick">
+      <h2>اضغط على أي شارع في الخريطة</h2>
+      <p class="hint">أو اختر حدثاً يشمل المدينة كلها:</p>
+      <button type="button" class="chip wide" data-city="rain">مطر غزير على حائل</button>
+      <p class="status" id="engine-status">يجهّز المحرّك…</p>
+    </div>
+
+    <!-- step 2: describe the event -->
+    <div id="s-event" hidden>
+      <div class="street">
+        <div><h2 id="st-name">شارع</h2><p id="st-meta" class="hint"></p></div>
+        <button type="button" class="link" id="st-clear">شارع آخر</button>
+      </div>
+      <p class="now" id="st-now" hidden></p>
+
+      <h3>وش صار؟</h3>
+      <div class="chips" role="radiogroup" aria-label="نوع الحدث" id="ev-type">
+        <button type="button" class="chip" data-v="closure" aria-checked="true" role="radio">حادث يغلق الطريق</button>
+        <button type="button" class="chip" data-v="lane" aria-checked="false" role="radio">حادث يغلق مساراً</button>
+        <button type="button" class="chip" data-v="motorcade" aria-checked="false" role="radio">إغلاق لموكب</button>
+        <button type="button" class="chip" data-v="works" aria-checked="false" role="radio">حفريات</button>
+      </div>
+
+      <h3>الاتجاه</h3>
+      <div class="chips" role="radiogroup" aria-label="الاتجاه" id="ev-dir">
+        <button type="button" class="chip" data-v="one" aria-checked="true" role="radio">هذا الاتجاه</button>
+        <button type="button" class="chip" data-v="both" aria-checked="false" role="radio">الاتجاهين</button>
+      </div>
+
+      <h3>متى، وكم يستمر؟</h3>
+      <div class="chips" role="radiogroup" aria-label="الساعة" id="ev-hour"></div>
+      <div class="chips" role="radiogroup" aria-label="المدة" id="ev-dur">
+        <button type="button" class="chip" data-v="15" aria-checked="false" role="radio">ربع ساعة</button>
+        <button type="button" class="chip" data-v="30" aria-checked="true" role="radio">نص ساعة</button>
+        <button type="button" class="chip" data-v="60" aria-checked="false" role="radio">ساعة</button>
+        <button type="button" class="chip" data-v="120" aria-checked="false" role="radio">ساعتين</button>
+      </div>
+      <button type="button" class="go" id="go">شغّل المحاكاة</button>
+    </div>
+
+    <!-- step 3: results -->
+    <div id="s-result" hidden>
+      <div class="street">
+        <div><h2 id="r-title">النتيجة</h2><p id="r-sub" class="hint"></p></div>
+        <button type="button" class="link" id="r-edit">عدّل</button>
+      </div>
+      <p class="headline" id="r-head"></p>
+      <div class="kpis">
+        <div><b id="k-aff">–</b><span>سيارة تأثرت</span></div>
+        <div><b id="k-min">–</b><span>دقيقة تأخير للسيارة المتأثرة</span></div>
+        <div><b id="k-vh">–</b><span>ساعة تأخير على المدينة</span></div>
+        <div><b id="k-q">–</b><span>أطول طابور</span></div>
+      </div>
+      <div class="legend2"><span><i class="l-up"></i>امتلأ</span><span><i class="l-down"></i>خفّ</span><span><i class="l-cut"></i>مغلق</span><span><i class="l-q"></i>طابور</span></div>
+      <h3>وين راحت السيارات</h3>
+      <ol class="roads" id="r-roads"></ol>
+      <button type="button" class="go ghost" id="r-new">حدث جديد</button>
+      <p class="fine">تقدير سريع مبني على حركة حائل في المحاكاة لهذه الساعة: السيارات اللي يمر طريقها بالشارع تعيد اختيار أقصر طريق بديل، وتُحسب زحمة الطرق البديلة وطوابيرها طوال مدة الحدث. طلب مروري مُركّب، قيد المعايرة. الزحمة الحالية على الخريطة © TomTom.</p>
+    </div>
+  </section>
+
+  <p class="credit-mini">تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929</p>
+
+  <script src="live-config.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="whatif.js" defer></script>
+</body>
+</html>

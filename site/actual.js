@@ -109,7 +109,8 @@
   // ------------------------------------------------------------ live: TomTom traffic flow tiles
   let liveMap = null, liveTimer = null;
   const KEY = (window.HAIL_LIVE && window.HAIL_LIVE.tomtomKey) || "";
-  const flowUrl = () => `https://api.tomtom.com/traffic/map/4/tile/flow/relative0-dark/{z}/{x}/{y}.png?key=${KEY}&thickness=6&tileSize=256&t=${Math.floor(Date.now() / 120000)}`;
+  // thickness is not allowed with the relative0 styles (TomTom answers 400), so it is left out
+  const flowUrl = () => `https://api.tomtom.com/traffic/map/4/tile/flow/relative0-dark/{z}/{x}/{y}.png?key=${KEY}&tileSize=256`;
   function stamp() {
     const d = new Date();
     $("live-when").textContent = `من TomTom مباشرة. آخر تحديث الساعة ${d.toLocaleTimeString("ar-SA", { hour: "numeric", minute: "2-digit" })}، ويتحدّث كل دقيقتين.`;
@@ -132,8 +133,12 @@
     } else { liveMap.resize(); }
     clearInterval(liveTimer);
     liveTimer = setInterval(() => {
-      const src = liveMap && liveMap.getSource("flow");
-      if (src && src.setTiles) { src.setTiles([flowUrl()]); stamp(); }
+      if (!liveMap || !liveMap.getSource("flow")) return;
+      // re-add the source so the tiles are fetched again (TomTom refreshes flow about every minute)
+      liveMap.removeLayer("flow"); liveMap.removeSource("flow");
+      liveMap.addSource("flow", { type: "raster", tiles: [flowUrl()], tileSize: 256 });
+      liveMap.addLayer({ id: "flow", type: "raster", source: "flow", paint: { "raster-opacity": 0.95 } });
+      stamp();
     }, 120000);
   }
   function stopLive() {
