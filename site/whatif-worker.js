@@ -74,8 +74,10 @@ function cost(e, v, mods, durS) {
 }
 
 // ---------------------------------------------------------------- shortest path (edge graph)
+// One search per source serves every destination of the vehicles entering there: the search stops
+// once all targets are settled (or the whole graph when targets is null).
 let dist = null, prev = null, heap = null;
-function sp(src, dst, costs) {
+function tree(src, costs, targets) {
   const n = G.n;
   if (!dist) { dist = new Float64Array(n); prev = new Int32Array(n); heap = { k: new Float64Array(n * 4), v: new Int32Array(n * 4), s: 0 }; }
   dist.fill(Infinity); prev.fill(-1);
@@ -83,12 +85,13 @@ function sp(src, dst, costs) {
   const push = (k, v) => { let i = heap.s++; heap.k[i] = k; heap.v[i] = v; while (i > 0) { const pa = (i - 1) >> 1; if (heap.k[pa] <= heap.k[i]) break; [heap.k[pa], heap.k[i]] = [heap.k[i], heap.k[pa]]; [heap.v[pa], heap.v[i]] = [heap.v[i], heap.v[pa]]; i = pa; } };
   const pop = () => { const v = heap.v[0], k = heap.k[0]; heap.s--; heap.k[0] = heap.k[heap.s]; heap.v[0] = heap.v[heap.s]; let i = 0; for (;;) { const l = 2 * i + 1, r = l + 1; let mn = i; if (l < heap.s && heap.k[l] < heap.k[mn]) mn = l; if (r < heap.s && heap.k[r] < heap.k[mn]) mn = r; if (mn === i) break; [heap.k[mn], heap.k[i]] = [heap.k[i], heap.k[mn]]; [heap.v[mn], heap.v[i]] = [heap.v[i], heap.v[mn]]; i = mn; } return [k, v]; };
   dist[src] = 0; push(0, src);
-  let settled = 0;
-  while (heap.s) {
+  let left = targets ? targets.size : -1;
+  if (targets && targets.has(src)) left--;
+  while (heap.s && left !== 0) {
     const [d, u] = pop();
     if (d > dist[u]) continue;
-    if (u === dst) break;
-    if (++settled > 400000 || heap.s > heap.k.length - 64) break;
+    if (targets && u !== src && targets.has(u)) left--;
+    if (heap.s > heap.k.length - 64) break;
     for (let j = G.succOff[u]; j < G.succOff[u + 1]; j++) {
       const w = G.succ[j], c = costs[w];
       if (c === Infinity) continue;
@@ -96,10 +99,13 @@ function sp(src, dst, costs) {
       if (nd < dist[w]) { dist[w] = nd; prev[w] = u; push(nd, w); }
     }
   }
+}
+function pathTo(src, dst) {
+  if (src === dst) return [src];
   if (dist[dst] === Infinity) return null;
   const path = [];
   for (let u = dst; u !== -1; u = prev[u]) { path.push(u); if (u === src) break; }
-  return path.reverse();
+  return path[path.length - 1] === src ? path.reverse() : null;
 }
 
 // ---------------------------------------------------------------- the experiment
@@ -133,11 +139,12 @@ function run(ev) {
   const none = new Map();
   const c0 = new Float64Array(n), cb = new Float64Array(n);
   for (let e = 0; e < n; e++) { c0[e] = cost(e, v0[e], none, 0); const md = mods.get(e); cb[e] = md && md.blocked ? Infinity : c0[e]; }
-  const reach = new Map();
+  const reach = new Map(); // source edge -> bitmap of edges reachable with the event in place
   const reachable = (src, dst) => {
-    const k = src + ":" + dst;
-    if (!reach.has(k)) { const p = src === dst ? [src] : sp(src, dst, cb); reach.set(k, p ? p.reduce((s, e, j) => s + (j ? c0[e] : 0), 0) : -1); }
-    return reach.get(k) >= 0;
+    if (src === dst) return true;
+    let r = reach.get(src);
+    if (!r) { tree(src, cb, null); r = new Uint8Array(n); for (let e = 0; e < n; e++) r[e] = dist[e] < Infinity ? 1 : 0; reach.set(src, r); }
+    return r[dst] === 1;
   };
   const groups = new Map();
   let stuckVeh = 0;
@@ -159,10 +166,15 @@ function run(ev) {
   }
   // reference: the best path between the same two points with no event (same link model), so
   // the delay compares like with like rather than with the simulation's own route choice
-  for (const g of groups.values()) {
-    const p = g.src === g.dst ? [g.src] : sp(g.src, g.dst, c0);
-    g.ref = p ? p.reduce((s, e, j) => s + (j ? c0[e] : 0), 0) : 0;
-  }
+  const bySrc = new Map();
+  for (const g of groups.values()) { let a = bySrc.get(g.src); if (!a) bySrc.set(g.src, (a = [])); a.push(g); }
+  const solve = (costs, each) => {
+    for (const [src, gs] of bySrc) {
+      tree(src, costs, new Set(gs.map((g) => g.dst)));
+      for (const g of gs) each(g, pathTo(src, g.dst));
+    }
+  };
+  solve(c0, (g, p) => { g.ref = p ? p.reduce((s, e, j) => s + (j ? c0[e] : 0), 0) : 0; });
   // remove the affected vehicles' original suffixes from the flows
   const vfix = Float64Array.from(v0);
   for (const g of groups.values()) g.veh.forEach((i, k) => { for (let j = g.entry[k] + 1; j < R.off[i + 1]; j++) vfix[R.edges[j]] -= W; });
@@ -178,13 +190,12 @@ function run(ev) {
     flowsFor(total);
     const aon = new Float64Array(n);
     stuck = 0;
-    for (const g of groups.values()) {
-      const p = g.src === g.dst ? [g.src] : sp(g.src, g.dst, costs);
+    solve(costs, (g, p) => {
       const q = g.veh.length * W;
-      if (!p) { stuck += q; continue; }
+      if (!p) { stuck += q; return; }
       for (let j = 1; j < p.length; j++) aon[p[j]] += q;
       g.paths.push(p);
-    }
+    });
     const a = 1 / (k + 1);
     for (let e = 0; e < n; e++) vaff[e] = vaff[e] + a * (aon[e] - vaff[e]);
   }
