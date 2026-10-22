@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>جرّب بنفسك · التوأم الرقمي لمرور حائل</title>
+  <meta name="author" content="SULAIMAN O. ALKHATEEB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="try.css" />
+</head>
+<body class="try">
+  <header class="try-top">
+    <a href="./" class="back">الرئيسية</a>
+    <h1>جرّب بنفسك</h1>
+  </header>
+
+  <div class="stage">
+    <canvas id="map" aria-label="خريطة وسط حائل والسيارات عليها"></canvas>
+    <div class="hud" aria-live="polite">
+      <div class="clock" id="clock">--:--</div>
+      <div class="counts"><span><b id="n-run">0</b> سيارة في الشارع</span><span><b id="n-stop">0</b> واقفة</span></div>
+    </div>
+    <div class="banner" id="banner" hidden></div>
+    <div class="legend"><span><i class="k-fast"></i>تمشي</span><span><i class="k-slow"></i>بطيئة</span><span><i class="k-jam"></i>واقفة</span></div>
+  </div>
+
+  <section class="panel" id="pick">
+    <h2>اختر التجربة</h2>
+    <div id="choices" class="choices" role="radiogroup" aria-label="التجارب"><p class="muted">تُحمَّل التجارب…</p></div>
+    <button class="run" id="run" type="button" disabled>شغّل المحاكاة</button>
+  </section>
+
+  <section class="panel" id="play" hidden>
+    <div class="play-head">
+      <h2 id="play-title"></h2>
+      <button type="button" class="link" id="again">تجربة أخرى</button>
+    </div>
+    <p class="what" id="play-what"></p>
+    <div class="seg wide" role="group" aria-label="بدون الحدث ومعه">
+      <button type="button" data-side="base" aria-pressed="false">بدون الحدث</button>
+      <button type="button" data-side="scen" aria-pressed="true" id="side-scen">مع الحدث</button>
+    </div>
+    <div class="controls">
+      <button type="button" class="round" id="pp" aria-label="إيقاف مؤقت">❚❚</button>
+      <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="الوقت" />
+      <select id="speed" aria-label="سرعة العرض">
+        <option value="10">×10</option>
+        <option value="30" selected>×30</option>
+        <option value="60">×60</option>
+      </select>
+    </div>
+    <p class="fine">كل نقطة سيارة في المحاكاة، وموقعها مسجّل كل 3 ثوانٍ من الزمن المحاكى. «بدون الحدث» هو الصباح نفسه بالسيارات نفسها لكن دون الحادث أو السيل. طلب مروري مُركّب غير مُعايَر، والأحداث افتراضية.</p>
+  </section>
+
+  <footer class="try-foot">
+    <p class="credit">تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929</p>
+    <p class="small" dir="ltr">This platform has been developed by Sulaiman Alkhateeb 0559965929</p>
+  </footer>
+  <script src="try.js" defer></script>
+</body>
+</html>

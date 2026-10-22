@@ -1,0 +1,82 @@
+[
+ {
+  "id": "accident_imam",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5291
+ },
+ {
+  "id": "accident_ka_north",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5308
+ },
+ {
+  "id": "accident_king_faisal",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5299
+ },
+ {
+  "id": "accident_king_khalid",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5233
+ },
+ {
+  "id": "accident_muqrin",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5261
+ },
+ {
+  "id": "flood_center",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5687
+ },
+ {
+  "id": "motorcade_center",
+  "kind": "scenario",
+  "t_event": 900.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 6144
+ },
+ {
+  "id": "rain_center",
+  "kind": "scenario",
+  "t_event": 600.0,
+  "sides": [
+   "scen",
+   "base"
+  ],
+  "kb": 5480
+ }
+]

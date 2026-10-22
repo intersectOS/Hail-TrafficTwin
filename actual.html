@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>الزحمة الفعلية · التوأم الرقمي لمرور حائل</title>
+  <meta name="author" content="SULAIMAN O. ALKHATEEB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="try.css" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <style>
+    .hourbar { display: flex; align-items: center; gap: 0.8rem; margin: 0.2rem 0 0.8rem; }
+    .hourbar input { flex: 1; accent-color: var(--granite); min-height: 44px; }
+    .hourbar output { font: 700 1.6rem/1 var(--kufi); min-width: 4.6rem; text-align: center; direction: ltr; }
+    .top { list-style: none; margin: 0; padding: 0; }
+    .top li { display: flex; justify-content: space-between; gap: 0.6rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+    .top li b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .road h3 { font-size: 1.25rem; margin: 0.2rem 0; }
+    .bars { display: flex; align-items: flex-end; gap: 2px; height: 90px; margin: 0.6rem 0 0.2rem; direction: ltr; }
+    .bars span { flex: 1; background: var(--mud); border-radius: 2px 2px 0 0; min-height: 2px; }
+    .bars span.on { background: var(--granite); }
+    .bars-axis { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--ink-2); direction: ltr; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0.8rem 0; }
+    .pair div { background: var(--paper); border-radius: 8px; padding: 0.6rem 0.8rem; }
+    .pair small { display: block; color: var(--ink-2); font-size: 0.82rem; }
+    .pair b { font: 700 1.3rem/1.3 var(--kufi); }
+    #live { position: absolute; inset: 0; display: none; }
+    .stage.is-live #live { display: block; }
+    .stage.is-live #map { visibility: hidden; }
+    .stage.is-live .legend { z-index: 3; }
+    .live-badge { position: absolute; top: 10px; right: 12px; z-index: 3; display: none; background: var(--granite); color: #fff;
+      border-radius: 999px; padding: 0.3rem 0.8rem; font-weight: 600; font-size: 0.9rem; }
+    .stage.is-live .live-badge { display: block; }
+    .live-badge::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fff;
+      margin-inline-end: 0.4rem; vertical-align: middle; animation: blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity: 0.2; } }
+    @media (prefers-reduced-motion: reduce) { .live-badge::before { animation: none; } }
+    .mode { margin-bottom: 1rem; }
+    .k-free { background: #3fa36b; } .k-busy { background: #e2a93b; } .k-heavy { background: #c8483a; }
+  </style>
+</head>
+<body class="try">
+  <header class="try-top">
+    <a href="./" class="back">الرئيسية</a>
+    <h1>الزحمة الفعلية</h1>
+  </header>
+  <div class="stage">
+    <canvas id="map" aria-label="خريطة طرق حائل ملوّنة بالزحمة المعتادة"></canvas>
+    <div id="live" aria-label="خريطة الزحمة الآن في حائل"></div>
+    <div class="live-badge" id="live-badge">مباشر</div>
+    <div class="legend"><span><i class="k-free"></i>سالك</span><span><i class="k-busy"></i>تباطؤ خفيف</span><span><i class="k-heavy"></i>تباطؤ واضح</span></div>
+  </div>
+  <section class="panel">
+    <div class="seg wide mode" role="group" aria-label="الزحمة المعتادة أو الآن">
+      <button type="button" data-mode="typical" aria-pressed="true">المعتادة</button>
+      <button type="button" data-mode="live" aria-pressed="false">الآن</button>
+    </div>
+    <div id="live-panel" hidden>
+      <h2>زحمة حائل الآن</h2>
+      <p class="what" id="live-when">من TomTom مباشرة، وتتحدّث كل دقيقتين.</p>
+      <p class="what">الألوان مقارنةً بسرعة الطريق وهو فاضي: الأخضر سالك، والأصفر والبرتقالي تباطؤ، والأحمر زحمة. الطرق بلا لون ليس عليها قراءة الآن.</p>
+      <p class="fine">قارنها بالزحمة المعتادة لنفس الساعة من زر «المعتادة». بيانات © TomTom.</p>
+    </div>
+    <div id="typical-panel">
+    <h2>اختر الساعة</h2>
+    <div class="hourbar"><input type="range" id="hour" min="0" max="23" value="7" aria-label="الساعة" /><output id="hour-out">7:00</output></div>
+    <p class="what" id="src">زحمة يوم أحد معتاد في حائل حسب بيانات TomTom التاريخية. اضغط على أي طريق في الخريطة أو في القائمة.</p>
+    <div id="road" class="road" hidden></div>
+    <h2 style="margin-top:1.2rem">أبطأ الطرق في هذه الساعة</h2>
+    <ul class="top" id="top"><li class="muted">تُحمَّل البيانات…</li></ul>
+    <p class="fine">حائل مدينة سالكة في أغلب اليوم: أبطأ مقطع في أسوأ ساعة يزيد زمنه حوالي 15٪ عن الطريق الفاضي (طريق الملك عبدالعزيز بين 5 و7 مساءً). الألوان تقيس هذه الزيادة: أقل من 4٪ سالك، ومن 4٪ إلى 10٪ تباطؤ خفيف، وفوق 10٪ تباطؤ واضح. المقطع حوالي 2 كم. بيانات © TomTom. «النموذج» هو نفس المقطع في محاكاة التوأم الرقمي (طلب مُركّب، قيد المعايرة).</p>
+    </div>
+    <a class="run" href="try.html" style="display:block;text-align:center;text-decoration:none;margin-top:1rem">جرّب إغلاق طريق في المحاكاة</a>
+  </section>
+  <footer class="try-foot">
+    <p class="credit">تم تطوير هذه المنصة بواسطة سليمان الخطيب 0559965929</p>
+    <p class="small" dir="ltr">This platform has been developed by Sulaiman Alkhateeb 0559965929 · traffic data © TomTom</p>
+  </footer>
+  <script src="live-config.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+  <script src="actual.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,890 @@
+{
+ "label": "synthetic demand, uncalibrated",
+ "policies": [
+  {
+   "run_id": "bus_line_king_abdulaziz-f0.25",
+   "id": "bus_line_king_abdulaziz",
+   "title": "New bus line H1 on King Abdulaziz Rd, every 10 min, 06:00-23:00, 10 % car shift in the catchment",
+   "sample": 0.25,
+   "kpis": {
+    "mean_delay_s": {
+     "baseline": 125.5,
+     "policy": 122.8,
+     "delta_pct": -2.15,
+     "unit": "s"
+    },
+    "am_peak_mean_delay_s": {
+     "baseline": 209.3,
+     "policy": 202.1,
+     "delta_pct": -3.44,
+     "unit": "s"
+    },
+    "mean_speed_kmh": {
+     "baseline": 61.5,
+     "policy": 61.83,
+     "delta_pct": 0.54,
+     "unit": "km/h"
+    },
+    "vkt": {
+     "baseline": 4998071,
+     "policy": 5013768,
+     "delta_pct": 0.31,
+     "unit": "km"
+    },
+    "vht": {
+     "baseline": 81265,
+     "policy": 81086,
+     "delta_pct": -0.22,
+     "unit": "h"
+    },
+    "vht_delay": {
+     "baseline": 17429,
+     "policy": 17079,
+     "delta_pct": -2.01,
+     "unit": "h"
+    },
+    "trips_completed": {
+     "baseline": 499904,
+     "policy": 500508,
+     "delta_pct": 0.12,
+     "unit": ""
+    },
+    "throughput_peak_hour_trips": {
+     "baseline": 54000,
+     "policy": 54028,
+     "delta_pct": 0.05,
+     "unit": "veh/h"
+    },
+    "peak_hour": {
+     "baseline": 6,
+     "policy": 6,
+     "delta_pct": null,
+     "unit": "h"
+    },
+    "peak_spreading_top_hour_share": {
+     "baseline": 0.108,
+     "policy": 0.1079,
+     "delta_pct": -0.09,
+     "unit": ""
+    },
+    "co2_t": {
+     "baseline": 1013.0,
+     "policy": 1021.5,
+     "delta_pct": 0.84,
+     "unit": "t"
+    },
+    "co2_peak_hour_t": {
+     "baseline": 109.3,
+     "policy": 107.9,
+     "delta_pct": -1.28,
+     "unit": "t"
+    },
+    "nox_kg": {
+     "baseline": 558.9,
+     "policy": 568.9,
+     "delta_pct": 1.79,
+     "unit": "kg"
+    },
+    "mean_trip_km": {
+     "baseline": 10.0,
+     "policy": 10.02,
+     "delta_pct": 0.2,
+     "unit": "km"
+    },
+    "teleports": {
+     "baseline": 1278,
+     "policy": 1074,
+     "delta_pct": -15.96,
+     "unit": ""
+    },
+    "teleport_share": {
+     "baseline": 0.010226,
+     "policy": 0.008583,
+     "delta_pct": -16.07,
+     "unit": ""
+    }
+   }
+  },
+  {
+   "run_id": "remote_work_30-f0.25",
+   "id": "remote_work_30",
+   "title": "30 % hybrid work (government + private office), 3 remote days/week",
+   "sample": 0.25,
+   "kpis": {
+    "mean_delay_s": {
+     "baseline": 125.5,
+     "policy": 106.3,
+     "delta_pct": -15.3,
+     "unit": "s"
+    },
+    "am_peak_mean_delay_s": {
+     "baseline": 209.3,
+     "policy": 209.9,
+     "delta_pct": 0.29,
+     "unit": "s"
+    },
+    "mean_speed_kmh": {
+     "baseline": 61.5,
+     "policy": 63.51,
+     "delta_pct": 3.27,
+     "unit": "km/h"
+    },
+    "vkt": {
+     "baseline": 4998071,
+     "policy": 4898713,
+     "delta_pct": -1.99,
+     "unit": "km"
+    },
+    "vht": {
+     "baseline": 81265,
+     "policy": 77138,
+     "delta_pct": -5.08,
+     "unit": "h"
+    },
+    "vht_delay": {
+     "baseline": 17429,
+     "policy": 14526,
+     "delta_pct": -16.66,
+     "unit": "h"
+    },
+    "trips_completed": {
+     "baseline": 499904,
+     "policy": 491868,
+     "delta_pct": -1.61,
+     "unit": ""
+    },
+    "throughput_peak_hour_trips": {
+     "baseline": 54000,
+     "policy": 52920,
+     "delta_pct": -2.0,
+     "unit": "veh/h"
+    },
+    "peak_hour": {
+     "baseline": 6,
+     "policy": 6,
+     "delta_pct": null,
+     "unit": "h"
+    },
+    "peak_spreading_top_hour_share": {
+     "baseline": 0.108,
+     "policy": 0.1076,
+     "delta_pct": -0.37,
+     "unit": ""
+    },
+    "co2_t": {
+     "baseline": 1013.0,
+     "policy": 970.2,
+     "delta_pct": -4.23,
+     "unit": "t"
+    },
+    "co2_peak_hour_t": {
+     "baseline": 109.3,
+     "policy": 106.9,
+     "delta_pct": -2.2,
+     "unit": "t"
+    },
+    "nox_kg": {
+     "baseline": 558.9,
+     "policy": 538.6,
+     "delta_pct": -3.63,
+     "unit": "kg"
+    },
+    "mean_trip_km": {
+     "baseline": 10.0,
+     "policy": 9.96,
+     "delta_pct": -0.4,
+     "unit": "km"
+    },
+    "teleports": {
+     "baseline": 1278,
+     "policy": 875,
+     "delta_pct": -31.53,
+     "unit": ""
+    },
+    "teleport_share": {
+     "baseline": 0.010226,
+     "policy": 0.007116,
+     "delta_pct": -30.41,
+     "unit": ""
+    }
+   }
+  },
+  {
+   "run_id": "staggered_schools_60-f0.25",
+   "id": "staggered_schools_60",
+   "title": "Staggered school hours: schools in half of the districts start 60 min later",
+   "sample": 0.25,
+   "kpis": {
+    "mean_delay_s": {
+     "baseline": 147.3,
+     "policy": 105.0,
+     "delta_pct": -28.72,
+     "unit": "s"
+    },
+    "am_peak_mean_delay_s": {
+     "baseline": 373.6,
+     "policy": 177.2,
+     "delta_pct": -52.57,
+     "unit": "s"
+    },
+    "mean_speed_kmh": {
+     "baseline": 59.31,
+     "policy": 63.73,
+     "delta_pct": 7.45,
+     "unit": "km/h"
+    },
+    "vkt": {
+     "baseline": 4999886,
+     "policy": 5000305,
+     "delta_pct": 0.01,
+     "unit": "km"
+    },
+    "vht": {
+     "baseline": 84306,
+     "policy": 78461,
+     "delta_pct": -6.93,
+     "unit": "h"
+    },
+    "vht_delay": {
+     "baseline": 20456,
+     "policy": 14586,
+     "delta_pct": -28.7,
+     "unit": "h"
+    },
+    "trips_completed": {
+     "baseline": 499904,
+     "policy": 499904,
+     "delta_pct": 0.0,
+     "unit": ""
+    },
+    "throughput_peak_hour_trips": {
+     "baseline": 53988,
+     "policy": 44252,
+     "delta_pct": -18.03,
+     "unit": "veh/h"
+    },
+    "peak_hour": {
+     "baseline": 6,
+     "policy": 6,
+     "delta_pct": null,
+     "unit": "h"
+    },
+    "peak_spreading_top_hour_share": {
+     "baseline": 0.108,
+     "policy": 0.0885,
+     "delta_pct": -18.06,
+     "unit": ""
+    },
+    "co2_t": {
+     "baseline": 1041.6,
+     "policy": 987.7,
+     "delta_pct": -5.17,
+     "unit": "t"
+    },
+    "co2_peak_hour_t": {
+     "baseline": 129.8,
+     "policy": 93.8,
+     "delta_pct": -27.73,
+     "unit": "t"
+    },
+    "nox_kg": {
+     "baseline": 574.8,
+     "policy": 544.7,
+     "delta_pct": -5.24,
+     "unit": "kg"
+    },
+    "mean_trip_km": {
+     "baseline": 10.0,
+     "policy": 10.0,
+     "delta_pct": 0.0,
+     "unit": "km"
+    },
+    "teleports": {
+     "baseline": 2298,
+     "policy": 773,
+     "delta_pct": -66.36,
+     "unit": ""
+    },
+    "teleport_share": {
+     "baseline": 0.018388,
+     "policy": 0.006185,
+     "delta_pct": -66.36,
+     "unit": ""
+    }
+   }
+  },
+  {
+   "run_id": "wadi_adiri_flowing-f0.25",
+   "id": "wadi_adiri_flowing",
+   "title": "Wadi Al-Adiri running: all at-grade crossings closed for the day (bridges open)",
+   "sample": 0.25,
+   "kpis": {
+    "mean_delay_s": {
+     "baseline": 103.5,
+     "policy": 106.4,
+     "delta_pct": 2.8,
+     "unit": "s"
+    },
+    "am_peak_mean_delay_s": {
+     "baseline": 224.7,
+     "policy": 231.4,
+     "delta_pct": 2.98,
+     "unit": "s"
+    },
+    "mean_speed_kmh": {
+     "baseline": 63.92,
+     "policy": 63.83,
+     "delta_pct": -0.14,
+     "unit": "km/h"
+    },
+    "vkt": {
+     "baseline": 5001599,
+     "policy": 5007644,
+     "delta_pct": 0.12,
+     "unit": "km"
+    },
+    "vht": {
+     "baseline": 78246,
+     "policy": 78459,
+     "delta_pct": 0.27,
+     "unit": "h"
+    },
+    "vht_delay": {
+     "baseline": 14374,
+     "policy": 14695,
+     "delta_pct": 2.23,
+     "unit": "h"
+    },
+    "trips_completed": {
+     "baseline": 499904,
+     "policy": 497204,
+     "delta_pct": -0.54,
+     "unit": ""
+    },
+    "throughput_peak_hour_trips": {
+     "baseline": 54004,
+     "policy": 53776,
+     "delta_pct": -0.42,
+     "unit": "veh/h"
+    },
+    "peak_hour": {
+     "baseline": 6,
+     "policy": 6,
+     "delta_pct": null,
+     "unit": "h"
+    },
+    "peak_spreading_top_hour_share": {
+     "baseline": 0.108,
+     "policy": 0.1082,
+     "delta_pct": 0.19,
+     "unit": ""
+    },
+    "co2_t": {
+     "baseline": 987.3,
+     "policy": 991.4,
+     "delta_pct": 0.42,
+     "unit": "t"
+    },
+    "co2_peak_hour_t": {
+     "baseline": 114.6,
+     "policy": 116.7,
+     "delta_pct": 1.83,
+     "unit": "t"
+    },
+    "nox_kg": {
+     "baseline": 548.4,
+     "policy": 551.8,
+     "delta_pct": 0.62,
+     "unit": "kg"
+    },
+    "mean_trip_km": {
+     "baseline": 10.01,
+     "policy": 10.07,
+     "delta_pct": 0.6,
+     "unit": "km"
+    },
+    "teleports": {
+     "baseline": 1068,
+     "policy": 1058,
+     "delta_pct": -0.94,
+     "unit": ""
+    },
+    "teleport_share": {
+     "baseline": 0.008546,
+     "policy": 0.008512,
+     "delta_pct": -0.4,
+     "unit": ""
+    }
+   }
+  }
+ ],
+ "scenarios": [
+  {
+   "run_id": "accident_imam",
+   "id": "accident_imam",
+   "title": "Crash closes Imam Muhammad bin Saud St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 147.11,
+    "mean_travel_time_s": 293.76,
+    "mean_speed_kmh": 27.84,
+    "vht": 971.37,
+    "queue_max_m": 206.6,
+    "halted_max_veh": 960,
+    "teleports": 305
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_imam-center-s1-08b1c04c",
+   "id": "accident_imam",
+   "title": "Crash closes Imam Muhammad bin Saud St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 147.11,
+    "mean_travel_time_s": 293.76,
+    "mean_speed_kmh": 27.84,
+    "vht": 971.37,
+    "queue_max_m": 206.6,
+    "halted_max_veh": 960,
+    "teleports": 305
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_ka_north",
+   "id": "accident_ka_north",
+   "title": "Crash closes King Abdulaziz Rd northbound for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 152.16,
+    "mean_travel_time_s": 299.81,
+    "mean_speed_kmh": 28.01,
+    "vht": 967.88,
+    "queue_max_m": 239.3,
+    "halted_max_veh": 945,
+    "teleports": 223
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_ka_north-center-s1-77566a29",
+   "id": "accident_ka_north",
+   "title": "Crash closes King Abdulaziz Rd northbound for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 152.16,
+    "mean_travel_time_s": 299.81,
+    "mean_speed_kmh": 28.01,
+    "vht": 967.88,
+    "queue_max_m": 239.3,
+    "halted_max_veh": 945,
+    "teleports": 223
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_king_faisal",
+   "id": "accident_king_faisal",
+   "title": "Crash closes King Faisal Rd for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 152.16,
+    "mean_travel_time_s": 298.13,
+    "mean_speed_kmh": 27.26,
+    "vht": 988.13,
+    "queue_max_m": 279.6,
+    "halted_max_veh": 1014,
+    "teleports": 309
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_king_faisal-center-s1-247a5a20",
+   "id": "accident_king_faisal",
+   "title": "Crash closes King Faisal Rd for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 152.16,
+    "mean_travel_time_s": 298.13,
+    "mean_speed_kmh": 27.26,
+    "vht": 988.13,
+    "queue_max_m": 279.6,
+    "halted_max_veh": 1014,
+    "teleports": 309
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_king_khalid",
+   "id": "accident_king_khalid",
+   "title": "Crash closes King Khalid St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 144.5,
+    "mean_travel_time_s": 292.05,
+    "mean_speed_kmh": 29.37,
+    "vht": 931.77,
+    "queue_max_m": 296.9,
+    "halted_max_veh": 842,
+    "teleports": 182
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_king_khalid-center-s1-332b31d7",
+   "id": "accident_king_khalid",
+   "title": "Crash closes King Khalid St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 144.5,
+    "mean_travel_time_s": 292.05,
+    "mean_speed_kmh": 29.37,
+    "vht": 931.77,
+    "queue_max_m": 296.9,
+    "halted_max_veh": 842,
+    "teleports": 182
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_muqrin",
+   "id": "accident_muqrin",
+   "title": "Crash closes Prince Muqrin St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 140.01,
+    "mean_travel_time_s": 286.29,
+    "mean_speed_kmh": 28.33,
+    "vht": 952.39,
+    "queue_max_m": 242.4,
+    "halted_max_veh": 1027,
+    "teleports": 243
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "accident_muqrin-center-s1-3fcee288",
+   "id": "accident_muqrin",
+   "title": "Crash closes Prince Muqrin St for 20 min in the morning peak",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 140.01,
+    "mean_travel_time_s": 286.29,
+    "mean_speed_kmh": 28.33,
+    "vht": 952.39,
+    "queue_max_m": 242.4,
+    "halted_max_veh": 1027,
+    "teleports": 243
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "flood_center",
+   "id": "flood_center",
+   "title": "Storm: Wadi Al-Adiri runs and closes its crossings at Jarir St and King Faisal Rd",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 161.09,
+    "mean_travel_time_s": 299.53,
+    "mean_speed_kmh": 17.44,
+    "vht": 1341.88,
+    "queue_max_m": 330.0,
+    "halted_max_veh": 1925,
+    "teleports": 492
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "flood_center-center-s1-62c4f6d1",
+   "id": "flood_center",
+   "title": "Storm: Wadi Al-Adiri runs and closes its crossings at Jarir St and King Faisal Rd",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 161.09,
+    "mean_travel_time_s": 299.53,
+    "mean_speed_kmh": 17.44,
+    "vht": 1341.88,
+    "queue_max_m": 330.0,
+    "halted_max_veh": 1925,
+    "teleports": 492
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "motorcade_center",
+   "id": "motorcade_center",
+   "title": "Fictional 6-vehicle motorcade southbound along King Abdulaziz Rd with rolling junction holds",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 155.05,
+    "mean_travel_time_s": 302.32,
+    "mean_speed_kmh": 27.69,
+    "vht": 980.18,
+    "queue_max_m": 259.5,
+    "halted_max_veh": 911,
+    "teleports": 229
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": [
+    {
+     "event": "convoy_king_abdulaziz_sb",
+     "completed": 6,
+     "vehicles": 6,
+     "mean_travel_time_s": 180.0,
+     "free_flow_s": 71.7
+    }
+   ]
+  },
+  {
+   "run_id": "motorcade_center-center-s1-70adbdfb",
+   "id": "motorcade_center",
+   "title": "Fictional 6-vehicle motorcade southbound along King Abdulaziz Rd with rolling junction holds",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 155.05,
+    "mean_travel_time_s": 302.32,
+    "mean_speed_kmh": 27.69,
+    "vht": 980.18,
+    "queue_max_m": 259.5,
+    "halted_max_veh": 911,
+    "teleports": 229
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": [
+    {
+     "event": "convoy_king_abdulaziz_sb",
+     "completed": 6,
+     "vehicles": 6,
+     "mean_travel_time_s": 180.0,
+     "free_flow_s": 71.7
+    }
+   ]
+  },
+  {
+   "run_id": "rain_center",
+   "id": "rain_center",
+   "title": "Heavy rain over central Hail for 40 min",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 169.98,
+    "mean_travel_time_s": 314.92,
+    "mean_speed_kmh": 24.78,
+    "vht": 1069.56,
+    "queue_max_m": 310.9,
+    "halted_max_veh": 1048,
+    "teleports": 289
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  },
+  {
+   "run_id": "rain_center-center-s1-c8c28e30",
+   "id": "rain_center",
+   "title": "Heavy rain over central Hail for 40 min",
+   "baseline": {
+    "mean_delay_s": 138.32,
+    "mean_travel_time_s": 285.83,
+    "mean_speed_kmh": 29.68,
+    "vht": 918.59,
+    "queue_max_m": 193.7,
+    "halted_max_veh": 856,
+    "teleports": 239
+   },
+   "scenario": {
+    "mean_delay_s": 169.98,
+    "mean_travel_time_s": 314.92,
+    "mean_speed_kmh": 24.78,
+    "vht": 1069.56,
+    "queue_max_m": 310.9,
+    "halted_max_veh": 1048,
+    "teleports": 289
+   },
+   "emergency": {
+    "baseline": [],
+    "scenario": []
+   },
+   "convoy": []
+  }
+ ],
+ "strategist": [],
+ "evacuations": [],
+ "baselines": []
+}
