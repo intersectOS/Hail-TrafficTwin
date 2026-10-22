@@ -1,0 +1,164 @@
+ingest accident_center-center-s1-50cd2e52: edgedata 28450 rows
+ingest accident_center-center-s1-50cd2e52: fcd 3967344 rows
+ingest accident_center-center-s1-50cd2e52: edge index 0ff9c98da601fc63 ready
+ingest accident_center-center-s1-50cd2e52: bins ready
+  {'run_id': 'accident_center-center-s1-50cd2e52', 'edgedata_s': 0.0, 'edgedata_rows': 28450, 'fcd_s': 1.85, 'fcd_rows': 3967344, 'edge_index_s': 0.45, 'bins_s': 0.19, 'total_s': 2.56}
+ingest accident_center-center-s1-50cd2e52~baseline: edgedata 28386 rows
+ingest accident_center-center-s1-50cd2e52~baseline: fcd 3605078 rows
+ingest accident_center-center-s1-50cd2e52~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_center-center-s1-50cd2e52~baseline: bins ready
+  {'run_id': 'accident_center-center-s1-50cd2e52~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.69, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.74}
+ingest accident_imam-center-s1-08b1c04c: edgedata 28384 rows
+ingest accident_imam-center-s1-08b1c04c: fcd 3822478 rows
+ingest accident_imam-center-s1-08b1c04c: edge index 0ff9c98da601fc63 ready
+ingest accident_imam-center-s1-08b1c04c: bins ready
+  {'run_id': 'accident_imam-center-s1-08b1c04c', 'edgedata_s': 0.0, 'edgedata_rows': 28384, 'fcd_s': 1.76, 'fcd_rows': 3822478, 'edge_index_s': 0.0, 'bins_s': 0.71, 'total_s': 2.47}
+ingest accident_imam-center-s1-08b1c04c~baseline: edgedata 28386 rows
+ingest accident_imam-center-s1-08b1c04c~baseline: fcd 3605078 rows
+ingest accident_imam-center-s1-08b1c04c~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_imam-center-s1-08b1c04c~baseline: bins ready
+  {'run_id': 'accident_imam-center-s1-08b1c04c~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.7, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.74}
+ingest accident_ka_north-center-s1-77566a29: edgedata 28366 rows
+ingest accident_ka_north-center-s1-77566a29: fcd 3789451 rows
+ingest accident_ka_north-center-s1-77566a29: edge index 0ff9c98da601fc63 ready
+ingest accident_ka_north-center-s1-77566a29: bins ready
+  {'run_id': 'accident_ka_north-center-s1-77566a29', 'edgedata_s': 0.0, 'edgedata_rows': 28366, 'fcd_s': 1.78, 'fcd_rows': 3789451, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.84}
+ingest accident_ka_north-center-s1-77566a29~baseline: edgedata 28386 rows
+ingest accident_ka_north-center-s1-77566a29~baseline: fcd 3605078 rows
+ingest accident_ka_north-center-s1-77566a29~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_ka_north-center-s1-77566a29~baseline: bins ready
+  {'run_id': 'accident_ka_north-center-s1-77566a29~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.73, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.78}
+ingest accident_king_faisal-center-s1-247a5a20: edgedata 28200 rows
+ingest accident_king_faisal-center-s1-247a5a20: fcd 3879172 rows
+ingest accident_king_faisal-center-s1-247a5a20: edge index 0ff9c98da601fc63 ready
+ingest accident_king_faisal-center-s1-247a5a20: bins ready
+  {'run_id': 'accident_king_faisal-center-s1-247a5a20', 'edgedata_s': 0.0, 'edgedata_rows': 28200, 'fcd_s': 1.79, 'fcd_rows': 3879172, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.84}
+ingest accident_king_faisal-center-s1-247a5a20~baseline: edgedata 28386 rows
+ingest accident_king_faisal-center-s1-247a5a20~baseline: fcd 3605078 rows
+ingest accident_king_faisal-center-s1-247a5a20~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_king_faisal-center-s1-247a5a20~baseline: bins ready
+  {'run_id': 'accident_king_faisal-center-s1-247a5a20~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.69, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.74}
+ingest accident_king_khalid-center-s1-332b31d7: edgedata 28539 rows
+ingest accident_king_khalid-center-s1-332b31d7: fcd 3652098 rows
+ingest accident_king_khalid-center-s1-332b31d7: edge index 0ff9c98da601fc63 ready
+ingest accident_king_khalid-center-s1-332b31d7: bins ready
+  {'run_id': 'accident_king_khalid-center-s1-332b31d7', 'edgedata_s': 0.0, 'edgedata_rows': 28539, 'fcd_s': 1.72, 'fcd_rows': 3652098, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.76}
+ingest accident_king_khalid-center-s1-332b31d7~baseline: edgedata 28386 rows
+ingest accident_king_khalid-center-s1-332b31d7~baseline: fcd 3605078 rows
+ingest accident_king_khalid-center-s1-332b31d7~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_king_khalid-center-s1-332b31d7~baseline: bins ready
+  {'run_id': 'accident_king_khalid-center-s1-332b31d7~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.69, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.74}
+ingest accident_muqrin-center-s1-3fcee288: edgedata 28322 rows
+ingest accident_muqrin-center-s1-3fcee288: fcd 3742028 rows
+ingest accident_muqrin-center-s1-3fcee288: edge index 0ff9c98da601fc63 ready
+ingest accident_muqrin-center-s1-3fcee288: bins ready
+  {'run_id': 'accident_muqrin-center-s1-3fcee288', 'edgedata_s': 0.0, 'edgedata_rows': 28322, 'fcd_s': 1.73, 'fcd_rows': 3742028, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.78}
+ingest accident_muqrin-center-s1-3fcee288~baseline: edgedata 28386 rows
+ingest accident_muqrin-center-s1-3fcee288~baseline: fcd 3605078 rows
+ingest accident_muqrin-center-s1-3fcee288~baseline: edge index 0ff9c98da601fc63 ready
+ingest accident_muqrin-center-s1-3fcee288~baseline: bins ready
+  {'run_id': 'accident_muqrin-center-s1-3fcee288~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.7, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.75}
+ingest baseline-weekday-f0.25-s1-e81b97f0-76573219-d30875: edgedata 2033700 rows
+ingest baseline-weekday-f0.25-s1-e81b97f0-76573219-d30875: edge index e81b97f0a6527687 ready
+ingest baseline-weekday-f0.25-s1-e81b97f0-76573219-d30875: bins ready
+  {'run_id': 'baseline-weekday-f0.25-s1-e81b97f0-76573219-d30875', 'edgedata_s': 0.0, 'edgedata_rows': 2033700, 'edge_index_s': 1.99, 'bins_s': 0.99, 'total_s': 2.98}
+ingest bus_line_king_abdulaziz-f0.25: edgedata 2035569 rows
+ingest bus_line_king_abdulaziz-f0.25: edge index e81b97f0a6527687 ready
+ingest bus_line_king_abdulaziz-f0.25: bins ready
+  {'run_id': 'bus_line_king_abdulaziz-f0.25', 'edgedata_s': 0.0, 'edgedata_rows': 2035569, 'edge_index_s': 0.0, 'bins_s': 0.91, 'total_s': 0.91}
+ingest cordon_center-f0.25: edgedata 2039212 rows
+ingest cordon_center-f0.25: edge index e81b97f0a6527687 ready
+ingest cordon_center-f0.25: bins ready
+  {'run_id': 'cordon_center-f0.25', 'edgedata_s': 0.0, 'edgedata_rows': 2039212, 'edge_index_s': 0.0, 'bins_s': 0.9, 'total_s': 0.91}
+ingest cordon_center-f0.25--control: edgedata 2035474 rows
+ingest cordon_center-f0.25--control: edge index e81b97f0a6527687 ready
+ingest cordon_center-f0.25--control: bins ready
+  {'run_id': 'cordon_center-f0.25--control', 'edgedata_s': 0.0, 'edgedata_rows': 2035474, 'edge_index_s': 0.0, 'bins_s': 0.89, 'total_s': 0.9}
+ingest emergency_center-center-s1-161b1190: edgedata 28450 rows
+ingest emergency_center-center-s1-161b1190: fcd 3668688 rows
+ingest emergency_center-center-s1-161b1190: edge index 0ff9c98da601fc63 ready
+ingest emergency_center-center-s1-161b1190: bins ready
+  {'run_id': 'emergency_center-center-s1-161b1190', 'edgedata_s': 0.0, 'edgedata_rows': 28450, 'fcd_s': 1.7, 'fcd_rows': 3668688, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.75}
+ingest emergency_center-center-s1-161b1190~baseline: edgedata 28245 rows
+ingest emergency_center-center-s1-161b1190~baseline: fcd 3756463 rows
+ingest emergency_center-center-s1-161b1190~baseline: edge index 0ff9c98da601fc63 ready
+ingest emergency_center-center-s1-161b1190~baseline: bins ready
+  {'run_id': 'emergency_center-center-s1-161b1190~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28245, 'fcd_s': 1.77, 'fcd_rows': 3756463, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.81}
+ingest evac_stadium-sports_city-s1-b404d336: edgedata 25366 rows
+ingest evac_stadium-sports_city-s1-b404d336: fcd 14164866 rows
+ingest evac_stadium-sports_city-s1-b404d336: edge index 825999f641b2cbc8 ready
+ingest evac_stadium-sports_city-s1-b404d336: bins ready
+  {'run_id': 'evac_stadium-sports_city-s1-b404d336', 'edgedata_s': 0.0, 'edgedata_rows': 25366, 'fcd_s': 6.56, 'fcd_rows': 14164866, 'edge_index_s': 0.23, 'bins_s': 0.05, 'total_s': 6.84}
+ingest evac_stadium-sports_city-s1-b404d336~reference: edgedata 23913 rows
+ingest evac_stadium-sports_city-s1-b404d336~reference: fcd 7648726 rows
+ingest evac_stadium-sports_city-s1-b404d336~reference: edge index 825999f641b2cbc8 ready
+ingest evac_stadium-sports_city-s1-b404d336~reference: bins ready
+  {'run_id': 'evac_stadium-sports_city-s1-b404d336~reference', 'edgedata_s': 0.0, 'edgedata_rows': 23913, 'fcd_s': 3.47, 'fcd_rows': 7648726, 'edge_index_s': 0.0, 'bins_s': 0.04, 'total_s': 3.52}
+ingest evac_wadi_flood-sports_city-s1-611323d1: edgedata 25465 rows
+ingest evac_wadi_flood-sports_city-s1-611323d1: fcd 13774910 rows
+ingest evac_wadi_flood-sports_city-s1-611323d1: edge index 50d2bfffdebfc980 ready
+ingest evac_wadi_flood-sports_city-s1-611323d1: bins ready
+  {'run_id': 'evac_wadi_flood-sports_city-s1-611323d1', 'edgedata_s': 0.0, 'edgedata_rows': 25465, 'fcd_s': 6.33, 'fcd_rows': 13774910, 'edge_index_s': 0.24, 'bins_s': 0.05, 'total_s': 6.62}
+ingest evac_wadi_flood-sports_city-s1-611323d1~reference: edgedata 24379 rows
+ingest evac_wadi_flood-sports_city-s1-611323d1~reference: fcd 8373036 rows
+ingest evac_wadi_flood-sports_city-s1-611323d1~reference: edge index 50d2bfffdebfc980 ready
+ingest evac_wadi_flood-sports_city-s1-611323d1~reference: bins ready
+  {'run_id': 'evac_wadi_flood-sports_city-s1-611323d1~reference', 'edgedata_s': 0.0, 'edgedata_rows': 24379, 'fcd_s': 4.03, 'fcd_rows': 8373036, 'edge_index_s': 0.0, 'bins_s': 0.04, 'total_s': 4.07}
+ingest flood_center-center-s1-62c4f6d1: edgedata 27166 rows
+ingest flood_center-center-s1-62c4f6d1: fcd 5220605 rows
+ingest flood_center-center-s1-62c4f6d1: edge index 0ff9c98da601fc63 ready
+ingest flood_center-center-s1-62c4f6d1: bins ready
+  {'run_id': 'flood_center-center-s1-62c4f6d1', 'edgedata_s': 0.0, 'edgedata_rows': 27166, 'fcd_s': 2.41, 'fcd_rows': 5220605, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 2.47}
+ingest flood_center-center-s1-62c4f6d1~baseline: edgedata 28386 rows
+ingest flood_center-center-s1-62c4f6d1~baseline: fcd 3605078 rows
+ingest flood_center-center-s1-62c4f6d1~baseline: edge index 0ff9c98da601fc63 ready
+ingest flood_center-center-s1-62c4f6d1~baseline: bins ready
+  {'run_id': 'flood_center-center-s1-62c4f6d1~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.75, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.81}
+ingest motorcade_center-center-s1-70adbdfb: edgedata 28391 rows
+ingest motorcade_center-center-s1-70adbdfb: fcd 3841344 rows
+ingest motorcade_center-center-s1-70adbdfb: edge index 0ff9c98da601fc63 ready
+ingest motorcade_center-center-s1-70adbdfb: bins ready
+  {'run_id': 'motorcade_center-center-s1-70adbdfb', 'edgedata_s': 0.0, 'edgedata_rows': 28391, 'fcd_s': 1.89, 'fcd_rows': 3841344, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.94}
+ingest motorcade_center-center-s1-70adbdfb~baseline: edgedata 28386 rows
+ingest motorcade_center-center-s1-70adbdfb~baseline: fcd 3605078 rows
+ingest motorcade_center-center-s1-70adbdfb~baseline: edge index 0ff9c98da601fc63 ready
+ingest motorcade_center-center-s1-70adbdfb~baseline: bins ready
+  {'run_id': 'motorcade_center-center-s1-70adbdfb~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.79, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.85}
+ingest rain_center-center-s1-c8c28e30: edgedata 28243 rows
+ingest rain_center-center-s1-c8c28e30: fcd 4191207 rows
+ingest rain_center-center-s1-c8c28e30: edge index 0ff9c98da601fc63 ready
+ingest rain_center-center-s1-c8c28e30: bins ready
+  {'run_id': 'rain_center-center-s1-c8c28e30', 'edgedata_s': 0.0, 'edgedata_rows': 28243, 'fcd_s': 2.02, 'fcd_rows': 4191207, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 2.07}
+ingest rain_center-center-s1-c8c28e30~baseline: edgedata 28386 rows
+ingest rain_center-center-s1-c8c28e30~baseline: fcd 3605078 rows
+ingest rain_center-center-s1-c8c28e30~baseline: edge index 0ff9c98da601fc63 ready
+ingest rain_center-center-s1-c8c28e30~baseline: bins ready
+  {'run_id': 'rain_center-center-s1-c8c28e30~baseline', 'edgedata_s': 0.0, 'edgedata_rows': 28386, 'fcd_s': 1.75, 'fcd_rows': 3605078, 'edge_index_s': 0.0, 'bins_s': 0.05, 'total_s': 1.8}
+ingest remote_work_30-f0.25: edgedata 2018102 rows
+ingest remote_work_30-f0.25: edge index e81b97f0a6527687 ready
+ingest remote_work_30-f0.25: bins ready
+  {'run_id': 'remote_work_30-f0.25', 'edgedata_s': 0.0, 'edgedata_rows': 2018102, 'edge_index_s': 0.0, 'bins_s': 0.89, 'total_s': 0.9}
+ingest staggered_schools_60-f0.25: edgedata 2039433 rows
+ingest staggered_schools_60-f0.25: edge index e81b97f0a6527687 ready
+ingest staggered_schools_60-f0.25: bins ready
+  {'run_id': 'staggered_schools_60-f0.25', 'edgedata_s': 0.0, 'edgedata_rows': 2039433, 'edge_index_s': 0.0, 'bins_s': 0.9, 'total_s': 0.9}
+ingest staggered_schools_60-f0.25--control: edgedata 2034630 rows
+ingest staggered_schools_60-f0.25--control: edge index e81b97f0a6527687 ready
+ingest staggered_schools_60-f0.25--control: bins ready
+  {'run_id': 'staggered_schools_60-f0.25--control', 'edgedata_s': 0.0, 'edgedata_rows': 2034630, 'edge_index_s': 0.0, 'bins_s': 0.9, 'total_s': 0.91}
+ingest tierA-exit-hour: edgedata 138423 rows
+ingest tierA-exit-hour: edge index e81b97f0a6527687 ready
+ingest tierA-exit-hour: bins ready
+  {'run_id': 'tierA-exit-hour', 'edgedata_s': 1.79, 'edgedata_rows': 138423, 'edge_index_s': 0.0, 'bins_s': 0.11, 'total_s': 1.9}
+ingest wadi_adiri_flowing-f0.25: edgedata 2016307 rows
+ingest wadi_adiri_flowing-f0.25: edge index 5bdbbee137fb8647 ready
+ingest wadi_adiri_flowing-f0.25: bins ready
+  {'run_id': 'wadi_adiri_flowing-f0.25', 'edgedata_s': 0.0, 'edgedata_rows': 2016307, 'edge_index_s': 2.27, 'bins_s': 0.92, 'total_s': 3.2}
+ingest wadi_adiri_flowing-f0.25--control: edgedata 2033092 rows
+ingest wadi_adiri_flowing-f0.25--control: edge index e81b97f0a6527687 ready
+ingest wadi_adiri_flowing-f0.25--control: bins ready
+  {'run_id': 'wadi_adiri_flowing-f0.25--control', 'edgedata_s': 0.0, 'edgedata_rows': 2033092, 'edge_index_s': 0.0, 'bins_s': 0.94, 'total_s': 0.94}
+ingest strategist~emergency_center_0830-center-s1: edgedata n/a rows
+ingest strategist~emergency_center_0830-center-s1: fcd n/a rows
+ingest strategist~emergency_center_0830-center-s1: edge index 0ff9c98da601fc63 ready
+  {'run_id': 'strategist~emergency_center_0830-center-s1', 'edgedata_s': 0.0, 'fcd_s': 0.0, 'edge_index_s': 0.0, 'total_s': 0.0}
