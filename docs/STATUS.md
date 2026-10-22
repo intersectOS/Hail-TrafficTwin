@@ -839,3 +839,10 @@ carry 536-645 (B1) / 297-427 (B2) veh/h in the AM peak, but the time-in-window c
 is within noise (about +/- 20 s); the city run decides. Assumptions A-obh-001..041 (merged); sources
 `docs/data-sources-trackJ.md`; write-up `docs/obhur-bridge.md`.
 OBHUR_BRIDGE: done
+
+## «لو صار الآن» instant what-if (2026-10-22)
+- Page `whatif.html`: live TomTom flow map; tap any street (same-name chain ±250 m, optional opposite direction), choose crash (full / one lane), motorcade, roadworks or city-wide heavy rain, hour (default = current Hail hour) and duration; results in under 1 s in a web worker.
+- Data: `scripts/hail/whatif_data.py` from the city weekday baseline `baseline-weekday-f0.25-s1-e81b97f0-…` (sample 0.25, 124,976 routed vehicles, 47,304 edges, 19 MB on the site).
+- Engine: affected vehicles rerouted from the last edge before the event that can still reach their destination (5 successive-average iterations, BPR + point queue); delay compared with the same model's no-event best path; assumptions A-wif-001..003.
+- Measured on the busiest King Abdulaziz Rd segment, 07:00, 30 min closure: 2,052 vehicles affected, +12.9 min each, 530 veh-h; one lane closed: +0.4 min; heavy rain: +4.0 min per vehicle city-wide. Runtime 0.3–0.9 s (Node, city graph).
+- Synthetic demand, uncalibrated; a screening estimate, not a SUMO run.
